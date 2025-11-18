@@ -1,0 +1,183 @@
+#!/usr/bin/env python3
+"""
+REFRACT Editor - Photography Enhancement Engine
+Uses Gemini Image Editing to apply improvements to photographs.
+"""
+
+import os
+import sys
+import json
+from pathlib import Path
+from typing import List
+import google.generativeai as genai
+from PIL import Image
+
+
+class PhotoEditor:
+    """Applies improvements to photographs using Gemini's image editing capabilities."""
+
+    def __init__(self, api_key: str):
+        """Initialize the Editor with Gemini API credentials."""
+        genai.configure(api_key=api_key)
+        # Using Imagen for image editing with the generative model
+        self.model = genai.GenerativeModel('gemini-2.0-flash-exp')
+
+    def edit(self, image_path: Path, improvements: List[str], output_path: Path) -> bool:
+        """
+        Apply improvements to a photograph.
+
+        Args:
+            image_path: Path to the original image
+            improvements: List of improvement instructions from the Critic
+            output_path: Path to save the improved image
+
+        Returns:
+            True if successful, False otherwise
+        """
+        try:
+            # Load the original image
+            img = Image.open(image_path)
+
+            # Combine improvements into a clear editing prompt
+            improvements_text = "\n".join(f"- {imp}" for imp in improvements)
+
+            prompt = f"""You are an expert photo editor. Edit this photograph to apply the following improvements while maintaining the original composition, subject, and overall character of the image.
+
+Apply these specific improvements:
+{improvements_text}
+
+Important guidelines:
+- Maintain the original subject and composition
+- Apply adjustments naturally and subtly
+- Preserve the artistic intent of the original photograph
+- Focus on technical improvements (exposure, color, clarity, composition refinement)
+- Do not add or remove major elements
+- Ensure the result looks like an enhanced version of the original, not a different photo
+
+Generate the improved version of this photograph."""
+
+            # Generate the edited image
+            # Note: Gemini's image editing capabilities work through the generative model
+            # with the image as context and edit instructions
+            response = self.model.generate_content([prompt, img])
+
+            # Check if response contains image data
+            if hasattr(response, 'candidates') and len(response.candidates) > 0:
+                candidate = response.candidates[0]
+                if hasattr(candidate, 'content') and hasattr(candidate.content, 'parts'):
+                    for part in candidate.content.parts:
+                        if hasattr(part, 'inline_data'):
+                            # Save the generated image
+                            image_data = part.inline_data.data
+                            output_path.write_bytes(image_data)
+                            print(f"Successfully edited image saved to: {output_path}")
+                            return True
+
+            # If no image was generated, fall back to using traditional PIL editing
+            # based on the improvements (this is a backup strategy)
+            print("Note: Using fallback enhancement method", file=sys.stderr)
+            edited_img = self._apply_basic_enhancements(img, improvements)
+            edited_img.save(output_path, quality=95)
+            return True
+
+        except Exception as e:
+            print(f"Error during image editing: {e}", file=sys.stderr)
+            # Fallback: save enhanced version using basic PIL operations
+            try:
+                img = Image.open(image_path)
+                edited_img = self._apply_basic_enhancements(img, improvements)
+                edited_img.save(output_path, quality=95)
+                print(f"Applied basic enhancements to: {output_path}")
+                return True
+            except Exception as e2:
+                print(f"Fallback also failed: {e2}", file=sys.stderr)
+                return False
+
+    def _apply_basic_enhancements(self, img: Image.Image, improvements: List[str]) -> Image.Image:
+        """
+        Apply basic enhancements using PIL as a fallback.
+        This is a simplified implementation that applies common improvements.
+        """
+        from PIL import ImageEnhance
+
+        enhanced = img.copy()
+
+        # Parse improvements and apply relevant PIL enhancements
+        improvements_lower = [imp.lower() for imp in improvements]
+
+        # Brightness adjustments
+        if any('brightness' in imp or 'exposure' in imp or 'lighter' in imp or 'darker' in imp for imp in improvements_lower):
+            enhancer = ImageEnhance.Brightness(enhanced)
+            if any('increase' in imp or 'boost' in imp or 'lighter' in imp for imp in improvements_lower):
+                enhanced = enhancer.enhance(1.15)
+            elif any('decrease' in imp or 'reduce' in imp or 'darker' in imp for imp in improvements_lower):
+                enhanced = enhancer.enhance(0.85)
+
+        # Contrast adjustments
+        if any('contrast' in imp for imp in improvements_lower):
+            enhancer = ImageEnhance.Contrast(enhanced)
+            if any('increase' in imp or 'boost' in imp for imp in improvements_lower):
+                enhanced = enhancer.enhance(1.2)
+            elif any('decrease' in imp or 'reduce' in imp or 'soften' in imp for imp in improvements_lower):
+                enhanced = enhancer.enhance(0.8)
+
+        # Color/saturation adjustments
+        if any('saturation' in imp or 'vibrance' in imp or 'color' in imp for imp in improvements_lower):
+            enhancer = ImageEnhance.Color(enhanced)
+            if any('increase' in imp or 'boost' in imp or 'vibrant' in imp for imp in improvements_lower):
+                enhanced = enhancer.enhance(1.2)
+            elif any('decrease' in imp or 'reduce' in imp or 'muted' in imp for imp in improvements_lower):
+                enhanced = enhancer.enhance(0.8)
+
+        # Sharpness adjustments
+        if any('sharp' in imp or 'clarity' in imp or 'detail' in imp for imp in improvements_lower):
+            enhancer = ImageEnhance.Sharpness(enhanced)
+            if any('increase' in imp or 'boost' in imp for imp in improvements_lower):
+                enhanced = enhancer.enhance(1.3)
+
+        return enhanced
+
+
+def main():
+    """CLI interface for the Editor."""
+    if len(sys.argv) != 4:
+        print("Usage: editor.py <image_path> <improvements_json> <output_path>", file=sys.stderr)
+        sys.exit(1)
+
+    image_path = Path(sys.argv[1])
+    improvements_json = sys.argv[2]
+    output_path = Path(sys.argv[3])
+
+    if not image_path.exists():
+        print(f"Error: Image not found: {image_path}", file=sys.stderr)
+        sys.exit(1)
+
+    # Parse improvements
+    try:
+        improvements = json.loads(improvements_json)
+        if not isinstance(improvements, list):
+            raise ValueError("Improvements must be a list")
+    except json.JSONDecodeError as e:
+        print(f"Error: Invalid JSON for improvements: {e}", file=sys.stderr)
+        sys.exit(1)
+
+    # Get API key from environment
+    api_key = os.getenv('GEMINI_API_KEY')
+    if not api_key:
+        print("Error: GEMINI_API_KEY environment variable not set", file=sys.stderr)
+        sys.exit(1)
+
+    # Edit the image
+    editor = PhotoEditor(api_key)
+    success = editor.edit(image_path, improvements, output_path)
+
+    if success:
+        print(f"Image successfully edited: {output_path}")
+        sys.exit(0)
+    else:
+        print("Error: Failed to edit image", file=sys.stderr)
+        sys.exit(1)
+
+
+if __name__ == '__main__':
+    main()

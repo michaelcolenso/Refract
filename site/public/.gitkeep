@@ -1,0 +1,4 @@
+# Public Site Output
+
+This directory contains the generated static website.
+It will be automatically populated by the pipeline.

@@ -1,0 +1,6 @@
+# Processed - Permanent photography records
+
+Each processed photo gets its own directory with:
+- original.jpg: The original photograph
+- edited.jpg: The improved version
+- metadata.json: Critic's analysis and improvement notes

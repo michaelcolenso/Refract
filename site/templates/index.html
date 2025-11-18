@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REFRACT - Photography Improvement Log</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>REFRACT</h1>
+            <p>Automated Photography Improvement Pipeline</p>
+            <div class="stats">
+                <div>Total Entries: <span>{{ total }}</span></div>
+                {% if entries %}
+                <div>Average Score: <span>{{ "%.1f"|format((entries|sum(attribute='score'))/total) }}</span></div>
+                {% endif %}
+            </div>
+        </header>
+
+        {% if entries %}
+        <div class="gallery">
+            {% for entry in entries %}
+            <div class="entry-card">
+                <a href="{{ entry.entry_id }}.html">
+                    <img src="{{ entry.web_comparison }}" alt="{{ entry.original_filename }}" class="entry-thumbnail">
+                    <div class="entry-content">
+                        <div class="entry-header">
+                            <div class="entry-score">{{ entry.score }}</div>
+                            <div class="entry-date">{{ entry.timestamp[:8] }}</div>
+                        </div>
+
+                        <div class="entry-improvements">
+                            <h3>Improvements Applied</h3>
+                            <ul>
+                                {% for improvement in entry.improvements[:3] %}
+                                <li>{{ improvement }}</li>
+                                {% endfor %}
+                                {% if entry.improvements|length > 3 %}
+                                <li>+ {{ entry.improvements|length - 3 }} more...</li>
+                                {% endif %}
+                            </ul>
+                        </div>
+
+                        <div class="entry-notes">
+                            {{ entry.notes[:100] }}{% if entry.notes|length > 100 %}...{% endif %}
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="empty-state">
+            <h2>No Photographs Yet</h2>
+            <p>Add your photos to the <code>inbox/</code> folder and push to GitHub.</p>
+            <p>The automated pipeline will analyze, improve, and publish them here.</p>
+        </div>
+        {% endif %}
+
+        <footer>
+            <p>REFRACT - Self-Correcting Photography Log</p>
+            <p>Powered by Google Gemini AI</p>
+        </footer>
+    </div>
+</body>
+</html>
