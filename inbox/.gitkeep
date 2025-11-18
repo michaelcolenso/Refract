@@ -1,0 +1,12 @@
+# Inbox - Drop your photos here
+
+Add your photography files to this directory.
+Supported formats: jpg, jpeg, png
+
+The automated pipeline will:
+1. Analyze your photo (Critic)
+2. Improve your photo (Editor)
+3. Document the transformation (Generator)
+4. Publish to the static site
+
+After processing, files are moved to the processed/ directory.

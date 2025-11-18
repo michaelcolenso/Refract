@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ entry.original_filename }} - REFRACT</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>REFRACT</h1>
+            <p>Photography Analysis & Enhancement</p>
+        </header>
+
+        <a href="index.html" class="back-link">← Back to Gallery</a>
+
+        <div class="entry-detail">
+            <h2>{{ entry.original_filename }}</h2>
+
+            <div class="metadata">
+                <p><strong>Entry ID:</strong> {{ entry.entry_id }}</p>
+                <p><strong>Processed:</strong> {{ entry.timestamp }}</p>
+            </div>
+
+            <div class="analysis">
+                <h3>Analysis</h3>
+                <div class="score-display">{{ entry.score }}/100</div>
+
+                <div class="improvements-list">
+                    <h4>Applied Improvements:</h4>
+                    <ul>
+                        {% for improvement in entry.improvements %}
+                        <li>{{ improvement }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div class="notes-section">
+                    <strong>Critic's Notes:</strong> {{ entry.notes }}
+                </div>
+            </div>
+
+            <div class="comparison-container">
+                <h3 style="margin-bottom: 20px; text-align: center;">Before & After Comparison</h3>
+
+                <!-- Side-by-side comparison -->
+                <div class="comparison-simple">
+                    <div>
+                        <div class="comparison-label">Original</div>
+                        <img src="{{ entry.web_original }}" alt="Original">
+                    </div>
+                    <div>
+                        <div class="comparison-label">Enhanced</div>
+                        <img src="{{ entry.web_edited }}" alt="Enhanced">
+                    </div>
+                </div>
+
+                <!-- Full comparison image -->
+                <div style="margin-top: 30px;">
+                    <div class="comparison-label">Side-by-Side</div>
+                    <img src="{{ entry.web_comparison }}" alt="Comparison" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>REFRACT - Self-Correcting Photography Log</p>
+            <p>Powered by Google Gemini AI</p>
+        </footer>
+    </div>
+
+    <script>
+        // Optional: Add interactive slider functionality
+        // This is a progressive enhancement - the site works without it
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Entry page loaded');
+            // Future enhancement: add drag slider for before/after comparison
+        });
+    </script>
+</body>
+</html>
