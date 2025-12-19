@@ -43,24 +43,41 @@
 
             <div class="comparison-container">
                 <h3 style="margin-bottom: 20px; text-align: center;">Before & After Comparison</h3>
+                <p class="slider-hint">Drag the slider to compare original and enhanced versions</p>
 
-                <!-- Side-by-side comparison -->
-                <div class="comparison-simple">
-                    <div>
-                        <div class="comparison-label">Original</div>
-                        <img src="{{ entry.web_original }}" alt="Original">
+                <!-- Interactive Slider Comparison -->
+                <div class="comparison-slider" id="imageCompare">
+                    <div class="comparison-wrapper">
+                        <img src="{{ entry.web_edited }}" alt="Enhanced" class="comparison-img comparison-edited">
+                        <div class="comparison-overlay" id="comparisonOverlay">
+                            <img src="{{ entry.web_original }}" alt="Original" class="comparison-img comparison-original">
+                        </div>
+                        <div class="slider-handle" id="sliderHandle">
+                            <div class="slider-line"></div>
+                            <div class="slider-button">
+                                <span class="slider-arrows"></span>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <div class="comparison-label">Enhanced</div>
-                        <img src="{{ entry.web_edited }}" alt="Enhanced">
+                    <div class="comparison-labels">
+                        <span class="label-original">Original</span>
+                        <span class="label-enhanced">Enhanced</span>
                     </div>
                 </div>
 
-                <!-- Full comparison image -->
-                <div style="margin-top: 30px;">
-                    <div class="comparison-label">Side-by-Side</div>
-                    <img src="{{ entry.web_comparison }}" alt="Comparison" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-                </div>
+                <!-- Fallback side-by-side for no-JS -->
+                <noscript>
+                    <div class="comparison-simple">
+                        <div>
+                            <div class="comparison-label">Original</div>
+                            <img src="{{ entry.web_original }}" alt="Original">
+                        </div>
+                        <div>
+                            <div class="comparison-label">Enhanced</div>
+                            <img src="{{ entry.web_edited }}" alt="Enhanced">
+                        </div>
+                    </div>
+                </noscript>
             </div>
         </div>
 
@@ -71,11 +88,82 @@
     </div>
 
     <script>
-        // Optional: Add interactive slider functionality
-        // This is a progressive enhancement - the site works without it
+        // Interactive Before/After Comparison Slider
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('Entry page loaded');
-            // Future enhancement: add drag slider for before/after comparison
+            const slider = document.getElementById('imageCompare');
+            const overlay = document.getElementById('comparisonOverlay');
+            const handle = document.getElementById('sliderHandle');
+
+            if (!slider || !overlay || !handle) return;
+
+            let isDragging = false;
+
+            function getSliderPosition(e) {
+                const rect = slider.getBoundingClientRect();
+                const x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
+                return Math.max(0, Math.min(x / rect.width * 100, 100));
+            }
+
+            function updateSlider(percentage) {
+                overlay.style.width = percentage + '%';
+                handle.style.left = percentage + '%';
+            }
+
+            function startDrag(e) {
+                e.preventDefault();
+                isDragging = true;
+                slider.classList.add('active');
+                updateSlider(getSliderPosition(e));
+            }
+
+            function doDrag(e) {
+                if (!isDragging) return;
+                e.preventDefault();
+                updateSlider(getSliderPosition(e));
+            }
+
+            function endDrag() {
+                isDragging = false;
+                slider.classList.remove('active');
+            }
+
+            // Mouse events
+            slider.addEventListener('mousedown', startDrag);
+            document.addEventListener('mousemove', doDrag);
+            document.addEventListener('mouseup', endDrag);
+
+            // Touch events for mobile
+            slider.addEventListener('touchstart', startDrag, { passive: false });
+            document.addEventListener('touchmove', doDrag, { passive: false });
+            document.addEventListener('touchend', endDrag);
+
+            // Keyboard accessibility
+            handle.setAttribute('tabindex', '0');
+            handle.setAttribute('role', 'slider');
+            handle.setAttribute('aria-label', 'Image comparison slider');
+            handle.setAttribute('aria-valuemin', '0');
+            handle.setAttribute('aria-valuemax', '100');
+            handle.setAttribute('aria-valuenow', '50');
+
+            handle.addEventListener('keydown', function(e) {
+                let current = parseFloat(handle.style.left) || 50;
+                const step = e.shiftKey ? 10 : 2;
+
+                if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    current = Math.max(0, current - step);
+                    updateSlider(current);
+                    handle.setAttribute('aria-valuenow', current);
+                } else if (e.key === 'ArrowRight' || e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    current = Math.min(100, current + step);
+                    updateSlider(current);
+                    handle.setAttribute('aria-valuenow', current);
+                }
+            });
+
+            // Initialize at 50%
+            updateSlider(50);
         });
     </script>
 </body>
