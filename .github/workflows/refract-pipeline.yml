@@ -51,6 +51,8 @@ jobs:
         if: steps.check_images.outputs.has_images == 'true'
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
           cd scripts
           python pipeline.py
@@ -74,7 +76,8 @@ jobs:
           🎨 REFRACT: Process new photographs
 
           Automated processing complete:
-          - Analyzed photographs with Gemini Vision
+          - Multi-LLM analysis (Gemini, OpenAI, Anthropic)
+          - Consensus scoring from multiple AI critics
           - Applied AI-powered improvements
           - Updated static site with new entries
 

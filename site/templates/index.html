@@ -14,7 +14,7 @@
             <div class="stats">
                 <div>Total Entries: <span>{{ total }}</span></div>
                 {% if entries %}
-                <div>Average Score: <span>{{ "%.1f"|format((entries|sum(attribute='score'))/total) }}</span></div>
+                <div>Average Consensus Score: <span>{{ "%.1f"|format((entries|sum(attribute='consensus_score', default=entries|sum(attribute='score'))/total)) }}</span></div>
                 {% endif %}
             </div>
         </header>
@@ -27,9 +27,14 @@
                     <img src="{{ entry.web_comparison }}" alt="{{ entry.original_filename }}" class="entry-thumbnail">
                     <div class="entry-content">
                         <div class="entry-header">
-                            <div class="entry-score">{{ entry.score }}</div>
+                            <div class="entry-score">{{ entry.consensus_score or entry.score }}</div>
                             <div class="entry-date">{{ entry.timestamp[:8] }}</div>
                         </div>
+                        {% if entry.critiques %}
+                        <div style="font-size: 0.75em; color: #666; margin-bottom: 8px;">
+                            {{ entry.critiques|selectattr('score')|list|length }} LLM{{ 's' if entry.critiques|selectattr('score')|list|length != 1 else '' }} analyzed
+                        </div>
+                        {% endif %}
 
                         <div class="entry-improvements">
                             <h3>Improvements Applied</h3>
@@ -61,7 +66,7 @@
 
         <footer>
             <p>REFRACT - Self-Correcting Photography Log</p>
-            <p>Powered by Google Gemini AI</p>
+            <p>Powered by Multi-LLM Analysis (Gemini, OpenAI, Anthropic)</p>
         </footer>
     </div>
 </body>
