@@ -12,7 +12,7 @@ from typing import List
 import traceback
 
 # Import our modules
-from critic import PhotoCritic
+from multi_critic import MultiCritic
 from editor import PhotoEditor
 from generator import SiteGenerator
 
@@ -24,14 +24,30 @@ class RefractPipeline:
         """Initialize the pipeline."""
         self.repo_root = repo_root
         self.inbox_dir = repo_root / 'inbox'
-        self.api_key = os.getenv('GEMINI_API_KEY')
 
-        if not self.api_key:
-            raise ValueError("GEMINI_API_KEY environment variable not set")
+        # Get API keys from environment
+        self.gemini_key = os.getenv('GEMINI_API_KEY')
+        self.openai_key = os.getenv('OPENAI_API_KEY')
+        self.anthropic_key = os.getenv('ANTHROPIC_API_KEY')
+
+        if not any([self.gemini_key, self.openai_key, self.anthropic_key]):
+            raise ValueError("At least one API key must be set: GEMINI_API_KEY, OPENAI_API_KEY, or ANTHROPIC_API_KEY")
 
         # Initialize components
-        self.critic = PhotoCritic(self.api_key)
-        self.editor = PhotoEditor(self.api_key)
+        print("Initializing Multi-LLM Critics...")
+        self.critic = MultiCritic(
+            gemini_key=self.gemini_key,
+            openai_key=self.openai_key,
+            anthropic_key=self.anthropic_key
+        )
+
+        # Editor still uses Gemini (requires GEMINI_API_KEY for image generation)
+        if self.gemini_key:
+            self.editor = PhotoEditor(self.gemini_key)
+        else:
+            self.editor = None
+            print("  Warning: No GEMINI_API_KEY - image editing disabled")
+
         self.generator = SiteGenerator(repo_root)
 
     def get_new_images(self) -> List[Path]:
@@ -65,15 +81,23 @@ class RefractPipeline:
         print(f"{'='*60}\n")
 
         try:
-            # STEP 1: CRITIC - Analyze the photograph
-            print("STEP 1: Analyzing photograph...")
+            # STEP 1: CRITIC - Analyze the photograph with multiple LLMs
+            print("STEP 1: Analyzing photograph with multiple LLMs...")
             critique = self.critic.analyze(image_path)
 
-            print(f"  Score: {critique['score']}/100")
-            print(f"  Improvements: {len(critique['improvements'])}")
+            # Display individual LLM scores
+            print("\n  Individual LLM Scores:")
+            for c in critique.get('critiques', []):
+                if c.get('score') is not None:
+                    print(f"    {c['llm'].upper()}: {c['score']}/100")
+                else:
+                    print(f"    {c['llm'].upper()}: Failed - {c.get('error', 'Unknown error')}")
+
+            print(f"\n  Consensus Score: {critique['consensus_score']}/100")
+            print(f"  Combined Improvements: {len(critique['combined_improvements'])}")
             for i, improvement in enumerate(critique['improvements'], 1):
                 print(f"    {i}. {improvement}")
-            print(f"  Notes: {critique['notes']}\n")
+            print()
 
             # STEP 2: EDITOR - Apply improvements
             print("STEP 2: Applying improvements...")
@@ -81,13 +105,21 @@ class RefractPipeline:
             # Create temporary edited image
             edited_path = image_path.parent / f"edited_{image_path.name}"
 
-            success = self.editor.edit(image_path, critique['improvements'], edited_path)
+            if self.editor:
+                success = self.editor.edit(image_path, critique['improvements'], edited_path)
 
-            if not success:
-                print("  Error: Failed to edit image")
-                return False
-
-            print(f"  Image edited successfully\n")
+                if not success:
+                    print("  Warning: Failed to edit image, using original")
+                    # Copy original as edited for fallback
+                    import shutil
+                    shutil.copy(image_path, edited_path)
+                else:
+                    print(f"  Image edited successfully\n")
+            else:
+                # No editor available, use original image
+                print("  Skipping edits (no GEMINI_API_KEY for editor)")
+                import shutil
+                shutil.copy(image_path, edited_path)
 
             # STEP 3: GENERATOR - Create entry and update site
             print("STEP 3: Creating documentation...")
