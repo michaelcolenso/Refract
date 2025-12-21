@@ -121,6 +121,24 @@ class RefractPipeline:
                 import shutil
                 shutil.copy(image_path, edited_path)
 
+            # Validate the edited image is a valid image file
+            from PIL import Image as PILImage
+            try:
+                with PILImage.open(edited_path) as test_img:
+                    test_img.verify()
+                # Re-open to actually load and ensure it's readable
+                with PILImage.open(edited_path) as test_img:
+                    test_img.load()
+            except Exception as validate_err:
+                print(f"  Warning: Edited image validation failed ({validate_err}), using original")
+                import shutil
+                shutil.copy(image_path, edited_path)
+                # Convert to ensure proper format
+                with PILImage.open(edited_path) as img:
+                    if edited_path.suffix.lower() in ['.jpg', '.jpeg']:
+                        img = img.convert('RGB')
+                    img.save(edited_path, quality=95)
+
             # STEP 3: GENERATOR - Create entry and update site
             print("STEP 3: Creating documentation...")
 

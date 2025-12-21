@@ -62,22 +62,39 @@ Generate the improved version of this photograph."""
             response = self.model.generate_content([prompt, img])
 
             # Check if response contains image data
+            image_saved = False
             if hasattr(response, 'candidates') and len(response.candidates) > 0:
                 candidate = response.candidates[0]
                 if hasattr(candidate, 'content') and hasattr(candidate.content, 'parts'):
                     for part in candidate.content.parts:
-                        if hasattr(part, 'inline_data'):
+                        if hasattr(part, 'inline_data') and part.inline_data is not None:
                             # Save the generated image
                             image_data = part.inline_data.data
-                            output_path.write_bytes(image_data)
-                            print(f"Successfully edited image saved to: {output_path}")
-                            return True
+                            if image_data and len(image_data) > 100:  # Basic sanity check
+                                output_path.write_bytes(image_data)
+                                # Validate the saved image is actually valid
+                                try:
+                                    test_img = Image.open(output_path)
+                                    test_img.verify()  # Verify it's a valid image
+                                    print(f"Successfully edited image saved to: {output_path}")
+                                    image_saved = True
+                                    break
+                                except Exception as verify_err:
+                                    print(f"Generated image failed validation: {verify_err}", file=sys.stderr)
+                                    output_path.unlink(missing_ok=True)  # Remove invalid file
 
-            # If no image was generated, fall back to using traditional PIL editing
-            # based on the improvements (this is a backup strategy)
-            print("Note: Using fallback enhancement method", file=sys.stderr)
-            edited_img = self._apply_basic_enhancements(img, improvements)
-            edited_img.save(output_path, quality=95)
+            if not image_saved:
+                # If no valid image was generated, fall back to using traditional PIL editing
+                print("Note: Using fallback enhancement method", file=sys.stderr)
+                edited_img = self._apply_basic_enhancements(img, improvements)
+                # Ensure we save in a format PIL can read back
+                if output_path.suffix.lower() in ['.jpg', '.jpeg']:
+                    edited_img = edited_img.convert('RGB')  # Ensure RGB for JPEG
+                edited_img.save(output_path, quality=95)
+                # Validate the output
+                test_img = Image.open(output_path)
+                test_img.verify()
+
             return True
 
         except Exception as e:
@@ -86,7 +103,12 @@ Generate the improved version of this photograph."""
             try:
                 img = Image.open(image_path)
                 edited_img = self._apply_basic_enhancements(img, improvements)
+                if output_path.suffix.lower() in ['.jpg', '.jpeg']:
+                    edited_img = edited_img.convert('RGB')
                 edited_img.save(output_path, quality=95)
+                # Validate
+                test_img = Image.open(output_path)
+                test_img.verify()
                 print(f"Applied basic enhancements to: {output_path}")
                 return True
             except Exception as e2:
