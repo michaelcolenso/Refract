@@ -1,0 +1,50 @@
+{
+  "critiques": [
+    {
+      "score": 72.0,
+      "improvements": [
+        "increase overall brightness by 15%",
+        "slightly reduce highlights to bring out detail in the fur",
+        "add a subtle vignette to draw focus to the subject",
+        "increase sharpness by 10%"
+      ],
+      "notes": "The image is slightly underexposed. Increasing brightness and sharpness will improve the subject's visibility and detail.",
+      "llm": "gemini"
+    },
+    {
+      "llm": "openai",
+      "error": "Error code: 401 - {'error': {'message': 'Incorrect API key provided: AIzaSyDG***************************b2a4. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}",
+      "score": null,
+      "improvements": [],
+      "notes": "Analysis failed: Error code: 401 - {'error': {'message': 'Incorrect API key provided: AIzaSyDG***************************b2a4. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}"
+    },
+    {
+      "llm": "anthropic",
+      "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.0.image.source.base64.data: Image does not match the provided media type image/jpeg'}, 'request_id': 'req_011CWYL6xP89YBB4STAWaG5S'}",
+      "score": null,
+      "improvements": [],
+      "notes": "Analysis failed: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.0.image.source.base64.data: Image does not match the provided media type image/jpeg'}, 'request_id': 'req_011CWYL6xP89YBB4STAWaG5S'}"
+    }
+  ],
+  "consensus_score": 72.0,
+  "combined_improvements": [
+    "increase overall brightness by 15%",
+    "slightly reduce highlights to bring out detail in the fur",
+    "add a subtle vignette to draw focus to the subject",
+    "increase sharpness by 10%"
+  ],
+  "summary": "[GEMINI] The image is slightly underexposed. Increasing brightness and sharpness will improve the subject's visibility and detail.",
+  "score": 72.0,
+  "improvements": [
+    "increase overall brightness by 15%",
+    "slightly reduce highlights to bring out detail in the fur",
+    "add a subtle vignette to draw focus to the subject",
+    "increase sharpness by 10%"
+  ],
+  "notes": "[GEMINI] The image is slightly underexposed. Increasing brightness and sharpness will improve the subject's visibility and detail.",
+  "timestamp": "20251228-025413",
+  "entry_id": "20251228-025413-addbf34f",
+  "original_filename": "IMG_1190.jpeg",
+  "original_image": "original.jpeg",
+  "edited_image": "edited.jpeg"
+}

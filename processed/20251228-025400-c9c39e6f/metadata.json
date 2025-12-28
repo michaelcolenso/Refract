@@ -1,0 +1,59 @@
+{
+  "critiques": [
+    {
+      "score": 68.0,
+      "improvements": [
+        "Increase overall exposure by 0.5 stops.",
+        "Reduce highlights by 15%.",
+        "Straighten the vertical lines to correct perspective distortion.",
+        "Reduce the green cast in the shadows."
+      ],
+      "notes": "The image has good composition but is slightly underexposed and has some perspective issues. Addressing these would significantly improve the overall quality.",
+      "llm": "gemini"
+    },
+    {
+      "llm": "openai",
+      "error": "Error code: 401 - {'error': {'message': 'Incorrect API key provided: AIzaSyDG***************************b2a4. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}",
+      "score": null,
+      "improvements": [],
+      "notes": "Analysis failed: Error code: 401 - {'error': {'message': 'Incorrect API key provided: AIzaSyDG***************************b2a4. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}"
+    },
+    {
+      "score": 72.0,
+      "improvements": [
+        "Increase overall brightness by 15-20% to better illuminate the dark wood paneling",
+        "Boost contrast by 10-15% to enhance the definition between the dark walls and lighter elements",
+        "Warm up the white balance slightly to complement the golden chandelier and wood tones",
+        "Increase shadow detail recovery by 25% to reveal more texture in the dark wall panels"
+      ],
+      "notes": "The composition is strong with good symmetry and depth, but the dark navy walls create an underexposed feel that diminishes the room's elegance. The lighting adjustments would better showcase the luxurious materials and architectural details while maintaining the sophisticated atmosphere.",
+      "llm": "anthropic"
+    }
+  ],
+  "consensus_score": 70.0,
+  "combined_improvements": [
+    "Increase overall exposure by 0.5 stops.",
+    "Reduce highlights by 15%.",
+    "Straighten the vertical lines to correct perspective distortion.",
+    "Reduce the green cast in the shadows.",
+    "Increase overall brightness by 15-20% to better illuminate the dark wood paneling",
+    "Boost contrast by 10-15% to enhance the definition between the dark walls and lighter elements",
+    "Warm up the white balance slightly to complement the golden chandelier and wood tones",
+    "Increase shadow detail recovery by 25% to reveal more texture in the dark wall panels"
+  ],
+  "summary": "[GEMINI] The image has good composition but is slightly underexposed and has some perspective issues. Addressing these would significantly improve the overall quality. | [ANTHROPIC] The composition is strong with good symmetry and depth, but the dark navy walls create an underexposed feel that diminishes the room's elegance. The lighting adjustments would better showcase the luxurious materials and architectural details while maintaining the sophisticated atmosphere.",
+  "score": 70.0,
+  "improvements": [
+    "Increase overall exposure by 0.5 stops.",
+    "Reduce highlights by 15%.",
+    "Straighten the vertical lines to correct perspective distortion.",
+    "Reduce the green cast in the shadows.",
+    "Increase overall brightness by 15-20% to better illuminate the dark wood paneling"
+  ],
+  "notes": "[GEMINI] The image has good composition but is slightly underexposed and has some perspective issues. Addressing these would significantly improve the overall quality. | [ANTHROPIC] The composition is strong with good symmetry and depth, but the dark navy walls create an underexposed feel that diminishes the room's elegance. The lighting adjustments would better showcase the luxurious materials and architectural details while maintaining the sophisticated atmosphere.",
+  "timestamp": "20251228-025400",
+  "entry_id": "20251228-025400-c9c39e6f",
+  "original_filename": "IMG_0109 2.jpeg",
+  "original_image": "original.jpeg",
+  "edited_image": "edited.jpeg"
+}
