@@ -9,6 +9,7 @@ on:
       - 'inbox/**'
       - 'scripts/**'
       - '.github/workflows/**'
+      - 'site/public/**'
   workflow_dispatch:  # Allow manual triggering
 
 permissions:
