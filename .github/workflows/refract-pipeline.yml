@@ -50,6 +50,8 @@ jobs:
 
       - name: Run REFRACT Pipeline
         if: steps.check_images.outputs.has_images == 'true'
+        id: pipeline
+        continue-on-error: false  # Fail the job if pipeline fails
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
@@ -59,7 +61,7 @@ jobs:
           python pipeline.py
 
       - name: Commit processed results
-        if: steps.check_images.outputs.has_images == 'true'
+        if: steps.check_images.outputs.has_images == 'true' && steps.pipeline.outcome == 'success'
         run: |
           git config user.name "REFRACT Bot"
           git config user.email "refract-bot@users.noreply.github.com"
@@ -87,14 +89,29 @@ jobs:
           )"
             git push
           fi
-          
+
+      - name: Create issue on failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `🔴 REFRACT Pipeline Failed - ${new Date().toISOString().split('T')[0]}`,
+              body: `## Pipeline Failure Report\n\n**Workflow Run:** ${runUrl}\n**Branch:** ${context.ref}\n**Commit:** ${context.sha.substring(0, 7)}\n**Triggered by:** ${context.actor}\n\nThe REFRACT pipeline encountered an error during photo processing. Please check the workflow logs for details.`,
+              labels: ['bug', 'automated']
+            });
+
   deploy-site:
     needs: process-photos
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    if: always()  # Run even if no new photos were processed
+    # Only deploy to production from main branch
+    if: always() && github.ref == 'refs/heads/main'
 
     steps:
       - name: Checkout repository
@@ -105,10 +122,20 @@ jobs:
 
       - name: Pull latest changes
         run: |
-          git pull origin ${{ github.ref_name }}
+          # Wait for push to propagate and avoid race conditions
+          sleep 5
+          git pull origin ${{ github.ref_name }} --rebase
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
+
+      - name: Validate site build
+        run: |
+          if [ ! -f "./site/public/index.html" ]; then
+            echo "Error: index.html not found in site/public/"
+            exit 1
+          fi
+          echo "✓ Site validation passed - index.html exists"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
