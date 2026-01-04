@@ -10,6 +10,8 @@ import json
 from pathlib import Path
 from typing import List
 import traceback
+from concurrent.futures import ThreadPoolExecutor, as_completed
+import threading
 
 # Import our modules
 from multi_critic import MultiCritic
@@ -49,6 +51,9 @@ class RefractPipeline:
             print("  Warning: No GEMINI_API_KEY - image editing disabled")
 
         self.generator = SiteGenerator(repo_root)
+
+        # Thread safety lock for generator operations
+        self._lock = threading.Lock()
 
     def get_new_images(self) -> List[Path]:
         """Find all images in the inbox."""
@@ -142,8 +147,10 @@ class RefractPipeline:
             # STEP 3: GENERATOR - Create entry and update site
             print("STEP 3: Creating documentation...")
 
-            entry_dir = self.generator.create_entry(image_path, edited_path, critique)
-            print(f"  Entry created: {entry_dir.name}\n")
+            # Thread-safe entry creation
+            with self._lock:
+                entry_dir = self.generator.create_entry(image_path, edited_path, critique)
+                print(f"  Entry created: {entry_dir.name}\n")
 
             # Clean up temporary edited image
             if edited_path.exists():
@@ -181,15 +188,32 @@ class RefractPipeline:
             print(f"  - {img.name}")
         print()
 
-        # Process each image
+        # Process images in parallel (max 3 concurrent to avoid API rate limits)
         successful = 0
         failed = 0
+        max_workers = min(3, len(images))  # Don't create more workers than images
 
-        for image_path in images:
-            if self.process_image(image_path):
-                successful += 1
-            else:
-                failed += 1
+        print(f"Processing with {max_workers} parallel worker(s)...\n")
+
+        with ThreadPoolExecutor(max_workers=max_workers) as executor:
+            # Submit all image processing tasks
+            future_to_image = {
+                executor.submit(self.process_image, img): img
+                for img in images
+            }
+
+            # Process results as they complete
+            for future in as_completed(future_to_image):
+                image_path = future_to_image[future]
+                try:
+                    if future.result():
+                        successful += 1
+                    else:
+                        failed += 1
+                except Exception as e:
+                    print(f"✗ Exception processing {image_path.name}: {e}", file=sys.stderr)
+                    traceback.print_exc()
+                    failed += 1
 
         # Rebuild site
         print("\n" + "="*60)

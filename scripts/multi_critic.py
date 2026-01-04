@@ -8,11 +8,61 @@ import os
 import json
 import sys
 import base64
+import time
 from pathlib import Path
 from typing import Dict, Any, List, Optional
 from abc import ABC, abstractmethod
 from PIL import Image
 import io
+from functools import wraps
+
+
+def retry_with_backoff(max_retries=3, initial_delay=2.0, backoff_factor=2.0):
+    """
+    Decorator to retry API calls with exponential backoff.
+
+    Args:
+        max_retries: Maximum number of retry attempts
+        initial_delay: Initial delay in seconds before first retry
+        backoff_factor: Multiplier for delay between retries
+    """
+    def decorator(func):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            delay = initial_delay
+            last_exception = None
+
+            for attempt in range(max_retries + 1):
+                try:
+                    return func(*args, **kwargs)
+                except Exception as e:
+                    last_exception = e
+                    error_msg = str(e).lower()
+
+                    # Check if it's a rate limit or temporary error
+                    is_retryable = any([
+                        'rate limit' in error_msg,
+                        'quota' in error_msg,
+                        'too many requests' in error_msg,
+                        '429' in error_msg,
+                        'timeout' in error_msg,
+                        'temporarily unavailable' in error_msg,
+                        'service unavailable' in error_msg,
+                        '503' in error_msg,
+                        '500' in error_msg
+                    ])
+
+                    if not is_retryable or attempt == max_retries:
+                        raise
+
+                    print(f"      API error (attempt {attempt + 1}/{max_retries}): {e}")
+                    print(f"      Retrying in {delay:.1f}s...")
+                    time.sleep(delay)
+                    delay *= backoff_factor
+
+            raise last_exception
+        return wrapper
+    return decorator
 
 
 class BaseCritic(ABC):
@@ -106,6 +156,7 @@ class GeminiCritic(BaseCritic):
         genai.configure(api_key=api_key)
         self.model = genai.GenerativeModel('gemini-2.0-flash-exp')
 
+    @retry_with_backoff(max_retries=3, initial_delay=2.0)
     def analyze(self, image_path: Path) -> Dict[str, Any]:
         img = Image.open(image_path)
         response = self.model.generate_content([self._get_prompt(), img])
@@ -121,6 +172,7 @@ class OpenAICritic(BaseCritic):
         from openai import OpenAI
         self.client = OpenAI(api_key=api_key)
 
+    @retry_with_backoff(max_retries=3, initial_delay=2.0)
     def analyze(self, image_path: Path) -> Dict[str, Any]:
         base64_image = self._image_to_base64(image_path)
         media_type = self._get_image_media_type(image_path)
@@ -155,6 +207,7 @@ class AnthropicCritic(BaseCritic):
         import anthropic
         self.client = anthropic.Anthropic(api_key=api_key)
 
+    @retry_with_backoff(max_retries=3, initial_delay=2.0)
     def analyze(self, image_path: Path) -> Dict[str, Any]:
         base64_image = self._image_to_base64(image_path)
         media_type = self._get_image_media_type(image_path)
