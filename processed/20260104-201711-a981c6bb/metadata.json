@@ -1,0 +1,50 @@
+{
+  "critiques": [
+    {
+      "llm": "gemini",
+      "error": "400 Unsupported MIME type: image/mpo",
+      "score": null,
+      "improvements": [],
+      "notes": "Analysis failed: 400 Unsupported MIME type: image/mpo"
+    },
+    {
+      "llm": "openai",
+      "error": "Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************98YA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}",
+      "score": null,
+      "improvements": [],
+      "notes": "Analysis failed: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************98YA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}"
+    },
+    {
+      "score": 78.0,
+      "improvements": [
+        "Increase overall exposure by 15-20% to brighten the subject and reduce shadows",
+        "Boost contrast by 10-15% to enhance the definition between the white and gray fur tones",
+        "Apply slight sharpening to the eyes and nose area to improve focus clarity",
+        "Warm up the color temperature by 200-300K to reduce the cool cast and create a cozier mood"
+      ],
+      "notes": "This is a charming portrait with good composition and shallow depth of field, but the image appears slightly underexposed with muted contrast. The subject's eyes could be sharper and the overall warmth could be enhanced to create more emotional appeal.",
+      "llm": "anthropic"
+    }
+  ],
+  "consensus_score": 78.0,
+  "combined_improvements": [
+    "Increase overall exposure by 15-20% to brighten the subject and reduce shadows",
+    "Boost contrast by 10-15% to enhance the definition between the white and gray fur tones",
+    "Apply slight sharpening to the eyes and nose area to improve focus clarity",
+    "Warm up the color temperature by 200-300K to reduce the cool cast and create a cozier mood"
+  ],
+  "summary": "[ANTHROPIC] This is a charming portrait with good composition and shallow depth of field, but the image appears slightly underexposed with muted contrast. The subject's eyes could be sharper and the overall warmth could be enhanced to create more emotional appeal.",
+  "score": 78.0,
+  "improvements": [
+    "Increase overall exposure by 15-20% to brighten the subject and reduce shadows",
+    "Boost contrast by 10-15% to enhance the definition between the white and gray fur tones",
+    "Apply slight sharpening to the eyes and nose area to improve focus clarity",
+    "Warm up the color temperature by 200-300K to reduce the cool cast and create a cozier mood"
+  ],
+  "notes": "[ANTHROPIC] This is a charming portrait with good composition and shallow depth of field, but the image appears slightly underexposed with muted contrast. The subject's eyes could be sharper and the overall warmth could be enhanced to create more emotional appeal.",
+  "timestamp": "20260104-201711",
+  "entry_id": "20260104-201711-a981c6bb",
+  "original_filename": "IMG_0562.jpeg",
+  "original_image": "original.jpeg",
+  "edited_image": "edited.jpeg"
+}
