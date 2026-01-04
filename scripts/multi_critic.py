@@ -154,7 +154,7 @@ class GeminiCritic(BaseCritic):
     def __init__(self, api_key: str):
         import google.generativeai as genai
         genai.configure(api_key=api_key)
-        self.model = genai.GenerativeModel('gemini-2.0-flash-exp')
+        self.model = genai.GenerativeModel('gemini-2.5-flash-image')
 
     @retry_with_backoff(max_retries=3, initial_delay=2.0)
     def analyze(self, image_path: Path) -> Dict[str, Any]:
