@@ -70,7 +70,7 @@ class PhotoEditor:
         """Initialize the Editor with Gemini API credentials."""
         genai.configure(api_key=api_key)
         # Using Imagen for image editing with the generative model
-        self.model = genai.GenerativeModel('gemini-2.0-flash-exp')
+        self.model = genai.GenerativeModel('gemini-2.5-flash-image')
 
     @retry_with_backoff(max_retries=3, initial_delay=2.0)
     def edit(self, image_path: Path, improvements: List[str], output_path: Path) -> bool:

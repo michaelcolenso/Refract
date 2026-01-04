@@ -19,7 +19,7 @@ class PhotoCritic:
     def __init__(self, api_key: str):
         """Initialize the Critic with Gemini API credentials."""
         genai.configure(api_key=api_key)
-        self.model = genai.GenerativeModel('gemini-2.0-flash-exp')
+        self.model = genai.GenerativeModel('gemini-2.5-flash-image')
 
     def analyze(self, image_path: Path) -> Dict[str, Any]:
         """
