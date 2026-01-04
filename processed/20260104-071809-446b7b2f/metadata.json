@@ -1,0 +1,55 @@
+{
+  "critiques": [
+    {
+      "score": 68.0,
+      "improvements": [
+        "increase contrast by 15%",
+        "sharpen the image by 10%",
+        "reduce highlights by 10%"
+      ],
+      "notes": "The image has a cute subject, but lacks sharpness and contrast. Improving these aspects will make the dog stand out more.",
+      "llm": "gemini"
+    },
+    {
+      "score": 75.0,
+      "improvements": [
+        "increase brightness by 15%",
+        "sharpen the dog's face for more clarity",
+        "crop to include more of the dog's body on the left side"
+      ],
+      "notes": "The photograph has a charming subject and captures a candid moment. Improving brightness and sharpness will enhance visual appeal and crop adjustments will balance the composition.",
+      "llm": "openai"
+    },
+    {
+      "llm": "anthropic",
+      "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.0.image.source.base64.data: Image does not match the provided media type image/jpeg'}, 'request_id': 'req_011CWmvtjLr3tqCfscxoP6rX'}",
+      "score": null,
+      "improvements": [],
+      "notes": "Analysis failed: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.0.image.source.base64.data: Image does not match the provided media type image/jpeg'}, 'request_id': 'req_011CWmvtjLr3tqCfscxoP6rX'}"
+    }
+  ],
+  "consensus_score": 71.5,
+  "combined_improvements": [
+    "increase contrast by 15%",
+    "sharpen the image by 10%",
+    "reduce highlights by 10%",
+    "increase brightness by 15%",
+    "sharpen the dog's face for more clarity",
+    "crop to include more of the dog's body on the left side"
+  ],
+  "summary": "[GEMINI] The image has a cute subject, but lacks sharpness and contrast. Improving these aspects will make the dog stand out more. | [OPENAI] The photograph has a charming subject and captures a candid moment. Improving brightness and sharpness will enhance visual appeal and crop adjustments will balance the composition.",
+  "score": 71.5,
+  "improvements": [
+    "increase contrast by 15%",
+    "sharpen the image by 10%",
+    "reduce highlights by 10%",
+    "increase brightness by 15%",
+    "sharpen the dog's face for more clarity"
+  ],
+  "notes": "[GEMINI] The image has a cute subject, but lacks sharpness and contrast. Improving these aspects will make the dog stand out more. | [OPENAI] The photograph has a charming subject and captures a candid moment. Improving brightness and sharpness will enhance visual appeal and crop adjustments will balance the composition.",
+  "timestamp": "20260104-071809",
+  "entry_id": "20260104-071809-446b7b2f",
+  "original_filename": "IMG_6001.jpg",
+  "original_image": "original.jpg",
+  "edited_image": "edited.jpg"
+}

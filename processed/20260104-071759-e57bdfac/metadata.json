@@ -1,0 +1,57 @@
+{
+  "critiques": [
+    {
+      "score": 65.0,
+      "improvements": [
+        "Increase exposure by 0.75 stops",
+        "Reduce highlights by 30%",
+        "Increase shadow detail by 25%",
+        "Crop slightly to focus more on the people and golden sky"
+      ],
+      "notes": "The photo has a beautiful sunset but is underexposed, particularly in the foreground. Increasing the exposure and bringing out the shadows will reveal more detail.",
+      "llm": "gemini"
+    },
+    {
+      "score": 85.0,
+      "improvements": [
+        "increase brightness by 10%",
+        "enhance contrast to bring out details in the clouds",
+        "crop slightly from the bottom to position the horizon using the rule of thirds"
+      ],
+      "notes": "The photograph effectively captures a stunning sunset scene with compelling silhouettes. Increasing brightness and contrast will enhance visibility and detail, while cropping will improve compositional balance.",
+      "llm": "openai"
+    },
+    {
+      "llm": "anthropic",
+      "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.0.image.source.base64.data: Image does not match the provided media type image/jpeg'}, 'request_id': 'req_011CWmvsxNQ3GmHF23D3Wqg9'}",
+      "score": null,
+      "improvements": [],
+      "notes": "Analysis failed: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.0.image.source.base64.data: Image does not match the provided media type image/jpeg'}, 'request_id': 'req_011CWmvsxNQ3GmHF23D3Wqg9'}"
+    }
+  ],
+  "consensus_score": 75.0,
+  "combined_improvements": [
+    "Increase exposure by 0.75 stops",
+    "Reduce highlights by 30%",
+    "Increase shadow detail by 25%",
+    "Crop slightly to focus more on the people and golden sky",
+    "increase brightness by 10%",
+    "enhance contrast to bring out details in the clouds",
+    "crop slightly from the bottom to position the horizon using the rule of thirds"
+  ],
+  "summary": "[GEMINI] The photo has a beautiful sunset but is underexposed, particularly in the foreground. Increasing the exposure and bringing out the shadows will reveal more detail. | [OPENAI] The photograph effectively captures a stunning sunset scene with compelling silhouettes. Increasing brightness and contrast will enhance visibility and detail, while cropping will improve compositional balance.",
+  "score": 75.0,
+  "improvements": [
+    "Increase exposure by 0.75 stops",
+    "Reduce highlights by 30%",
+    "Increase shadow detail by 25%",
+    "Crop slightly to focus more on the people and golden sky",
+    "increase brightness by 10%"
+  ],
+  "notes": "[GEMINI] The photo has a beautiful sunset but is underexposed, particularly in the foreground. Increasing the exposure and bringing out the shadows will reveal more detail. | [OPENAI] The photograph effectively captures a stunning sunset scene with compelling silhouettes. Increasing brightness and contrast will enhance visibility and detail, while cropping will improve compositional balance.",
+  "timestamp": "20260104-071759",
+  "entry_id": "20260104-071759-e57bdfac",
+  "original_filename": "IMG_1262-EDIT.jpg",
+  "original_image": "original.jpg",
+  "edited_image": "edited.jpg"
+}

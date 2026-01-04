@@ -1,0 +1,55 @@
+{
+  "critiques": [
+    {
+      "score": 75.0,
+      "improvements": [
+        "crop the image to place the dog on the left third.",
+        "increase sharpness by 15%",
+        "reduce highlights by 10%"
+      ],
+      "notes": "The image is well-lit and captures a good moment. Cropping and sharpening enhance the subject.",
+      "llm": "gemini"
+    },
+    {
+      "score": 85.0,
+      "improvements": [
+        "increase brightness by 10%",
+        "boost vibrance in the greenery",
+        "crop to rule of thirds with dog in left third"
+      ],
+      "notes": "The image captures the dynamic motion of the dog well with good focus and clarity. Enhancing the brightness and vibrance will add more life to the scene, and re-cropping will emphasize the subject better.",
+      "llm": "openai"
+    },
+    {
+      "llm": "anthropic",
+      "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.0.image.source.base64.data: Image does not match the provided media type image/jpeg'}, 'request_id': 'req_011CWmvtJzdHLdFMrZy62GJP'}",
+      "score": null,
+      "improvements": [],
+      "notes": "Analysis failed: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.0.image.source.base64.data: Image does not match the provided media type image/jpeg'}, 'request_id': 'req_011CWmvtJzdHLdFMrZy62GJP'}"
+    }
+  ],
+  "consensus_score": 80.0,
+  "combined_improvements": [
+    "crop the image to place the dog on the left third.",
+    "increase sharpness by 15%",
+    "reduce highlights by 10%",
+    "increase brightness by 10%",
+    "boost vibrance in the greenery",
+    "crop to rule of thirds with dog in left third"
+  ],
+  "summary": "[GEMINI] The image is well-lit and captures a good moment. Cropping and sharpening enhance the subject. | [OPENAI] The image captures the dynamic motion of the dog well with good focus and clarity. Enhancing the brightness and vibrance will add more life to the scene, and re-cropping will emphasize the subject better.",
+  "score": 80.0,
+  "improvements": [
+    "crop the image to place the dog on the left third.",
+    "increase sharpness by 15%",
+    "reduce highlights by 10%",
+    "increase brightness by 10%",
+    "boost vibrance in the greenery"
+  ],
+  "notes": "[GEMINI] The image is well-lit and captures a good moment. Cropping and sharpening enhance the subject. | [OPENAI] The image captures the dynamic motion of the dog well with good focus and clarity. Enhancing the brightness and vibrance will add more life to the scene, and re-cropping will emphasize the subject better.",
+  "timestamp": "20260104-071804",
+  "entry_id": "20260104-071804-b596870a",
+  "original_filename": "IMG_2703_CR2.jpg",
+  "original_image": "original.jpg",
+  "edited_image": "edited.jpg"
+}
