@@ -181,7 +181,7 @@ class OpenAICritic(BaseCritic):
         media_type = self._get_image_media_type(image_path)
 
         response = self.client.chat.completions.create(
-            model="gpt-4o",
+            model="gpt-5.2",
             messages=[
                 {
                     "role": "user",
