@@ -196,7 +196,7 @@ class OpenAICritic(BaseCritic):
                     ]
                 }
             ],
-            max_tokens=1000
+            max_completion_tokens=1000
         )
         return self._parse_response(response.choices[0].message.content)
 
