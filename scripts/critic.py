@@ -9,7 +9,7 @@ import json
 import sys
 from pathlib import Path
 from typing import Dict, Any
-import google.generativeai as genai
+from google import genai
 from PIL import Image
 
 
@@ -18,8 +18,8 @@ class PhotoCritic:
 
     def __init__(self, api_key: str):
         """Initialize the Critic with Gemini API credentials."""
-        genai.configure(api_key=api_key)
-        self.model = genai.GenerativeModel('gemini-2.5-flash-image')
+        self.client = genai.Client(api_key=api_key)
+        self.model_name = 'gemini-2.5-flash-image'
 
     def analyze(self, image_path: Path) -> Dict[str, Any]:
         """
@@ -54,7 +54,10 @@ Guidelines for your analysis:
 CRITICAL: Output ONLY the JSON object. No markdown, no code blocks, no additional text."""
 
         try:
-            response = self.model.generate_content([prompt, img])
+            response = self.client.models.generate_content(
+                model=self.model_name,
+                contents=[prompt, img]
+            )
 
             # Extract JSON from response
             response_text = response.text.strip()

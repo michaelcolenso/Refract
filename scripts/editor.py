@@ -11,7 +11,7 @@ import time
 from pathlib import Path
 from typing import List
 from functools import wraps
-import google.generativeai as genai
+from google import genai
 from PIL import Image
 
 
@@ -68,9 +68,9 @@ class PhotoEditor:
 
     def __init__(self, api_key: str):
         """Initialize the Editor with Gemini API credentials."""
-        genai.configure(api_key=api_key)
+        self.client = genai.Client(api_key=api_key)
         # Using Gemini 3.0 for image editing
-        self.model = genai.GenerativeModel('gemini-3.0-flash')
+        self.model_name = 'gemini-3.0-flash'
 
     @retry_with_backoff(max_retries=3, initial_delay=2.0)
     def edit(self, image_path: Path, improvements: List[str], output_path: Path) -> bool:
@@ -110,7 +110,10 @@ Generate the improved version of this photograph."""
             # Generate the edited image
             # Note: Gemini's image editing capabilities work through the generative model
             # with the image as context and edit instructions
-            response = self.model.generate_content([prompt, img])
+            response = self.client.models.generate_content(
+                model=self.model_name,
+                contents=[prompt, img]
+            )
 
             # Check if response contains image data
             image_saved = False
