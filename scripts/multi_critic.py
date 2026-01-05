@@ -154,7 +154,7 @@ class GeminiCritic(BaseCritic):
     def __init__(self, api_key: str):
         from google import genai
         self.client = genai.Client(api_key=api_key)
-        self.model_name = 'gemini-2.5-flash-image'
+        self.model_name = 'gemini-3-pro-preview'
 
     @retry_with_backoff(max_retries=3, initial_delay=2.0)
     def analyze(self, image_path: Path) -> Dict[str, Any]:
@@ -181,7 +181,7 @@ class OpenAICritic(BaseCritic):
         media_type = self._get_image_media_type(image_path)
 
         response = self.client.chat.completions.create(
-            model="gpt-4o",
+            model="gpt-5.2",
             messages=[
                 {
                     "role": "user",
@@ -216,7 +216,7 @@ class AnthropicCritic(BaseCritic):
         media_type = self._get_image_media_type(image_path)
 
         response = self.client.messages.create(
-            model="claude-sonnet-4-20250514",
+            model="claude-sonnet-4-5",
             max_tokens=1000,
             messages=[
                 {
