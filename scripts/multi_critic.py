@@ -216,7 +216,7 @@ class AnthropicCritic(BaseCritic):
         media_type = self._get_image_media_type(image_path)
 
         response = self.client.messages.create(
-            model="claude-sonnet-4-20250514",
+            model="claude-sonnet-4-5",
             max_tokens=1000,
             messages=[
                 {
