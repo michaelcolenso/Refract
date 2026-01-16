@@ -10,7 +10,7 @@ import json
 import shutil
 from pathlib import Path
 from datetime import datetime
-from typing import Dict, Any, List
+from typing import Dict, Any, List, Set
 from jinja2 import Environment, FileSystemLoader
 from PIL import Image
 
@@ -117,23 +117,64 @@ class SiteGenerator:
 
         return entries
 
-    def build_site(self):
-        """Rebuild the entire static website."""
+    def _get_existing_entry_ids(self) -> Set[str]:
+        """Get set of entry IDs that already have generated HTML pages."""
+        existing = set()
+        if not self.public_dir.exists():
+            return existing
+
+        for html_file in self.public_dir.glob('*.html'):
+            # Skip index.html
+            if html_file.name == 'index.html':
+                continue
+            # Extract entry ID from filename (e.g., "20240115-143022-abc12345.html")
+            entry_id = html_file.stem
+            existing.add(entry_id)
+
+        return existing
+
+    def _get_existing_images(self) -> Set[str]:
+        """Get set of image filenames already in public/images."""
+        existing = set()
+        images_dir = self.public_dir / 'images'
+        if not images_dir.exists():
+            return existing
+
+        for img_file in images_dir.iterdir():
+            if img_file.is_file():
+                existing.add(img_file.name)
+
+        return existing
+
+    def build_site(self, force_full: bool = False):
+        """
+        Rebuild the static website with incremental support.
+
+        Args:
+            force_full: If True, regenerate everything. If False, only new entries.
+        """
         # Create public directory
         self.public_dir.mkdir(parents=True, exist_ok=True)
 
         # Get all entries
         entries = self.get_all_entries()
 
+        # Determine what already exists (for incremental builds)
+        existing_entry_ids = set() if force_full else self._get_existing_entry_ids()
+        existing_images = set() if force_full else self._get_existing_images()
+
         # Copy images to public
         images_dir = self.public_dir / 'images'
         images_dir.mkdir(exist_ok=True)
+
+        new_entries = 0
+        skipped_entries = 0
 
         for entry in entries:
             entry_dir = entry['path']
             entry_id = entry['entry_id']
 
-            # Copy images
+            # Determine image paths
             original_src = entry_dir / entry['original_image']
             edited_src = entry_dir / entry['edited_image']
 
@@ -141,33 +182,43 @@ class SiteGenerator:
             edited_dest = images_dir / f"{entry_id}-edited{edited_src.suffix}"
             comparison_dest = images_dir / f"{entry_id}-comparison.jpg"
 
-            shutil.copy2(original_src, original_dest)
-            shutil.copy2(edited_src, edited_dest)
+            # Check if this entry needs processing
+            is_new = entry_id not in existing_entry_ids
 
-            # Create comparison image
-            self.create_comparison_image(original_src, edited_src, comparison_dest)
+            # Copy images (check each individually)
+            if is_new or original_dest.name not in existing_images:
+                shutil.copy2(original_src, original_dest)
 
-            # Update entry with web paths
+            if is_new or edited_dest.name not in existing_images:
+                shutil.copy2(edited_src, edited_dest)
+
+            # Create comparison image if needed
+            if is_new or comparison_dest.name not in existing_images:
+                self.create_comparison_image(original_src, edited_src, comparison_dest)
+
+            # Update entry with web paths (needed for templates)
             entry['web_original'] = f"images/{original_dest.name}"
             entry['web_edited'] = f"images/{edited_dest.name}"
             entry['web_comparison'] = f"images/{comparison_dest.name}"
 
-        # Render index page
+            # Generate entry page if new
+            if is_new:
+                entry_template = self.jinja_env.get_template('entry.html')
+                entry_html = entry_template.render(entry=entry)
+                entry_page = self.public_dir / f"{entry_id}.html"
+
+                with open(entry_page, 'w') as f:
+                    f.write(entry_html)
+                new_entries += 1
+            else:
+                skipped_entries += 1
+
+        # Always regenerate index page (shows all entries)
         template = self.jinja_env.get_template('index.html')
         index_html = template.render(entries=entries, total=len(entries))
 
         with open(self.public_dir / 'index.html', 'w') as f:
             f.write(index_html)
-
-        # Render individual entry pages
-        entry_template = self.jinja_env.get_template('entry.html')
-
-        for entry in entries:
-            entry_html = entry_template.render(entry=entry)
-            entry_page = self.public_dir / f"{entry['entry_id']}.html"
-
-            with open(entry_page, 'w') as f:
-                f.write(entry_html)
 
         # Copy CSS
         css_src = self.templates_dir / 'style.css'
@@ -175,7 +226,10 @@ class SiteGenerator:
         if css_src.exists():
             shutil.copy2(css_src, css_dest)
 
-        print(f"Site built successfully: {len(entries)} entries")
+        if new_entries > 0:
+            print(f"Site built: {new_entries} new entries, {skipped_entries} unchanged")
+        else:
+            print(f"Site built successfully: {len(entries)} entries (all unchanged)")
 
 
 def main():
@@ -186,7 +240,8 @@ def main():
         print("Usage: generator.py <command> [args]", file=sys.stderr)
         print("\nCommands:", file=sys.stderr)
         print("  create <original> <edited> <metadata_json>  - Create new entry", file=sys.stderr)
-        print("  build                                        - Rebuild site", file=sys.stderr)
+        print("  build                                        - Rebuild site (incremental)", file=sys.stderr)
+        print("  build --full                                 - Rebuild site (full)", file=sys.stderr)
         sys.exit(1)
 
     command = sys.argv[1]
@@ -209,7 +264,8 @@ def main():
         print(f"Entry created: {entry_dir}")
 
     elif command == 'build':
-        generator.build_site()
+        force_full = '--full' in sys.argv
+        generator.build_site(force_full=force_full)
 
     else:
         print(f"Unknown command: {command}", file=sys.stderr)

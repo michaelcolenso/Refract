@@ -7,8 +7,9 @@ Coordinates the Critic, Editor, and Generator to process photographs.
 import os
 import sys
 import json
+import argparse
 from pathlib import Path
-from typing import List
+from typing import List, Tuple
 import traceback
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import threading
@@ -18,14 +19,46 @@ from multi_critic import MultiCritic
 from editor import PhotoEditor
 from generator import SiteGenerator
 
+# Register HEIC/HEIF support if available
+try:
+    from pillow_heif import register_heif_opener
+    register_heif_opener()
+    HEIC_SUPPORT = True
+except ImportError:
+    HEIC_SUPPORT = False
+
+
+def validate_image(image_path: Path) -> Tuple[bool, str]:
+    """
+    Validate that an image file is readable and valid.
+
+    Args:
+        image_path: Path to the image file
+
+    Returns:
+        Tuple of (is_valid, error_message)
+    """
+    from PIL import Image as PILImage
+
+    try:
+        with PILImage.open(image_path) as img:
+            img.verify()
+        # Re-open to actually load (verify() makes the file unusable)
+        with PILImage.open(image_path) as img:
+            img.load()
+        return True, ""
+    except Exception as e:
+        return False, str(e)
+
 
 class RefractPipeline:
     """Main pipeline orchestrator."""
 
-    def __init__(self, repo_root: Path):
+    def __init__(self, repo_root: Path, dry_run: bool = False):
         """Initialize the pipeline."""
         self.repo_root = repo_root
         self.inbox_dir = repo_root / 'inbox'
+        self.dry_run = dry_run
 
         # Get API keys from environment
         self.gemini_key = os.getenv('GEMINI_API_KEY')
@@ -44,13 +77,17 @@ class RefractPipeline:
         )
 
         # Editor still uses Gemini (requires GEMINI_API_KEY for image generation)
-        if self.gemini_key:
+        if self.gemini_key and not self.dry_run:
             self.editor = PhotoEditor(self.gemini_key)
         else:
             self.editor = None
-            print("  Warning: No GEMINI_API_KEY - image editing disabled")
+            if not self.dry_run:
+                print("  Warning: No GEMINI_API_KEY - image editing disabled")
 
-        self.generator = SiteGenerator(repo_root)
+        if not self.dry_run:
+            self.generator = SiteGenerator(repo_root)
+        else:
+            self.generator = None
 
         # Thread safety lock for generator operations
         self._lock = threading.Lock()
@@ -60,7 +97,16 @@ class RefractPipeline:
         if not self.inbox_dir.exists():
             return []
 
-        image_extensions = {'.jpg', '.jpeg', '.png', '.JPG', '.JPEG', '.PNG'}
+        # Supported image extensions (WebP and HEIC added)
+        image_extensions = {
+            '.jpg', '.jpeg', '.png', '.webp',
+            '.JPG', '.JPEG', '.PNG', '.WEBP'
+        }
+
+        # Add HEIC extensions if support is available
+        if HEIC_SUPPORT:
+            image_extensions.update({'.heic', '.heif', '.HEIC', '.HEIF'})
+
         images = []
 
         for file_path in self.inbox_dir.iterdir():
@@ -70,6 +116,28 @@ class RefractPipeline:
                     images.append(file_path)
 
         return sorted(images)
+
+    def validate_images(self, images: List[Path]) -> Tuple[List[Path], List[Tuple[Path, str]]]:
+        """
+        Validate all images before processing.
+
+        Args:
+            images: List of image paths to validate
+
+        Returns:
+            Tuple of (valid_images, invalid_images_with_errors)
+        """
+        valid = []
+        invalid = []
+
+        for image_path in images:
+            is_valid, error = validate_image(image_path)
+            if is_valid:
+                valid.append(image_path)
+            else:
+                invalid.append((image_path, error))
+
+        return valid, invalid
 
     def process_image(self, image_path: Path) -> bool:
         """
@@ -103,6 +171,11 @@ class RefractPipeline:
             for i, improvement in enumerate(critique['improvements'], 1):
                 print(f"    {i}. {improvement}")
             print()
+
+            # If dry run, stop here
+            if self.dry_run:
+                print("  [DRY RUN] Skipping edit, archive, and site generation")
+                return True
 
             # STEP 2: EDITOR - Apply improvements
             print("STEP 2: Applying improvements...")
@@ -161,11 +234,11 @@ class RefractPipeline:
             image_path.unlink()
             print(f"  Removed from inbox: {image_path.name}\n")
 
-            print(f"✓ Successfully processed: {image_path.name}")
+            print(f"Successfully processed: {image_path.name}")
             return True
 
         except Exception as e:
-            print(f"✗ Error processing {image_path.name}: {e}", file=sys.stderr)
+            print(f"Error processing {image_path.name}: {e}", file=sys.stderr)
             traceback.print_exc()
             return False
 
@@ -173,7 +246,12 @@ class RefractPipeline:
         """Run the complete pipeline."""
         print("\n" + "="*60)
         print("REFRACT - Automated Photography Improvement Pipeline")
+        if self.dry_run:
+            print("          *** DRY RUN MODE ***")
         print("="*60 + "\n")
+
+        if not HEIC_SUPPORT:
+            print("Note: HEIC/HEIF support not available (install pillow-heif)\n")
 
         # Find new images
         images = self.get_new_images()
@@ -188,10 +266,26 @@ class RefractPipeline:
             print(f"  - {img.name}")
         print()
 
+        # Validate images upfront
+        print("Validating images...")
+        valid_images, invalid_images = self.validate_images(images)
+
+        if invalid_images:
+            print(f"\nWarning: {len(invalid_images)} invalid image(s) found:")
+            for img_path, error in invalid_images:
+                print(f"  - {img_path.name}: {error}")
+            print()
+
+        if not valid_images:
+            print("No valid images to process.\n")
+            return
+
+        print(f"Processing {len(valid_images)} valid image(s)...\n")
+
         # Process images in parallel (max 3 concurrent to avoid API rate limits)
         successful = 0
         failed = 0
-        max_workers = min(3, len(images))  # Don't create more workers than images
+        max_workers = min(3, len(valid_images))  # Don't create more workers than images
 
         print(f"Processing with {max_workers} parallel worker(s)...\n")
 
@@ -199,7 +293,7 @@ class RefractPipeline:
             # Submit all image processing tasks
             future_to_image = {
                 executor.submit(self.process_image, img): img
-                for img in images
+                for img in valid_images
             }
 
             # Process results as they complete
@@ -211,32 +305,47 @@ class RefractPipeline:
                     else:
                         failed += 1
                 except Exception as e:
-                    print(f"✗ Exception processing {image_path.name}: {e}", file=sys.stderr)
+                    print(f"Exception processing {image_path.name}: {e}", file=sys.stderr)
                     traceback.print_exc()
                     failed += 1
 
-        # Rebuild site
-        print("\n" + "="*60)
-        print("Rebuilding static site...")
-        print("="*60 + "\n")
+        # Rebuild site (unless dry run)
+        if not self.dry_run:
+            print("\n" + "="*60)
+            print("Rebuilding static site...")
+            print("="*60 + "\n")
 
-        self.generator.build_site()
+            self.generator.build_site()
 
         # Summary
         print("\n" + "="*60)
         print("Pipeline Summary")
         print("="*60)
+        print(f"  Mode: {'DRY RUN' if self.dry_run else 'FULL'}")
         print(f"  Processed: {successful} successful, {failed} failed")
-        print(f"  Total entries: {len(self.generator.get_all_entries())}")
+        if invalid_images:
+            print(f"  Skipped: {len(invalid_images)} invalid")
+        if not self.dry_run and self.generator:
+            print(f"  Total entries: {len(self.generator.get_all_entries())}")
         print("="*60 + "\n")
 
 
 def main():
     """Entry point for the pipeline."""
+    parser = argparse.ArgumentParser(
+        description='REFRACT - Automated Photography Improvement Pipeline'
+    )
+    parser.add_argument(
+        '--dry-run',
+        action='store_true',
+        help='Analyze images only, without editing, archiving, or rebuilding the site'
+    )
+    args = parser.parse_args()
+
     repo_root = Path(__file__).parent.parent
 
     try:
-        pipeline = RefractPipeline(repo_root)
+        pipeline = RefractPipeline(repo_root, dry_run=args.dry_run)
         pipeline.run()
     except Exception as e:
         print(f"Fatal error: {e}", file=sys.stderr)
