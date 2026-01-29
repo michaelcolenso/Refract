@@ -188,6 +188,110 @@ class TestBaseCriticParseResponse:
 
         assert result["score"] == 70
 
+    def test_structured_improvements_format(self):
+        """Structured improvements should be parsed and converted to string list."""
+        response = json.dumps({
+            "score": 78,
+            "genre": "landscape",
+            "subject": "Mountain lake at sunset",
+            "mood": "serene",
+            "improvements": [
+                {
+                    "action": "Lift shadows in foreground",
+                    "intensity": "moderate",
+                    "priority": 1,
+                    "reason": "Reveal detail in rocks"
+                },
+                {
+                    "action": "Boost vibrance in sky",
+                    "intensity": "subtle",
+                    "priority": 2,
+                    "reason": "Enhance sunset colors"
+                }
+            ],
+            "preserve": ["reflection clarity", "natural color balance"],
+            "notes": "Strong composition with good light."
+        })
+
+        result = self.critic._parse_response(response)
+
+        # Should have converted to string format with intensity prefix
+        assert len(result["improvements"]) == 2
+        assert "[MODERATE]" in result["improvements"][0]
+        assert "Lift shadows" in result["improvements"][0]
+        assert "[SUBTLE]" in result["improvements"][1]
+
+        # Should preserve detailed version
+        assert "improvements_detailed" in result
+        assert len(result["improvements_detailed"]) == 2
+        assert result["improvements_detailed"][0]["priority"] == 1
+
+        # Should have context
+        assert "context" in result
+        assert result["context"]["genre"] == "landscape"
+        assert result["context"]["subject"] == "Mountain lake at sunset"
+        assert "reflection clarity" in result["context"]["preserve"]
+
+    def test_structured_improvements_sorted_by_priority(self):
+        """Structured improvements should be sorted by priority (lowest first)."""
+        response = json.dumps({
+            "score": 80,
+            "improvements": [
+                {"action": "Low priority", "intensity": "subtle", "priority": 3, "reason": ""},
+                {"action": "High priority", "intensity": "significant", "priority": 1, "reason": ""},
+                {"action": "Medium priority", "intensity": "moderate", "priority": 2, "reason": ""}
+            ],
+            "notes": "Test"
+        })
+
+        result = self.critic._parse_response(response)
+
+        assert "High priority" in result["improvements"][0]
+        assert "Medium priority" in result["improvements"][1]
+        assert "Low priority" in result["improvements"][2]
+
+    def test_context_populated_from_response(self):
+        """Context should be populated from response fields."""
+        response = json.dumps({
+            "score": 85,
+            "genre": "portrait",
+            "subject": "Woman in garden",
+            "mood": "peaceful",
+            "technical_assessment": {
+                "exposure": "good",
+                "white_balance": "slightly_warm",
+                "focus": "sharp",
+                "noise": "low"
+            },
+            "improvements": ["Test improvement"],
+            "preserve": ["skin tones", "background bokeh"],
+            "notes": "Nice portrait."
+        })
+
+        result = self.critic._parse_response(response)
+
+        assert result["context"]["genre"] == "portrait"
+        assert result["context"]["subject"] == "Woman in garden"
+        assert result["context"]["mood"] == "peaceful"
+        assert result["context"]["technical"]["exposure"] == "good"
+        assert result["context"]["technical"]["focus"] == "sharp"
+        assert "skin tones" in result["context"]["preserve"]
+
+    def test_legacy_string_improvements_still_work(self):
+        """Legacy string array improvements should still work."""
+        response = json.dumps({
+            "score": 75,
+            "improvements": ["Increase brightness", "Boost contrast"],
+            "notes": "Good shot."
+        })
+
+        result = self.critic._parse_response(response)
+
+        # Should remain as strings (no conversion)
+        assert result["improvements"] == ["Increase brightness", "Boost contrast"]
+        # Should still have context (empty/default)
+        assert "context" in result
+
 
 class TestBaseCriticGetPrompt:
     """Tests for the _get_prompt method."""
@@ -202,12 +306,12 @@ class TestBaseCriticGetPrompt:
         assert "notes" in prompt.lower()
         assert "json" in prompt.lower()
 
-    def test_prompt_requests_strict_json(self):
-        """Prompt should request strict JSON output."""
+    def test_prompt_requests_json_only(self):
+        """Prompt should request JSON-only output."""
         critic = MockCritic()
         prompt = critic._get_prompt()
 
-        assert "STRICT JSON" in prompt or "strict JSON" in prompt.lower()
+        assert "ONLY valid JSON" in prompt or "only the JSON" in prompt.lower()
 
 
 class TestBaseCriticImageHelpers:

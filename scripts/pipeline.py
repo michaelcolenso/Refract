@@ -184,7 +184,9 @@ class RefractPipeline:
             edited_path = image_path.parent / f"edited_{image_path.name}"
 
             if self.editor:
-                success = self.editor.edit(image_path, critique['improvements'], edited_path)
+                # Pass context to editor for genre-aware editing
+                context = critique.get('context', {})
+                success = self.editor.edit(image_path, critique['improvements'], edited_path, context)
 
                 if not success:
                     print("  Warning: Failed to edit image, using original")

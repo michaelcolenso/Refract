@@ -8,7 +8,7 @@ import os
 import sys
 import json
 from pathlib import Path
-from typing import List
+from typing import List, Dict, Any, Optional
 from google import genai
 from PIL import Image
 
@@ -24,8 +24,147 @@ class PhotoEditor:
         # Using Gemini 3 Pro Preview for image editing
         self.model_name = 'gemini-3-pro-preview'
 
+    def _build_edit_prompt(
+        self,
+        improvements: List[str],
+        context: Optional[Dict[str, Any]] = None
+    ) -> str:
+        """Build a detailed editing prompt with context awareness."""
+
+        # Format improvements list
+        improvements_text = "\n".join(f"  • {imp}" for imp in improvements)
+
+        # Build context section if available
+        context_section = ""
+        if context:
+            genre = context.get('genre', 'unknown')
+            subject = context.get('subject', '')
+            mood = context.get('mood', '')
+            preserve = context.get('preserve', [])
+            technical = context.get('technical', {})
+
+            context_parts = []
+            if genre and genre != 'unknown':
+                context_parts.append(f"Genre: {genre} photography")
+            if subject:
+                context_parts.append(f"Subject: {subject}")
+            if mood:
+                context_parts.append(f"Intended mood: {mood}")
+            if technical:
+                tech_items = [f"{k}: {v}" for k, v in technical.items() if v]
+                if tech_items:
+                    context_parts.append(f"Technical assessment: {', '.join(tech_items)}")
+
+            if context_parts:
+                context_section = "IMAGE CONTEXT:\n" + "\n".join(f"  • {p}" for p in context_parts) + "\n\n"
+
+            # Build preserve section
+            preserve_section = ""
+            if preserve:
+                preserve_section = "PRESERVE THESE ELEMENTS (do not alter):\n"
+                preserve_section += "\n".join(f"  • {p}" for p in preserve) + "\n\n"
+        else:
+            preserve_section = ""
+
+        # Genre-specific guidelines
+        genre_guidelines = self._get_genre_guidelines(context.get('genre') if context else None)
+
+        prompt = f"""You are a professional photo retoucher applying targeted edits to enhance this photograph. Work like an expert using Lightroom/Photoshop—make precise, natural adjustments that improve the image while respecting its artistic intent.
+
+{context_section}REQUESTED EDITS:
+{improvements_text}
+
+{preserve_section}EDITING PRINCIPLES:
+
+1. INTENSITY GUIDE (indicated in brackets):
+   • [SUBTLE] = Minor refinement, barely noticeable (5-15% adjustment)
+   • [MODERATE] = Clear improvement, still natural (15-30% adjustment)
+   • [SIGNIFICANT] = Strong correction needed (30-50% adjustment)
+
+2. TECHNICAL STANDARDS:
+   • Maintain natural color relationships—avoid oversaturation or color casts
+   • Preserve detail in highlights and shadows—no clipping
+   • Keep noise levels appropriate to the image
+   • Ensure smooth tonal gradations without banding
+   • Maintain sharpness without halos or artifacts
+
+3. QUALITY TARGETS:
+   • The edit should look professional but not over-processed
+   • Someone viewing before/after should think "that's better" not "that's different"
+   • Edits should be invisible—the photo should look naturally good
+{genre_guidelines}
+Generate the enhanced version of this photograph with the requested edits applied."""
+
+        return prompt
+
+    def _get_genre_guidelines(self, genre: Optional[str]) -> str:
+        """Get genre-specific editing guidelines."""
+        guidelines = {
+            'portrait': """
+4. PORTRAIT-SPECIFIC:
+   • Maintain natural skin tones—avoid orange/magenta shifts
+   • Keep skin texture visible (no plastic/airbrushed look)
+   • Eyes should be clear but not unnaturally bright
+   • Hair detail should be preserved
+""",
+            'landscape': """
+4. LANDSCAPE-SPECIFIC:
+   • Maintain realistic sky colors—avoid over-saturated blues
+   • Keep foreground-background tonal balance
+   • Preserve natural atmospheric perspective
+   • Detail should be crisp but not over-sharpened
+""",
+            'street': """
+4. STREET-SPECIFIC:
+   • Embrace natural contrast and grain if present
+   • Don't over-clean or sanitize the scene
+   • Maintain the authentic urban atmosphere
+   • Shadow detail is often intentionally dramatic
+""",
+            'wildlife': """
+4. WILDLIFE-SPECIFIC:
+   • Maintain natural fur/feather texture
+   • Eye clarity is critical—should be sharp and alive
+   • Background separation is important but keep it natural
+   • Preserve environmental context
+""",
+            'macro': """
+4. MACRO-SPECIFIC:
+   • Maximize sharpness in the focal plane
+   • Background bokeh should remain smooth
+   • Color accuracy is critical for natural subjects
+   • Fine detail and texture are paramount
+""",
+            'architecture': """
+4. ARCHITECTURE-SPECIFIC:
+   • Maintain straight verticals where appropriate
+   • Balance interior/exterior exposure carefully
+   • Preserve material textures (stone, glass, metal)
+   • Keep lighting natural to the space
+""",
+            'product': """
+4. PRODUCT-SPECIFIC:
+   • Color accuracy is critical for commercial use
+   • Clean highlights on reflective surfaces
+   • Consistent lighting and shadow direction
+   • Detail should be crisp and commercial-ready
+""",
+        }
+        return guidelines.get(genre, """
+4. GENERAL GUIDELINES:
+   • Respect the photographic style and intent
+   • Don't impose a different aesthetic
+   • Enhance what's there rather than transform it
+""")
+
     @retry_with_backoff(max_retries=3, initial_delay=2.0)
-    def edit(self, image_path: Path, improvements: List[str], output_path: Path) -> bool:
+    def edit(
+        self,
+        image_path: Path,
+        improvements: List[str],
+        output_path: Path,
+        context: Optional[Dict[str, Any]] = None
+    ) -> bool:
         """
         Apply improvements to a photograph.
 
@@ -33,6 +172,7 @@ class PhotoEditor:
             image_path: Path to the original image
             improvements: List of improvement instructions from the Critic
             output_path: Path to save the improved image
+            context: Optional context about the image (genre, subject, mood, preserve list)
 
         Returns:
             True if successful, False otherwise
@@ -41,23 +181,8 @@ class PhotoEditor:
             # Load the original image
             img = Image.open(image_path)
 
-            # Combine improvements into a clear editing prompt
-            improvements_text = "\n".join(f"- {imp}" for imp in improvements)
-
-            prompt = f"""You are an expert photo editor. Edit this photograph to apply the following improvements while maintaining the original composition, subject, and overall character of the image.
-
-Apply these specific improvements:
-{improvements_text}
-
-Important guidelines:
-- Maintain the original subject and composition
-- Apply adjustments naturally and subtly
-- Preserve the artistic intent of the original photograph
-- Focus on technical improvements (exposure, color, clarity, composition refinement)
-- Do not add or remove major elements
-- Ensure the result looks like an enhanced version of the original, not a different photo
-
-Generate the improved version of this photograph."""
+            # Build the editing prompt with context
+            prompt = self._build_edit_prompt(improvements, context)
 
             # Generate the edited image
             # Note: Gemini's image editing capabilities work through the generative model

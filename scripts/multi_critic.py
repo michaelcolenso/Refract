@@ -29,23 +29,65 @@ class BaseCritic(ABC):
 
     def _get_prompt(self) -> str:
         """Standard prompt for all LLMs."""
-        return """You are an expert photography critic. Analyze this photograph and provide feedback in STRICT JSON format only.
+        return """You are a professional photography editor with expertise in post-processing. Analyze this photograph to identify improvements that can be made through editing software (like Lightroom or Photoshop).
 
-Your response must be ONLY valid JSON with no additional text, markdown formatting, or explanations.
+IMPORTANT: Your response must be ONLY valid JSON with no additional text, markdown, or code blocks.
 
-Provide exactly this structure:
 {
+  "genre": "<portrait|landscape|street|wildlife|macro|architecture|product|event|abstract|other>",
+  "subject": "<brief description of the main subject>",
+  "mood": "<the emotional tone or atmosphere of the image>",
   "score": <number 0-100>,
-  "improvements": ["specific actionable instruction 1", "specific actionable instruction 2", "specific actionable instruction 3"],
-  "notes": "brief explanation of the score and why these improvements matter"
+  "technical_assessment": {
+    "exposure": "<underexposed|slightly_under|good|slightly_over|overexposed>",
+    "white_balance": "<too_cool|slightly_cool|neutral|slightly_warm|too_warm>",
+    "focus": "<soft|acceptable|sharp|very_sharp>",
+    "noise": "<none|low|moderate|high>"
+  },
+  "improvements": [
+    {
+      "action": "<specific editing action>",
+      "intensity": "<subtle|moderate|significant>",
+      "priority": <1-5 where 1 is highest priority>,
+      "reason": "<why this improvement helps>"
+    }
+  ],
+  "preserve": ["<aspect 1 to keep unchanged>", "<aspect 2 to keep unchanged>"],
+  "notes": "<2-3 sentence summary of your analysis>"
 }
 
-Guidelines for your analysis:
-- score: Rate the overall quality (composition, lighting, exposure, colors, subject clarity)
-- improvements: List 2-5 SPECIFIC, ACTIONABLE image editing instructions (e.g., "increase brightness by 20%", "boost vibrance in the blue tones", "crop to rule of thirds with subject in left third")
-- notes: Brief reasoning (2-3 sentences max)
+ANALYSIS GUIDELINES:
 
-CRITICAL: Output ONLY the JSON object. No markdown, no code blocks, no additional text."""
+1. RESPECT THE PHOTOGRAPHER'S INTENT
+   - Identify intentional stylistic choices (high contrast B&W, vintage color grading, moody shadows)
+   - Don't "fix" deliberate artistic decisions
+   - Consider the genre conventions (street photography embraces grain, portraits need skin tone accuracy)
+
+2. PRIORITIZE HIGH-IMPACT IMPROVEMENTS
+   - Focus on edits that meaningfully improve the image
+   - Limit to 3-5 improvements maximum
+   - Rank by visual impact, not ease of implementation
+
+3. BE SPECIFIC AND ACTIONABLE
+   Good: "Lift shadows in the foreground by +20 to reveal detail while maintaining mood"
+   Good: "Apply gentle S-curve to midtones for added depth"
+   Good: "Reduce highlights on subject's forehead to recover skin detail"
+   Bad: "Improve the lighting" (too vague)
+   Bad: "Make it look better" (not actionable)
+
+4. CONSIDER TECHNICAL CONSTRAINTS
+   - Severely underexposed shadows may have noise if lifted too much
+   - Blown highlights cannot be recovered
+   - Heavy edits can introduce artifacts
+
+5. SCORING GUIDE
+   - 90-100: Exceptional, minimal editing needed
+   - 75-89: Strong image, minor refinements beneficial
+   - 60-74: Good foundation, moderate editing recommended
+   - 45-59: Potential present, significant editing needed
+   - Below 45: Major technical issues
+
+Output ONLY the JSON object."""
 
     def _parse_response(self, response_text: str) -> Dict[str, Any]:
         """Parse and validate JSON response from any LLM."""
@@ -61,7 +103,7 @@ CRITICAL: Output ONLY the JSON object. No markdown, no code blocks, no additiona
         # Parse JSON
         critique = json.loads(response_text)
 
-        # Validate structure
+        # Validate required fields
         required_keys = {'score', 'improvements', 'notes'}
         if not required_keys.issubset(critique.keys()):
             raise ValueError(f"Missing required keys. Expected {required_keys}, got {critique.keys()}")
@@ -76,6 +118,31 @@ CRITICAL: Output ONLY the JSON object. No markdown, no code blocks, no additiona
 
         # Normalize score to 0-100
         critique['score'] = max(0, min(100, float(critique['score'])))
+
+        # Handle new structured improvements format
+        # Convert from [{action, intensity, priority, reason}] to string list for backward compatibility
+        if critique['improvements'] and isinstance(critique['improvements'][0], dict):
+            # Sort by priority (lower number = higher priority)
+            sorted_improvements = sorted(
+                critique['improvements'],
+                key=lambda x: x.get('priority', 5)
+            )
+            # Store full structured data
+            critique['improvements_detailed'] = sorted_improvements
+            # Extract action strings with intensity for the editor
+            critique['improvements'] = [
+                f"[{imp.get('intensity', 'moderate').upper()}] {imp.get('action', '')}"
+                for imp in sorted_improvements
+            ]
+
+        # Store additional context if present (for editor use)
+        critique['context'] = {
+            'genre': critique.get('genre', 'unknown'),
+            'subject': critique.get('subject', ''),
+            'mood': critique.get('mood', ''),
+            'preserve': critique.get('preserve', []),
+            'technical': critique.get('technical_assessment', {})
+        }
 
         return critique
 
@@ -256,7 +323,9 @@ class MultiCritic:
         critiques = []
         scores = []
         all_improvements = []
+        all_improvements_detailed = []
         all_notes = []
+        contexts = []
 
         for critic in self.critics:
             try:
@@ -266,6 +335,10 @@ class MultiCritic:
                 critiques.append(result)
                 scores.append(result['score'])
                 all_improvements.extend(result['improvements'])
+                if 'improvements_detailed' in result:
+                    all_improvements_detailed.extend(result['improvements_detailed'])
+                if 'context' in result:
+                    contexts.append(result['context'])
                 all_notes.append(f"[{critic.name.upper()}] {result['notes']}")
                 print(f"      Score: {result['score']}/100")
             except Exception as e:
@@ -294,15 +367,59 @@ class MultiCritic:
         # Create summary
         summary = " | ".join(all_notes) if all_notes else "No critiques available"
 
+        # Merge contexts from all critics (use most common values)
+        merged_context = self._merge_contexts(contexts) if contexts else {}
+
         return {
             'critiques': critiques,
             'consensus_score': round(consensus_score, 1),
             'combined_improvements': unique_improvements,
+            'improvements_detailed': all_improvements_detailed,
+            'context': merged_context,
             'summary': summary,
             # Backward compatibility fields
             'score': round(consensus_score, 1),
             'improvements': unique_improvements[:5],  # Limit for editor
             'notes': summary
+        }
+
+    def _merge_contexts(self, contexts: List[Dict[str, Any]]) -> Dict[str, Any]:
+        """Merge context information from multiple critics."""
+        if not contexts:
+            return {}
+
+        # Use most common genre
+        genres = [c.get('genre', 'unknown') for c in contexts if c.get('genre')]
+        genre = max(set(genres), key=genres.count) if genres else 'unknown'
+
+        # Combine subjects (use longest as it's likely most descriptive)
+        subjects = [c.get('subject', '') for c in contexts if c.get('subject')]
+        subject = max(subjects, key=len) if subjects else ''
+
+        # Combine moods
+        moods = [c.get('mood', '') for c in contexts if c.get('mood')]
+        mood = max(moods, key=len) if moods else ''
+
+        # Combine preserve lists (deduplicated)
+        all_preserve = []
+        for c in contexts:
+            all_preserve.extend(c.get('preserve', []))
+        preserve = list(dict.fromkeys(all_preserve))  # Dedupe while preserving order
+
+        # Merge technical assessments (use most common values)
+        technical = {}
+        tech_fields = ['exposure', 'white_balance', 'focus', 'noise']
+        for field in tech_fields:
+            values = [c.get('technical', {}).get(field) for c in contexts if c.get('technical', {}).get(field)]
+            if values:
+                technical[field] = max(set(values), key=values.count)
+
+        return {
+            'genre': genre,
+            'subject': subject,
+            'mood': mood,
+            'preserve': preserve,
+            'technical': technical
         }
 
 
