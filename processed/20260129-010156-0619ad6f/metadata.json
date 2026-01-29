@@ -1,0 +1,262 @@
+{
+  "critiques": [
+    {
+      "genre": "architecture",
+      "subject": "Living room seating area featuring a blue sofa, rust-colored accents, and built-in shelving",
+      "mood": "warm, cozy, and inviting",
+      "score": 72.0,
+      "technical_assessment": {
+        "exposure": "good",
+        "white_balance": "slightly_warm",
+        "focus": "acceptable",
+        "noise": "low"
+      },
+      "improvements": [
+        "[MODERATE] Lift shadows in the background bookshelf area",
+        "[MODERATE] Reduce highlights in the window view",
+        "[SUBTLE] Correct vertical perspective distortion",
+        "[SUBTLE] Desaturate yellows slightly in the neutrals",
+        "[SUBTLE] Increase local contrast (clarity) on textile textures"
+      ],
+      "preserve": [
+        "The rich color contrast between the rust orange and navy blue elements",
+        "The natural softness of the ambient light"
+      ],
+      "notes": "This is a well-composed interior shot that suffers primarily from dynamic range limitations common in mixed lighting. The main goal of editing should be to balance the bright window light with the dark recessed shelving while ensuring vertical lines are mathematically straight.",
+      "improvements_detailed": [
+        {
+          "action": "Lift shadows in the background bookshelf area",
+          "intensity": "moderate",
+          "priority": 1,
+          "reason": "The dark wood shelving creates a black void; lifting shadows will reveal architectural details and balance the exposure."
+        },
+        {
+          "action": "Reduce highlights in the window view",
+          "intensity": "moderate",
+          "priority": 2,
+          "reason": "Recovering highlight detail in the window will reduce the washout effect and make the exterior greenery more visible."
+        },
+        {
+          "action": "Correct vertical perspective distortion",
+          "intensity": "subtle",
+          "priority": 3,
+          "reason": "Ensure the vertical lines of the curtains and bookshelves are perfectly parallel to achieve a professional architectural look."
+        },
+        {
+          "action": "Desaturate yellows slightly in the neutrals",
+          "intensity": "subtle",
+          "priority": 4,
+          "reason": "The walls and ceiling have a slight yellow cast; cleaning this up will make the room look fresher without losing the warmth of the furniture."
+        },
+        {
+          "action": "Increase local contrast (clarity) on textile textures",
+          "intensity": "subtle",
+          "priority": 5,
+          "reason": "Enhance the tactile feel of the velvet sofa and patterned cushions."
+        }
+      ],
+      "context": {
+        "genre": "architecture",
+        "subject": "Living room seating area featuring a blue sofa, rust-colored accents, and built-in shelving",
+        "mood": "warm, cozy, and inviting",
+        "preserve": [
+          "The rich color contrast between the rust orange and navy blue elements",
+          "The natural softness of the ambient light"
+        ],
+        "technical": {
+          "exposure": "good",
+          "white_balance": "slightly_warm",
+          "focus": "acceptable",
+          "noise": "low"
+        }
+      },
+      "llm": "gemini"
+    },
+    {
+      "genre": "architecture",
+      "subject": "A styled living room interior with sofas, accent chairs, patterned curtains, and a large window as the backdrop",
+      "mood": "Warm, cozy, and upscale",
+      "score": 78.0,
+      "technical_assessment": {
+        "exposure": "good",
+        "white_balance": "slightly_warm",
+        "focus": "sharp",
+        "noise": "low"
+      },
+      "improvements": [
+        "[MODERATE] Reduce window highlights (Highlights -40 to -70) and, if needed, use a linear gradient on the window to pull Exposure down ~-0.3 to -0.7 while lifting Shadows slightly (+10 to +25) to retain view detail without flattening the room",
+        "[MODERATE] Correct verticals and overall perspective (Transform/Guided Upright) to straighten window frame and walls; then fine-tune crop to maintain symmetry",
+        "[SUBTLE] Neutralize the warm cast slightly (Temp -200 to -500K, Tint as needed) and selectively cool whites on lampshades/walls using a luminance mask to avoid shifting the orange textiles too much",
+        "[SUBTLE] Add targeted midtone contrast/texture: apply a gentle S-curve or Contrast +10 to +20, plus Clarity/Texture +5 to +15 mainly on upholstery and curtains; keep walls smooth by masking",
+        "[SUBTLE] Subtle cleanup of distractions: remove/clone small bright reflections on the coffee table glass and any minor edge distractions; optionally reduce lamp hotspot brightness with a brush (Exposure -0.2 to -0.4)"
+      ],
+      "preserve": [
+        "The warm, cozy color palette of the textiles and decor",
+        "The overall symmetrical composition centered on the window and sofa"
+      ],
+      "notes": "The image is strong: sharp, well-styled, and naturally inviting with pleasing symmetry. The main opportunities are balancing the bright window area, tightening architectural lines, and making whites slightly cleaner while keeping the warm design intent intact.",
+      "improvements_detailed": [
+        {
+          "action": "Reduce window highlights (Highlights -40 to -70) and, if needed, use a linear gradient on the window to pull Exposure down ~-0.3 to -0.7 while lifting Shadows slightly (+10 to +25) to retain view detail without flattening the room",
+          "intensity": "moderate",
+          "priority": 1,
+          "reason": "The exterior view and window area are the brightest elements and compete for attention; recovering highlight detail improves balance and keeps focus on the room styling."
+        },
+        {
+          "action": "Correct verticals and overall perspective (Transform/Guided Upright) to straighten window frame and walls; then fine-tune crop to maintain symmetry",
+          "intensity": "moderate",
+          "priority": 2,
+          "reason": "Architectural/interior images benefit from clean geometry; subtle keystone distortion makes the space feel less polished."
+        },
+        {
+          "action": "Neutralize the warm cast slightly (Temp -200 to -500K, Tint as needed) and selectively cool whites on lampshades/walls using a luminance mask to avoid shifting the orange textiles too much",
+          "intensity": "subtle",
+          "priority": 3,
+          "reason": "A small WB correction keeps whites looking clean and premium while preserving the intentional warm, inviting palette."
+        },
+        {
+          "action": "Add targeted midtone contrast/texture: apply a gentle S-curve or Contrast +10 to +20, plus Clarity/Texture +5 to +15 mainly on upholstery and curtains; keep walls smooth by masking",
+          "intensity": "subtle",
+          "priority": 4,
+          "reason": "Enhances material definition and depth, making the interior feel more tactile without over-crunching the image."
+        },
+        {
+          "action": "Subtle cleanup of distractions: remove/clone small bright reflections on the coffee table glass and any minor edge distractions; optionally reduce lamp hotspot brightness with a brush (Exposure -0.2 to -0.4)",
+          "intensity": "subtle",
+          "priority": 5,
+          "reason": "Small specular highlights and bright spots pull the eye; cleanup creates a cleaner, more editorial interior look."
+        }
+      ],
+      "context": {
+        "genre": "architecture",
+        "subject": "A styled living room interior with sofas, accent chairs, patterned curtains, and a large window as the backdrop",
+        "mood": "Warm, cozy, and upscale",
+        "preserve": [
+          "The warm, cozy color palette of the textiles and decor",
+          "The overall symmetrical composition centered on the window and sofa"
+        ],
+        "technical": {
+          "exposure": "good",
+          "white_balance": "slightly_warm",
+          "focus": "sharp",
+          "noise": "low"
+        }
+      },
+      "llm": "openai"
+    },
+    {
+      "llm": "anthropic",
+      "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CXamQ5gY4D6nx6ibjyfe7'}",
+      "score": null,
+      "improvements": [],
+      "notes": "Analysis failed: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CXamQ5gY4D6nx6ibjyfe7'}"
+    }
+  ],
+  "consensus_score": 75.0,
+  "combined_improvements": [
+    "[MODERATE] Lift shadows in the background bookshelf area",
+    "[MODERATE] Reduce highlights in the window view",
+    "[SUBTLE] Correct vertical perspective distortion",
+    "[SUBTLE] Desaturate yellows slightly in the neutrals",
+    "[SUBTLE] Increase local contrast (clarity) on textile textures",
+    "[MODERATE] Reduce window highlights (Highlights -40 to -70) and, if needed, use a linear gradient on the window to pull Exposure down ~-0.3 to -0.7 while lifting Shadows slightly (+10 to +25) to retain view detail without flattening the room",
+    "[MODERATE] Correct verticals and overall perspective (Transform/Guided Upright) to straighten window frame and walls; then fine-tune crop to maintain symmetry",
+    "[SUBTLE] Neutralize the warm cast slightly (Temp -200 to -500K, Tint as needed) and selectively cool whites on lampshades/walls using a luminance mask to avoid shifting the orange textiles too much",
+    "[SUBTLE] Add targeted midtone contrast/texture: apply a gentle S-curve or Contrast +10 to +20, plus Clarity/Texture +5 to +15 mainly on upholstery and curtains; keep walls smooth by masking",
+    "[SUBTLE] Subtle cleanup of distractions: remove/clone small bright reflections on the coffee table glass and any minor edge distractions; optionally reduce lamp hotspot brightness with a brush (Exposure -0.2 to -0.4)"
+  ],
+  "improvements_detailed": [
+    {
+      "action": "Lift shadows in the background bookshelf area",
+      "intensity": "moderate",
+      "priority": 1,
+      "reason": "The dark wood shelving creates a black void; lifting shadows will reveal architectural details and balance the exposure."
+    },
+    {
+      "action": "Reduce highlights in the window view",
+      "intensity": "moderate",
+      "priority": 2,
+      "reason": "Recovering highlight detail in the window will reduce the washout effect and make the exterior greenery more visible."
+    },
+    {
+      "action": "Correct vertical perspective distortion",
+      "intensity": "subtle",
+      "priority": 3,
+      "reason": "Ensure the vertical lines of the curtains and bookshelves are perfectly parallel to achieve a professional architectural look."
+    },
+    {
+      "action": "Desaturate yellows slightly in the neutrals",
+      "intensity": "subtle",
+      "priority": 4,
+      "reason": "The walls and ceiling have a slight yellow cast; cleaning this up will make the room look fresher without losing the warmth of the furniture."
+    },
+    {
+      "action": "Increase local contrast (clarity) on textile textures",
+      "intensity": "subtle",
+      "priority": 5,
+      "reason": "Enhance the tactile feel of the velvet sofa and patterned cushions."
+    },
+    {
+      "action": "Reduce window highlights (Highlights -40 to -70) and, if needed, use a linear gradient on the window to pull Exposure down ~-0.3 to -0.7 while lifting Shadows slightly (+10 to +25) to retain view detail without flattening the room",
+      "intensity": "moderate",
+      "priority": 1,
+      "reason": "The exterior view and window area are the brightest elements and compete for attention; recovering highlight detail improves balance and keeps focus on the room styling."
+    },
+    {
+      "action": "Correct verticals and overall perspective (Transform/Guided Upright) to straighten window frame and walls; then fine-tune crop to maintain symmetry",
+      "intensity": "moderate",
+      "priority": 2,
+      "reason": "Architectural/interior images benefit from clean geometry; subtle keystone distortion makes the space feel less polished."
+    },
+    {
+      "action": "Neutralize the warm cast slightly (Temp -200 to -500K, Tint as needed) and selectively cool whites on lampshades/walls using a luminance mask to avoid shifting the orange textiles too much",
+      "intensity": "subtle",
+      "priority": 3,
+      "reason": "A small WB correction keeps whites looking clean and premium while preserving the intentional warm, inviting palette."
+    },
+    {
+      "action": "Add targeted midtone contrast/texture: apply a gentle S-curve or Contrast +10 to +20, plus Clarity/Texture +5 to +15 mainly on upholstery and curtains; keep walls smooth by masking",
+      "intensity": "subtle",
+      "priority": 4,
+      "reason": "Enhances material definition and depth, making the interior feel more tactile without over-crunching the image."
+    },
+    {
+      "action": "Subtle cleanup of distractions: remove/clone small bright reflections on the coffee table glass and any minor edge distractions; optionally reduce lamp hotspot brightness with a brush (Exposure -0.2 to -0.4)",
+      "intensity": "subtle",
+      "priority": 5,
+      "reason": "Small specular highlights and bright spots pull the eye; cleanup creates a cleaner, more editorial interior look."
+    }
+  ],
+  "context": {
+    "genre": "architecture",
+    "subject": "A styled living room interior with sofas, accent chairs, patterned curtains, and a large window as the backdrop",
+    "mood": "warm, cozy, and inviting",
+    "preserve": [
+      "The rich color contrast between the rust orange and navy blue elements",
+      "The natural softness of the ambient light",
+      "The warm, cozy color palette of the textiles and decor",
+      "The overall symmetrical composition centered on the window and sofa"
+    ],
+    "technical": {
+      "exposure": "good",
+      "white_balance": "slightly_warm",
+      "focus": "sharp",
+      "noise": "low"
+    }
+  },
+  "summary": "[GEMINI] This is a well-composed interior shot that suffers primarily from dynamic range limitations common in mixed lighting. The main goal of editing should be to balance the bright window light with the dark recessed shelving while ensuring vertical lines are mathematically straight. | [OPENAI] The image is strong: sharp, well-styled, and naturally inviting with pleasing symmetry. The main opportunities are balancing the bright window area, tightening architectural lines, and making whites slightly cleaner while keeping the warm design intent intact.",
+  "score": 75.0,
+  "improvements": [
+    "[MODERATE] Lift shadows in the background bookshelf area",
+    "[MODERATE] Reduce highlights in the window view",
+    "[SUBTLE] Correct vertical perspective distortion",
+    "[SUBTLE] Desaturate yellows slightly in the neutrals",
+    "[SUBTLE] Increase local contrast (clarity) on textile textures"
+  ],
+  "notes": "[GEMINI] This is a well-composed interior shot that suffers primarily from dynamic range limitations common in mixed lighting. The main goal of editing should be to balance the bright window light with the dark recessed shelving while ensuring vertical lines are mathematically straight. | [OPENAI] The image is strong: sharp, well-styled, and naturally inviting with pleasing symmetry. The main opportunities are balancing the bright window area, tightening architectural lines, and making whites slightly cleaner while keeping the warm design intent intact.",
+  "timestamp": "20260129-010156",
+  "entry_id": "20260129-010156-0619ad6f",
+  "original_filename": "IMG_9456_Original.jpeg",
+  "original_image": "original.jpeg",
+  "edited_image": "edited.jpeg"
+}

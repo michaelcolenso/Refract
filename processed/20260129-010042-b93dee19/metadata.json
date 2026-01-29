@@ -1,0 +1,248 @@
+{
+  "critiques": [
+    {
+      "genre": "landscape",
+      "subject": "Sunset with swirling clouds and tree silhouettes",
+      "mood": "serene, dramatic, atmospheric",
+      "score": 82.0,
+      "technical_assessment": {
+        "exposure": "good",
+        "white_balance": "neutral",
+        "focus": "sharp",
+        "noise": "low"
+      },
+      "improvements": [
+        "[MODERATE] Increase local contrast (Clarity) on the cloud formations",
+        "[SUBTLE] Deepen blacks/shadows",
+        "[SUBTLE] Boost Vibrance and warm saturation",
+        "[SUBTLE] Reduce highlights"
+      ],
+      "preserve": [
+        "The silhouette nature of the foreground trees",
+        "The natural gradient transition from orange to blue"
+      ],
+      "notes": "A strong composition balancing the sun on the left with the vertical trees on the right. The unique cloud pattern is the hero of this shot and should be highlighted through texture adjustments, while keeping the color grading natural but vibrant.",
+      "improvements_detailed": [
+        {
+          "action": "Increase local contrast (Clarity) on the cloud formations",
+          "intensity": "moderate",
+          "priority": 1,
+          "reason": "To emphasize the unique swirling texture of the lenticular-style clouds without making the whole image gritty"
+        },
+        {
+          "action": "Deepen blacks/shadows",
+          "intensity": "subtle",
+          "priority": 2,
+          "reason": "To ensure the tree silhouettes are solid black against the colorful sky, removing any muddy shadow details"
+        },
+        {
+          "action": "Boost Vibrance and warm saturation",
+          "intensity": "subtle",
+          "priority": 3,
+          "reason": "To enhance the golden hour orange tones while preventing the blue upper sky from looking gray"
+        },
+        {
+          "action": "Reduce highlights",
+          "intensity": "subtle",
+          "priority": 4,
+          "reason": "To soften the transition around the sun disk and recover slight detail in the brightest orange areas"
+        }
+      ],
+      "context": {
+        "genre": "landscape",
+        "subject": "Sunset with swirling clouds and tree silhouettes",
+        "mood": "serene, dramatic, atmospheric",
+        "preserve": [
+          "The silhouette nature of the foreground trees",
+          "The natural gradient transition from orange to blue"
+        ],
+        "technical": {
+          "exposure": "good",
+          "white_balance": "neutral",
+          "focus": "sharp",
+          "noise": "low"
+        }
+      },
+      "llm": "gemini"
+    },
+    {
+      "genre": "landscape",
+      "subject": "Sunset over a distant body of water with silhouetted trees in the foreground",
+      "mood": "Calm, warm, and contemplative",
+      "score": 78.0,
+      "technical_assessment": {
+        "exposure": "slightly_under",
+        "white_balance": "slightly_warm",
+        "focus": "acceptable",
+        "noise": "low"
+      },
+      "improvements": [
+        "[MODERATE] Recover highlight detail around the sun by lowering Highlights (~-40 to -70) and Whites slightly (~-10 to -25), then use a subtle radial mask to tame the brightest core while keeping it luminous",
+        "[SUBTLE] Lift midtone shadows selectively in the tree line/foreground with a luminance-range mask (Shadows +15 to +30) while keeping true blacks anchored (Blacks -5 to -15)",
+        "[SUBTLE] Add local contrast and structure to the cloud bands using a graduated mask (Texture +10 to +20, Clarity +8 to +15, Dehaze +5 to +10)",
+        "[MODERATE] Crop slightly from the left edge (and a touch from the bottom if needed) to remove the small dark intrusion and tighten composition around the sun and tall trees",
+        "[SUBTLE] Apply mild output sharpening with masking (e.g., Amount 40\u201360, Radius 0.8\u20131.2, Masking 70\u201390) and slight noise reduction in the sky (Luminance NR 10\u201320)"
+      ],
+      "preserve": [
+        "The warm sunset color palette and gradient",
+        "The strong silhouetted tree shapes as a compositional anchor"
+      ],
+      "notes": "The image has a pleasing sunset gradient and strong silhouette composition, with attractive layered clouds. Minor highlight recovery, selective shadow control, and localized sky contrast will improve tonal balance and clarity while preserving the intended warm, tranquil mood.",
+      "improvements_detailed": [
+        {
+          "action": "Recover highlight detail around the sun by lowering Highlights (~-40 to -70) and Whites slightly (~-10 to -25), then use a subtle radial mask to tame the brightest core while keeping it luminous",
+          "intensity": "moderate",
+          "priority": 1,
+          "reason": "Reduces the blown/very bright area and improves tonal gradation near the sun without losing the sunset impact."
+        },
+        {
+          "action": "Lift midtone shadows selectively in the tree line/foreground with a luminance-range mask (Shadows +15 to +30) while keeping true blacks anchored (Blacks -5 to -15)",
+          "intensity": "subtle",
+          "priority": 2,
+          "reason": "Reveals a touch more separation and detail in the silhouettes so the foreground reads cleaner without breaking the dusk mood."
+        },
+        {
+          "action": "Add local contrast and structure to the cloud bands using a graduated mask (Texture +10 to +20, Clarity +8 to +15, Dehaze +5 to +10)",
+          "intensity": "subtle",
+          "priority": 3,
+          "reason": "Enhances the layered cloud pattern and depth in the sky, guiding the eye across the frame."
+        },
+        {
+          "action": "Crop slightly from the left edge (and a touch from the bottom if needed) to remove the small dark intrusion and tighten composition around the sun and tall trees",
+          "intensity": "moderate",
+          "priority": 4,
+          "reason": "Eliminates a distracting element and strengthens the visual balance between the sun and the dominant tree silhouettes."
+        },
+        {
+          "action": "Apply mild output sharpening with masking (e.g., Amount 40\u201360, Radius 0.8\u20131.2, Masking 70\u201390) and slight noise reduction in the sky (Luminance NR 10\u201320)",
+          "intensity": "subtle",
+          "priority": 5,
+          "reason": "Keeps edges of the trees crisp while preventing the smooth sky from looking gritty after contrast adjustments."
+        }
+      ],
+      "context": {
+        "genre": "landscape",
+        "subject": "Sunset over a distant body of water with silhouetted trees in the foreground",
+        "mood": "Calm, warm, and contemplative",
+        "preserve": [
+          "The warm sunset color palette and gradient",
+          "The strong silhouetted tree shapes as a compositional anchor"
+        ],
+        "technical": {
+          "exposure": "slightly_under",
+          "white_balance": "slightly_warm",
+          "focus": "acceptable",
+          "noise": "low"
+        }
+      },
+      "llm": "openai"
+    },
+    {
+      "llm": "anthropic",
+      "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CXamK9utNrUTMC5PrvjoB'}",
+      "score": null,
+      "improvements": [],
+      "notes": "Analysis failed: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CXamK9utNrUTMC5PrvjoB'}"
+    }
+  ],
+  "consensus_score": 80.0,
+  "combined_improvements": [
+    "[MODERATE] Increase local contrast (Clarity) on the cloud formations",
+    "[SUBTLE] Deepen blacks/shadows",
+    "[SUBTLE] Boost Vibrance and warm saturation",
+    "[SUBTLE] Reduce highlights",
+    "[MODERATE] Recover highlight detail around the sun by lowering Highlights (~-40 to -70) and Whites slightly (~-10 to -25), then use a subtle radial mask to tame the brightest core while keeping it luminous",
+    "[SUBTLE] Lift midtone shadows selectively in the tree line/foreground with a luminance-range mask (Shadows +15 to +30) while keeping true blacks anchored (Blacks -5 to -15)",
+    "[SUBTLE] Add local contrast and structure to the cloud bands using a graduated mask (Texture +10 to +20, Clarity +8 to +15, Dehaze +5 to +10)",
+    "[MODERATE] Crop slightly from the left edge (and a touch from the bottom if needed) to remove the small dark intrusion and tighten composition around the sun and tall trees",
+    "[SUBTLE] Apply mild output sharpening with masking (e.g., Amount 40\u201360, Radius 0.8\u20131.2, Masking 70\u201390) and slight noise reduction in the sky (Luminance NR 10\u201320)"
+  ],
+  "improvements_detailed": [
+    {
+      "action": "Increase local contrast (Clarity) on the cloud formations",
+      "intensity": "moderate",
+      "priority": 1,
+      "reason": "To emphasize the unique swirling texture of the lenticular-style clouds without making the whole image gritty"
+    },
+    {
+      "action": "Deepen blacks/shadows",
+      "intensity": "subtle",
+      "priority": 2,
+      "reason": "To ensure the tree silhouettes are solid black against the colorful sky, removing any muddy shadow details"
+    },
+    {
+      "action": "Boost Vibrance and warm saturation",
+      "intensity": "subtle",
+      "priority": 3,
+      "reason": "To enhance the golden hour orange tones while preventing the blue upper sky from looking gray"
+    },
+    {
+      "action": "Reduce highlights",
+      "intensity": "subtle",
+      "priority": 4,
+      "reason": "To soften the transition around the sun disk and recover slight detail in the brightest orange areas"
+    },
+    {
+      "action": "Recover highlight detail around the sun by lowering Highlights (~-40 to -70) and Whites slightly (~-10 to -25), then use a subtle radial mask to tame the brightest core while keeping it luminous",
+      "intensity": "moderate",
+      "priority": 1,
+      "reason": "Reduces the blown/very bright area and improves tonal gradation near the sun without losing the sunset impact."
+    },
+    {
+      "action": "Lift midtone shadows selectively in the tree line/foreground with a luminance-range mask (Shadows +15 to +30) while keeping true blacks anchored (Blacks -5 to -15)",
+      "intensity": "subtle",
+      "priority": 2,
+      "reason": "Reveals a touch more separation and detail in the silhouettes so the foreground reads cleaner without breaking the dusk mood."
+    },
+    {
+      "action": "Add local contrast and structure to the cloud bands using a graduated mask (Texture +10 to +20, Clarity +8 to +15, Dehaze +5 to +10)",
+      "intensity": "subtle",
+      "priority": 3,
+      "reason": "Enhances the layered cloud pattern and depth in the sky, guiding the eye across the frame."
+    },
+    {
+      "action": "Crop slightly from the left edge (and a touch from the bottom if needed) to remove the small dark intrusion and tighten composition around the sun and tall trees",
+      "intensity": "moderate",
+      "priority": 4,
+      "reason": "Eliminates a distracting element and strengthens the visual balance between the sun and the dominant tree silhouettes."
+    },
+    {
+      "action": "Apply mild output sharpening with masking (e.g., Amount 40\u201360, Radius 0.8\u20131.2, Masking 70\u201390) and slight noise reduction in the sky (Luminance NR 10\u201320)",
+      "intensity": "subtle",
+      "priority": 5,
+      "reason": "Keeps edges of the trees crisp while preventing the smooth sky from looking gritty after contrast adjustments."
+    }
+  ],
+  "context": {
+    "genre": "landscape",
+    "subject": "Sunset over a distant body of water with silhouetted trees in the foreground",
+    "mood": "serene, dramatic, atmospheric",
+    "preserve": [
+      "The silhouette nature of the foreground trees",
+      "The natural gradient transition from orange to blue",
+      "The warm sunset color palette and gradient",
+      "The strong silhouetted tree shapes as a compositional anchor"
+    ],
+    "technical": {
+      "exposure": "slightly_under",
+      "white_balance": "neutral",
+      "focus": "sharp",
+      "noise": "low"
+    }
+  },
+  "summary": "[GEMINI] A strong composition balancing the sun on the left with the vertical trees on the right. The unique cloud pattern is the hero of this shot and should be highlighted through texture adjustments, while keeping the color grading natural but vibrant. | [OPENAI] The image has a pleasing sunset gradient and strong silhouette composition, with attractive layered clouds. Minor highlight recovery, selective shadow control, and localized sky contrast will improve tonal balance and clarity while preserving the intended warm, tranquil mood.",
+  "score": 80.0,
+  "improvements": [
+    "[MODERATE] Increase local contrast (Clarity) on the cloud formations",
+    "[SUBTLE] Deepen blacks/shadows",
+    "[SUBTLE] Boost Vibrance and warm saturation",
+    "[SUBTLE] Reduce highlights",
+    "[MODERATE] Recover highlight detail around the sun by lowering Highlights (~-40 to -70) and Whites slightly (~-10 to -25), then use a subtle radial mask to tame the brightest core while keeping it luminous"
+  ],
+  "notes": "[GEMINI] A strong composition balancing the sun on the left with the vertical trees on the right. The unique cloud pattern is the hero of this shot and should be highlighted through texture adjustments, while keeping the color grading natural but vibrant. | [OPENAI] The image has a pleasing sunset gradient and strong silhouette composition, with attractive layered clouds. Minor highlight recovery, selective shadow control, and localized sky contrast will improve tonal balance and clarity while preserving the intended warm, tranquil mood.",
+  "timestamp": "20260129-010042",
+  "entry_id": "20260129-010042-b93dee19",
+  "original_filename": "IMG_2008_Original.jpeg",
+  "original_image": "original.jpeg",
+  "edited_image": "edited.jpeg"
+}
