@@ -22,7 +22,7 @@ class PhotoEditor:
         """Initialize the Editor with Gemini API credentials."""
         self.client = genai.Client(api_key=api_key)
         # Using Gemini 3 Pro Preview for image editing
-        self.model_name = 'gemini-3-pro-preview'
+        self.model_name = 'gemini-3-pro-image-preview'
 
     @retry_with_backoff(max_retries=3, initial_delay=2.0)
     def edit(self, image_path: Path, improvements: List[str], output_path: Path) -> bool:
