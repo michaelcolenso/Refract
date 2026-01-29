@@ -8,13 +8,13 @@
 </head>
 <body>
     <div class="container">
-        <header>
+        <header class="hero">
             <h1>REFRACT</h1>
-            <p>Automated Photography Improvement Pipeline</p>
+            <p class="subtitle">Automated Photography Improvement Pipeline</p>
             <div class="stats">
-                <div>Total Entries: <span>{{ total }}</span></div>
+                <div class="stat-item">Total Entries: <span>{{ total }}</span></div>
                 {% if entries and total > 0 %}
-                <div>Average Score: <span>{{ "%.1f"|format(entries|sum(attribute='score') / total) }}</span></div>
+                <div class="stat-item">Average Score: <span>{{ "%.1f"|format(entries|sum(attribute='score') / total) }}</span></div>
                 {% endif %}
             </div>
         </header>

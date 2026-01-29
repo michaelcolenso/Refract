@@ -8,9 +8,9 @@
 </head>
 <body>
     <div class="container">
-        <header>
+        <header class="hero hero-compact">
             <h1>REFRACT</h1>
-            <p>Photography Analysis & Enhancement</p>
+            <p class="subtitle">Photography Analysis & Enhancement</p>
         </header>
 
         <a href="index.html" class="back-link">Back to Gallery</a>
@@ -26,25 +26,25 @@
             <div class="analysis">
                 <h3>Multi-LLM Analysis</h3>
                 <div class="score-display">{{ entry.consensus_score or entry.score }}/100</div>
-                <p style="text-align: center; color: #666; margin-bottom: 20px;">Consensus Score</p>
+                <p class="score-caption">Consensus Score</p>
 
                 {% if entry.critiques %}
-                <div class="llm-critiques" style="display: grid; gap: 15px; margin-bottom: 25px;">
+                <div class="llm-critiques">
                     {% for critique in entry.critiques %}
-                    <div class="llm-critique" style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid {% if critique.llm == 'gemini' %}#4285f4{% elif critique.llm == 'openai' %}#10a37f{% elif critique.llm == 'anthropic' %}#d97706{% else %}#666{% endif %};">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                            <strong style="text-transform: uppercase;">{{ critique.llm }}</strong>
+                    <div class="llm-critique llm-{{ critique.llm }}">
+                        <div class="llm-critique-header">
+                            <strong class="llm-name">{{ critique.llm }}</strong>
                             {% if critique.score is not none %}
-                            <span style="background: {% if critique.score >= 80 %}#27ae60{% elif critique.score >= 60 %}#f39c12{% else %}#e74c3c{% endif %}; color: white; padding: 4px 12px; border-radius: 15px; font-weight: bold;">{{ critique.score }}/100</span>
+                            <span class="score-pill {% if critique.score >= 80 %}score-good{% elif critique.score >= 60 %}score-mid{% else %}score-low{% endif %}">{{ critique.score }}/100</span>
                             {% else %}
-                            <span style="background: #e74c3c; color: white; padding: 4px 12px; border-radius: 15px;">Failed</span>
+                            <span class="score-pill score-fail">Failed</span>
                             {% endif %}
                         </div>
                         {% if critique.notes %}
-                        <p style="margin: 0; color: #555; font-size: 0.9em;">{{ critique.notes }}</p>
+                        <p class="llm-notes">{{ critique.notes }}</p>
                         {% endif %}
                         {% if critique.improvements %}
-                        <ul style="margin: 10px 0 0 0; padding-left: 20px; font-size: 0.85em; color: #666;">
+                        <ul class="llm-improvements">
                             {% for imp in critique.improvements[:3] %}
                             <li>{{ imp }}</li>
                             {% endfor %}
@@ -66,7 +66,7 @@
             </div>
 
             <div class="comparison-container">
-                <h3 style="margin-bottom: 20px; text-align: center;">Before & After Comparison</h3>
+                <h3 class="comparison-title">Before & After Comparison</h3>
 
                 <!-- Interactive Before/After Slider -->
                 <div class="comparison-slider" id="comparison-slider">
@@ -103,9 +103,9 @@
                 </noscript>
 
                 <!-- Full comparison image -->
-                <div style="margin-top: 30px;">
+                <div class="comparison-full">
                     <div class="comparison-label">Side-by-Side</div>
-                    <img src="{{ entry.web_comparison }}" alt="Comparison" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <img src="{{ entry.web_comparison }}" alt="Comparison" class="comparison-full-image">
                 </div>
             </div>
         </div>
