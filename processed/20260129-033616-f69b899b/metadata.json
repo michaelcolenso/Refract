@@ -1,0 +1,248 @@
+{
+  "critiques": [
+    {
+      "genre": "portrait",
+      "subject": "Young woman smiling in a beanie and layered shirt against a brick wall",
+      "mood": "Casual, cheerful, urban",
+      "score": 62.0,
+      "technical_assessment": {
+        "exposure": "good",
+        "white_balance": "slightly_cool",
+        "focus": "soft",
+        "noise": "low"
+      },
+      "improvements": [
+        "[MODERATE] Selectively sharpen eyes, lips, and eyebrows using texture/clarity brushes",
+        "[SUBTLE] Warm up skin tones and reduce magenta tint",
+        "[MODERATE] Reduce or feather the existing dark vignette",
+        "[SUBTLE] Apply subtle S-curve to increase midtone contrast"
+      ],
+      "preserve": [
+        "The natural, genuine expression of the subject",
+        "The complimentary color scheme (navy/yellow against red brick)"
+      ],
+      "notes": "The photograph captures a lovely expression, but the technical execution is hampered by soft focus and a heavy post-processing style (haze/vignette). The goal is to modernize the edit by cleaning up the frame edges and creating the illusion of sharpness on the face.",
+      "improvements_detailed": [
+        {
+          "action": "Selectively sharpen eyes, lips, and eyebrows using texture/clarity brushes",
+          "intensity": "moderate",
+          "priority": 1,
+          "reason": "The image suffers from overall softness/blur; bringing definition back to the facial features is critical to anchor the viewer's attention."
+        },
+        {
+          "action": "Warm up skin tones and reduce magenta tint",
+          "intensity": "subtle",
+          "priority": 2,
+          "reason": "The skin appears slightly pale and cool; adding warmth will give the subject a healthier glow and better separation from the blue beanie."
+        },
+        {
+          "action": "Reduce or feather the existing dark vignette",
+          "intensity": "moderate",
+          "priority": 3,
+          "reason": "The heavy vignette creates a 'tunnel vision' effect that feels dated and artificially darkens the subject's clothing."
+        },
+        {
+          "action": "Apply subtle S-curve to increase midtone contrast",
+          "intensity": "subtle",
+          "priority": 4,
+          "reason": "The image has a slightly washed-out or hazy quality; boosting contrast will help the colors of the shirt and brick wall pop."
+        }
+      ],
+      "context": {
+        "genre": "portrait",
+        "subject": "Young woman smiling in a beanie and layered shirt against a brick wall",
+        "mood": "Casual, cheerful, urban",
+        "preserve": [
+          "The natural, genuine expression of the subject",
+          "The complimentary color scheme (navy/yellow against red brick)"
+        ],
+        "technical": {
+          "exposure": "good",
+          "white_balance": "slightly_cool",
+          "focus": "soft",
+          "noise": "low"
+        }
+      },
+      "llm": "gemini"
+    },
+    {
+      "genre": "portrait",
+      "subject": "Smiling person in a beanie and hoodie posed against a brick wall",
+      "mood": "Warm, friendly, casual",
+      "score": 78.0,
+      "technical_assessment": {
+        "exposure": "good",
+        "white_balance": "slightly_warm",
+        "focus": "acceptable",
+        "noise": "low"
+      },
+      "improvements": [
+        "[MODERATE] Apply a tighter crop to reduce empty space (especially top/left) and place the eyes near the upper third; keep some brick context but prioritize the face",
+        "[MODERATE] Use a subject mask to add selective sharpening/texture to eyes, brows, and lips (e.g., Sharpen +20 to +35, Texture +5 to +10) while keeping skin texture natural; avoid sharpening the brick wall",
+        "[SUBTLE] Reduce facial highlights and slightly lift midtone contrast: Highlights -10 to -25 on the face; add a gentle S-curve or Contrast +5 to +10; optionally Blacks -3 to -8",
+        "[SUBTLE] Refine color: cool WB slightly (Temp -200 to -500K) and/or reduce orange/yellow saturation in skin and clothing (HSL Orange Sat -5 to -15, Yellow Sat -5 to -15) while keeping overall warmth",
+        "[MODERATE] Clean up small distractions: remove/clone the sunglasses hanging on the chest and any stray flyaway hairs if desired; optionally reduce the dark vignette at the bottom corners"
+      ],
+      "preserve": [
+        "The natural, candid smile and approachable expression",
+        "The soft background blur that separates the subject from the brick wall"
+      ],
+      "notes": "This is a strong casual portrait with pleasing separation and a warm, inviting feel. The main opportunities are to tighten the framing and add targeted crispness to the eyes/face while slightly taming warmth and highlights for a cleaner, more polished look.",
+      "improvements_detailed": [
+        {
+          "action": "Apply a tighter crop to reduce empty space (especially top/left) and place the eyes near the upper third; keep some brick context but prioritize the face",
+          "intensity": "moderate",
+          "priority": 1,
+          "reason": "Strengthens composition and attention on the subject\u2019s expression while reducing background dominance."
+        },
+        {
+          "action": "Use a subject mask to add selective sharpening/texture to eyes, brows, and lips (e.g., Sharpen +20 to +35, Texture +5 to +10) while keeping skin texture natural; avoid sharpening the brick wall",
+          "intensity": "moderate",
+          "priority": 2,
+          "reason": "The face reads a bit soft; targeted detail improves perceived focus and portrait impact without making skin harsh."
+        },
+        {
+          "action": "Reduce facial highlights and slightly lift midtone contrast: Highlights -10 to -25 on the face; add a gentle S-curve or Contrast +5 to +10; optionally Blacks -3 to -8",
+          "intensity": "subtle",
+          "priority": 3,
+          "reason": "Balances bright areas on the face and adds depth/shape while maintaining the friendly mood."
+        },
+        {
+          "action": "Refine color: cool WB slightly (Temp -200 to -500K) and/or reduce orange/yellow saturation in skin and clothing (HSL Orange Sat -5 to -15, Yellow Sat -5 to -15) while keeping overall warmth",
+          "intensity": "subtle",
+          "priority": 4,
+          "reason": "Skin and brick background lean warm; a small correction improves skin tone accuracy and separation from the wall."
+        },
+        {
+          "action": "Clean up small distractions: remove/clone the sunglasses hanging on the chest and any stray flyaway hairs if desired; optionally reduce the dark vignette at the bottom corners",
+          "intensity": "moderate",
+          "priority": 5,
+          "reason": "Eliminates attention-grabbers that compete with the face and keeps the viewer\u2019s focus on the smile and eyes."
+        }
+      ],
+      "context": {
+        "genre": "portrait",
+        "subject": "Smiling person in a beanie and hoodie posed against a brick wall",
+        "mood": "Warm, friendly, casual",
+        "preserve": [
+          "The natural, candid smile and approachable expression",
+          "The soft background blur that separates the subject from the brick wall"
+        ],
+        "technical": {
+          "exposure": "good",
+          "white_balance": "slightly_warm",
+          "focus": "acceptable",
+          "noise": "low"
+        }
+      },
+      "llm": "openai"
+    },
+    {
+      "llm": "anthropic",
+      "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.0.image.source.base64: image exceeds 5 MB maximum: 15154340 bytes > 5242880 bytes'}, 'request_id': 'req_011CXayBAyZcarDX5sxCM1Tu'}",
+      "score": null,
+      "improvements": [],
+      "notes": "Analysis failed: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.0.image.source.base64: image exceeds 5 MB maximum: 15154340 bytes > 5242880 bytes'}, 'request_id': 'req_011CXayBAyZcarDX5sxCM1Tu'}"
+    }
+  ],
+  "consensus_score": 70.0,
+  "combined_improvements": [
+    "[MODERATE] Selectively sharpen eyes, lips, and eyebrows using texture/clarity brushes",
+    "[SUBTLE] Warm up skin tones and reduce magenta tint",
+    "[MODERATE] Reduce or feather the existing dark vignette",
+    "[SUBTLE] Apply subtle S-curve to increase midtone contrast",
+    "[MODERATE] Apply a tighter crop to reduce empty space (especially top/left) and place the eyes near the upper third; keep some brick context but prioritize the face",
+    "[MODERATE] Use a subject mask to add selective sharpening/texture to eyes, brows, and lips (e.g., Sharpen +20 to +35, Texture +5 to +10) while keeping skin texture natural; avoid sharpening the brick wall",
+    "[SUBTLE] Reduce facial highlights and slightly lift midtone contrast: Highlights -10 to -25 on the face; add a gentle S-curve or Contrast +5 to +10; optionally Blacks -3 to -8",
+    "[SUBTLE] Refine color: cool WB slightly (Temp -200 to -500K) and/or reduce orange/yellow saturation in skin and clothing (HSL Orange Sat -5 to -15, Yellow Sat -5 to -15) while keeping overall warmth",
+    "[MODERATE] Clean up small distractions: remove/clone the sunglasses hanging on the chest and any stray flyaway hairs if desired; optionally reduce the dark vignette at the bottom corners"
+  ],
+  "improvements_detailed": [
+    {
+      "action": "Selectively sharpen eyes, lips, and eyebrows using texture/clarity brushes",
+      "intensity": "moderate",
+      "priority": 1,
+      "reason": "The image suffers from overall softness/blur; bringing definition back to the facial features is critical to anchor the viewer's attention."
+    },
+    {
+      "action": "Warm up skin tones and reduce magenta tint",
+      "intensity": "subtle",
+      "priority": 2,
+      "reason": "The skin appears slightly pale and cool; adding warmth will give the subject a healthier glow and better separation from the blue beanie."
+    },
+    {
+      "action": "Reduce or feather the existing dark vignette",
+      "intensity": "moderate",
+      "priority": 3,
+      "reason": "The heavy vignette creates a 'tunnel vision' effect that feels dated and artificially darkens the subject's clothing."
+    },
+    {
+      "action": "Apply subtle S-curve to increase midtone contrast",
+      "intensity": "subtle",
+      "priority": 4,
+      "reason": "The image has a slightly washed-out or hazy quality; boosting contrast will help the colors of the shirt and brick wall pop."
+    },
+    {
+      "action": "Apply a tighter crop to reduce empty space (especially top/left) and place the eyes near the upper third; keep some brick context but prioritize the face",
+      "intensity": "moderate",
+      "priority": 1,
+      "reason": "Strengthens composition and attention on the subject\u2019s expression while reducing background dominance."
+    },
+    {
+      "action": "Use a subject mask to add selective sharpening/texture to eyes, brows, and lips (e.g., Sharpen +20 to +35, Texture +5 to +10) while keeping skin texture natural; avoid sharpening the brick wall",
+      "intensity": "moderate",
+      "priority": 2,
+      "reason": "The face reads a bit soft; targeted detail improves perceived focus and portrait impact without making skin harsh."
+    },
+    {
+      "action": "Reduce facial highlights and slightly lift midtone contrast: Highlights -10 to -25 on the face; add a gentle S-curve or Contrast +5 to +10; optionally Blacks -3 to -8",
+      "intensity": "subtle",
+      "priority": 3,
+      "reason": "Balances bright areas on the face and adds depth/shape while maintaining the friendly mood."
+    },
+    {
+      "action": "Refine color: cool WB slightly (Temp -200 to -500K) and/or reduce orange/yellow saturation in skin and clothing (HSL Orange Sat -5 to -15, Yellow Sat -5 to -15) while keeping overall warmth",
+      "intensity": "subtle",
+      "priority": 4,
+      "reason": "Skin and brick background lean warm; a small correction improves skin tone accuracy and separation from the wall."
+    },
+    {
+      "action": "Clean up small distractions: remove/clone the sunglasses hanging on the chest and any stray flyaway hairs if desired; optionally reduce the dark vignette at the bottom corners",
+      "intensity": "moderate",
+      "priority": 5,
+      "reason": "Eliminates attention-grabbers that compete with the face and keeps the viewer\u2019s focus on the smile and eyes."
+    }
+  ],
+  "context": {
+    "genre": "portrait",
+    "subject": "Young woman smiling in a beanie and layered shirt against a brick wall",
+    "mood": "Casual, cheerful, urban",
+    "preserve": [
+      "The natural, genuine expression of the subject",
+      "The complimentary color scheme (navy/yellow against red brick)",
+      "The natural, candid smile and approachable expression",
+      "The soft background blur that separates the subject from the brick wall"
+    ],
+    "technical": {
+      "exposure": "good",
+      "white_balance": "slightly_cool",
+      "focus": "soft",
+      "noise": "low"
+    }
+  },
+  "summary": "[GEMINI] The photograph captures a lovely expression, but the technical execution is hampered by soft focus and a heavy post-processing style (haze/vignette). The goal is to modernize the edit by cleaning up the frame edges and creating the illusion of sharpness on the face. | [OPENAI] This is a strong casual portrait with pleasing separation and a warm, inviting feel. The main opportunities are to tighten the framing and add targeted crispness to the eyes/face while slightly taming warmth and highlights for a cleaner, more polished look.",
+  "score": 70.0,
+  "improvements": [
+    "[MODERATE] Selectively sharpen eyes, lips, and eyebrows using texture/clarity brushes",
+    "[SUBTLE] Warm up skin tones and reduce magenta tint",
+    "[MODERATE] Reduce or feather the existing dark vignette",
+    "[SUBTLE] Apply subtle S-curve to increase midtone contrast",
+    "[MODERATE] Apply a tighter crop to reduce empty space (especially top/left) and place the eyes near the upper third; keep some brick context but prioritize the face"
+  ],
+  "notes": "[GEMINI] The photograph captures a lovely expression, but the technical execution is hampered by soft focus and a heavy post-processing style (haze/vignette). The goal is to modernize the edit by cleaning up the frame edges and creating the illusion of sharpness on the face. | [OPENAI] This is a strong casual portrait with pleasing separation and a warm, inviting feel. The main opportunities are to tighten the framing and add targeted crispness to the eyes/face while slightly taming warmth and highlights for a cleaner, more polished look.",
+  "timestamp": "20260129-033616",
+  "entry_id": "20260129-033616-f69b899b",
+  "original_filename": "IMG_0592.jpeg",
+  "original_image": "original.jpeg",
+  "edited_image": "edited.jpeg"
+}
