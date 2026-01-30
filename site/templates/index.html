@@ -28,7 +28,12 @@
                     <img src="{{ entry.web_edited }}" alt="Enhanced {{ entry.original_filename }}" class="entry-thumbnail">
                     <div class="entry-content">
                         <div class="entry-header">
-                            <div class="entry-score">{{ entry.consensus_score or entry.score }}</div>
+                            <div class="entry-score">
+                                {% if entry.re_review %}{{ entry.re_review.consensus_score }}{% else %}{{ entry.consensus_score or entry.score }}{% endif %}
+                                {% if entry.re_review and entry.re_review.score_delta > 0 %}
+                                <span class="entry-score-delta">+{{ entry.re_review.score_delta }}</span>
+                                {% endif %}
+                            </div>
                             <div class="entry-date">{{ entry.timestamp[:8] }}</div>
                         </div>
                         {% if entry.critiques %}
