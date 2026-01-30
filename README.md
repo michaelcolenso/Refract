@@ -58,6 +58,19 @@ python scripts/pipeline.py              # Process all images in inbox/
 python scripts/pipeline.py --dry-run    # Analyze only, don't edit or archive
 ```
 
+### Image Editing Configuration
+
+REFRACT uses Gemini image generation for edits. By default it uses **Pro** for
+all edits. You can override this behavior via environment variables:
+
+```bash
+GEMINI_IMAGE_MODEL_POLICY=pro    # pro | flash
+GEMINI_IMAGE_MODEL=gemini-2.5-flash-image   # explicit override
+GEMINI_IMAGE_SIZE=2K            # Pro-only: 1K, 2K, 4K
+GEMINI_IMAGE_ASPECT_RATIO=auto  # or 1:1, 4:3, 16:9, etc
+GEMINI_IMAGE_PASSES=1           # number of edit passes
+```
+
 ### Test Individual Components
 
 ```bash
