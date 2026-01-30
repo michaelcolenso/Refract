@@ -19,7 +19,7 @@ from PIL import Image
 class SiteGenerator:
     """Generates documentation and rebuilds the static website."""
 
-    _IMPROVEMENT_TAG_RE = re.compile(r"^\\s*\\[(subtle|moderate|significant|strong|major|minor|severe|light|heavy)\\]\\s*", re.IGNORECASE)
+    _IMPROVEMENT_TAG_RE = re.compile(r"^\s*\[(subtle|moderate|significant|strong|major|minor|severe|light|heavy)\]\s*", re.IGNORECASE)
 
     def __init__(self, repo_root: Path):
         """Initialize the generator."""

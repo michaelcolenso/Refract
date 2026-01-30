@@ -19,7 +19,7 @@ from utils import retry_with_backoff
 class PhotoEditor:
     """Applies improvements to photographs using Gemini's image editing capabilities."""
 
-    _IMPROVEMENT_TAG_RE = re.compile(r"^\\s*\\[(subtle|moderate|significant|strong|major|minor|severe|light|heavy)\\]\\s*", re.IGNORECASE)
+    _IMPROVEMENT_TAG_RE = re.compile(r"^\s*\[(subtle|moderate|significant|strong|major|minor|severe|light|heavy)\]\s*", re.IGNORECASE)
 
     def __init__(self, api_key: str):
         """Initialize the Editor with Gemini API credentials."""
