@@ -204,6 +204,12 @@ class SiteGenerator:
                 for critique in entry['critiques']:
                     critique['improvements_display'] = self._clean_improvement_list(critique.get('improvements'))
 
+            # Clean re-review critique improvements for display
+            re_review = entry.get('re_review')
+            if re_review and re_review.get('critiques'):
+                for critique in re_review['critiques']:
+                    critique['improvements_display'] = self._clean_improvement_list(critique.get('improvements'))
+
             # Determine image paths
             original_src = entry_dir / entry['original_image']
             edited_src = entry_dir / entry['edited_image']
