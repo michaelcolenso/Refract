@@ -1,0 +1,146 @@
+{
+  "critiques": [
+    {
+      "genre": "portrait",
+      "subject": "Close-up portrait of a man wearing a red baseball cap backwards against a plain light background",
+      "mood": "Direct, serious, candid",
+      "score": 78.0,
+      "technical_assessment": {
+        "exposure": "good",
+        "white_balance": "slightly_warm",
+        "focus": "sharp",
+        "noise": "low"
+      },
+      "improvements": [
+        "[MODERATE] Crop slightly tighter from the left/top to reduce empty negative space and place the eyes closer to the upper third while keeping the cap fully in frame",
+        "[SUBTLE] Balance facial tonality with local adjustments: lift shadows under the eyes and on the right side of the face (+10 to +20), and reduce midtone contrast/clarity on skin (-5 to -15) while keeping overall contrast",
+        "[SUBTLE] Refine white balance and skin tones: cool WB slightly and/or reduce orange saturation in HSL (Oranges -5 to -15) while keeping reds controlled (Reds -5 to -10) so the cap doesn\u2019t overpower",
+        "[SUBTLE] Enhance eye presence with a subtle radial mask: increase exposure/whites slightly (+5 to +10) and add mild sharpening/texture on irises; avoid over-whitening sclera",
+        "[SUBTLE] Clean up background and minor distractions: remove faint marks/patchiness on the wall (healing/clone) and apply a light background luminance smoothing if needed"
+      ],
+      "preserve": [
+        "The natural, candid expression and overall realism",
+        "The strong color contrast of the red cap against the neutral background"
+      ],
+      "notes": "This is a strong, sharp portrait with good exposure and a clean, minimal background. Most gains will come from tighter framing, slightly softer/cleaner skin rendering, and subtle eye enhancement while keeping the serious, straightforward mood.",
+      "improvements_detailed": [
+        {
+          "action": "Crop slightly tighter from the left/top to reduce empty negative space and place the eyes closer to the upper third while keeping the cap fully in frame",
+          "intensity": "moderate",
+          "priority": 1,
+          "reason": "Strengthens composition and focuses attention on the subject\u2019s expression and eyes."
+        },
+        {
+          "action": "Balance facial tonality with local adjustments: lift shadows under the eyes and on the right side of the face (+10 to +20), and reduce midtone contrast/clarity on skin (-5 to -15) while keeping overall contrast",
+          "intensity": "subtle",
+          "priority": 2,
+          "reason": "Reduces harshness from directional light, making the portrait more flattering without losing the serious mood."
+        },
+        {
+          "action": "Refine white balance and skin tones: cool WB slightly and/or reduce orange saturation in HSL (Oranges -5 to -15) while keeping reds controlled (Reds -5 to -10) so the cap doesn\u2019t overpower",
+          "intensity": "subtle",
+          "priority": 3,
+          "reason": "Improves skin realism and prevents the red cap from dominating the color palette."
+        },
+        {
+          "action": "Enhance eye presence with a subtle radial mask: increase exposure/whites slightly (+5 to +10) and add mild sharpening/texture on irises; avoid over-whitening sclera",
+          "intensity": "subtle",
+          "priority": 4,
+          "reason": "Draws viewer attention to the eyes and boosts perceived sharpness and engagement."
+        },
+        {
+          "action": "Clean up background and minor distractions: remove faint marks/patchiness on the wall (healing/clone) and apply a light background luminance smoothing if needed",
+          "intensity": "subtle",
+          "priority": 5,
+          "reason": "Keeps the minimal backdrop looking intentional and studio-clean, improving subject separation."
+        }
+      ],
+      "context": {
+        "genre": "portrait",
+        "subject": "Close-up portrait of a man wearing a red baseball cap backwards against a plain light background",
+        "mood": "Direct, serious, candid",
+        "preserve": [
+          "The natural, candid expression and overall realism",
+          "The strong color contrast of the red cap against the neutral background"
+        ],
+        "technical": {
+          "exposure": "good",
+          "white_balance": "slightly_warm",
+          "focus": "sharp",
+          "noise": "low"
+        }
+      },
+      "llm": "openai"
+    }
+  ],
+  "consensus_score": 78.0,
+  "combined_improvements": [
+    "[MODERATE] Crop slightly tighter from the left/top to reduce empty negative space and place the eyes closer to the upper third while keeping the cap fully in frame",
+    "[SUBTLE] Balance facial tonality with local adjustments: lift shadows under the eyes and on the right side of the face (+10 to +20), and reduce midtone contrast/clarity on skin (-5 to -15) while keeping overall contrast",
+    "[SUBTLE] Refine white balance and skin tones: cool WB slightly and/or reduce orange saturation in HSL (Oranges -5 to -15) while keeping reds controlled (Reds -5 to -10) so the cap doesn\u2019t overpower",
+    "[SUBTLE] Enhance eye presence with a subtle radial mask: increase exposure/whites slightly (+5 to +10) and add mild sharpening/texture on irises; avoid over-whitening sclera",
+    "[SUBTLE] Clean up background and minor distractions: remove faint marks/patchiness on the wall (healing/clone) and apply a light background luminance smoothing if needed"
+  ],
+  "improvements_detailed": [
+    {
+      "action": "Crop slightly tighter from the left/top to reduce empty negative space and place the eyes closer to the upper third while keeping the cap fully in frame",
+      "intensity": "moderate",
+      "priority": 1,
+      "reason": "Strengthens composition and focuses attention on the subject\u2019s expression and eyes."
+    },
+    {
+      "action": "Balance facial tonality with local adjustments: lift shadows under the eyes and on the right side of the face (+10 to +20), and reduce midtone contrast/clarity on skin (-5 to -15) while keeping overall contrast",
+      "intensity": "subtle",
+      "priority": 2,
+      "reason": "Reduces harshness from directional light, making the portrait more flattering without losing the serious mood."
+    },
+    {
+      "action": "Refine white balance and skin tones: cool WB slightly and/or reduce orange saturation in HSL (Oranges -5 to -15) while keeping reds controlled (Reds -5 to -10) so the cap doesn\u2019t overpower",
+      "intensity": "subtle",
+      "priority": 3,
+      "reason": "Improves skin realism and prevents the red cap from dominating the color palette."
+    },
+    {
+      "action": "Enhance eye presence with a subtle radial mask: increase exposure/whites slightly (+5 to +10) and add mild sharpening/texture on irises; avoid over-whitening sclera",
+      "intensity": "subtle",
+      "priority": 4,
+      "reason": "Draws viewer attention to the eyes and boosts perceived sharpness and engagement."
+    },
+    {
+      "action": "Clean up background and minor distractions: remove faint marks/patchiness on the wall (healing/clone) and apply a light background luminance smoothing if needed",
+      "intensity": "subtle",
+      "priority": 5,
+      "reason": "Keeps the minimal backdrop looking intentional and studio-clean, improving subject separation."
+    }
+  ],
+  "context": {
+    "genre": "portrait",
+    "subject": "Close-up portrait of a man wearing a red baseball cap backwards against a plain light background",
+    "mood": "Direct, serious, candid",
+    "preserve": [
+      "The natural, candid expression and overall realism",
+      "The strong color contrast of the red cap against the neutral background"
+    ],
+    "technical": {
+      "exposure": "good",
+      "white_balance": "slightly_warm",
+      "focus": "sharp",
+      "noise": "low"
+    }
+  },
+  "summary": "[OPENAI] This is a strong, sharp portrait with good exposure and a clean, minimal background. Most gains will come from tighter framing, slightly softer/cleaner skin rendering, and subtle eye enhancement while keeping the serious, straightforward mood.",
+  "score": 78.0,
+  "improvements": [
+    "[MODERATE] Crop slightly tighter from the left/top to reduce empty negative space and place the eyes closer to the upper third while keeping the cap fully in frame",
+    "[SUBTLE] Balance facial tonality with local adjustments: lift shadows under the eyes and on the right side of the face (+10 to +20), and reduce midtone contrast/clarity on skin (-5 to -15) while keeping overall contrast",
+    "[SUBTLE] Refine white balance and skin tones: cool WB slightly and/or reduce orange saturation in HSL (Oranges -5 to -15) while keeping reds controlled (Reds -5 to -10) so the cap doesn\u2019t overpower",
+    "[SUBTLE] Enhance eye presence with a subtle radial mask: increase exposure/whites slightly (+5 to +10) and add mild sharpening/texture on irises; avoid over-whitening sclera",
+    "[SUBTLE] Clean up background and minor distractions: remove faint marks/patchiness on the wall (healing/clone) and apply a light background luminance smoothing if needed"
+  ],
+  "notes": "[OPENAI] This is a strong, sharp portrait with good exposure and a clean, minimal background. Most gains will come from tighter framing, slightly softer/cleaner skin rendering, and subtle eye enhancement while keeping the serious, straightforward mood.",
+  "timestamp": "20260130-051130",
+  "entry_id": "20260130-051130-571495e4",
+  "original_filename": "improved-photo.png",
+  "original_image": "original.png",
+  "edited_image": "edited.png"
+}

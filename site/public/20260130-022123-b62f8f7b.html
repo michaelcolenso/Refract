@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ entry.original_filename }} - REFRACT</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <title>image.webp - REFRACT</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -17,51 +16,61 @@
         <a href="index.html" class="back-link">Back to Gallery</a>
 
         <div class="entry-detail">
-            <h2>{{ entry.original_filename }}</h2>
+            <h2>image.webp</h2>
 
             <div class="metadata">
-                <p><strong>Entry ID:</strong> {{ entry.entry_id }}</p>
-                <p><strong>Processed:</strong> {{ entry.timestamp }}</p>
+                <p><strong>Entry ID:</strong> 20260130-022123-b62f8f7b</p>
+                <p><strong>Processed:</strong> 20260130-022123</p>
             </div>
 
             <div class="analysis">
                 <h3>Multi-LLM Analysis</h3>
-                <div class="score-display">{{ entry.consensus_score or entry.score }}/100</div>
+                <div class="score-display">52.0/100</div>
                 <p class="score-caption">Consensus Score</p>
 
-                {% if entry.critiques %}
+                
                 <div class="llm-critiques">
-                    {% for critique in entry.critiques %}
-                    <div class="llm-critique llm-{{ critique.llm }}">
+                    
+                    <div class="llm-critique llm-openai">
                         <div class="llm-critique-header">
-                            <strong class="llm-name">{{ critique.llm }}</strong>
-                            {% if critique.score is not none %}
-                            <span class="score-pill {% if critique.score >= 80 %}score-good{% elif critique.score >= 60 %}score-mid{% else %}score-low{% endif %}">{{ critique.score }}/100</span>
-                            {% else %}
-                            <span class="score-pill score-fail">Failed</span>
-                            {% endif %}
+                            <strong class="llm-name">openai</strong>
+                            
+                            <span class="score-pill score-low">52.0/100</span>
+                            
                         </div>
-                        {% if critique.notes %}
-                        <p class="llm-notes">{{ critique.notes }}</p>
-                        {% endif %}
-                        {% if critique.improvements_display %}
+                        
+                        <p class="llm-notes">The scene has strong narrative content and a compelling juxtaposition of workers against dense urban architecture. The main limitation is severe compression/pixelation that obscures detail; after addressing that, modest tonal and color balancing plus a tighter crop will better emphasize the subjects.</p>
+                        
+                        
                         <ul class="llm-improvements">
-                            {% for imp in critique.improvements_display[:3] %}
-                            <li>{{ imp }}</li>
-                            {% endfor %}
+                            
+                            <li>[SIGNIFICANT] Reduce heavy compression artifacts/pixelation by exporting from a higher-quality source if available; if not, apply targeted noise reduction plus mild JPEG artifact reduction (e.g., Lightroom Denoise/Detail smoothing) and avoid aggressive sharpening</li>
+                            
+                            <li>[MODERATE] Rebalance tonality: lower highlights (~-20 to -35) on the bright building, lift shadows slightly on the workers/platform (+10 to +25), and add a gentle midtone contrast S-curve</li>
+                            
+                            <li>[SUBTLE] Warm the white balance slightly (increase Temp a bit and reduce cyan/blue in shadows with Color Grading or HSL) while keeping neutrals neutral</li>
+                            
                         </ul>
-                        {% endif %}
+                        
                     </div>
-                    {% endfor %}
+                    
                 </div>
-                {% endif %}
+                
 
                 <div class="improvements-list">
                     <h4>Combined Improvements Applied:</h4>
                     <ul>
-                        {% for improvement in entry.combined_improvements_display or entry.improvements_display %}
-                        <li>{{ improvement }}</li>
-                        {% endfor %}
+                        
+                        <li>[SIGNIFICANT] Reduce heavy compression artifacts/pixelation by exporting from a higher-quality source if available; if not, apply targeted noise reduction plus mild JPEG artifact reduction (e.g., Lightroom Denoise/Detail smoothing) and avoid aggressive sharpening</li>
+                        
+                        <li>[MODERATE] Rebalance tonality: lower highlights (~-20 to -35) on the bright building, lift shadows slightly on the workers/platform (+10 to +25), and add a gentle midtone contrast S-curve</li>
+                        
+                        <li>[SUBTLE] Warm the white balance slightly (increase Temp a bit and reduce cyan/blue in shadows with Color Grading or HSL) while keeping neutrals neutral</li>
+                        
+                        <li>[MODERATE] Crop/straighten to strengthen composition: trim some top background and right edge to reduce distraction, keep the flag and workers as the primary visual anchors, and ensure verticals feel intentional</li>
+                        
+                        <li>[SUBTLE] Apply selective sharpening/texture on the workers only (masking): add slight Texture/Clarity (+5 to +15) and sharpening with masking, while keeping the background smoother</li>
+                        
                     </ul>
                 </div>
             </div>
@@ -72,9 +81,9 @@
                 <!-- Interactive Before/After Slider -->
                 <div class="comparison-slider" id="comparison-slider">
                     <div class="comparison-wrapper">
-                        <img src="{{ entry.web_edited }}" alt="Enhanced" class="comparison-img comparison-after">
+                        <img src="images/20260130-022123-b62f8f7b-edited.webp" alt="Enhanced" class="comparison-img comparison-after">
                         <div class="comparison-overlay" id="comparison-overlay">
-                            <img src="{{ entry.web_original }}" alt="Original" class="comparison-img comparison-before">
+                            <img src="images/20260130-022123-b62f8f7b-original.webp" alt="Original" class="comparison-img comparison-before">
                         </div>
                         <div class="slider-handle" id="slider-handle">
                             <div class="slider-line"></div>
@@ -94,11 +103,11 @@
                     <div class="comparison-simple">
                         <div>
                             <div class="comparison-label">Original</div>
-                            <img src="{{ entry.web_original }}" alt="Original">
+                            <img src="images/20260130-022123-b62f8f7b-original.webp" alt="Original">
                         </div>
                         <div>
                             <div class="comparison-label">Enhanced</div>
-                            <img src="{{ entry.web_edited }}" alt="Enhanced">
+                            <img src="images/20260130-022123-b62f8f7b-edited.webp" alt="Enhanced">
                         </div>
                     </div>
                 </noscript>
@@ -106,7 +115,7 @@
                 <!-- Full comparison image -->
                 <div class="comparison-full">
                     <div class="comparison-label">Side-by-Side</div>
-                    <img src="{{ entry.web_comparison }}" alt="Comparison" class="comparison-full-image">
+                    <img src="images/20260130-022123-b62f8f7b-comparison.jpg" alt="Comparison" class="comparison-full-image">
                 </div>
             </div>
         </div>

@@ -7,9 +7,8 @@ Uses Gemini Image Editing to apply improvements to photographs.
 import os
 import sys
 import json
-import io
 from pathlib import Path
-from typing import List, Dict, Any, Optional, Iterable
+from typing import List, Dict, Any, Optional
 import re
 from google import genai
 from PIL import Image
@@ -20,39 +19,13 @@ from utils import retry_with_backoff
 class PhotoEditor:
     """Applies improvements to photographs using Gemini's image editing capabilities."""
 
-    _IMPROVEMENT_TAG_RE = re.compile(
-        r"^\s*\[(subtle|moderate|significant|strong|major|minor|severe|light|heavy)\]\s*",
-        re.IGNORECASE
-    )
-    _FLASH_MODEL = "gemini-2.5-flash-image"
-    _PRO_MODEL = "gemini-3-pro-image-preview"
-    _ASPECT_RATIOS = {
-        "1:1": 1.0,
-        "2:3": 2 / 3,
-        "3:2": 3 / 2,
-        "3:4": 3 / 4,
-        "4:3": 4 / 3,
-        "4:5": 4 / 5,
-        "5:4": 5 / 4,
-        "9:16": 9 / 16,
-        "16:9": 16 / 9,
-        "21:9": 21 / 9,
-    }
+    _IMPROVEMENT_TAG_RE = re.compile(r"^\s*\[(subtle|moderate|significant|strong|major|minor|severe|light|heavy)\]\s*", re.IGNORECASE)
 
     def __init__(self, api_key: str):
         """Initialize the Editor with Gemini API credentials."""
         self.client = genai.Client(api_key=api_key)
-        # Model selection: explicit model overrides policy; policy defaults to pro
-        self.explicit_model = os.getenv("GEMINI_IMAGE_MODEL")
-        self.model_policy = os.getenv("GEMINI_IMAGE_MODEL_POLICY", "pro").lower().strip()
-        self.image_size = os.getenv("GEMINI_IMAGE_SIZE")
-        self.aspect_ratio = os.getenv("GEMINI_IMAGE_ASPECT_RATIO")
-
-        passes_env = os.getenv("GEMINI_IMAGE_PASSES", "1")
-        try:
-            self.max_passes = max(1, int(passes_env))
-        except ValueError:
-            self.max_passes = 1
+        # Using Gemini 3 Pro Preview for image editing
+        self.model_name = 'gemini-3-pro-image-preview'
 
     def _build_edit_prompt(
         self,
@@ -75,11 +48,6 @@ class PhotoEditor:
                 action = imp.strip()
             if action:
                 parsed_improvements.append((action, intensity))
-
-        if not parsed_improvements:
-            parsed_improvements = [
-                ("Apply a subtle, natural polish only if needed (exposure/contrast/white balance).", "subtle")
-            ]
 
         improvements_text = "\n".join(
             f"{idx}. {action} (intensity: {intensity})"
@@ -121,36 +89,24 @@ class PhotoEditor:
         # Genre-specific guidelines
         genre_guidelines = self._get_genre_guidelines(context.get('genre') if context else None)
 
-        aspect_ratio_constraint = (
-            "Cropping, straightening, and slight reframing are allowed if they improve composition and overall quality"
-        )
-        if self.aspect_ratio and self.aspect_ratio.strip().lower() not in {"", "auto"}:
-            aspect_ratio_constraint = (
-                "Cropping is allowed; adjust to the configured output aspect ratio if needed"
-            )
-
-        prompt = f"""You are a professional photo retoucher. Using the provided image, apply the requested edits to improve technical quality while preserving the original scene, subject identity, and artistic intent. Make precise, natural adjustments that improve the photo without changing its overall look.
+        prompt = f"""You are a professional photo retoucher. Edit the provided photo to improve technical quality while preserving the original scene, subject identity, and artistic intent. Make realistic, natural edits only.
 
 {context_section}REQUESTED EDITS:
 {improvements_text}
 
 {preserve_section}EDITING PRINCIPLES:
 
-0. SCORE OPTIMIZATION:
-   • You may apply additional improvements beyond the list if they clearly improve the photo
-   • Prioritize edits that would raise a professional critique score while keeping the result natural
-
 1. HARD CONSTRAINTS:
    • Do NOT add, remove, or replace objects or people
-   • {aspect_ratio_constraint}
+   • Do NOT change framing, crop, or aspect ratio
    • Do NOT alter identity, age, or key features of subjects
    • Do NOT stylize or change the overall genre/look
    • Avoid artificial artifacts, halos, banding, or texture smearing
 
-2. INTENSITY GUIDE (indicated in brackets):
-   • [SUBTLE] = Minor refinement, barely noticeable (5-15% adjustment)
-   • [MODERATE] = Clear improvement, still natural (15-30% adjustment)
-   • [SIGNIFICANT] = Strong correction needed (30-50% adjustment)
+2. INTENSITY GUIDE:
+   • subtle = minor refinement (5-15% adjustment)
+   • moderate = clear improvement, still natural (15-30% adjustment)
+   • significant = strong correction when needed (30-45% adjustment)
 
 3. TECHNICAL STANDARDS:
    • Maintain natural color relationships—avoid oversaturation or color casts
@@ -228,107 +184,6 @@ Return only the edited image."""
    • Enhance what's there rather than transform it
 """)
 
-    def _select_model(self, improvements: List[str]) -> str:
-        """Select the best Gemini image model based on policy and edit complexity."""
-        if self.explicit_model:
-            return self.explicit_model
-
-        policy = self.model_policy
-        if policy in {"flash", "fast", "nano"}:
-            return self._FLASH_MODEL
-        if policy in {"pro", "quality", "auto"}:
-            return self._PRO_MODEL
-        return self._PRO_MODEL
-
-    def _chunk_improvements(self, improvements: List[str]) -> List[List[str]]:
-        """Split improvements into multiple passes when configured."""
-        if self.max_passes <= 1 or len(improvements) <= 1:
-            return [improvements]
-        chunk_size = max(1, (len(improvements) + self.max_passes - 1) // self.max_passes)
-        return [improvements[i:i + chunk_size] for i in range(0, len(improvements), chunk_size)]
-
-    def _resolve_aspect_ratio(self, image_path: Path) -> Optional[str]:
-        """Resolve aspect ratio from env or derive the closest supported ratio."""
-        if not self.aspect_ratio:
-            return None
-        ratio_setting = self.aspect_ratio.strip()
-        if ratio_setting.lower() == "auto":
-            try:
-                with Image.open(image_path) as img:
-                    width, height = img.size
-                if height == 0:
-                    return None
-                ratio = width / height
-                return min(self._ASPECT_RATIOS.items(), key=lambda item: abs(item[1] - ratio))[0]
-            except Exception:
-                return None
-        if ratio_setting in self._ASPECT_RATIOS:
-            return ratio_setting
-        print(f"Warning: Unsupported GEMINI_IMAGE_ASPECT_RATIO '{ratio_setting}' - ignoring", file=sys.stderr)
-        return None
-
-    def _build_generate_config(self, model_name: str, image_path: Path):
-        """Build GenerateContentConfig for image-only output and optional sizing."""
-        from google.genai import types
-
-        config_kwargs = {"response_modalities": ["IMAGE"]}
-        image_config_kwargs: Dict[str, str] = {}
-
-        aspect_ratio = self._resolve_aspect_ratio(image_path)
-        if aspect_ratio:
-            image_config_kwargs["aspect_ratio"] = aspect_ratio
-
-        if model_name == self._PRO_MODEL and self.image_size:
-            image_size = self.image_size.strip().upper()
-            if image_size in {"1K", "2K", "4K"}:
-                image_config_kwargs["image_size"] = image_size
-            else:
-                print(f"Warning: Unsupported GEMINI_IMAGE_SIZE '{self.image_size}' - ignoring", file=sys.stderr)
-
-        if image_config_kwargs:
-            config_kwargs["image_config"] = types.ImageConfig(**image_config_kwargs)
-
-        return types.GenerateContentConfig(**config_kwargs)
-
-    def _iter_response_parts(self, response) -> Iterable[Any]:
-        """Yield parts from a Gemini response, handling multiple response shapes."""
-        if hasattr(response, "parts"):
-            return response.parts
-        if hasattr(response, "candidates") and response.candidates:
-            candidate = response.candidates[0]
-            if hasattr(candidate, "content") and hasattr(candidate.content, "parts"):
-                return candidate.content.parts
-        return []
-
-    def _extract_image_bytes(self, response) -> Optional[bytes]:
-        """Extract the final (non-thought) image bytes from the response."""
-        parts = list(self._iter_response_parts(response))
-        if not parts:
-            return None
-
-        non_thought_images = []
-        thought_images = []
-
-        for part in parts:
-            inline_data = getattr(part, "inline_data", None)
-            if inline_data is None and hasattr(part, "inlineData"):
-                inline_data = getattr(part, "inlineData", None)
-            if not inline_data:
-                continue
-            data = getattr(inline_data, "data", None)
-            if not data:
-                continue
-            if getattr(part, "thought", False):
-                thought_images.append(data)
-            else:
-                non_thought_images.append(data)
-
-        if non_thought_images:
-            return non_thought_images[-1]
-        if thought_images:
-            return thought_images[-1]
-        return None
-
     @retry_with_backoff(max_retries=3, initial_delay=2.0)
     def edit(
         self,
@@ -353,49 +208,38 @@ Return only the edited image."""
             # Load the original image
             img = Image.open(image_path)
 
-            image_data = None
-            working_img = img
+            # Build the editing prompt with context
+            prompt = self._build_edit_prompt(improvements, context)
 
-            for pass_index, pass_improvements in enumerate(self._chunk_improvements(improvements), 1):
-                # Build the editing prompt with context
-                prompt = self._build_edit_prompt(pass_improvements, context)
-
-                # Select model and config per Google guidance
-                model_name = self._select_model(pass_improvements)
-                config = self._build_generate_config(model_name, image_path)
-
-                # Generate the edited image
-                response = self.client.models.generate_content(
-                    model=model_name,
-                    contents=[prompt, working_img],
-                    config=config
-                )
-
-                image_data = self._extract_image_bytes(response)
-                if not image_data:
-                    break
-
-                try:
-                    working_img = Image.open(io.BytesIO(image_data))
-                    working_img.load()
-                except Exception as decode_err:
-                    print(f"Generated image decode failed on pass {pass_index}: {decode_err}", file=sys.stderr)
-                    image_data = None
-                    break
+            # Generate the edited image
+            # Note: Gemini's image editing capabilities work through the generative model
+            # with the image as context and edit instructions
+            response = self.client.models.generate_content(
+                model=self.model_name,
+                contents=[prompt, img]
+            )
 
             # Check if response contains image data
             image_saved = False
-            if image_data and len(image_data) > 100:  # Basic sanity check
-                output_path.write_bytes(image_data)
-                # Validate the saved image is actually valid
-                try:
-                    test_img = Image.open(output_path)
-                    test_img.verify()  # Verify it's a valid image
-                    print(f"Successfully edited image saved to: {output_path}")
-                    image_saved = True
-                except Exception as verify_err:
-                    print(f"Generated image failed validation: {verify_err}", file=sys.stderr)
-                    output_path.unlink(missing_ok=True)  # Remove invalid file
+            if hasattr(response, 'candidates') and len(response.candidates) > 0:
+                candidate = response.candidates[0]
+                if hasattr(candidate, 'content') and hasattr(candidate.content, 'parts'):
+                    for part in candidate.content.parts:
+                        if hasattr(part, 'inline_data') and part.inline_data is not None:
+                            # Save the generated image
+                            image_data = part.inline_data.data
+                            if image_data and len(image_data) > 100:  # Basic sanity check
+                                output_path.write_bytes(image_data)
+                                # Validate the saved image is actually valid
+                                try:
+                                    test_img = Image.open(output_path)
+                                    test_img.verify()  # Verify it's a valid image
+                                    print(f"Successfully edited image saved to: {output_path}")
+                                    image_saved = True
+                                    break
+                                except Exception as verify_err:
+                                    print(f"Generated image failed validation: {verify_err}", file=sys.stderr)
+                                    output_path.unlink(missing_ok=True)  # Remove invalid file
 
             if not image_saved:
                 # If no valid image was generated, fall back to using traditional PIL editing

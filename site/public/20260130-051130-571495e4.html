@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ entry.original_filename }} - REFRACT</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <title>improved-photo.png - REFRACT</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -17,51 +16,61 @@
         <a href="index.html" class="back-link">Back to Gallery</a>
 
         <div class="entry-detail">
-            <h2>{{ entry.original_filename }}</h2>
+            <h2>improved-photo.png</h2>
 
             <div class="metadata">
-                <p><strong>Entry ID:</strong> {{ entry.entry_id }}</p>
-                <p><strong>Processed:</strong> {{ entry.timestamp }}</p>
+                <p><strong>Entry ID:</strong> 20260130-051130-571495e4</p>
+                <p><strong>Processed:</strong> 20260130-051130</p>
             </div>
 
             <div class="analysis">
                 <h3>Multi-LLM Analysis</h3>
-                <div class="score-display">{{ entry.consensus_score or entry.score }}/100</div>
+                <div class="score-display">78.0/100</div>
                 <p class="score-caption">Consensus Score</p>
 
-                {% if entry.critiques %}
+                
                 <div class="llm-critiques">
-                    {% for critique in entry.critiques %}
-                    <div class="llm-critique llm-{{ critique.llm }}">
+                    
+                    <div class="llm-critique llm-openai">
                         <div class="llm-critique-header">
-                            <strong class="llm-name">{{ critique.llm }}</strong>
-                            {% if critique.score is not none %}
-                            <span class="score-pill {% if critique.score >= 80 %}score-good{% elif critique.score >= 60 %}score-mid{% else %}score-low{% endif %}">{{ critique.score }}/100</span>
-                            {% else %}
-                            <span class="score-pill score-fail">Failed</span>
-                            {% endif %}
+                            <strong class="llm-name">openai</strong>
+                            
+                            <span class="score-pill score-mid">78.0/100</span>
+                            
                         </div>
-                        {% if critique.notes %}
-                        <p class="llm-notes">{{ critique.notes }}</p>
-                        {% endif %}
-                        {% if critique.improvements_display %}
+                        
+                        <p class="llm-notes">This is a strong, sharp portrait with good exposure and a clean, minimal background. Most gains will come from tighter framing, slightly softer/cleaner skin rendering, and subtle eye enhancement while keeping the serious, straightforward mood.</p>
+                        
+                        
                         <ul class="llm-improvements">
-                            {% for imp in critique.improvements_display[:3] %}
-                            <li>{{ imp }}</li>
-                            {% endfor %}
+                            
+                            <li>[MODERATE] Crop slightly tighter from the left/top to reduce empty negative space and place the eyes closer to the upper third while keeping the cap fully in frame</li>
+                            
+                            <li>[SUBTLE] Balance facial tonality with local adjustments: lift shadows under the eyes and on the right side of the face (+10 to +20), and reduce midtone contrast/clarity on skin (-5 to -15) while keeping overall contrast</li>
+                            
+                            <li>[SUBTLE] Refine white balance and skin tones: cool WB slightly and/or reduce orange saturation in HSL (Oranges -5 to -15) while keeping reds controlled (Reds -5 to -10) so the cap doesn’t overpower</li>
+                            
                         </ul>
-                        {% endif %}
+                        
                     </div>
-                    {% endfor %}
+                    
                 </div>
-                {% endif %}
+                
 
                 <div class="improvements-list">
                     <h4>Combined Improvements Applied:</h4>
                     <ul>
-                        {% for improvement in entry.combined_improvements_display or entry.improvements_display %}
-                        <li>{{ improvement }}</li>
-                        {% endfor %}
+                        
+                        <li>[MODERATE] Crop slightly tighter from the left/top to reduce empty negative space and place the eyes closer to the upper third while keeping the cap fully in frame</li>
+                        
+                        <li>[SUBTLE] Balance facial tonality with local adjustments: lift shadows under the eyes and on the right side of the face (+10 to +20), and reduce midtone contrast/clarity on skin (-5 to -15) while keeping overall contrast</li>
+                        
+                        <li>[SUBTLE] Refine white balance and skin tones: cool WB slightly and/or reduce orange saturation in HSL (Oranges -5 to -15) while keeping reds controlled (Reds -5 to -10) so the cap doesn’t overpower</li>
+                        
+                        <li>[SUBTLE] Enhance eye presence with a subtle radial mask: increase exposure/whites slightly (+5 to +10) and add mild sharpening/texture on irises; avoid over-whitening sclera</li>
+                        
+                        <li>[SUBTLE] Clean up background and minor distractions: remove faint marks/patchiness on the wall (healing/clone) and apply a light background luminance smoothing if needed</li>
+                        
                     </ul>
                 </div>
             </div>
@@ -72,9 +81,9 @@
                 <!-- Interactive Before/After Slider -->
                 <div class="comparison-slider" id="comparison-slider">
                     <div class="comparison-wrapper">
-                        <img src="{{ entry.web_edited }}" alt="Enhanced" class="comparison-img comparison-after">
+                        <img src="images/20260130-051130-571495e4-edited.png" alt="Enhanced" class="comparison-img comparison-after">
                         <div class="comparison-overlay" id="comparison-overlay">
-                            <img src="{{ entry.web_original }}" alt="Original" class="comparison-img comparison-before">
+                            <img src="images/20260130-051130-571495e4-original.png" alt="Original" class="comparison-img comparison-before">
                         </div>
                         <div class="slider-handle" id="slider-handle">
                             <div class="slider-line"></div>
@@ -94,11 +103,11 @@
                     <div class="comparison-simple">
                         <div>
                             <div class="comparison-label">Original</div>
-                            <img src="{{ entry.web_original }}" alt="Original">
+                            <img src="images/20260130-051130-571495e4-original.png" alt="Original">
                         </div>
                         <div>
                             <div class="comparison-label">Enhanced</div>
-                            <img src="{{ entry.web_edited }}" alt="Enhanced">
+                            <img src="images/20260130-051130-571495e4-edited.png" alt="Enhanced">
                         </div>
                     </div>
                 </noscript>
@@ -106,7 +115,7 @@
                 <!-- Full comparison image -->
                 <div class="comparison-full">
                     <div class="comparison-label">Side-by-Side</div>
-                    <img src="{{ entry.web_comparison }}" alt="Comparison" class="comparison-full-image">
+                    <img src="images/20260130-051130-571495e4-comparison.jpg" alt="Comparison" class="comparison-full-image">
                 </div>
             </div>
         </div>
