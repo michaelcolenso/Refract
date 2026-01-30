@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMG_0592.jpeg - REFRACT</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="hero hero-compact">
+            <h1>REFRACT</h1>
+            <p class="subtitle">Photography Analysis & Enhancement</p>
+        </header>
+
+        <a href="index.html" class="back-link">Back to Gallery</a>
+
+        <div class="entry-detail">
+            <h2>IMG_0592.jpeg</h2>
+
+            <div class="metadata">
+                <p><strong>Entry ID:</strong> 20260129-033616-f69b899b</p>
+                <p><strong>Processed:</strong> 20260129-033616</p>
+            </div>
+
+            <div class="analysis">
+                <h3>Multi-LLM Analysis</h3>
+                <div class="score-display">70.0/100</div>
+                <p class="score-caption">Consensus Score</p>
+
+                
+                <div class="llm-critiques">
+                    
+                    <div class="llm-critique llm-gemini">
+                        <div class="llm-critique-header">
+                            <strong class="llm-name">gemini</strong>
+                            
+                            <span class="score-pill score-mid">62.0/100</span>
+                            
+                        </div>
+                        
+                        <p class="llm-notes">The photograph captures a lovely expression, but the technical execution is hampered by soft focus and a heavy post-processing style (haze/vignette). The goal is to modernize the edit by cleaning up the frame edges and creating the illusion of sharpness on the face.</p>
+                        
+                        
+                        <ul class="llm-improvements">
+                            
+                            <li>[MODERATE] Selectively sharpen eyes, lips, and eyebrows using texture/clarity brushes</li>
+                            
+                            <li>[SUBTLE] Warm up skin tones and reduce magenta tint</li>
+                            
+                            <li>[MODERATE] Reduce or feather the existing dark vignette</li>
+                            
+                        </ul>
+                        
+                    </div>
+                    
+                    <div class="llm-critique llm-openai">
+                        <div class="llm-critique-header">
+                            <strong class="llm-name">openai</strong>
+                            
+                            <span class="score-pill score-mid">78.0/100</span>
+                            
+                        </div>
+                        
+                        <p class="llm-notes">This is a strong casual portrait with pleasing separation and a warm, inviting feel. The main opportunities are to tighten the framing and add targeted crispness to the eyes/face while slightly taming warmth and highlights for a cleaner, more polished look.</p>
+                        
+                        
+                        <ul class="llm-improvements">
+                            
+                            <li>[MODERATE] Apply a tighter crop to reduce empty space (especially top/left) and place the eyes near the upper third; keep some brick context but prioritize the face</li>
+                            
+                            <li>[MODERATE] Use a subject mask to add selective sharpening/texture to eyes, brows, and lips (e.g., Sharpen +20 to +35, Texture +5 to +10) while keeping skin texture natural; avoid sharpening the brick wall</li>
+                            
+                            <li>[SUBTLE] Reduce facial highlights and slightly lift midtone contrast: Highlights -10 to -25 on the face; add a gentle S-curve or Contrast +5 to +10; optionally Blacks -3 to -8</li>
+                            
+                        </ul>
+                        
+                    </div>
+                    
+                    <div class="llm-critique llm-anthropic">
+                        <div class="llm-critique-header">
+                            <strong class="llm-name">anthropic</strong>
+                            
+                            <span class="score-pill score-fail">Failed</span>
+                            
+                        </div>
+                        
+                        <p class="llm-notes">Analysis failed: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.0.image.source.base64: image exceeds 5 MB maximum: 15154340 bytes > 5242880 bytes'}, 'request_id': 'req_011CXayBAyZcarDX5sxCM1Tu'}</p>
+                        
+                        
+                    </div>
+                    
+                </div>
+                
+
+                <div class="improvements-list">
+                    <h4>Combined Improvements Applied:</h4>
+                    <ul>
+                        
+                        <li>[MODERATE] Selectively sharpen eyes, lips, and eyebrows using texture/clarity brushes</li>
+                        
+                        <li>[SUBTLE] Warm up skin tones and reduce magenta tint</li>
+                        
+                        <li>[MODERATE] Reduce or feather the existing dark vignette</li>
+                        
+                        <li>[SUBTLE] Apply subtle S-curve to increase midtone contrast</li>
+                        
+                        <li>[MODERATE] Apply a tighter crop to reduce empty space (especially top/left) and place the eyes near the upper third; keep some brick context but prioritize the face</li>
+                        
+                        <li>[MODERATE] Use a subject mask to add selective sharpening/texture to eyes, brows, and lips (e.g., Sharpen +20 to +35, Texture +5 to +10) while keeping skin texture natural; avoid sharpening the brick wall</li>
+                        
+                        <li>[SUBTLE] Reduce facial highlights and slightly lift midtone contrast: Highlights -10 to -25 on the face; add a gentle S-curve or Contrast +5 to +10; optionally Blacks -3 to -8</li>
+                        
+                        <li>[SUBTLE] Refine color: cool WB slightly (Temp -200 to -500K) and/or reduce orange/yellow saturation in skin and clothing (HSL Orange Sat -5 to -15, Yellow Sat -5 to -15) while keeping overall warmth</li>
+                        
+                        <li>[MODERATE] Clean up small distractions: remove/clone the sunglasses hanging on the chest and any stray flyaway hairs if desired; optionally reduce the dark vignette at the bottom corners</li>
+                        
+                    </ul>
+                </div>
+            </div>
+
+            <div class="comparison-container">
+                <h3 class="comparison-title">Before & After Comparison</h3>
+
+                <!-- Interactive Before/After Slider -->
+                <div class="comparison-slider" id="comparison-slider">
+                    <div class="comparison-wrapper">
+                        <img src="images/20260129-033616-f69b899b-edited.jpeg" alt="Enhanced" class="comparison-img comparison-after">
+                        <div class="comparison-overlay" id="comparison-overlay">
+                            <img src="images/20260129-033616-f69b899b-original.jpeg" alt="Original" class="comparison-img comparison-before">
+                        </div>
+                        <div class="slider-handle" id="slider-handle">
+                            <div class="slider-line"></div>
+                            <div class="slider-button">
+                                <span class="slider-arrows"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comparison-labels">
+                        <span class="label-before">Original</span>
+                        <span class="label-after">Enhanced</span>
+                    </div>
+                </div>
+
+                <!-- Fallback side-by-side (shown if JS disabled) -->
+                <noscript>
+                    <div class="comparison-simple">
+                        <div>
+                            <div class="comparison-label">Original</div>
+                            <img src="images/20260129-033616-f69b899b-original.jpeg" alt="Original">
+                        </div>
+                        <div>
+                            <div class="comparison-label">Enhanced</div>
+                            <img src="images/20260129-033616-f69b899b-edited.jpeg" alt="Enhanced">
+                        </div>
+                    </div>
+                </noscript>
+
+                <!-- Full comparison image -->
+                <div class="comparison-full">
+                    <div class="comparison-label">Side-by-Side</div>
+                    <img src="images/20260129-033616-f69b899b-comparison.jpg" alt="Comparison" class="comparison-full-image">
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>REFRACT - Self-Correcting Photography Log</p>
+            <p>Powered by Multi-LLM Analysis (Gemini, OpenAI, Anthropic)</p>
+        </footer>
+    </div>
+
+    <script>
+        // Interactive Before/After Slider
+        (function() {
+            const slider = document.getElementById('comparison-slider');
+            const overlay = document.getElementById('comparison-overlay');
+            const handle = document.getElementById('slider-handle');
+
+            if (!slider || !overlay || !handle) return;
+
+            let isDragging = false;
+
+            function updateSlider(x) {
+                const rect = slider.getBoundingClientRect();
+                let percentage = ((x - rect.left) / rect.width) * 100;
+                percentage = Math.max(0, Math.min(100, percentage));
+
+                overlay.style.width = percentage + '%';
+                handle.style.left = percentage + '%';
+            }
+
+            function startDrag(e) {
+                isDragging = true;
+                e.preventDefault();
+            }
+
+            function endDrag() {
+                isDragging = false;
+            }
+
+            function drag(e) {
+                if (!isDragging) return;
+                e.preventDefault();
+                const x = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+                updateSlider(x);
+            }
+
+            // Mouse events
+            handle.addEventListener('mousedown', startDrag);
+            document.addEventListener('mouseup', endDrag);
+            document.addEventListener('mousemove', drag);
+
+            // Touch events
+            handle.addEventListener('touchstart', startDrag);
+            document.addEventListener('touchend', endDrag);
+            document.addEventListener('touchmove', drag);
+
+            // Click to position
+            slider.addEventListener('click', function(e) {
+                if (e.target === handle || e.target.closest('.slider-handle')) return;
+                updateSlider(e.clientX);
+            });
+
+            // Initialize at 50%
+            updateSlider(slider.getBoundingClientRect().left + slider.offsetWidth / 2);
+        })();
+    </script>
+</body>
+</html>

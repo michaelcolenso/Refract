@@ -1,0 +1,262 @@
+{
+  "critiques": [
+    {
+      "genre": "portrait",
+      "subject": "Young woman wearing a beanie and layered shirt against a brick wall",
+      "mood": "casual, urban, relaxed",
+      "score": 65.0,
+      "technical_assessment": {
+        "exposure": "slightly_under",
+        "white_balance": "slightly_warm",
+        "focus": "acceptable",
+        "noise": "low"
+      },
+      "improvements": [
+        "[MODERATE] Crop inward from the left",
+        "[MODERATE] Correct White Balance (reduce Temp)",
+        "[MODERATE] Increase Contrast and Clarity",
+        "[SUBTLE] Radial gradient exposure boost on face",
+        "[SUBTLE] Spot removal / Healing"
+      ],
+      "preserve": [
+        "The color harmony between the yellow sleeves and the brick tones",
+        "The natural skin texture"
+      ],
+      "notes": "The image has a solid foundation with nice color coordination, but suffers from flat lighting and a warm color cast. A tighter crop and white balance correction will significantly professionalize the result without altering the casual mood.",
+      "improvements_detailed": [
+        {
+          "action": "Crop inward from the left",
+          "intensity": "moderate",
+          "priority": 1,
+          "reason": "To remove excessive negative space and place the subject's eyes on the rule-of-thirds grid"
+        },
+        {
+          "action": "Correct White Balance (reduce Temp)",
+          "intensity": "moderate",
+          "priority": 2,
+          "reason": "To neutralize the yellow/orange cast affecting the skin tones and white drawstrings"
+        },
+        {
+          "action": "Increase Contrast and Clarity",
+          "intensity": "moderate",
+          "priority": 3,
+          "reason": "To fix the flat appearance and add separation between the subject and the textured wall"
+        },
+        {
+          "action": "Radial gradient exposure boost on face",
+          "intensity": "subtle",
+          "priority": 4,
+          "reason": "To brighten the face slightly and draw attention to the eyes amidst the dark hair"
+        },
+        {
+          "action": "Spot removal / Healing",
+          "intensity": "subtle",
+          "priority": 5,
+          "reason": "To clean up white lint specs on the dark t-shirt and distracting stray hairs"
+        }
+      ],
+      "context": {
+        "genre": "portrait",
+        "subject": "Young woman wearing a beanie and layered shirt against a brick wall",
+        "mood": "casual, urban, relaxed",
+        "preserve": [
+          "The color harmony between the yellow sleeves and the brick tones",
+          "The natural skin texture"
+        ],
+        "technical": {
+          "exposure": "slightly_under",
+          "white_balance": "slightly_warm",
+          "focus": "acceptable",
+          "noise": "low"
+        }
+      },
+      "llm": "gemini"
+    },
+    {
+      "genre": "portrait",
+      "subject": "A person in a beanie and layered hoodie/shirt posing against a brick wall, with wind-blown hair across the face",
+      "mood": "casual, urban, candid",
+      "score": 62.0,
+      "technical_assessment": {
+        "exposure": "good",
+        "white_balance": "slightly_warm",
+        "focus": "soft",
+        "noise": "low"
+      },
+      "improvements": [
+        "[MODERATE] Improve composition with a tighter crop (reduce excess space on the left/top), keeping the subject on the right third and maintaining comfortable headroom",
+        "[MODERATE] Apply selective sharpening/texture to the face and eyes (masking to skin/eyes only; avoid sharpening the brick), and add mild clarity to facial features",
+        "[SUBTLE] Reduce warm/orange saturation and luminance in the brick wall using HSL (or a background mask), and slightly darken the background with a subject mask inversion",
+        "[SUBTLE] Retouch distractions: remove/clone small wall blemishes and consider removing or toning down the sunglasses hanging at the chest; optionally tidy a few stray hairs crossing the mouth/cheek (light touch)",
+        "[SUBTLE] Refine tonal contrast with a gentle S-curve and lift shadows slightly on the face (local adjustment), while protecting highlights on the forehead/cheeks"
+      ],
+      "preserve": [
+        "The candid wind-blown feel and natural expression",
+        "The overall natural-light look without heavy skin smoothing"
+      ],
+      "notes": "The portrait has a relaxed, street-style vibe with pleasing exposure and low noise, but the subject\u2019s face reads a bit soft and the brick wall is visually dominant. A tighter crop, targeted sharpening, and background toning will improve subject separation and make the face the clear focal point while maintaining the candid mood.",
+      "improvements_detailed": [
+        {
+          "action": "Improve composition with a tighter crop (reduce excess space on the left/top), keeping the subject on the right third and maintaining comfortable headroom",
+          "intensity": "moderate",
+          "priority": 1,
+          "reason": "The background brick wall dominates the frame; a tighter crop increases subject presence and strengthens portrait impact."
+        },
+        {
+          "action": "Apply selective sharpening/texture to the face and eyes (masking to skin/eyes only; avoid sharpening the brick), and add mild clarity to facial features",
+          "intensity": "moderate",
+          "priority": 2,
+          "reason": "Focus appears slightly soft on the face; targeted sharpening helps recover perceived detail without emphasizing background texture."
+        },
+        {
+          "action": "Reduce warm/orange saturation and luminance in the brick wall using HSL (or a background mask), and slightly darken the background with a subject mask inversion",
+          "intensity": "subtle",
+          "priority": 3,
+          "reason": "The warm brick competes with skin tones and the yellow clothing; toning it down improves separation and keeps attention on the subject."
+        },
+        {
+          "action": "Retouch distractions: remove/clone small wall blemishes and consider removing or toning down the sunglasses hanging at the chest; optionally tidy a few stray hairs crossing the mouth/cheek (light touch)",
+          "intensity": "subtle",
+          "priority": 4,
+          "reason": "Small distractions pull attention away from the face; minimal cleanup makes the portrait feel more intentional while staying natural."
+        },
+        {
+          "action": "Refine tonal contrast with a gentle S-curve and lift shadows slightly on the face (local adjustment), while protecting highlights on the forehead/cheeks",
+          "intensity": "subtle",
+          "priority": 5,
+          "reason": "Adds depth and improves facial readability without changing the casual, natural-light look."
+        }
+      ],
+      "context": {
+        "genre": "portrait",
+        "subject": "A person in a beanie and layered hoodie/shirt posing against a brick wall, with wind-blown hair across the face",
+        "mood": "casual, urban, candid",
+        "preserve": [
+          "The candid wind-blown feel and natural expression",
+          "The overall natural-light look without heavy skin smoothing"
+        ],
+        "technical": {
+          "exposure": "good",
+          "white_balance": "slightly_warm",
+          "focus": "soft",
+          "noise": "low"
+        }
+      },
+      "llm": "openai"
+    },
+    {
+      "llm": "anthropic",
+      "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.0.image.source.base64: image exceeds 5 MB maximum: 17219344 bytes > 5242880 bytes'}, 'request_id': 'req_011CXay6EVFjox39kqNSrf6N'}",
+      "score": null,
+      "improvements": [],
+      "notes": "Analysis failed: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.0.image.source.base64: image exceeds 5 MB maximum: 17219344 bytes > 5242880 bytes'}, 'request_id': 'req_011CXay6EVFjox39kqNSrf6N'}"
+    }
+  ],
+  "consensus_score": 63.5,
+  "combined_improvements": [
+    "[MODERATE] Crop inward from the left",
+    "[MODERATE] Correct White Balance (reduce Temp)",
+    "[MODERATE] Increase Contrast and Clarity",
+    "[SUBTLE] Radial gradient exposure boost on face",
+    "[SUBTLE] Spot removal / Healing",
+    "[MODERATE] Improve composition with a tighter crop (reduce excess space on the left/top), keeping the subject on the right third and maintaining comfortable headroom",
+    "[MODERATE] Apply selective sharpening/texture to the face and eyes (masking to skin/eyes only; avoid sharpening the brick), and add mild clarity to facial features",
+    "[SUBTLE] Reduce warm/orange saturation and luminance in the brick wall using HSL (or a background mask), and slightly darken the background with a subject mask inversion",
+    "[SUBTLE] Retouch distractions: remove/clone small wall blemishes and consider removing or toning down the sunglasses hanging at the chest; optionally tidy a few stray hairs crossing the mouth/cheek (light touch)",
+    "[SUBTLE] Refine tonal contrast with a gentle S-curve and lift shadows slightly on the face (local adjustment), while protecting highlights on the forehead/cheeks"
+  ],
+  "improvements_detailed": [
+    {
+      "action": "Crop inward from the left",
+      "intensity": "moderate",
+      "priority": 1,
+      "reason": "To remove excessive negative space and place the subject's eyes on the rule-of-thirds grid"
+    },
+    {
+      "action": "Correct White Balance (reduce Temp)",
+      "intensity": "moderate",
+      "priority": 2,
+      "reason": "To neutralize the yellow/orange cast affecting the skin tones and white drawstrings"
+    },
+    {
+      "action": "Increase Contrast and Clarity",
+      "intensity": "moderate",
+      "priority": 3,
+      "reason": "To fix the flat appearance and add separation between the subject and the textured wall"
+    },
+    {
+      "action": "Radial gradient exposure boost on face",
+      "intensity": "subtle",
+      "priority": 4,
+      "reason": "To brighten the face slightly and draw attention to the eyes amidst the dark hair"
+    },
+    {
+      "action": "Spot removal / Healing",
+      "intensity": "subtle",
+      "priority": 5,
+      "reason": "To clean up white lint specs on the dark t-shirt and distracting stray hairs"
+    },
+    {
+      "action": "Improve composition with a tighter crop (reduce excess space on the left/top), keeping the subject on the right third and maintaining comfortable headroom",
+      "intensity": "moderate",
+      "priority": 1,
+      "reason": "The background brick wall dominates the frame; a tighter crop increases subject presence and strengthens portrait impact."
+    },
+    {
+      "action": "Apply selective sharpening/texture to the face and eyes (masking to skin/eyes only; avoid sharpening the brick), and add mild clarity to facial features",
+      "intensity": "moderate",
+      "priority": 2,
+      "reason": "Focus appears slightly soft on the face; targeted sharpening helps recover perceived detail without emphasizing background texture."
+    },
+    {
+      "action": "Reduce warm/orange saturation and luminance in the brick wall using HSL (or a background mask), and slightly darken the background with a subject mask inversion",
+      "intensity": "subtle",
+      "priority": 3,
+      "reason": "The warm brick competes with skin tones and the yellow clothing; toning it down improves separation and keeps attention on the subject."
+    },
+    {
+      "action": "Retouch distractions: remove/clone small wall blemishes and consider removing or toning down the sunglasses hanging at the chest; optionally tidy a few stray hairs crossing the mouth/cheek (light touch)",
+      "intensity": "subtle",
+      "priority": 4,
+      "reason": "Small distractions pull attention away from the face; minimal cleanup makes the portrait feel more intentional while staying natural."
+    },
+    {
+      "action": "Refine tonal contrast with a gentle S-curve and lift shadows slightly on the face (local adjustment), while protecting highlights on the forehead/cheeks",
+      "intensity": "subtle",
+      "priority": 5,
+      "reason": "Adds depth and improves facial readability without changing the casual, natural-light look."
+    }
+  ],
+  "context": {
+    "genre": "portrait",
+    "subject": "A person in a beanie and layered hoodie/shirt posing against a brick wall, with wind-blown hair across the face",
+    "mood": "casual, urban, relaxed",
+    "preserve": [
+      "The color harmony between the yellow sleeves and the brick tones",
+      "The natural skin texture",
+      "The candid wind-blown feel and natural expression",
+      "The overall natural-light look without heavy skin smoothing"
+    ],
+    "technical": {
+      "exposure": "slightly_under",
+      "white_balance": "slightly_warm",
+      "focus": "soft",
+      "noise": "low"
+    }
+  },
+  "summary": "[GEMINI] The image has a solid foundation with nice color coordination, but suffers from flat lighting and a warm color cast. A tighter crop and white balance correction will significantly professionalize the result without altering the casual mood. | [OPENAI] The portrait has a relaxed, street-style vibe with pleasing exposure and low noise, but the subject\u2019s face reads a bit soft and the brick wall is visually dominant. A tighter crop, targeted sharpening, and background toning will improve subject separation and make the face the clear focal point while maintaining the candid mood.",
+  "score": 63.5,
+  "improvements": [
+    "[MODERATE] Crop inward from the left",
+    "[MODERATE] Correct White Balance (reduce Temp)",
+    "[MODERATE] Increase Contrast and Clarity",
+    "[SUBTLE] Radial gradient exposure boost on face",
+    "[SUBTLE] Spot removal / Healing"
+  ],
+  "notes": "[GEMINI] The image has a solid foundation with nice color coordination, but suffers from flat lighting and a warm color cast. A tighter crop and white balance correction will significantly professionalize the result without altering the casual mood. | [OPENAI] The portrait has a relaxed, street-style vibe with pleasing exposure and low noise, but the subject\u2019s face reads a bit soft and the brick wall is visually dominant. A tighter crop, targeted sharpening, and background toning will improve subject separation and make the face the clear focal point while maintaining the candid mood.",
+  "timestamp": "20260129-033510",
+  "entry_id": "20260129-033510-04975472",
+  "original_filename": "IMG_0244 2.jpeg",
+  "original_image": "original.jpeg",
+  "edited_image": "edited.jpeg"
+}
