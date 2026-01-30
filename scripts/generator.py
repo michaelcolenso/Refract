@@ -226,6 +226,12 @@ class SiteGenerator:
         if css_src.exists():
             shutil.copy2(css_src, css_dest)
 
+        # Copy favicon assets if present
+        for favicon_name in ("favicon.ico", "favicon.png", "apple-touch-icon.png"):
+            favicon_src = self.templates_dir / favicon_name
+            if favicon_src.exists():
+                shutil.copy2(favicon_src, self.public_dir / favicon_name)
+
         if new_entries > 0:
             print(f"Site built: {new_entries} new entries, {skipped_entries} unchanged")
         else:
