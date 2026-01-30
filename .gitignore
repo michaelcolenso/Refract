@@ -36,6 +36,7 @@ processed/
 tmp/
 site/public/images/
 site/public/*-*.html
+site/public/index.html
 
 # Site build (tracked for deployment)
 # site/public/  # We actually want to track this for GitHub Pages
