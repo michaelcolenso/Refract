@@ -1,0 +1,248 @@
+{
+  "critiques": [
+    {
+      "genre": "portrait",
+      "subject": "Profile close-up of a fluffy white Samoyed dog",
+      "mood": "Cozy, warm, and affectionate",
+      "score": 72.0,
+      "technical_assessment": {
+        "exposure": "slightly_under",
+        "white_balance": "too_warm",
+        "focus": "acceptable",
+        "noise": "moderate"
+      },
+      "improvements": [
+        "[MODERATE] Correct White Balance",
+        "[MODERATE] Luminance Noise Reduction",
+        "[SUBTLE] Radial Dodge on Eye",
+        "[SUBTLE] Enhance Texture on Fur"
+      ],
+      "preserve": [
+        "The atmospheric bokeh lights in the background",
+        "The soft depth-of-field falloff on the nose"
+      ],
+      "notes": "A charming pet portrait with a nice composition. The primary work required is corrective: fixing the indoor lighting color cast and reducing noise, which will reveal the beautiful texture of the dog's coat.",
+      "improvements_detailed": [
+        {
+          "action": "Correct White Balance",
+          "intensity": "moderate",
+          "priority": 1,
+          "reason": "Reduce the strong yellow/tungsten cast to restore the natural white color of the fur."
+        },
+        {
+          "action": "Luminance Noise Reduction",
+          "intensity": "moderate",
+          "priority": 2,
+          "reason": "Smooth out visible digital grain caused by high ISO settings in low light conditions."
+        },
+        {
+          "action": "Radial Dodge on Eye",
+          "intensity": "subtle",
+          "priority": 3,
+          "reason": "Slightly lift exposure on the eye to create a focal point and add life to the subject."
+        },
+        {
+          "action": "Enhance Texture on Fur",
+          "intensity": "subtle",
+          "priority": 4,
+          "reason": "Use a masking brush to add texture specifically to the fur area to emphasize fluffiness."
+        }
+      ],
+      "context": {
+        "genre": "portrait",
+        "subject": "Profile close-up of a fluffy white Samoyed dog",
+        "mood": "Cozy, warm, and affectionate",
+        "preserve": [
+          "The atmospheric bokeh lights in the background",
+          "The soft depth-of-field falloff on the nose"
+        ],
+        "technical": {
+          "exposure": "slightly_under",
+          "white_balance": "too_warm",
+          "focus": "acceptable",
+          "noise": "moderate"
+        }
+      },
+      "llm": "gemini"
+    },
+    {
+      "genre": "wildlife",
+      "subject": "Close-up side profile of a fluffy white dog (Samoyed-type) indoors with warm bokeh lights",
+      "mood": "Cozy, calm, affectionate",
+      "score": 78.0,
+      "technical_assessment": {
+        "exposure": "slightly_under",
+        "white_balance": "slightly_warm",
+        "focus": "acceptable",
+        "noise": "moderate"
+      },
+      "improvements": [
+        "[MODERATE] Crop slightly from the left and bottom to remove the partial face/hand distractions and place the dog's eye nearer the upper-left third while keeping space in front of the nose",
+        "[SUBTLE] Apply a subject mask and lift midtones on the face/fur slightly (+0.2 to +0.4 EV), then reduce highlights on the brightest fur areas (Highlights -10 to -25) to keep texture",
+        "[SUBTLE] Enhance the eye with a small radial mask: add a touch of exposure/whites (+0.1 to +0.25), clarity/texture (+5 to +10), and mild sharpening; avoid overbrightening the catchlight",
+        "[MODERATE] Reduce noise in the background and shadows (Luminance NR ~20\u201335, Color NR ~20) while masking sharpening to edges (Amount moderate, Masking 70\u201390)",
+        "[SUBTLE] Cool white balance slightly (Temp down a bit) and/or reduce orange/yellow saturation in the background via HSL (-5 to -15) while keeping the dog\u2019s fur neutral"
+      ],
+      "preserve": [
+        "The warm bokeh lights and soft indoor ambience",
+        "The natural fur texture and gentle depth-of-field"
+      ],
+      "notes": "The image has a strong, intimate moment with pleasing bokeh and a flattering side profile. Minor exposure lift and targeted detail on the eye will improve subject presence, while cropping and background noise reduction will remove distractions and polish the low-light look.",
+      "improvements_detailed": [
+        {
+          "action": "Crop slightly from the left and bottom to remove the partial face/hand distractions and place the dog's eye nearer the upper-left third while keeping space in front of the nose",
+          "intensity": "moderate",
+          "priority": 1,
+          "reason": "Simplifies the frame and strengthens subject emphasis and composition without changing the moment."
+        },
+        {
+          "action": "Apply a subject mask and lift midtones on the face/fur slightly (+0.2 to +0.4 EV), then reduce highlights on the brightest fur areas (Highlights -10 to -25) to keep texture",
+          "intensity": "subtle",
+          "priority": 2,
+          "reason": "Brings the dog forward and improves fur detail while avoiding a blown, flat look on white fur."
+        },
+        {
+          "action": "Enhance the eye with a small radial mask: add a touch of exposure/whites (+0.1 to +0.25), clarity/texture (+5 to +10), and mild sharpening; avoid overbrightening the catchlight",
+          "intensity": "subtle",
+          "priority": 3,
+          "reason": "A crisper, brighter eye increases perceived sharpness and emotional connection."
+        },
+        {
+          "action": "Reduce noise in the background and shadows (Luminance NR ~20\u201335, Color NR ~20) while masking sharpening to edges (Amount moderate, Masking 70\u201390)",
+          "intensity": "moderate",
+          "priority": 4,
+          "reason": "Cleans up the low-light grain without smearing fine fur detail."
+        },
+        {
+          "action": "Cool white balance slightly (Temp down a bit) and/or reduce orange/yellow saturation in the background via HSL (-5 to -15) while keeping the dog\u2019s fur neutral",
+          "intensity": "subtle",
+          "priority": 5,
+          "reason": "Maintains the cozy indoor feel but prevents the whites from reading too warm and improves color separation from the background."
+        }
+      ],
+      "context": {
+        "genre": "wildlife",
+        "subject": "Close-up side profile of a fluffy white dog (Samoyed-type) indoors with warm bokeh lights",
+        "mood": "Cozy, calm, affectionate",
+        "preserve": [
+          "The warm bokeh lights and soft indoor ambience",
+          "The natural fur texture and gentle depth-of-field"
+        ],
+        "technical": {
+          "exposure": "slightly_under",
+          "white_balance": "slightly_warm",
+          "focus": "acceptable",
+          "noise": "moderate"
+        }
+      },
+      "llm": "openai"
+    },
+    {
+      "llm": "anthropic",
+      "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.0.image.source.base64: image exceeds 5 MB maximum: 9729024 bytes > 5242880 bytes'}, 'request_id': 'req_011CXeEcUG5f4Wu8cwZQWM3x'}",
+      "score": null,
+      "improvements": [],
+      "notes": "Analysis failed: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.0.image.source.base64: image exceeds 5 MB maximum: 9729024 bytes > 5242880 bytes'}, 'request_id': 'req_011CXeEcUG5f4Wu8cwZQWM3x'}"
+    }
+  ],
+  "consensus_score": 75.0,
+  "combined_improvements": [
+    "[MODERATE] Correct White Balance",
+    "[MODERATE] Luminance Noise Reduction",
+    "[SUBTLE] Radial Dodge on Eye",
+    "[SUBTLE] Enhance Texture on Fur",
+    "[MODERATE] Crop slightly from the left and bottom to remove the partial face/hand distractions and place the dog's eye nearer the upper-left third while keeping space in front of the nose",
+    "[SUBTLE] Apply a subject mask and lift midtones on the face/fur slightly (+0.2 to +0.4 EV), then reduce highlights on the brightest fur areas (Highlights -10 to -25) to keep texture",
+    "[SUBTLE] Enhance the eye with a small radial mask: add a touch of exposure/whites (+0.1 to +0.25), clarity/texture (+5 to +10), and mild sharpening; avoid overbrightening the catchlight",
+    "[MODERATE] Reduce noise in the background and shadows (Luminance NR ~20\u201335, Color NR ~20) while masking sharpening to edges (Amount moderate, Masking 70\u201390)",
+    "[SUBTLE] Cool white balance slightly (Temp down a bit) and/or reduce orange/yellow saturation in the background via HSL (-5 to -15) while keeping the dog\u2019s fur neutral"
+  ],
+  "improvements_detailed": [
+    {
+      "action": "Correct White Balance",
+      "intensity": "moderate",
+      "priority": 1,
+      "reason": "Reduce the strong yellow/tungsten cast to restore the natural white color of the fur."
+    },
+    {
+      "action": "Luminance Noise Reduction",
+      "intensity": "moderate",
+      "priority": 2,
+      "reason": "Smooth out visible digital grain caused by high ISO settings in low light conditions."
+    },
+    {
+      "action": "Radial Dodge on Eye",
+      "intensity": "subtle",
+      "priority": 3,
+      "reason": "Slightly lift exposure on the eye to create a focal point and add life to the subject."
+    },
+    {
+      "action": "Enhance Texture on Fur",
+      "intensity": "subtle",
+      "priority": 4,
+      "reason": "Use a masking brush to add texture specifically to the fur area to emphasize fluffiness."
+    },
+    {
+      "action": "Crop slightly from the left and bottom to remove the partial face/hand distractions and place the dog's eye nearer the upper-left third while keeping space in front of the nose",
+      "intensity": "moderate",
+      "priority": 1,
+      "reason": "Simplifies the frame and strengthens subject emphasis and composition without changing the moment."
+    },
+    {
+      "action": "Apply a subject mask and lift midtones on the face/fur slightly (+0.2 to +0.4 EV), then reduce highlights on the brightest fur areas (Highlights -10 to -25) to keep texture",
+      "intensity": "subtle",
+      "priority": 2,
+      "reason": "Brings the dog forward and improves fur detail while avoiding a blown, flat look on white fur."
+    },
+    {
+      "action": "Enhance the eye with a small radial mask: add a touch of exposure/whites (+0.1 to +0.25), clarity/texture (+5 to +10), and mild sharpening; avoid overbrightening the catchlight",
+      "intensity": "subtle",
+      "priority": 3,
+      "reason": "A crisper, brighter eye increases perceived sharpness and emotional connection."
+    },
+    {
+      "action": "Reduce noise in the background and shadows (Luminance NR ~20\u201335, Color NR ~20) while masking sharpening to edges (Amount moderate, Masking 70\u201390)",
+      "intensity": "moderate",
+      "priority": 4,
+      "reason": "Cleans up the low-light grain without smearing fine fur detail."
+    },
+    {
+      "action": "Cool white balance slightly (Temp down a bit) and/or reduce orange/yellow saturation in the background via HSL (-5 to -15) while keeping the dog\u2019s fur neutral",
+      "intensity": "subtle",
+      "priority": 5,
+      "reason": "Maintains the cozy indoor feel but prevents the whites from reading too warm and improves color separation from the background."
+    }
+  ],
+  "context": {
+    "genre": "portrait",
+    "subject": "Close-up side profile of a fluffy white dog (Samoyed-type) indoors with warm bokeh lights",
+    "mood": "Cozy, warm, and affectionate",
+    "preserve": [
+      "The atmospheric bokeh lights in the background",
+      "The soft depth-of-field falloff on the nose",
+      "The warm bokeh lights and soft indoor ambience",
+      "The natural fur texture and gentle depth-of-field"
+    ],
+    "technical": {
+      "exposure": "slightly_under",
+      "white_balance": "too_warm",
+      "focus": "acceptable",
+      "noise": "moderate"
+    }
+  },
+  "summary": "[GEMINI] A charming pet portrait with a nice composition. The primary work required is corrective: fixing the indoor lighting color cast and reducing noise, which will reveal the beautiful texture of the dog's coat. | [OPENAI] The image has a strong, intimate moment with pleasing bokeh and a flattering side profile. Minor exposure lift and targeted detail on the eye will improve subject presence, while cropping and background noise reduction will remove distractions and polish the low-light look.",
+  "score": 75.0,
+  "improvements": [
+    "[MODERATE] Correct White Balance",
+    "[MODERATE] Luminance Noise Reduction",
+    "[SUBTLE] Radial Dodge on Eye",
+    "[SUBTLE] Enhance Texture on Fur",
+    "[MODERATE] Crop slightly from the left and bottom to remove the partial face/hand distractions and place the dog's eye nearer the upper-left third while keeping space in front of the nose"
+  ],
+  "notes": "[GEMINI] A charming pet portrait with a nice composition. The primary work required is corrective: fixing the indoor lighting color cast and reducing noise, which will reveal the beautiful texture of the dog's coat. | [OPENAI] The image has a strong, intimate moment with pleasing bokeh and a flattering side profile. Minor exposure lift and targeted detail on the eye will improve subject presence, while cropping and background noise reduction will remove distractions and polish the low-light look.",
+  "timestamp": "20260130-210029",
+  "entry_id": "20260130-210029-a2657d74",
+  "original_filename": "IMG_1002.jpeg",
+  "original_image": "original.jpeg",
+  "edited_image": "edited.jpeg"
+}

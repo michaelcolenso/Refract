@@ -1,0 +1,370 @@
+{
+  "critiques": [
+    {
+      "genre": "portrait",
+      "subject": "A fluffy white Samoyed dog looking up happily while being affectionately held by hands with red nail polish",
+      "mood": "Affectionate, joyful, and intimate",
+      "score": 65.0,
+      "technical_assessment": {
+        "exposure": "slightly_under",
+        "white_balance": "slightly_warm",
+        "focus": "soft",
+        "noise": "moderate"
+      },
+      "improvements": [
+        "[MODERATE] Correct White Balance",
+        "[MODERATE] Selective Sharpening",
+        "[SUBTLE] Set White Point and Lift Exposure",
+        "[MODERATE] Noise Reduction",
+        "[SUBTLE] Vibrance Adjustment"
+      ],
+      "preserve": [
+        "The soft bokeh in the background",
+        "The warm skin tones of the hands"
+      ],
+      "notes": "This is a charming candid moment with strong emotional appeal, though it suffers technically from soft focus and low-light noise. The editing strategy should focus on 'cleaning' the image by fixing the color cast and noise, rather than trying to force sharpness that isn't there.",
+      "improvements_detailed": [
+        {
+          "action": "Correct White Balance",
+          "intensity": "moderate",
+          "priority": 1,
+          "reason": "Neutralize the yellow indoor lighting cast to restore the natural bright white color of the dog's fur"
+        },
+        {
+          "action": "Selective Sharpening",
+          "intensity": "moderate",
+          "priority": 2,
+          "reason": "Apply masking to sharpen the eyes and nose area to compensate for the overall soft focus"
+        },
+        {
+          "action": "Set White Point and Lift Exposure",
+          "intensity": "subtle",
+          "priority": 3,
+          "reason": "Brighten the highlights to make the fur pop and reduce the muddy look in the midtones"
+        },
+        {
+          "action": "Noise Reduction",
+          "intensity": "moderate",
+          "priority": 4,
+          "reason": "Smooth out the high-ISO grain visible in the background and shadows without destroying fur texture"
+        },
+        {
+          "action": "Vibrance Adjustment",
+          "intensity": "subtle",
+          "priority": 5,
+          "reason": "Enhance the pink tongue and red nails to create better color contrast against the white fur"
+        }
+      ],
+      "context": {
+        "genre": "portrait",
+        "subject": "A fluffy white Samoyed dog looking up happily while being affectionately held by hands with red nail polish",
+        "mood": "Affectionate, joyful, and intimate",
+        "preserve": [
+          "The soft bokeh in the background",
+          "The warm skin tones of the hands"
+        ],
+        "technical": {
+          "exposure": "slightly_under",
+          "white_balance": "slightly_warm",
+          "focus": "soft",
+          "noise": "moderate"
+        }
+      },
+      "llm": "gemini"
+    },
+    {
+      "genre": "other",
+      "subject": "Close-up of a fluffy white dog being held, tongue out, indoors",
+      "mood": "Warm, playful, candid",
+      "score": 68.0,
+      "technical_assessment": {
+        "exposure": "slightly_under",
+        "white_balance": "slightly_warm",
+        "focus": "acceptable",
+        "noise": "moderate"
+      },
+      "improvements": [
+        "[MODERATE] Lift exposure slightly (+0.2 to +0.4) and raise shadows on the dog\u2019s face (+15 to +25) while pulling highlights down a touch (-10) to keep fur detail",
+        "[SUBTLE] Adjust white balance slightly cooler (reduce Temp a bit) and add a small magenta tint (+3 to +8) to counter warm/yellow indoor cast in the fur",
+        "[MODERATE] Apply selective sharpening/texture on eyes and nose (Texture +10 to +20, Sharpening masked to edges) and add a small clarity boost on the muzzle; avoid sharpening the background",
+        "[MODERATE] Use noise reduction: Luminance NR ~20\u201335 and Color NR ~20; then add a very light grain if needed to keep a natural look",
+        "[SUBTLE] Crop slightly tighter and/or straighten for a cleaner composition; consider trimming some of the lower area and left edge to center the dog\u2019s eyes and reduce empty/soft regions"
+      ],
+      "preserve": [
+        "Soft, shallow depth-of-field background blur",
+        "Playful candid expression with tongue out"
+      ],
+      "notes": "The image has a charming candid moment and pleasing background blur, but it looks a bit dim with a warm indoor color cast. Modest tonal lift, slight WB correction, targeted sharpening, and noise reduction will make the dog\u2019s face feel clearer and more vibrant while keeping the cozy mood.",
+      "improvements_detailed": [
+        {
+          "action": "Lift exposure slightly (+0.2 to +0.4) and raise shadows on the dog\u2019s face (+15 to +25) while pulling highlights down a touch (-10) to keep fur detail",
+          "intensity": "moderate",
+          "priority": 1,
+          "reason": "Brightens the main subject and reveals facial/fur detail without blowing out the white coat."
+        },
+        {
+          "action": "Adjust white balance slightly cooler (reduce Temp a bit) and add a small magenta tint (+3 to +8) to counter warm/yellow indoor cast in the fur",
+          "intensity": "subtle",
+          "priority": 2,
+          "reason": "Neutralizes color cast so the white fur looks cleaner and more natural."
+        },
+        {
+          "action": "Apply selective sharpening/texture on eyes and nose (Texture +10 to +20, Sharpening masked to edges) and add a small clarity boost on the muzzle; avoid sharpening the background",
+          "intensity": "moderate",
+          "priority": 3,
+          "reason": "Improves perceived focus and draws attention to the dog\u2019s expression without increasing background distraction."
+        },
+        {
+          "action": "Use noise reduction: Luminance NR ~20\u201335 and Color NR ~20; then add a very light grain if needed to keep a natural look",
+          "intensity": "moderate",
+          "priority": 4,
+          "reason": "Cleans up low-light noise, especially in midtones/shadows, while maintaining fur texture."
+        },
+        {
+          "action": "Crop slightly tighter and/or straighten for a cleaner composition; consider trimming some of the lower area and left edge to center the dog\u2019s eyes and reduce empty/soft regions",
+          "intensity": "subtle",
+          "priority": 5,
+          "reason": "Strengthens composition and keeps attention on the face and tongue."
+        }
+      ],
+      "context": {
+        "genre": "other",
+        "subject": "Close-up of a fluffy white dog being held, tongue out, indoors",
+        "mood": "Warm, playful, candid",
+        "preserve": [
+          "Soft, shallow depth-of-field background blur",
+          "Playful candid expression with tongue out"
+        ],
+        "technical": {
+          "exposure": "slightly_under",
+          "white_balance": "slightly_warm",
+          "focus": "acceptable",
+          "noise": "moderate"
+        }
+      },
+      "llm": "openai"
+    },
+    {
+      "genre": "portrait",
+      "subject": "White fluffy dog (likely Samoyed or similar breed) with open mouth and happy expression",
+      "mood": "Joyful, playful, warm and inviting",
+      "score": 62.0,
+      "technical_assessment": {
+        "exposure": "slightly_over",
+        "white_balance": "slightly_warm",
+        "focus": "soft",
+        "noise": "low"
+      },
+      "improvements": [
+        "[MODERATE] Apply sharpening to eyes and nose using selective masking, increase clarity by 15-20",
+        "[MODERATE] Reduce highlights by -15 to -20, especially on the white fur to recover texture and detail",
+        "[SUBTLE] Increase contrast in the eyes by darkening the pupils and adding local contrast to create more depth",
+        "[SUBTLE] Apply slight vignette (subtle darkening at edges) to draw attention to the dog's face",
+        "[SUBTLE] Cool white balance very slightly by adjusting temperature -100 to -200K to achieve more neutral white tones"
+      ],
+      "preserve": [
+        "The joyful expression and tongue-out pose",
+        "The soft, creamy bokeh background",
+        "The warm, friendly atmosphere",
+        "The overall bright and cheerful exposure"
+      ],
+      "notes": "This is a charming pet portrait with excellent subject expression and composition. The main technical limitation is the soft focus, which reduces sharpness in critical areas like the eyes. Strategic sharpening and highlight recovery will significantly improve image quality while maintaining the warm, playful character that makes this photo appealing.",
+      "improvements_detailed": [
+        {
+          "action": "Apply sharpening to eyes and nose using selective masking, increase clarity by 15-20",
+          "intensity": "moderate",
+          "priority": 1,
+          "reason": "The soft focus diminishes impact; sharpening key facial features will improve engagement while maintaining the soft fur texture"
+        },
+        {
+          "action": "Reduce highlights by -15 to -20, especially on the white fur to recover texture and detail",
+          "intensity": "moderate",
+          "priority": 2,
+          "reason": "Bright white fur is losing detail and dimension; subtle highlight recovery will add form without losing the bright, happy mood"
+        },
+        {
+          "action": "Increase contrast in the eyes by darkening the pupils and adding local contrast to create more depth",
+          "intensity": "subtle",
+          "priority": 3,
+          "reason": "Eyes are the focal point but appear flat; enhancing them will strengthen viewer connection with the subject"
+        },
+        {
+          "action": "Apply slight vignette (subtle darkening at edges) to draw attention to the dog's face",
+          "intensity": "subtle",
+          "priority": 4,
+          "reason": "The blurred background competes slightly; gentle vignetting will guide the eye to the subject without appearing obvious"
+        },
+        {
+          "action": "Cool white balance very slightly by adjusting temperature -100 to -200K to achieve more neutral white tones",
+          "intensity": "subtle",
+          "priority": 5,
+          "reason": "The warm cast is affecting the white fur accuracy; minor cooling will improve color fidelity while preserving the inviting atmosphere"
+        }
+      ],
+      "context": {
+        "genre": "portrait",
+        "subject": "White fluffy dog (likely Samoyed or similar breed) with open mouth and happy expression",
+        "mood": "Joyful, playful, warm and inviting",
+        "preserve": [
+          "The joyful expression and tongue-out pose",
+          "The soft, creamy bokeh background",
+          "The warm, friendly atmosphere",
+          "The overall bright and cheerful exposure"
+        ],
+        "technical": {
+          "exposure": "slightly_over",
+          "white_balance": "slightly_warm",
+          "focus": "soft",
+          "noise": "low"
+        }
+      },
+      "llm": "anthropic"
+    }
+  ],
+  "consensus_score": 65.0,
+  "combined_improvements": [
+    "[MODERATE] Correct White Balance",
+    "[MODERATE] Selective Sharpening",
+    "[SUBTLE] Set White Point and Lift Exposure",
+    "[MODERATE] Noise Reduction",
+    "[SUBTLE] Vibrance Adjustment",
+    "[MODERATE] Lift exposure slightly (+0.2 to +0.4) and raise shadows on the dog\u2019s face (+15 to +25) while pulling highlights down a touch (-10) to keep fur detail",
+    "[SUBTLE] Adjust white balance slightly cooler (reduce Temp a bit) and add a small magenta tint (+3 to +8) to counter warm/yellow indoor cast in the fur",
+    "[MODERATE] Apply selective sharpening/texture on eyes and nose (Texture +10 to +20, Sharpening masked to edges) and add a small clarity boost on the muzzle; avoid sharpening the background",
+    "[MODERATE] Use noise reduction: Luminance NR ~20\u201335 and Color NR ~20; then add a very light grain if needed to keep a natural look",
+    "[SUBTLE] Crop slightly tighter and/or straighten for a cleaner composition; consider trimming some of the lower area and left edge to center the dog\u2019s eyes and reduce empty/soft regions",
+    "[MODERATE] Apply sharpening to eyes and nose using selective masking, increase clarity by 15-20",
+    "[MODERATE] Reduce highlights by -15 to -20, especially on the white fur to recover texture and detail",
+    "[SUBTLE] Increase contrast in the eyes by darkening the pupils and adding local contrast to create more depth",
+    "[SUBTLE] Apply slight vignette (subtle darkening at edges) to draw attention to the dog's face",
+    "[SUBTLE] Cool white balance very slightly by adjusting temperature -100 to -200K to achieve more neutral white tones"
+  ],
+  "improvements_detailed": [
+    {
+      "action": "Correct White Balance",
+      "intensity": "moderate",
+      "priority": 1,
+      "reason": "Neutralize the yellow indoor lighting cast to restore the natural bright white color of the dog's fur"
+    },
+    {
+      "action": "Selective Sharpening",
+      "intensity": "moderate",
+      "priority": 2,
+      "reason": "Apply masking to sharpen the eyes and nose area to compensate for the overall soft focus"
+    },
+    {
+      "action": "Set White Point and Lift Exposure",
+      "intensity": "subtle",
+      "priority": 3,
+      "reason": "Brighten the highlights to make the fur pop and reduce the muddy look in the midtones"
+    },
+    {
+      "action": "Noise Reduction",
+      "intensity": "moderate",
+      "priority": 4,
+      "reason": "Smooth out the high-ISO grain visible in the background and shadows without destroying fur texture"
+    },
+    {
+      "action": "Vibrance Adjustment",
+      "intensity": "subtle",
+      "priority": 5,
+      "reason": "Enhance the pink tongue and red nails to create better color contrast against the white fur"
+    },
+    {
+      "action": "Lift exposure slightly (+0.2 to +0.4) and raise shadows on the dog\u2019s face (+15 to +25) while pulling highlights down a touch (-10) to keep fur detail",
+      "intensity": "moderate",
+      "priority": 1,
+      "reason": "Brightens the main subject and reveals facial/fur detail without blowing out the white coat."
+    },
+    {
+      "action": "Adjust white balance slightly cooler (reduce Temp a bit) and add a small magenta tint (+3 to +8) to counter warm/yellow indoor cast in the fur",
+      "intensity": "subtle",
+      "priority": 2,
+      "reason": "Neutralizes color cast so the white fur looks cleaner and more natural."
+    },
+    {
+      "action": "Apply selective sharpening/texture on eyes and nose (Texture +10 to +20, Sharpening masked to edges) and add a small clarity boost on the muzzle; avoid sharpening the background",
+      "intensity": "moderate",
+      "priority": 3,
+      "reason": "Improves perceived focus and draws attention to the dog\u2019s expression without increasing background distraction."
+    },
+    {
+      "action": "Use noise reduction: Luminance NR ~20\u201335 and Color NR ~20; then add a very light grain if needed to keep a natural look",
+      "intensity": "moderate",
+      "priority": 4,
+      "reason": "Cleans up low-light noise, especially in midtones/shadows, while maintaining fur texture."
+    },
+    {
+      "action": "Crop slightly tighter and/or straighten for a cleaner composition; consider trimming some of the lower area and left edge to center the dog\u2019s eyes and reduce empty/soft regions",
+      "intensity": "subtle",
+      "priority": 5,
+      "reason": "Strengthens composition and keeps attention on the face and tongue."
+    },
+    {
+      "action": "Apply sharpening to eyes and nose using selective masking, increase clarity by 15-20",
+      "intensity": "moderate",
+      "priority": 1,
+      "reason": "The soft focus diminishes impact; sharpening key facial features will improve engagement while maintaining the soft fur texture"
+    },
+    {
+      "action": "Reduce highlights by -15 to -20, especially on the white fur to recover texture and detail",
+      "intensity": "moderate",
+      "priority": 2,
+      "reason": "Bright white fur is losing detail and dimension; subtle highlight recovery will add form without losing the bright, happy mood"
+    },
+    {
+      "action": "Increase contrast in the eyes by darkening the pupils and adding local contrast to create more depth",
+      "intensity": "subtle",
+      "priority": 3,
+      "reason": "Eyes are the focal point but appear flat; enhancing them will strengthen viewer connection with the subject"
+    },
+    {
+      "action": "Apply slight vignette (subtle darkening at edges) to draw attention to the dog's face",
+      "intensity": "subtle",
+      "priority": 4,
+      "reason": "The blurred background competes slightly; gentle vignetting will guide the eye to the subject without appearing obvious"
+    },
+    {
+      "action": "Cool white balance very slightly by adjusting temperature -100 to -200K to achieve more neutral white tones",
+      "intensity": "subtle",
+      "priority": 5,
+      "reason": "The warm cast is affecting the white fur accuracy; minor cooling will improve color fidelity while preserving the inviting atmosphere"
+    }
+  ],
+  "context": {
+    "genre": "portrait",
+    "subject": "A fluffy white Samoyed dog looking up happily while being affectionately held by hands with red nail polish",
+    "mood": "Affectionate, joyful, and intimate",
+    "preserve": [
+      "The soft bokeh in the background",
+      "The warm skin tones of the hands",
+      "Soft, shallow depth-of-field background blur",
+      "Playful candid expression with tongue out",
+      "The joyful expression and tongue-out pose",
+      "The soft, creamy bokeh background",
+      "The warm, friendly atmosphere",
+      "The overall bright and cheerful exposure"
+    ],
+    "technical": {
+      "exposure": "slightly_under",
+      "white_balance": "slightly_warm",
+      "focus": "soft",
+      "noise": "moderate"
+    }
+  },
+  "summary": "[GEMINI] This is a charming candid moment with strong emotional appeal, though it suffers technically from soft focus and low-light noise. The editing strategy should focus on 'cleaning' the image by fixing the color cast and noise, rather than trying to force sharpness that isn't there. | [OPENAI] The image has a charming candid moment and pleasing background blur, but it looks a bit dim with a warm indoor color cast. Modest tonal lift, slight WB correction, targeted sharpening, and noise reduction will make the dog\u2019s face feel clearer and more vibrant while keeping the cozy mood. | [ANTHROPIC] This is a charming pet portrait with excellent subject expression and composition. The main technical limitation is the soft focus, which reduces sharpness in critical areas like the eyes. Strategic sharpening and highlight recovery will significantly improve image quality while maintaining the warm, playful character that makes this photo appealing.",
+  "score": 65.0,
+  "improvements": [
+    "[MODERATE] Correct White Balance",
+    "[MODERATE] Selective Sharpening",
+    "[SUBTLE] Set White Point and Lift Exposure",
+    "[MODERATE] Noise Reduction",
+    "[SUBTLE] Vibrance Adjustment"
+  ],
+  "notes": "[GEMINI] This is a charming candid moment with strong emotional appeal, though it suffers technically from soft focus and low-light noise. The editing strategy should focus on 'cleaning' the image by fixing the color cast and noise, rather than trying to force sharpness that isn't there. | [OPENAI] The image has a charming candid moment and pleasing background blur, but it looks a bit dim with a warm indoor color cast. Modest tonal lift, slight WB correction, targeted sharpening, and noise reduction will make the dog\u2019s face feel clearer and more vibrant while keeping the cozy mood. | [ANTHROPIC] This is a charming pet portrait with excellent subject expression and composition. The main technical limitation is the soft focus, which reduces sharpness in critical areas like the eyes. Strategic sharpening and highlight recovery will significantly improve image quality while maintaining the warm, playful character that makes this photo appealing.",
+  "timestamp": "20260130-205923",
+  "entry_id": "20260130-205923-49a9d466",
+  "original_filename": "IMG_0985.jpeg",
+  "original_image": "original.jpeg",
+  "edited_image": "edited.jpeg"
+}
