@@ -44,9 +44,9 @@
                         {% if critique.notes %}
                         <p class="llm-notes">{{ critique.notes }}</p>
                         {% endif %}
-                        {% if critique.improvements %}
+                        {% if critique.improvements_display %}
                         <ul class="llm-improvements">
-                            {% for imp in critique.improvements[:3] %}
+                            {% for imp in critique.improvements_display[:3] %}
                             <li>{{ imp }}</li>
                             {% endfor %}
                         </ul>
@@ -59,7 +59,7 @@
                 <div class="improvements-list">
                     <h4>Combined Improvements Applied:</h4>
                     <ul>
-                        {% for improvement in entry.combined_improvements or entry.improvements %}
+                        {% for improvement in entry.combined_improvements_display or entry.improvements_display %}
                         <li>{{ improvement }}</li>
                         {% endfor %}
                     </ul>

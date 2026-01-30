@@ -8,6 +8,7 @@ import os
 import sys
 import json
 import shutil
+import re
 from pathlib import Path
 from datetime import datetime
 from typing import Dict, Any, List, Set
@@ -17,6 +18,8 @@ from PIL import Image
 
 class SiteGenerator:
     """Generates documentation and rebuilds the static website."""
+
+    _IMPROVEMENT_TAG_RE = re.compile(r"^\\s*\\[(subtle|moderate|significant|strong|major|minor|severe|light|heavy)\\]\\s*", re.IGNORECASE)
 
     def __init__(self, repo_root: Path):
         """Initialize the generator."""
@@ -117,6 +120,24 @@ class SiteGenerator:
 
         return entries
 
+    def _clean_improvement_text(self, text: str) -> str:
+        """Remove severity tags like [SUBTLE] from improvement text."""
+        if not isinstance(text, str):
+            return ""
+        cleaned = self._IMPROVEMENT_TAG_RE.sub("", text).strip()
+        return cleaned
+
+    def _clean_improvement_list(self, improvements: Any) -> List[str]:
+        """Normalize and clean improvement lists for display."""
+        if not isinstance(improvements, list):
+            return []
+        cleaned = []
+        for item in improvements:
+            cleaned_text = self._clean_improvement_text(item)
+            if cleaned_text:
+                cleaned.append(cleaned_text)
+        return cleaned
+
     def _get_existing_entry_ids(self) -> Set[str]:
         """Get set of entry IDs that already have generated HTML pages."""
         existing = set()
@@ -173,6 +194,15 @@ class SiteGenerator:
         for entry in entries:
             entry_dir = entry['path']
             entry_id = entry['entry_id']
+
+            # Add display-friendly improvements without severity tags
+            entry['improvements_display'] = self._clean_improvement_list(entry.get('improvements'))
+            entry['combined_improvements_display'] = self._clean_improvement_list(
+                entry.get('combined_improvements') or entry.get('improvements')
+            )
+            if entry.get('critiques'):
+                for critique in entry['critiques']:
+                    critique['improvements_display'] = self._clean_improvement_list(critique.get('improvements'))
 
             # Determine image paths
             original_src = entry_dir / entry['original_image']

@@ -9,6 +9,7 @@ import sys
 import json
 from pathlib import Path
 from typing import List, Dict, Any, Optional
+import re
 from google import genai
 from PIL import Image
 
@@ -17,6 +18,8 @@ from utils import retry_with_backoff
 
 class PhotoEditor:
     """Applies improvements to photographs using Gemini's image editing capabilities."""
+
+    _IMPROVEMENT_TAG_RE = re.compile(r"^\\s*\\[(subtle|moderate|significant|strong|major|minor|severe|light|heavy)\\]\\s*", re.IGNORECASE)
 
     def __init__(self, api_key: str):
         """Initialize the Editor with Gemini API credentials."""
@@ -31,8 +34,25 @@ class PhotoEditor:
     ) -> str:
         """Build a detailed editing prompt with context awareness."""
 
-        # Format improvements list
-        improvements_text = "\n".join(f"  • {imp}" for imp in improvements)
+        # Format improvements list with explicit intensity
+        parsed_improvements = []
+        for imp in improvements:
+            if not isinstance(imp, str):
+                continue
+            match = self._IMPROVEMENT_TAG_RE.match(imp)
+            if match:
+                intensity = match.group(1).lower()
+                action = imp[match.end():].strip()
+            else:
+                intensity = "moderate"
+                action = imp.strip()
+            if action:
+                parsed_improvements.append((action, intensity))
+
+        improvements_text = "\n".join(
+            f"{idx}. {action} (intensity: {intensity})"
+            for idx, (action, intensity) in enumerate(parsed_improvements, 1)
+        )
 
         # Build context section if available
         context_section = ""
@@ -69,31 +89,38 @@ class PhotoEditor:
         # Genre-specific guidelines
         genre_guidelines = self._get_genre_guidelines(context.get('genre') if context else None)
 
-        prompt = f"""You are a professional photo retoucher applying targeted edits to enhance this photograph. Work like an expert using Lightroom/Photoshop—make precise, natural adjustments that improve the image while respecting its artistic intent.
+        prompt = f"""You are a professional photo retoucher. Edit the provided photo to improve technical quality while preserving the original scene, subject identity, and artistic intent. Make realistic, natural edits only.
 
 {context_section}REQUESTED EDITS:
 {improvements_text}
 
 {preserve_section}EDITING PRINCIPLES:
 
-1. INTENSITY GUIDE (indicated in brackets):
-   • [SUBTLE] = Minor refinement, barely noticeable (5-15% adjustment)
-   • [MODERATE] = Clear improvement, still natural (15-30% adjustment)
-   • [SIGNIFICANT] = Strong correction needed (30-50% adjustment)
+1. HARD CONSTRAINTS:
+   • Do NOT add, remove, or replace objects or people
+   • Do NOT change framing, crop, or aspect ratio
+   • Do NOT alter identity, age, or key features of subjects
+   • Do NOT stylize or change the overall genre/look
+   • Avoid artificial artifacts, halos, banding, or texture smearing
 
-2. TECHNICAL STANDARDS:
+2. INTENSITY GUIDE:
+   • subtle = minor refinement (5-15% adjustment)
+   • moderate = clear improvement, still natural (15-30% adjustment)
+   • significant = strong correction when needed (30-45% adjustment)
+
+3. TECHNICAL STANDARDS:
    • Maintain natural color relationships—avoid oversaturation or color casts
    • Preserve detail in highlights and shadows—no clipping
    • Keep noise levels appropriate to the image
    • Ensure smooth tonal gradations without banding
    • Maintain sharpness without halos or artifacts
 
-3. QUALITY TARGETS:
+4. QUALITY TARGETS:
    • The edit should look professional but not over-processed
    • Someone viewing before/after should think "that's better" not "that's different"
    • Edits should be invisible—the photo should look naturally good
 {genre_guidelines}
-Generate the enhanced version of this photograph with the requested edits applied."""
+Return only the edited image."""
 
         return prompt
 

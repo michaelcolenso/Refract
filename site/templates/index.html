@@ -25,7 +25,7 @@
             {% for entry in entries %}
             <div class="entry-card">
                 <a href="{{ entry.entry_id }}.html">
-                    <img src="{{ entry.web_comparison }}" alt="{{ entry.original_filename }}" class="entry-thumbnail">
+                    <img src="{{ entry.web_edited }}" alt="Enhanced {{ entry.original_filename }}" class="entry-thumbnail">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">{{ entry.consensus_score or entry.score }}</div>
@@ -40,11 +40,11 @@
                         <div class="entry-improvements">
                             <h3>Improvements Applied</h3>
                             <ul>
-                                {% for improvement in entry.improvements[:3] %}
+                                {% for improvement in entry.improvements_display[:3] %}
                                 <li>{{ improvement }}</li>
                                 {% endfor %}
-                                {% if entry.improvements|length > 3 %}
-                                <li>+ {{ entry.improvements|length - 3 }} more...</li>
+                                {% if entry.improvements_display|length > 3 %}
+                                <li>+ {{ entry.improvements_display|length - 3 }} more...</li>
                                 {% endif %}
                             </ul>
                         </div>
