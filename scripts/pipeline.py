@@ -219,8 +219,42 @@ class RefractPipeline:
                         img = img.convert('RGB')
                     img.save(edited_path, quality=95)
 
-            # STEP 3: GENERATOR - Create entry and update site
-            print("STEP 3: Creating documentation...")
+            # STEP 3: RE-REVIEW - Score the edited photograph
+            print("STEP 3: Re-reviewing edited photograph...")
+            try:
+                re_review = self.critic.analyze(edited_path)
+
+                # Display re-review scores
+                print("\n  Re-review Scores:")
+                for c in re_review.get('critiques', []):
+                    if c.get('score') is not None:
+                        print(f"    {c['llm'].upper()}: {c['score']}/100")
+                    else:
+                        print(f"    {c['llm'].upper()}: Failed - {c.get('error', 'Unknown error')}")
+
+                original_score = critique['consensus_score']
+                new_score = re_review['consensus_score']
+                delta = round(new_score - original_score, 1)
+                sign = "+" if delta > 0 else ""
+                print(f"\n  Original Score: {original_score}/100")
+                print(f"  Re-review Score: {new_score}/100")
+                print(f"  Improvement: {sign}{delta} points\n")
+
+                critique['re_review'] = {
+                    'critiques': re_review.get('critiques', []),
+                    'consensus_score': re_review['consensus_score'],
+                    'score': re_review['score'],
+                    'notes': re_review.get('notes', ''),
+                    'summary': re_review.get('summary', ''),
+                    'context': re_review.get('context', {}),
+                    'score_delta': delta,
+                }
+            except Exception as e:
+                print(f"  Warning: Re-review failed: {e}")
+                print("  Continuing without re-review data.\n")
+
+            # STEP 4: GENERATOR - Create entry and update site
+            print("STEP 4: Creating documentation...")
 
             # Thread-safe entry creation
             with self._lock:
@@ -232,7 +266,7 @@ class RefractPipeline:
                 edited_path.unlink()
 
             # Archive the original from inbox
-            print("STEP 4: Archiving original...")
+            print("STEP 5: Archiving original...")
             image_path.unlink()
             print(f"  Removed from inbox: {image_path.name}\n")
 

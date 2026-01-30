@@ -1,0 +1,234 @@
+{
+  "critiques": [
+    {
+      "genre": "portrait",
+      "subject": "Close-up of a white Samoyed dog having its face gently held by hands with red nail polish",
+      "mood": "tender, affectionate, intimate",
+      "score": 76.0,
+      "technical_assessment": {
+        "exposure": "good",
+        "white_balance": "slightly_warm",
+        "focus": "acceptable",
+        "noise": "moderate"
+      },
+      "improvements": [
+        "[MODERATE] Reduce color temperature (Cool White Balance)",
+        "[MODERATE] Apply luminance noise reduction",
+        "[SUBTLE] Selective sharpening/texture on the nose and fingernails",
+        "[SUBTLE] HSL Adjustment: Desaturate yellows and adjust orange luminance"
+      ],
+      "preserve": [
+        "The shallow depth of field (creamy background bokeh)",
+        "The vibrant contrast of the red nail polish"
+      ],
+      "notes": "A heartwarming image that relies heavily on its emotional content. The technical edits should focus on cleaning up the 'indoor' feel (yellow cast and noise) without making the image look sterile or losing its soft, dreamy atmosphere.",
+      "improvements_detailed": [
+        {
+          "action": "Reduce color temperature (Cool White Balance)",
+          "intensity": "moderate",
+          "priority": 1,
+          "reason": "Neutralize the yellow indoor lighting cast to make the white fur look cleaner and truer to life"
+        },
+        {
+          "action": "Apply luminance noise reduction",
+          "intensity": "moderate",
+          "priority": 2,
+          "reason": "Smooth out visible grain in the fur and background shadows caused by high ISO"
+        },
+        {
+          "action": "Selective sharpening/texture on the nose and fingernails",
+          "intensity": "subtle",
+          "priority": 3,
+          "reason": "Enhance the focal point and tactile details while keeping the surrounding fur soft"
+        },
+        {
+          "action": "HSL Adjustment: Desaturate yellows and adjust orange luminance",
+          "intensity": "subtle",
+          "priority": 4,
+          "reason": "Correct the skin tones on the hands which appear slightly muddy due to the lighting cast"
+        }
+      ],
+      "context": {
+        "genre": "portrait",
+        "subject": "Close-up of a white Samoyed dog having its face gently held by hands with red nail polish",
+        "mood": "tender, affectionate, intimate",
+        "preserve": [
+          "The shallow depth of field (creamy background bokeh)",
+          "The vibrant contrast of the red nail polish"
+        ],
+        "technical": {
+          "exposure": "good",
+          "white_balance": "slightly_warm",
+          "focus": "acceptable",
+          "noise": "moderate"
+        }
+      },
+      "llm": "gemini"
+    },
+    {
+      "genre": "other",
+      "subject": "close-up of a fluffy white dog being held/cheek-squeezed by a person with red nail polish",
+      "mood": "warm, affectionate, cozy",
+      "score": 78.0,
+      "technical_assessment": {
+        "exposure": "good",
+        "white_balance": "slightly_warm",
+        "focus": "acceptable",
+        "noise": "moderate"
+      },
+      "improvements": [
+        "[SUBTLE] Cool white balance slightly and add a touch of magenta (e.g., Temp -300 to -700K, Tint +3 to +8) to reduce the yellow/green indoor cast while keeping a warm feel",
+        "[MODERATE] Reduce luminance noise (e.g., Luminance NR 15\u201330) and apply light color noise reduction (e.g., 20\u201330), then add mild sharpening with masking (Amount 40\u201370, Masking 60\u201390)",
+        "[SUBTLE] Local adjustments on the face: lift shadows around the eye and muzzle slightly (+10 to +25), lower highlights on bright fur (-10 to -25), and add a small clarity/texture boost on fur (+5 to +15); add subtle dodge/catchlight enhancement to the visible eye",
+        "[MODERATE] Crop slightly from the left and bottom to reduce the dominance of the forearms/harness and center the dog\u2019s eye/face more strongly (maintain enough hands for context)"
+      ],
+      "preserve": [
+        "the soft, shallow depth-of-field background blur",
+        "the warm, intimate moment and natural color of the red nails"
+      ],
+      "notes": "This is a charming, intimate pet close-up with pleasing background separation and solid exposure. The main opportunities are correcting the slightly warm indoor cast, reducing moderate noise, and using selective edits to bring more attention and detail to the dog\u2019s eye and fur while keeping the cozy mood.",
+      "improvements_detailed": [
+        {
+          "action": "Cool white balance slightly and add a touch of magenta (e.g., Temp -300 to -700K, Tint +3 to +8) to reduce the yellow/green indoor cast while keeping a warm feel",
+          "intensity": "subtle",
+          "priority": 1,
+          "reason": "The dog\u2019s white fur reads a bit creamy/yellow; a small WB correction will make whites cleaner and improve overall color fidelity."
+        },
+        {
+          "action": "Reduce luminance noise (e.g., Luminance NR 15\u201330) and apply light color noise reduction (e.g., 20\u201330), then add mild sharpening with masking (Amount 40\u201370, Masking 60\u201390)",
+          "intensity": "moderate",
+          "priority": 2,
+          "reason": "The soft indoor light introduces visible noise and slight detail mush; balancing NR and masked sharpening will restore fur texture without sharpening the background."
+        },
+        {
+          "action": "Local adjustments on the face: lift shadows around the eye and muzzle slightly (+10 to +25), lower highlights on bright fur (-10 to -25), and add a small clarity/texture boost on fur (+5 to +15); add subtle dodge/catchlight enhancement to the visible eye",
+          "intensity": "subtle",
+          "priority": 3,
+          "reason": "Directs attention to the dog\u2019s expression and improves perceived sharpness/texture while protecting bright fur from looking flat."
+        },
+        {
+          "action": "Crop slightly from the left and bottom to reduce the dominance of the forearms/harness and center the dog\u2019s eye/face more strongly (maintain enough hands for context)",
+          "intensity": "moderate",
+          "priority": 4,
+          "reason": "Tightening composition increases subject emphasis and reduces visual weight of foreground arms, making the portrait read cleaner."
+        }
+      ],
+      "context": {
+        "genre": "other",
+        "subject": "close-up of a fluffy white dog being held/cheek-squeezed by a person with red nail polish",
+        "mood": "warm, affectionate, cozy",
+        "preserve": [
+          "the soft, shallow depth-of-field background blur",
+          "the warm, intimate moment and natural color of the red nails"
+        ],
+        "technical": {
+          "exposure": "good",
+          "white_balance": "slightly_warm",
+          "focus": "acceptable",
+          "noise": "moderate"
+        }
+      },
+      "llm": "openai"
+    },
+    {
+      "llm": "anthropic",
+      "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.0.image.source.base64: image exceeds 5 MB maximum: 5461968 bytes > 5242880 bytes'}, 'request_id': 'req_011CXeE1UN43syfF2M2fwQ96'}",
+      "score": null,
+      "improvements": [],
+      "notes": "Analysis failed: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.0.image.source.base64: image exceeds 5 MB maximum: 5461968 bytes > 5242880 bytes'}, 'request_id': 'req_011CXeE1UN43syfF2M2fwQ96'}"
+    }
+  ],
+  "consensus_score": 77.0,
+  "combined_improvements": [
+    "[MODERATE] Reduce color temperature (Cool White Balance)",
+    "[MODERATE] Apply luminance noise reduction",
+    "[SUBTLE] Selective sharpening/texture on the nose and fingernails",
+    "[SUBTLE] HSL Adjustment: Desaturate yellows and adjust orange luminance",
+    "[SUBTLE] Cool white balance slightly and add a touch of magenta (e.g., Temp -300 to -700K, Tint +3 to +8) to reduce the yellow/green indoor cast while keeping a warm feel",
+    "[MODERATE] Reduce luminance noise (e.g., Luminance NR 15\u201330) and apply light color noise reduction (e.g., 20\u201330), then add mild sharpening with masking (Amount 40\u201370, Masking 60\u201390)",
+    "[SUBTLE] Local adjustments on the face: lift shadows around the eye and muzzle slightly (+10 to +25), lower highlights on bright fur (-10 to -25), and add a small clarity/texture boost on fur (+5 to +15); add subtle dodge/catchlight enhancement to the visible eye",
+    "[MODERATE] Crop slightly from the left and bottom to reduce the dominance of the forearms/harness and center the dog\u2019s eye/face more strongly (maintain enough hands for context)"
+  ],
+  "improvements_detailed": [
+    {
+      "action": "Reduce color temperature (Cool White Balance)",
+      "intensity": "moderate",
+      "priority": 1,
+      "reason": "Neutralize the yellow indoor lighting cast to make the white fur look cleaner and truer to life"
+    },
+    {
+      "action": "Apply luminance noise reduction",
+      "intensity": "moderate",
+      "priority": 2,
+      "reason": "Smooth out visible grain in the fur and background shadows caused by high ISO"
+    },
+    {
+      "action": "Selective sharpening/texture on the nose and fingernails",
+      "intensity": "subtle",
+      "priority": 3,
+      "reason": "Enhance the focal point and tactile details while keeping the surrounding fur soft"
+    },
+    {
+      "action": "HSL Adjustment: Desaturate yellows and adjust orange luminance",
+      "intensity": "subtle",
+      "priority": 4,
+      "reason": "Correct the skin tones on the hands which appear slightly muddy due to the lighting cast"
+    },
+    {
+      "action": "Cool white balance slightly and add a touch of magenta (e.g., Temp -300 to -700K, Tint +3 to +8) to reduce the yellow/green indoor cast while keeping a warm feel",
+      "intensity": "subtle",
+      "priority": 1,
+      "reason": "The dog\u2019s white fur reads a bit creamy/yellow; a small WB correction will make whites cleaner and improve overall color fidelity."
+    },
+    {
+      "action": "Reduce luminance noise (e.g., Luminance NR 15\u201330) and apply light color noise reduction (e.g., 20\u201330), then add mild sharpening with masking (Amount 40\u201370, Masking 60\u201390)",
+      "intensity": "moderate",
+      "priority": 2,
+      "reason": "The soft indoor light introduces visible noise and slight detail mush; balancing NR and masked sharpening will restore fur texture without sharpening the background."
+    },
+    {
+      "action": "Local adjustments on the face: lift shadows around the eye and muzzle slightly (+10 to +25), lower highlights on bright fur (-10 to -25), and add a small clarity/texture boost on fur (+5 to +15); add subtle dodge/catchlight enhancement to the visible eye",
+      "intensity": "subtle",
+      "priority": 3,
+      "reason": "Directs attention to the dog\u2019s expression and improves perceived sharpness/texture while protecting bright fur from looking flat."
+    },
+    {
+      "action": "Crop slightly from the left and bottom to reduce the dominance of the forearms/harness and center the dog\u2019s eye/face more strongly (maintain enough hands for context)",
+      "intensity": "moderate",
+      "priority": 4,
+      "reason": "Tightening composition increases subject emphasis and reduces visual weight of foreground arms, making the portrait read cleaner."
+    }
+  ],
+  "context": {
+    "genre": "portrait",
+    "subject": "Close-up of a white Samoyed dog having its face gently held by hands with red nail polish",
+    "mood": "tender, affectionate, intimate",
+    "preserve": [
+      "The shallow depth of field (creamy background bokeh)",
+      "The vibrant contrast of the red nail polish",
+      "the soft, shallow depth-of-field background blur",
+      "the warm, intimate moment and natural color of the red nails"
+    ],
+    "technical": {
+      "exposure": "good",
+      "white_balance": "slightly_warm",
+      "focus": "acceptable",
+      "noise": "moderate"
+    }
+  },
+  "summary": "[GEMINI] A heartwarming image that relies heavily on its emotional content. The technical edits should focus on cleaning up the 'indoor' feel (yellow cast and noise) without making the image look sterile or losing its soft, dreamy atmosphere. | [OPENAI] This is a charming, intimate pet close-up with pleasing background separation and solid exposure. The main opportunities are correcting the slightly warm indoor cast, reducing moderate noise, and using selective edits to bring more attention and detail to the dog\u2019s eye and fur while keeping the cozy mood.",
+  "score": 77.0,
+  "improvements": [
+    "[MODERATE] Reduce color temperature (Cool White Balance)",
+    "[MODERATE] Apply luminance noise reduction",
+    "[SUBTLE] Selective sharpening/texture on the nose and fingernails",
+    "[SUBTLE] HSL Adjustment: Desaturate yellows and adjust orange luminance",
+    "[SUBTLE] Cool white balance slightly and add a touch of magenta (e.g., Temp -300 to -700K, Tint +3 to +8) to reduce the yellow/green indoor cast while keeping a warm feel"
+  ],
+  "notes": "[GEMINI] A heartwarming image that relies heavily on its emotional content. The technical edits should focus on cleaning up the 'indoor' feel (yellow cast and noise) without making the image look sterile or losing its soft, dreamy atmosphere. | [OPENAI] This is a charming, intimate pet close-up with pleasing background separation and solid exposure. The main opportunities are correcting the slightly warm indoor cast, reducing moderate noise, and using selective edits to bring more attention and detail to the dog\u2019s eye and fur while keeping the cozy mood.",
+  "timestamp": "20260130-205234",
+  "entry_id": "20260130-205234-8ff58e65",
+  "original_filename": "IMG_1003.jpeg",
+  "original_image": "original.jpeg",
+  "edited_image": "edited.jpeg"
+}

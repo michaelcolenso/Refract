@@ -1,0 +1,353 @@
+{
+  "critiques": [
+    {
+      "genre": "portrait",
+      "subject": "Close-up of a white Samoyed dog lying on an oriental rug",
+      "mood": "Cozy, relaxed, and gentle",
+      "score": 65.0,
+      "technical_assessment": {
+        "exposure": "slightly_over",
+        "white_balance": "too_warm",
+        "focus": "soft",
+        "noise": "moderate"
+      },
+      "improvements": [
+        "[SIGNIFICANT] Cool White Balance temperature significantly (-15 to -20)",
+        "[MODERATE] Reduce Highlights and Whites",
+        "[MODERATE] Apply selective sharpening to eyes and nose",
+        "[SUBTLE] Apply masked Luminance Noise Reduction"
+      ],
+      "preserve": [
+        "The rich colors and pattern of the rug",
+        "The soft, fluffy quality of the fur edges"
+      ],
+      "notes": "The image has a charming expression but is hindered by a strong indoor lighting color cast. The primary goal is to restore clean whites to the subject while managing the exposure to ensure the fur looks textured rather than a flat white mass.",
+      "improvements_detailed": [
+        {
+          "action": "Cool White Balance temperature significantly (-15 to -20)",
+          "intensity": "significant",
+          "priority": 1,
+          "reason": "Neutralize the strong yellow color cast to restore the natural bright white of the dog's fur"
+        },
+        {
+          "action": "Reduce Highlights and Whites",
+          "intensity": "moderate",
+          "priority": 2,
+          "reason": "Recover lost texture detail in the brightest areas of the coat which are currently washing out"
+        },
+        {
+          "action": "Apply selective sharpening to eyes and nose",
+          "intensity": "moderate",
+          "priority": 3,
+          "reason": "Draw focus to the facial features and counteract the soft focus of the original image"
+        },
+        {
+          "action": "Apply masked Luminance Noise Reduction",
+          "intensity": "subtle",
+          "priority": 4,
+          "reason": "Smooth out visible grain in shadow areas without destroying the fur texture"
+        }
+      ],
+      "context": {
+        "genre": "portrait",
+        "subject": "Close-up of a white Samoyed dog lying on an oriental rug",
+        "mood": "Cozy, relaxed, and gentle",
+        "preserve": [
+          "The rich colors and pattern of the rug",
+          "The soft, fluffy quality of the fur edges"
+        ],
+        "technical": {
+          "exposure": "slightly_over",
+          "white_balance": "too_warm",
+          "focus": "soft",
+          "noise": "moderate"
+        }
+      },
+      "llm": "gemini"
+    },
+    {
+      "genre": "wildlife",
+      "subject": "A fluffy white dog lying on a patterned rug, facing the camera",
+      "mood": "calm, cozy, slightly sleepy",
+      "score": 72.0,
+      "technical_assessment": {
+        "exposure": "slightly_over",
+        "white_balance": "slightly_warm",
+        "focus": "acceptable",
+        "noise": "moderate"
+      },
+      "improvements": [
+        "[MODERATE] Reduce highlights/whites (Highlights -20 to -35, Whites -10 to -20) to recover fur texture and prevent the coat from looking blown out",
+        "[SUBTLE] Cool the white balance slightly (Temp -300 to -800K) and add a small magenta shift if needed (Tint +3 to +8) to neutralize yellow indoor cast in the fur",
+        "[MODERATE] Apply selective sharpening/texture on facial features: mask to eyes and nose (Texture +10 to +20, Clarity +5 to +10, Sharpening with Masking 70-90); avoid sharpening the fur broadly",
+        "[MODERATE] Noise reduction focused on shadows/background (Luminance NR 20-35, Color NR 20-30) with masking or local adjustment",
+        "[SUBTLE] Crop slightly from the bottom and left to reduce empty rug area and center attention on the face (aim for eyes near upper third)"
+      ],
+      "preserve": [
+        "The soft, cozy indoor atmosphere",
+        "Natural fur softness (avoid over-clarity across the whole coat)"
+      ],
+      "notes": "The photo has a pleasing, calm pet-portrait feel with a strong subject, but the white fur is a bit hot and loses texture in places. Slightly cooler color, recovered highlights, and targeted detail on the eyes/nose will improve clarity and presence while keeping the gentle mood.",
+      "improvements_detailed": [
+        {
+          "action": "Reduce highlights/whites (Highlights -20 to -35, Whites -10 to -20) to recover fur texture and prevent the coat from looking blown out",
+          "intensity": "moderate",
+          "priority": 1,
+          "reason": "The bright white fur is close to clipping, which hides detail; pulling highlights back restores texture while keeping the soft look."
+        },
+        {
+          "action": "Cool the white balance slightly (Temp -300 to -800K) and add a small magenta shift if needed (Tint +3 to +8) to neutralize yellow indoor cast in the fur",
+          "intensity": "subtle",
+          "priority": 2,
+          "reason": "Neutral whites make the dog\u2019s coat look cleaner and more natural without changing the warm, cozy feel too much."
+        },
+        {
+          "action": "Apply selective sharpening/texture on facial features: mask to eyes and nose (Texture +10 to +20, Clarity +5 to +10, Sharpening with Masking 70-90); avoid sharpening the fur broadly",
+          "intensity": "moderate",
+          "priority": 3,
+          "reason": "Directing crispness to the eyes and nose increases perceived focus and portrait impact while keeping fur soft and flattering."
+        },
+        {
+          "action": "Noise reduction focused on shadows/background (Luminance NR 20-35, Color NR 20-30) with masking or local adjustment",
+          "intensity": "moderate",
+          "priority": 4,
+          "reason": "The image shows visible grain in darker areas; targeted NR cleans it up without smearing important facial detail."
+        },
+        {
+          "action": "Crop slightly from the bottom and left to reduce empty rug area and center attention on the face (aim for eyes near upper third)",
+          "intensity": "subtle",
+          "priority": 5,
+          "reason": "A tighter composition strengthens the subject emphasis and reduces competing texture from the rug."
+        }
+      ],
+      "context": {
+        "genre": "wildlife",
+        "subject": "A fluffy white dog lying on a patterned rug, facing the camera",
+        "mood": "calm, cozy, slightly sleepy",
+        "preserve": [
+          "The soft, cozy indoor atmosphere",
+          "Natural fur softness (avoid over-clarity across the whole coat)"
+        ],
+        "technical": {
+          "exposure": "slightly_over",
+          "white_balance": "slightly_warm",
+          "focus": "acceptable",
+          "noise": "moderate"
+        }
+      },
+      "llm": "openai"
+    },
+    {
+      "genre": "portrait",
+      "subject": "White fluffy dog (appears to be a Samoyed) lying on an ornate Persian rug",
+      "mood": "Soft, gentle, and intimate",
+      "score": 62.0,
+      "technical_assessment": {
+        "exposure": "slightly_over",
+        "white_balance": "slightly_warm",
+        "focus": "soft",
+        "noise": "low"
+      },
+      "improvements": [
+        "[MODERATE] Apply selective sharpening to the dog's eyes and nose area using unsharp mask (Amount: 80, Radius: 1.0, Threshold: 2)",
+        "[MODERATE] Reduce highlights by -15 to -20 and decrease whites by -10 to recover detail in the bright fur, especially around the head and body",
+        "[SUBTLE] Increase clarity by +10 to +15 globally to enhance midtone contrast and add definition to the fur texture",
+        "[SUBTLE] Apply slight vignette (Feather: 70, Roundness: 0, Amount: -8 to -10) to draw focus toward the dog's face",
+        "[SUBTLE] Adjust white balance by reducing temperature by -200K to achieve more neutral tone and prevent overly warm cast on white fur"
+      ],
+      "preserve": [
+        "The soft, intimate mood and gentle lighting",
+        "The rich colors and detail in the Persian rug pattern",
+        "The natural pose and eye contact with camera"
+      ],
+      "notes": "This is a charming pet portrait with good composition and natural subject positioning. The primary issues are soft focus on key facial features and slightly overexposed white fur that loses texture. The image has strong potential and would benefit most from targeted sharpening and highlight recovery to bring out the dog's features while maintaining the gentle, cozy atmosphere.",
+      "improvements_detailed": [
+        {
+          "action": "Apply selective sharpening to the dog's eyes and nose area using unsharp mask (Amount: 80, Radius: 1.0, Threshold: 2)",
+          "intensity": "moderate",
+          "priority": 1,
+          "reason": "The eyes and facial features lack definition; sharpening these key areas will draw viewer attention and improve overall image impact"
+        },
+        {
+          "action": "Reduce highlights by -15 to -20 and decrease whites by -10 to recover detail in the bright fur, especially around the head and body",
+          "intensity": "moderate",
+          "priority": 2,
+          "reason": "The white fur is slightly blown out, losing texture and dimension that would make the subject more three-dimensional"
+        },
+        {
+          "action": "Increase clarity by +10 to +15 globally to enhance midtone contrast and add definition to the fur texture",
+          "intensity": "subtle",
+          "priority": 3,
+          "reason": "The overall softness reduces visual impact; subtle clarity will help separate the subject from background without appearing over-processed"
+        },
+        {
+          "action": "Apply slight vignette (Feather: 70, Roundness: 0, Amount: -8 to -10) to draw focus toward the dog's face",
+          "intensity": "subtle",
+          "priority": 4,
+          "reason": "The bright background competes for attention; gentle darkening at edges will guide viewer's eye to the subject's expressive face"
+        },
+        {
+          "action": "Adjust white balance by reducing temperature by -200K to achieve more neutral tone and prevent overly warm cast on white fur",
+          "intensity": "subtle",
+          "priority": 5,
+          "reason": "The slight warm cast is making the white fur appear cream-colored; cooler temperature will restore true white while maintaining natural feel"
+        }
+      ],
+      "context": {
+        "genre": "portrait",
+        "subject": "White fluffy dog (appears to be a Samoyed) lying on an ornate Persian rug",
+        "mood": "Soft, gentle, and intimate",
+        "preserve": [
+          "The soft, intimate mood and gentle lighting",
+          "The rich colors and detail in the Persian rug pattern",
+          "The natural pose and eye contact with camera"
+        ],
+        "technical": {
+          "exposure": "slightly_over",
+          "white_balance": "slightly_warm",
+          "focus": "soft",
+          "noise": "low"
+        }
+      },
+      "llm": "anthropic"
+    }
+  ],
+  "consensus_score": 66.3,
+  "combined_improvements": [
+    "[SIGNIFICANT] Cool White Balance temperature significantly (-15 to -20)",
+    "[MODERATE] Reduce Highlights and Whites",
+    "[MODERATE] Apply selective sharpening to eyes and nose",
+    "[SUBTLE] Apply masked Luminance Noise Reduction",
+    "[MODERATE] Reduce highlights/whites (Highlights -20 to -35, Whites -10 to -20) to recover fur texture and prevent the coat from looking blown out",
+    "[SUBTLE] Cool the white balance slightly (Temp -300 to -800K) and add a small magenta shift if needed (Tint +3 to +8) to neutralize yellow indoor cast in the fur",
+    "[MODERATE] Apply selective sharpening/texture on facial features: mask to eyes and nose (Texture +10 to +20, Clarity +5 to +10, Sharpening with Masking 70-90); avoid sharpening the fur broadly",
+    "[MODERATE] Noise reduction focused on shadows/background (Luminance NR 20-35, Color NR 20-30) with masking or local adjustment",
+    "[SUBTLE] Crop slightly from the bottom and left to reduce empty rug area and center attention on the face (aim for eyes near upper third)",
+    "[MODERATE] Apply selective sharpening to the dog's eyes and nose area using unsharp mask (Amount: 80, Radius: 1.0, Threshold: 2)",
+    "[MODERATE] Reduce highlights by -15 to -20 and decrease whites by -10 to recover detail in the bright fur, especially around the head and body",
+    "[SUBTLE] Increase clarity by +10 to +15 globally to enhance midtone contrast and add definition to the fur texture",
+    "[SUBTLE] Apply slight vignette (Feather: 70, Roundness: 0, Amount: -8 to -10) to draw focus toward the dog's face",
+    "[SUBTLE] Adjust white balance by reducing temperature by -200K to achieve more neutral tone and prevent overly warm cast on white fur"
+  ],
+  "improvements_detailed": [
+    {
+      "action": "Cool White Balance temperature significantly (-15 to -20)",
+      "intensity": "significant",
+      "priority": 1,
+      "reason": "Neutralize the strong yellow color cast to restore the natural bright white of the dog's fur"
+    },
+    {
+      "action": "Reduce Highlights and Whites",
+      "intensity": "moderate",
+      "priority": 2,
+      "reason": "Recover lost texture detail in the brightest areas of the coat which are currently washing out"
+    },
+    {
+      "action": "Apply selective sharpening to eyes and nose",
+      "intensity": "moderate",
+      "priority": 3,
+      "reason": "Draw focus to the facial features and counteract the soft focus of the original image"
+    },
+    {
+      "action": "Apply masked Luminance Noise Reduction",
+      "intensity": "subtle",
+      "priority": 4,
+      "reason": "Smooth out visible grain in shadow areas without destroying the fur texture"
+    },
+    {
+      "action": "Reduce highlights/whites (Highlights -20 to -35, Whites -10 to -20) to recover fur texture and prevent the coat from looking blown out",
+      "intensity": "moderate",
+      "priority": 1,
+      "reason": "The bright white fur is close to clipping, which hides detail; pulling highlights back restores texture while keeping the soft look."
+    },
+    {
+      "action": "Cool the white balance slightly (Temp -300 to -800K) and add a small magenta shift if needed (Tint +3 to +8) to neutralize yellow indoor cast in the fur",
+      "intensity": "subtle",
+      "priority": 2,
+      "reason": "Neutral whites make the dog\u2019s coat look cleaner and more natural without changing the warm, cozy feel too much."
+    },
+    {
+      "action": "Apply selective sharpening/texture on facial features: mask to eyes and nose (Texture +10 to +20, Clarity +5 to +10, Sharpening with Masking 70-90); avoid sharpening the fur broadly",
+      "intensity": "moderate",
+      "priority": 3,
+      "reason": "Directing crispness to the eyes and nose increases perceived focus and portrait impact while keeping fur soft and flattering."
+    },
+    {
+      "action": "Noise reduction focused on shadows/background (Luminance NR 20-35, Color NR 20-30) with masking or local adjustment",
+      "intensity": "moderate",
+      "priority": 4,
+      "reason": "The image shows visible grain in darker areas; targeted NR cleans it up without smearing important facial detail."
+    },
+    {
+      "action": "Crop slightly from the bottom and left to reduce empty rug area and center attention on the face (aim for eyes near upper third)",
+      "intensity": "subtle",
+      "priority": 5,
+      "reason": "A tighter composition strengthens the subject emphasis and reduces competing texture from the rug."
+    },
+    {
+      "action": "Apply selective sharpening to the dog's eyes and nose area using unsharp mask (Amount: 80, Radius: 1.0, Threshold: 2)",
+      "intensity": "moderate",
+      "priority": 1,
+      "reason": "The eyes and facial features lack definition; sharpening these key areas will draw viewer attention and improve overall image impact"
+    },
+    {
+      "action": "Reduce highlights by -15 to -20 and decrease whites by -10 to recover detail in the bright fur, especially around the head and body",
+      "intensity": "moderate",
+      "priority": 2,
+      "reason": "The white fur is slightly blown out, losing texture and dimension that would make the subject more three-dimensional"
+    },
+    {
+      "action": "Increase clarity by +10 to +15 globally to enhance midtone contrast and add definition to the fur texture",
+      "intensity": "subtle",
+      "priority": 3,
+      "reason": "The overall softness reduces visual impact; subtle clarity will help separate the subject from background without appearing over-processed"
+    },
+    {
+      "action": "Apply slight vignette (Feather: 70, Roundness: 0, Amount: -8 to -10) to draw focus toward the dog's face",
+      "intensity": "subtle",
+      "priority": 4,
+      "reason": "The bright background competes for attention; gentle darkening at edges will guide viewer's eye to the subject's expressive face"
+    },
+    {
+      "action": "Adjust white balance by reducing temperature by -200K to achieve more neutral tone and prevent overly warm cast on white fur",
+      "intensity": "subtle",
+      "priority": 5,
+      "reason": "The slight warm cast is making the white fur appear cream-colored; cooler temperature will restore true white while maintaining natural feel"
+    }
+  ],
+  "context": {
+    "genre": "portrait",
+    "subject": "White fluffy dog (appears to be a Samoyed) lying on an ornate Persian rug",
+    "mood": "calm, cozy, slightly sleepy",
+    "preserve": [
+      "The rich colors and pattern of the rug",
+      "The soft, fluffy quality of the fur edges",
+      "The soft, cozy indoor atmosphere",
+      "Natural fur softness (avoid over-clarity across the whole coat)",
+      "The soft, intimate mood and gentle lighting",
+      "The rich colors and detail in the Persian rug pattern",
+      "The natural pose and eye contact with camera"
+    ],
+    "technical": {
+      "exposure": "slightly_over",
+      "white_balance": "slightly_warm",
+      "focus": "soft",
+      "noise": "moderate"
+    }
+  },
+  "summary": "[GEMINI] The image has a charming expression but is hindered by a strong indoor lighting color cast. The primary goal is to restore clean whites to the subject while managing the exposure to ensure the fur looks textured rather than a flat white mass. | [OPENAI] The photo has a pleasing, calm pet-portrait feel with a strong subject, but the white fur is a bit hot and loses texture in places. Slightly cooler color, recovered highlights, and targeted detail on the eyes/nose will improve clarity and presence while keeping the gentle mood. | [ANTHROPIC] This is a charming pet portrait with good composition and natural subject positioning. The primary issues are soft focus on key facial features and slightly overexposed white fur that loses texture. The image has strong potential and would benefit most from targeted sharpening and highlight recovery to bring out the dog's features while maintaining the gentle, cozy atmosphere.",
+  "score": 66.3,
+  "improvements": [
+    "[SIGNIFICANT] Cool White Balance temperature significantly (-15 to -20)",
+    "[MODERATE] Reduce Highlights and Whites",
+    "[MODERATE] Apply selective sharpening to eyes and nose",
+    "[SUBTLE] Apply masked Luminance Noise Reduction",
+    "[MODERATE] Reduce highlights/whites (Highlights -20 to -35, Whites -10 to -20) to recover fur texture and prevent the coat from looking blown out"
+  ],
+  "notes": "[GEMINI] The image has a charming expression but is hindered by a strong indoor lighting color cast. The primary goal is to restore clean whites to the subject while managing the exposure to ensure the fur looks textured rather than a flat white mass. | [OPENAI] The photo has a pleasing, calm pet-portrait feel with a strong subject, but the white fur is a bit hot and loses texture in places. Slightly cooler color, recovered highlights, and targeted detail on the eyes/nose will improve clarity and presence while keeping the gentle mood. | [ANTHROPIC] This is a charming pet portrait with good composition and natural subject positioning. The primary issues are soft focus on key facial features and slightly overexposed white fur that loses texture. The image has strong potential and would benefit most from targeted sharpening and highlight recovery to bring out the dog's features while maintaining the gentle, cozy atmosphere.",
+  "timestamp": "20260130-205939",
+  "entry_id": "20260130-205939-c68a4a36",
+  "original_filename": "IMG_0977.jpeg",
+  "original_image": "original.jpeg",
+  "edited_image": "edited.jpeg"
+}

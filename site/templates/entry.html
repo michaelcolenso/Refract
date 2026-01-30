@@ -26,33 +26,59 @@
 
             <div class="analysis">
                 <h3>Multi-LLM Analysis</h3>
-                <div class="score-display">{{ entry.consensus_score or entry.score }}/100</div>
-                <p class="score-caption">Consensus Score</p>
 
-                {% if entry.critiques %}
-                <div class="llm-critiques">
-                    {% for critique in entry.critiques %}
-                    <div class="llm-critique llm-{{ critique.llm }}">
-                        <div class="llm-critique-header">
-                            <strong class="llm-name">{{ critique.llm }}</strong>
-                            {% if critique.score is not none %}
-                            <span class="score-pill {% if critique.score >= 80 %}score-good{% elif critique.score >= 60 %}score-mid{% else %}score-low{% endif %}">{{ critique.score }}/100</span>
-                            {% else %}
-                            <span class="score-pill score-fail">Failed</span>
-                            {% endif %}
-                        </div>
-                        {% if critique.notes %}
-                        <p class="llm-notes">{{ critique.notes }}</p>
-                        {% endif %}
-                        {% if critique.improvements_display %}
-                        <ul class="llm-improvements">
-                            {% for imp in critique.improvements_display[:3] %}
-                            <li>{{ imp }}</li>
-                            {% endfor %}
-                        </ul>
+                {% if entry.re_review %}
+                <div class="score-comparison">
+                    <div class="score-before">
+                        <div class="score-display score-display-sm">{{ entry.consensus_score or entry.score }}/100</div>
+                        <p class="score-caption">Original Score</p>
+                    </div>
+                    <div class="score-arrow">
+                        {% if entry.re_review.score_delta > 0 %}
+                        <span class="score-delta score-delta-up">+{{ entry.re_review.score_delta }}</span>
+                        {% elif entry.re_review.score_delta < 0 %}
+                        <span class="score-delta score-delta-down">{{ entry.re_review.score_delta }}</span>
+                        {% else %}
+                        <span class="score-delta score-delta-neutral">0</span>
                         {% endif %}
                     </div>
-                    {% endfor %}
+                    <div class="score-after">
+                        <div class="score-display score-display-sm">{{ entry.re_review.consensus_score }}/100</div>
+                        <p class="score-caption">After Editing</p>
+                    </div>
+                </div>
+                {% else %}
+                <div class="score-display">{{ entry.consensus_score or entry.score }}/100</div>
+                <p class="score-caption">Consensus Score</p>
+                {% endif %}
+
+                {% if entry.critiques %}
+                <div class="review-phase">
+                    <h4 class="review-phase-label">Original Review</h4>
+                    <div class="llm-critiques">
+                        {% for critique in entry.critiques %}
+                        <div class="llm-critique llm-{{ critique.llm }}">
+                            <div class="llm-critique-header">
+                                <strong class="llm-name">{{ critique.llm }}</strong>
+                                {% if critique.score is not none %}
+                                <span class="score-pill {% if critique.score >= 80 %}score-good{% elif critique.score >= 60 %}score-mid{% else %}score-low{% endif %}">{{ critique.score }}/100</span>
+                                {% else %}
+                                <span class="score-pill score-fail">Failed</span>
+                                {% endif %}
+                            </div>
+                            {% if critique.notes %}
+                            <p class="llm-notes">{{ critique.notes }}</p>
+                            {% endif %}
+                            {% if critique.improvements_display %}
+                            <ul class="llm-improvements">
+                                {% for imp in critique.improvements_display[:3] %}
+                                <li>{{ imp }}</li>
+                                {% endfor %}
+                            </ul>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                    </div>
                 </div>
                 {% endif %}
 
@@ -64,6 +90,29 @@
                         {% endfor %}
                     </ul>
                 </div>
+
+                {% if entry.re_review and entry.re_review.critiques %}
+                <div class="review-phase review-phase-after">
+                    <h4 class="review-phase-label">Re-Review After Editing</h4>
+                    <div class="llm-critiques">
+                        {% for critique in entry.re_review.critiques %}
+                        <div class="llm-critique llm-{{ critique.llm }}">
+                            <div class="llm-critique-header">
+                                <strong class="llm-name">{{ critique.llm }}</strong>
+                                {% if critique.score is not none %}
+                                <span class="score-pill {% if critique.score >= 80 %}score-good{% elif critique.score >= 60 %}score-mid{% else %}score-low{% endif %}">{{ critique.score }}/100</span>
+                                {% else %}
+                                <span class="score-pill score-fail">Failed</span>
+                                {% endif %}
+                            </div>
+                            {% if critique.notes %}
+                            <p class="llm-notes">{{ critique.notes }}</p>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
             </div>
 
             <div class="comparison-container">

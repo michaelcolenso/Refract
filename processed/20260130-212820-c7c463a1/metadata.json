@@ -1,0 +1,617 @@
+{
+  "critiques": [
+    {
+      "genre": "portrait",
+      "subject": "White Samoyed dog standing in profile on a wet beach with reflections",
+      "mood": "Serene, atmospheric, and slightly contemplative",
+      "score": 82.0,
+      "technical_assessment": {
+        "exposure": "slightly_under",
+        "white_balance": "slightly_cool",
+        "focus": "sharp",
+        "noise": "low"
+      },
+      "improvements": [
+        "[MODERATE] Local exposure increase (+0.3 to +0.5) and white point lift specifically on the dog",
+        "[SUBTLE] Warm the white balance locally on the subject",
+        "[MODERATE] Apply Dehaze and reduce highlights in the sky area",
+        "[SIGNIFICANT] Remove or crop out the dark rock on the far right",
+        "[SUBTLE] Increase texture and clarity on the fur"
+      ],
+      "preserve": [
+        "The reflection on the wet sand",
+        "The soft, diffused lighting quality"
+      ],
+      "notes": "This is a strong environmental portrait with excellent composition and reflection. The editing strategy should focus on 'cleaning' the whites of the dog to make them brilliant rather than grey, while maintaining the moody atmosphere of the overcast beach.",
+      "improvements_detailed": [
+        {
+          "action": "Local exposure increase (+0.3 to +0.5) and white point lift specifically on the dog",
+          "intensity": "moderate",
+          "priority": 1,
+          "reason": "The white fur appears slightly grey/blue; brightening it will separate the subject from the background."
+        },
+        {
+          "action": "Warm the white balance locally on the subject",
+          "intensity": "subtle",
+          "priority": 2,
+          "reason": "Corrects the blue color cast from the overcast sky on the white fur, restoring a natural look."
+        },
+        {
+          "action": "Apply Dehaze and reduce highlights in the sky area",
+          "intensity": "moderate",
+          "priority": 3,
+          "reason": "To recover detail in the cloud layers and add dramatic depth to the background."
+        },
+        {
+          "action": "Remove or crop out the dark rock on the far right",
+          "intensity": "significant",
+          "priority": 4,
+          "reason": "The high-contrast dark spot draws the eye away from the subject and disrupts the serene minimalism."
+        },
+        {
+          "action": "Increase texture and clarity on the fur",
+          "intensity": "subtle",
+          "priority": 5,
+          "reason": "Enhances the detail of the wet/matted fur texture without making the image look over-processed."
+        }
+      ],
+      "context": {
+        "genre": "portrait",
+        "subject": "White Samoyed dog standing in profile on a wet beach with reflections",
+        "mood": "Serene, atmospheric, and slightly contemplative",
+        "preserve": [
+          "The reflection on the wet sand",
+          "The soft, diffused lighting quality"
+        ],
+        "technical": {
+          "exposure": "slightly_under",
+          "white_balance": "slightly_cool",
+          "focus": "sharp",
+          "noise": "low"
+        }
+      },
+      "llm": "gemini"
+    },
+    {
+      "genre": "wildlife",
+      "subject": "A white fluffy dog standing on wet sand at a beach with an overcast sky",
+      "mood": "Calm, cool, and serene",
+      "score": 78.0,
+      "technical_assessment": {
+        "exposure": "good",
+        "white_balance": "slightly_cool",
+        "focus": "sharp",
+        "noise": "low"
+      },
+      "improvements": [
+        "[MODERATE] Crop slightly tighter (trim some empty sky and a bit of foreground) and place the dog a touch off-center while keeping the horizon level",
+        "[MODERATE] Mask the dog and lift midtones/shadows slightly (+10 to +25), add a bit of texture/clarity on fur (+5 to +15), and apply light sharpening focused on the face",
+        "[SUBTLE] Recover highlights on the white fur (Highlights -10 to -25; Whites -5 to -15) and fine-tune with a luminance mask to protect bright fur edges",
+        "[SUBTLE] Add subtle sky and background depth: apply a gentle S-curve, then use a graduated mask on the sky to deepen blues slightly (Dehaze +5 to +10, Highlights -10) and reduce saturation a touch if needed",
+        "[SUBTLE] Spot-remove small distracting dark pebbles/debris near the dog\u2019s legs and in the immediate foreground; optionally reduce prominence of the distant rock with a slight exposure/clarity drop"
+      ],
+      "preserve": [
+        "The cool, overcast color palette and tranquil atmosphere",
+        "The natural reflection on the wet sand"
+      ],
+      "notes": "The image has strong subject presence, clean focus, and a pleasing minimalist beach setting. Edits should primarily improve subject separation and composition balance while maintaining the cool, calm mood and natural look.",
+      "improvements_detailed": [
+        {
+          "action": "Crop slightly tighter (trim some empty sky and a bit of foreground) and place the dog a touch off-center while keeping the horizon level",
+          "intensity": "moderate",
+          "priority": 1,
+          "reason": "Reduces negative space and strengthens subject emphasis without changing the peaceful, minimalist feel."
+        },
+        {
+          "action": "Mask the dog and lift midtones/shadows slightly (+10 to +25), add a bit of texture/clarity on fur (+5 to +15), and apply light sharpening focused on the face",
+          "intensity": "moderate",
+          "priority": 2,
+          "reason": "Improves separation from the cool background and enhances fur detail, drawing attention to the expression."
+        },
+        {
+          "action": "Recover highlights on the white fur (Highlights -10 to -25; Whites -5 to -15) and fine-tune with a luminance mask to protect bright fur edges",
+          "intensity": "subtle",
+          "priority": 3,
+          "reason": "Preserves detail in the brightest areas of the coat while keeping the dog looking clean and luminous."
+        },
+        {
+          "action": "Add subtle sky and background depth: apply a gentle S-curve, then use a graduated mask on the sky to deepen blues slightly (Dehaze +5 to +10, Highlights -10) and reduce saturation a touch if needed",
+          "intensity": "subtle",
+          "priority": 4,
+          "reason": "Enhances mood and dimensionality in the overcast sky without making it look unnatural."
+        },
+        {
+          "action": "Spot-remove small distracting dark pebbles/debris near the dog\u2019s legs and in the immediate foreground; optionally reduce prominence of the distant rock with a slight exposure/clarity drop",
+          "intensity": "subtle",
+          "priority": 5,
+          "reason": "Minimizes visual distractions so the eye stays on the subject."
+        }
+      ],
+      "context": {
+        "genre": "wildlife",
+        "subject": "A white fluffy dog standing on wet sand at a beach with an overcast sky",
+        "mood": "Calm, cool, and serene",
+        "preserve": [
+          "The cool, overcast color palette and tranquil atmosphere",
+          "The natural reflection on the wet sand"
+        ],
+        "technical": {
+          "exposure": "good",
+          "white_balance": "slightly_cool",
+          "focus": "sharp",
+          "noise": "low"
+        }
+      },
+      "llm": "openai"
+    },
+    {
+      "genre": "portrait",
+      "subject": "White Samoyed dog standing on wet beach",
+      "mood": "Serene, atmospheric, slightly moody",
+      "score": 72.0,
+      "technical_assessment": {
+        "exposure": "slightly_under",
+        "white_balance": "slightly_cool",
+        "focus": "sharp",
+        "noise": "low",
+        "composition": "strong"
+      },
+      "improvements": [
+        "[MODERATE] Lift overall exposure by +0.5 to +0.7 stops, focusing on midtones and dog's white fur detail",
+        "[SUBTLE] Warm white balance by +200-300K (approximately 5800-6000K) to add life and reduce cyan cast",
+        "[SUBTLE] Add clarity/texture (+10 to +15) specifically to the dog's fur using local adjustment",
+        "[SUBTLE] Apply subtle vignette (-.10 to -.15) centered on the dog to draw eye to subject",
+        "[SUBTLE] Increase shadow detail (+15 to +20) in foreground wet sand to reveal reflection detail"
+      ],
+      "preserve": [
+        "Soft, overcast sky atmosphere",
+        "Natural pose and alert expression of the dog",
+        "Moody coastal ambiance",
+        "Composition and framing"
+      ],
+      "notes": "This is a strong portrait with good composition and sharp focus on the subject. The main improvements needed are subtle exposure correction to reveal more detail in the white fur and a slight warming of the color temperature to counter the cool coastal cast. The atmospheric mood should be preserved while making the subject more prominent through selective adjustments.",
+      "improvements_detailed": [
+        {
+          "action": "Lift overall exposure by +0.5 to +0.7 stops, focusing on midtones and dog's white fur detail",
+          "intensity": "moderate",
+          "priority": 1,
+          "reason": "The image is slightly underexposed, particularly in the dog's fur which lacks separation and detail; brightening will reveal texture while maintaining the moody atmosphere"
+        },
+        {
+          "action": "Warm white balance by +200-300K (approximately 5800-6000K) to add life and reduce cyan cast",
+          "intensity": "subtle",
+          "priority": 2,
+          "reason": "The cool blue tone is draining warmth from the scene; subtle warming will make the dog appear more inviting while preserving the coastal atmosphere"
+        },
+        {
+          "action": "Add clarity/texture (+10 to +15) specifically to the dog's fur using local adjustment",
+          "intensity": "subtle",
+          "priority": 3,
+          "reason": "Enhancing fur texture will create better separation and emphasize the subject without affecting the soft atmospheric background"
+        },
+        {
+          "action": "Apply subtle vignette (-.10 to -.15) centered on the dog to draw eye to subject",
+          "intensity": "subtle",
+          "priority": 4,
+          "reason": "Gently darkening the edges will strengthen composition and focus attention on the well-positioned subject"
+        },
+        {
+          "action": "Increase shadow detail (+15 to +20) in foreground wet sand to reveal reflection detail",
+          "intensity": "subtle",
+          "priority": 5,
+          "reason": "The reflection in the wet sand is a nice compositional element that could be enhanced without compromising the overall mood"
+        }
+      ],
+      "context": {
+        "genre": "portrait",
+        "subject": "White Samoyed dog standing on wet beach",
+        "mood": "Serene, atmospheric, slightly moody",
+        "preserve": [
+          "Soft, overcast sky atmosphere",
+          "Natural pose and alert expression of the dog",
+          "Moody coastal ambiance",
+          "Composition and framing"
+        ],
+        "technical": {
+          "exposure": "slightly_under",
+          "white_balance": "slightly_cool",
+          "focus": "sharp",
+          "noise": "low",
+          "composition": "strong"
+        }
+      },
+      "llm": "anthropic"
+    }
+  ],
+  "consensus_score": 77.3,
+  "combined_improvements": [
+    "[MODERATE] Local exposure increase (+0.3 to +0.5) and white point lift specifically on the dog",
+    "[SUBTLE] Warm the white balance locally on the subject",
+    "[MODERATE] Apply Dehaze and reduce highlights in the sky area",
+    "[SIGNIFICANT] Remove or crop out the dark rock on the far right",
+    "[SUBTLE] Increase texture and clarity on the fur",
+    "[MODERATE] Crop slightly tighter (trim some empty sky and a bit of foreground) and place the dog a touch off-center while keeping the horizon level",
+    "[MODERATE] Mask the dog and lift midtones/shadows slightly (+10 to +25), add a bit of texture/clarity on fur (+5 to +15), and apply light sharpening focused on the face",
+    "[SUBTLE] Recover highlights on the white fur (Highlights -10 to -25; Whites -5 to -15) and fine-tune with a luminance mask to protect bright fur edges",
+    "[SUBTLE] Add subtle sky and background depth: apply a gentle S-curve, then use a graduated mask on the sky to deepen blues slightly (Dehaze +5 to +10, Highlights -10) and reduce saturation a touch if needed",
+    "[SUBTLE] Spot-remove small distracting dark pebbles/debris near the dog\u2019s legs and in the immediate foreground; optionally reduce prominence of the distant rock with a slight exposure/clarity drop",
+    "[MODERATE] Lift overall exposure by +0.5 to +0.7 stops, focusing on midtones and dog's white fur detail",
+    "[SUBTLE] Warm white balance by +200-300K (approximately 5800-6000K) to add life and reduce cyan cast",
+    "[SUBTLE] Add clarity/texture (+10 to +15) specifically to the dog's fur using local adjustment",
+    "[SUBTLE] Apply subtle vignette (-.10 to -.15) centered on the dog to draw eye to subject",
+    "[SUBTLE] Increase shadow detail (+15 to +20) in foreground wet sand to reveal reflection detail"
+  ],
+  "improvements_detailed": [
+    {
+      "action": "Local exposure increase (+0.3 to +0.5) and white point lift specifically on the dog",
+      "intensity": "moderate",
+      "priority": 1,
+      "reason": "The white fur appears slightly grey/blue; brightening it will separate the subject from the background."
+    },
+    {
+      "action": "Warm the white balance locally on the subject",
+      "intensity": "subtle",
+      "priority": 2,
+      "reason": "Corrects the blue color cast from the overcast sky on the white fur, restoring a natural look."
+    },
+    {
+      "action": "Apply Dehaze and reduce highlights in the sky area",
+      "intensity": "moderate",
+      "priority": 3,
+      "reason": "To recover detail in the cloud layers and add dramatic depth to the background."
+    },
+    {
+      "action": "Remove or crop out the dark rock on the far right",
+      "intensity": "significant",
+      "priority": 4,
+      "reason": "The high-contrast dark spot draws the eye away from the subject and disrupts the serene minimalism."
+    },
+    {
+      "action": "Increase texture and clarity on the fur",
+      "intensity": "subtle",
+      "priority": 5,
+      "reason": "Enhances the detail of the wet/matted fur texture without making the image look over-processed."
+    },
+    {
+      "action": "Crop slightly tighter (trim some empty sky and a bit of foreground) and place the dog a touch off-center while keeping the horizon level",
+      "intensity": "moderate",
+      "priority": 1,
+      "reason": "Reduces negative space and strengthens subject emphasis without changing the peaceful, minimalist feel."
+    },
+    {
+      "action": "Mask the dog and lift midtones/shadows slightly (+10 to +25), add a bit of texture/clarity on fur (+5 to +15), and apply light sharpening focused on the face",
+      "intensity": "moderate",
+      "priority": 2,
+      "reason": "Improves separation from the cool background and enhances fur detail, drawing attention to the expression."
+    },
+    {
+      "action": "Recover highlights on the white fur (Highlights -10 to -25; Whites -5 to -15) and fine-tune with a luminance mask to protect bright fur edges",
+      "intensity": "subtle",
+      "priority": 3,
+      "reason": "Preserves detail in the brightest areas of the coat while keeping the dog looking clean and luminous."
+    },
+    {
+      "action": "Add subtle sky and background depth: apply a gentle S-curve, then use a graduated mask on the sky to deepen blues slightly (Dehaze +5 to +10, Highlights -10) and reduce saturation a touch if needed",
+      "intensity": "subtle",
+      "priority": 4,
+      "reason": "Enhances mood and dimensionality in the overcast sky without making it look unnatural."
+    },
+    {
+      "action": "Spot-remove small distracting dark pebbles/debris near the dog\u2019s legs and in the immediate foreground; optionally reduce prominence of the distant rock with a slight exposure/clarity drop",
+      "intensity": "subtle",
+      "priority": 5,
+      "reason": "Minimizes visual distractions so the eye stays on the subject."
+    },
+    {
+      "action": "Lift overall exposure by +0.5 to +0.7 stops, focusing on midtones and dog's white fur detail",
+      "intensity": "moderate",
+      "priority": 1,
+      "reason": "The image is slightly underexposed, particularly in the dog's fur which lacks separation and detail; brightening will reveal texture while maintaining the moody atmosphere"
+    },
+    {
+      "action": "Warm white balance by +200-300K (approximately 5800-6000K) to add life and reduce cyan cast",
+      "intensity": "subtle",
+      "priority": 2,
+      "reason": "The cool blue tone is draining warmth from the scene; subtle warming will make the dog appear more inviting while preserving the coastal atmosphere"
+    },
+    {
+      "action": "Add clarity/texture (+10 to +15) specifically to the dog's fur using local adjustment",
+      "intensity": "subtle",
+      "priority": 3,
+      "reason": "Enhancing fur texture will create better separation and emphasize the subject without affecting the soft atmospheric background"
+    },
+    {
+      "action": "Apply subtle vignette (-.10 to -.15) centered on the dog to draw eye to subject",
+      "intensity": "subtle",
+      "priority": 4,
+      "reason": "Gently darkening the edges will strengthen composition and focus attention on the well-positioned subject"
+    },
+    {
+      "action": "Increase shadow detail (+15 to +20) in foreground wet sand to reveal reflection detail",
+      "intensity": "subtle",
+      "priority": 5,
+      "reason": "The reflection in the wet sand is a nice compositional element that could be enhanced without compromising the overall mood"
+    }
+  ],
+  "context": {
+    "genre": "portrait",
+    "subject": "A white fluffy dog standing on wet sand at a beach with an overcast sky",
+    "mood": "Serene, atmospheric, and slightly contemplative",
+    "preserve": [
+      "The reflection on the wet sand",
+      "The soft, diffused lighting quality",
+      "The cool, overcast color palette and tranquil atmosphere",
+      "The natural reflection on the wet sand",
+      "Soft, overcast sky atmosphere",
+      "Natural pose and alert expression of the dog",
+      "Moody coastal ambiance",
+      "Composition and framing"
+    ],
+    "technical": {
+      "exposure": "slightly_under",
+      "white_balance": "slightly_cool",
+      "focus": "sharp",
+      "noise": "low"
+    }
+  },
+  "summary": "[GEMINI] This is a strong environmental portrait with excellent composition and reflection. The editing strategy should focus on 'cleaning' the whites of the dog to make them brilliant rather than grey, while maintaining the moody atmosphere of the overcast beach. | [OPENAI] The image has strong subject presence, clean focus, and a pleasing minimalist beach setting. Edits should primarily improve subject separation and composition balance while maintaining the cool, calm mood and natural look. | [ANTHROPIC] This is a strong portrait with good composition and sharp focus on the subject. The main improvements needed are subtle exposure correction to reveal more detail in the white fur and a slight warming of the color temperature to counter the cool coastal cast. The atmospheric mood should be preserved while making the subject more prominent through selective adjustments.",
+  "score": 77.3,
+  "improvements": [
+    "[MODERATE] Local exposure increase (+0.3 to +0.5) and white point lift specifically on the dog",
+    "[SUBTLE] Warm the white balance locally on the subject",
+    "[MODERATE] Apply Dehaze and reduce highlights in the sky area",
+    "[SIGNIFICANT] Remove or crop out the dark rock on the far right",
+    "[SUBTLE] Increase texture and clarity on the fur"
+  ],
+  "notes": "[GEMINI] This is a strong environmental portrait with excellent composition and reflection. The editing strategy should focus on 'cleaning' the whites of the dog to make them brilliant rather than grey, while maintaining the moody atmosphere of the overcast beach. | [OPENAI] The image has strong subject presence, clean focus, and a pleasing minimalist beach setting. Edits should primarily improve subject separation and composition balance while maintaining the cool, calm mood and natural look. | [ANTHROPIC] This is a strong portrait with good composition and sharp focus on the subject. The main improvements needed are subtle exposure correction to reveal more detail in the white fur and a slight warming of the color temperature to counter the cool coastal cast. The atmospheric mood should be preserved while making the subject more prominent through selective adjustments.",
+  "re_review": {
+    "critiques": [
+      {
+        "genre": "portrait",
+        "subject": "White Samoyed dog standing in shallow water on a beach",
+        "mood": "Serene, overcast, atmospheric",
+        "score": 78.0,
+        "technical_assessment": {
+          "exposure": "good",
+          "white_balance": "slightly_cool",
+          "focus": "sharp",
+          "noise": "low"
+        },
+        "improvements": [
+          "[MODERATE] Increase Clarity and Texture specifically on the dog's fur",
+          "[SUBTLE] Warm the White Balance (Temperature +5 to +10)",
+          "[SUBTLE] Apply Dehaze to the background sky and hills",
+          "[SUBTLE] Brighten the dog's face/eyes with a radial mask"
+        ],
+        "preserve": [
+          "The reflection of the dog in the wet sand",
+          "The detail in the bright white highlights of the fur"
+        ],
+        "notes": "A solid environmental pet portrait. The primary goal of editing should be to overcome the flatness of the overcast lighting by introducing local contrast and correcting the cool tones, ensuring the subject stands out against the muted background.",
+        "improvements_detailed": [
+          {
+            "action": "Increase Clarity and Texture specifically on the dog's fur",
+            "intensity": "moderate",
+            "priority": 1,
+            "reason": "The overcast lighting creates flat contrast; boosting texture will define the individual strands of wet and dry fur."
+          },
+          {
+            "action": "Warm the White Balance (Temperature +5 to +10)",
+            "intensity": "subtle",
+            "priority": 2,
+            "reason": "Counteracts the blue color cast from the grey sky, rendering the white fur a cleaner, more natural white."
+          },
+          {
+            "action": "Apply Dehaze to the background sky and hills",
+            "intensity": "subtle",
+            "priority": 3,
+            "reason": "Recovers details in the clouds and distant hills that are currently washed out by atmospheric haze."
+          },
+          {
+            "action": "Brighten the dog's face/eyes with a radial mask",
+            "intensity": "subtle",
+            "priority": 4,
+            "reason": "Draws focus to the subject's expression and combats the slight shadowing on the face."
+          }
+        ],
+        "context": {
+          "genre": "portrait",
+          "subject": "White Samoyed dog standing in shallow water on a beach",
+          "mood": "Serene, overcast, atmospheric",
+          "preserve": [
+            "The reflection of the dog in the wet sand",
+            "The detail in the bright white highlights of the fur"
+          ],
+          "technical": {
+            "exposure": "good",
+            "white_balance": "slightly_cool",
+            "focus": "sharp",
+            "noise": "low"
+          }
+        },
+        "llm": "gemini"
+      },
+      {
+        "genre": "wildlife",
+        "subject": "a fluffy white dog standing on wet sand at the beach with an overcast sky",
+        "mood": "calm, cool, and slightly moody",
+        "score": 82.0,
+        "technical_assessment": {
+          "exposure": "good",
+          "white_balance": "slightly_cool",
+          "focus": "sharp",
+          "noise": "low"
+        },
+        "improvements": [
+          "[MODERATE] Apply a selective mask to the dog: increase Exposure +0.20 to +0.35, lift Shadows +15 to +25, and add Texture +10 to +20 to bring out fur detail while keeping the background subdued",
+          "[SUBTLE] Recover sky detail with a linear gradient: reduce Highlights -20 to -35, add Dehaze +5 to +10, and slightly darken Exposure -0.10 to deepen cloud structure",
+          "[SUBTLE] Warm white balance slightly (Temp +300 to +600K) and add a small Tint shift toward magenta (+2 to +5) if needed to neutralize the bluish cast in the sand and dog\u2019s fur",
+          "[MODERATE] Improve composition with a crop to reduce empty space (trim ~10\u201320% from the right and a little from the top), keeping the dog near the left-third and preserving the reflection",
+          "[SUBTLE] Spot-heal or content-aware remove a few small dark pebbles/specks around the dog\u2019s legs and in the immediate foreground; optionally add a subtle vignette (-8 to -15) centered on the dog"
+        ],
+        "preserve": [
+          "the natural, overcast coastal atmosphere and soft contrast",
+          "the wet-sand reflection beneath the dog"
+        ],
+        "notes": "Strong subject and clean, minimalist beach setting with pleasing reflection and good sharpness. The main gains come from selectively lifting and detailing the dog, adding a touch of sky structure, and slightly warming the overall color while keeping the moody coastal feel intact.",
+        "improvements_detailed": [
+          {
+            "action": "Apply a selective mask to the dog: increase Exposure +0.20 to +0.35, lift Shadows +15 to +25, and add Texture +10 to +20 to bring out fur detail while keeping the background subdued",
+            "intensity": "moderate",
+            "priority": 1,
+            "reason": "The subject blends a bit into the cool, flat light; targeted brightening and texture increases separation and perceived sharpness without altering the scene\u2019s natural mood."
+          },
+          {
+            "action": "Recover sky detail with a linear gradient: reduce Highlights -20 to -35, add Dehaze +5 to +10, and slightly darken Exposure -0.10 to deepen cloud structure",
+            "intensity": "subtle",
+            "priority": 2,
+            "reason": "Adds depth and drama to the overcast sky and prevents it from feeling washed out while maintaining the soft-weather look."
+          },
+          {
+            "action": "Warm white balance slightly (Temp +300 to +600K) and add a small Tint shift toward magenta (+2 to +5) if needed to neutralize the bluish cast in the sand and dog\u2019s fur",
+            "intensity": "subtle",
+            "priority": 3,
+            "reason": "Keeps the dog\u2019s whites cleaner and the beach tones more natural, improving overall color fidelity."
+          },
+          {
+            "action": "Improve composition with a crop to reduce empty space (trim ~10\u201320% from the right and a little from the top), keeping the dog near the left-third and preserving the reflection",
+            "intensity": "moderate",
+            "priority": 4,
+            "reason": "Tightens the frame and strengthens subject dominance while maintaining the sense of place and leading lines from shoreline/horizon."
+          },
+          {
+            "action": "Spot-heal or content-aware remove a few small dark pebbles/specks around the dog\u2019s legs and in the immediate foreground; optionally add a subtle vignette (-8 to -15) centered on the dog",
+            "intensity": "subtle",
+            "priority": 5,
+            "reason": "Reduces minor distractions and guides attention to the subject without making the edit feel obvious."
+          }
+        ],
+        "context": {
+          "genre": "wildlife",
+          "subject": "a fluffy white dog standing on wet sand at the beach with an overcast sky",
+          "mood": "calm, cool, and slightly moody",
+          "preserve": [
+            "the natural, overcast coastal atmosphere and soft contrast",
+            "the wet-sand reflection beneath the dog"
+          ],
+          "technical": {
+            "exposure": "good",
+            "white_balance": "slightly_cool",
+            "focus": "sharp",
+            "noise": "low"
+          }
+        },
+        "llm": "openai"
+      },
+      {
+        "genre": "portrait",
+        "subject": "White fluffy dog (appears to be a Samoyed or similar spitz breed) standing on wet beach sand",
+        "mood": "Serene, contemplative, slightly melancholic with moody coastal atmosphere",
+        "score": 72.0,
+        "technical_assessment": {
+          "exposure": "slightly_under",
+          "white_balance": "slightly_cool",
+          "focus": "sharp",
+          "noise": "low",
+          "composition": "strong with good rule of thirds placement and reflection"
+        },
+        "improvements": [
+          "[MODERATE] Lift shadows globally by +15-20, targeting the dog's body and wet fur details while preserving the moody sky",
+          "[SUBTLE] Add slight warmth to white balance (+200K) focusing on the dog and foreground sand, leaving sky cooler",
+          "[SUBTLE] Increase clarity/texture by +10-15 on the dog's fur to emphasize the fluffy coat texture",
+          "[MODERATE] Apply graduated filter to darken and add contrast to the sky in the upper third, decreasing exposure by -0.3 to -0.5",
+          "[SUBTLE] Subtle dodge on the dog's face and eye area to draw viewer focus to the contemplative expression"
+        ],
+        "preserve": [
+          "The moody, overcast atmosphere and dramatic cloudscape",
+          "The natural reflection in the wet sand",
+          "The muted, cinematic color palette",
+          "The pebbles and natural beach texture"
+        ],
+        "notes": "This is a well-composed portrait with strong potential hampered primarily by slight underexposure that flattens the white dog against the gray environment. The atmospheric conditions are excellent and should be preserved. Focus on selectively brightening the subject while maintaining the moody coastal aesthetic, adding subtle warmth to separate the dog from the cool background, and enhancing the sky's drama to create better visual hierarchy.",
+        "improvements_detailed": [
+          {
+            "action": "Lift shadows globally by +15-20, targeting the dog's body and wet fur details while preserving the moody sky",
+            "intensity": "moderate",
+            "priority": 1,
+            "reason": "The dog's white fur appears slightly gray due to underexposure; recovering detail while maintaining the atmospheric mood will make the subject pop against the environment"
+          },
+          {
+            "action": "Add slight warmth to white balance (+200K) focusing on the dog and foreground sand, leaving sky cooler",
+            "intensity": "subtle",
+            "priority": 2,
+            "reason": "The overall cool tone flattens the white fur; selective warming will add dimension and separate the subject from the background while keeping the dramatic sky"
+          },
+          {
+            "action": "Increase clarity/texture by +10-15 on the dog's fur to emphasize the fluffy coat texture",
+            "intensity": "subtle",
+            "priority": 3,
+            "reason": "The wet fur has compressed texture that can be enhanced to showcase the breed's characteristic coat without looking over-processed"
+          },
+          {
+            "action": "Apply graduated filter to darken and add contrast to the sky in the upper third, decreasing exposure by -0.3 to -0.5",
+            "intensity": "moderate",
+            "priority": 4,
+            "reason": "The sky is slightly washed out; darkening it will create better separation and drama while directing attention to the subject"
+          },
+          {
+            "action": "Subtle dodge on the dog's face and eye area to draw viewer focus to the contemplative expression",
+            "intensity": "subtle",
+            "priority": 5,
+            "reason": "The face is the emotional anchor; brightening it slightly will guide the eye and emphasize the dog's gaze"
+          }
+        ],
+        "context": {
+          "genre": "portrait",
+          "subject": "White fluffy dog (appears to be a Samoyed or similar spitz breed) standing on wet beach sand",
+          "mood": "Serene, contemplative, slightly melancholic with moody coastal atmosphere",
+          "preserve": [
+            "The moody, overcast atmosphere and dramatic cloudscape",
+            "The natural reflection in the wet sand",
+            "The muted, cinematic color palette",
+            "The pebbles and natural beach texture"
+          ],
+          "technical": {
+            "exposure": "slightly_under",
+            "white_balance": "slightly_cool",
+            "focus": "sharp",
+            "noise": "low",
+            "composition": "strong with good rule of thirds placement and reflection"
+          }
+        },
+        "llm": "anthropic"
+      }
+    ],
+    "consensus_score": 77.3,
+    "score": 77.3,
+    "notes": "[GEMINI] A solid environmental pet portrait. The primary goal of editing should be to overcome the flatness of the overcast lighting by introducing local contrast and correcting the cool tones, ensuring the subject stands out against the muted background. | [OPENAI] Strong subject and clean, minimalist beach setting with pleasing reflection and good sharpness. The main gains come from selectively lifting and detailing the dog, adding a touch of sky structure, and slightly warming the overall color while keeping the moody coastal feel intact. | [ANTHROPIC] This is a well-composed portrait with strong potential hampered primarily by slight underexposure that flattens the white dog against the gray environment. The atmospheric conditions are excellent and should be preserved. Focus on selectively brightening the subject while maintaining the moody coastal aesthetic, adding subtle warmth to separate the dog from the cool background, and enhancing the sky's drama to create better visual hierarchy.",
+    "summary": "[GEMINI] A solid environmental pet portrait. The primary goal of editing should be to overcome the flatness of the overcast lighting by introducing local contrast and correcting the cool tones, ensuring the subject stands out against the muted background. | [OPENAI] Strong subject and clean, minimalist beach setting with pleasing reflection and good sharpness. The main gains come from selectively lifting and detailing the dog, adding a touch of sky structure, and slightly warming the overall color while keeping the moody coastal feel intact. | [ANTHROPIC] This is a well-composed portrait with strong potential hampered primarily by slight underexposure that flattens the white dog against the gray environment. The atmospheric conditions are excellent and should be preserved. Focus on selectively brightening the subject while maintaining the moody coastal aesthetic, adding subtle warmth to separate the dog from the cool background, and enhancing the sky's drama to create better visual hierarchy.",
+    "context": {
+      "genre": "portrait",
+      "subject": "White fluffy dog (appears to be a Samoyed or similar spitz breed) standing on wet beach sand",
+      "mood": "Serene, contemplative, slightly melancholic with moody coastal atmosphere",
+      "preserve": [
+        "The reflection of the dog in the wet sand",
+        "The detail in the bright white highlights of the fur",
+        "the natural, overcast coastal atmosphere and soft contrast",
+        "the wet-sand reflection beneath the dog",
+        "The moody, overcast atmosphere and dramatic cloudscape",
+        "The natural reflection in the wet sand",
+        "The muted, cinematic color palette",
+        "The pebbles and natural beach texture"
+      ],
+      "technical": {
+        "exposure": "good",
+        "white_balance": "slightly_cool",
+        "focus": "sharp",
+        "noise": "low"
+      }
+    },
+    "score_delta": 0.0
+  },
+  "timestamp": "20260130-212820",
+  "entry_id": "20260130-212820-c7c463a1",
+  "original_filename": "IMG_7578_Original.jpeg",
+  "original_image": "original.jpeg",
+  "edited_image": "edited.jpeg"
+}

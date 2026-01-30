@@ -298,6 +298,87 @@ body::before {
   margin-bottom: 20px;
 }
 
+/* Score comparison (before/after) */
+.score-comparison {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin: 12px 0 24px;
+  flex-wrap: wrap;
+}
+
+.score-before,
+.score-after {
+  text-align: center;
+}
+
+.score-display-sm {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  padding: 10px 22px;
+}
+
+.score-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.score-delta {
+  font-size: 1.4rem;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 12px;
+  white-space: nowrap;
+}
+
+.score-delta-up {
+  color: var(--success);
+  background: rgba(22, 163, 74, 0.1);
+  border: 1px solid rgba(22, 163, 74, 0.25);
+}
+
+.score-delta-down {
+  color: var(--danger);
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+}
+
+.score-delta-neutral {
+  color: var(--text-muted);
+  background: rgba(23, 26, 34, 0.05);
+  border: 1px solid rgba(23, 26, 34, 0.12);
+}
+
+/* Review phase labels */
+.review-phase {
+  margin: 20px 0;
+}
+
+.review-phase-label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(23, 26, 34, 0.1);
+}
+
+.review-phase-after {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 2px dashed rgba(22, 163, 74, 0.25);
+}
+
+/* Gallery card score delta badge */
+.entry-score-delta {
+  font-size: 0.7rem;
+  font-weight: 600;
+  margin-left: 4px;
+  opacity: 0.9;
+}
+
 .llm-critiques {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));

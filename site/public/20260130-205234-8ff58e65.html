@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMG_1003.jpeg - REFRACT</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="hero hero-compact">
+            <h1>REFRACT</h1>
+            <p class="subtitle">Photography Analysis & Enhancement</p>
+        </header>
+
+        <a href="index.html" class="back-link">Back to Gallery</a>
+
+        <div class="entry-detail">
+            <h2>IMG_1003.jpeg</h2>
+
+            <div class="metadata">
+                <p><strong>Entry ID:</strong> 20260130-205234-8ff58e65</p>
+                <p><strong>Processed:</strong> 20260130-205234</p>
+            </div>
+
+            <div class="analysis">
+                <h3>Multi-LLM Analysis</h3>
+                <div class="score-display">77.0/100</div>
+                <p class="score-caption">Consensus Score</p>
+
+                
+                <div class="llm-critiques">
+                    
+                    <div class="llm-critique llm-gemini">
+                        <div class="llm-critique-header">
+                            <strong class="llm-name">gemini</strong>
+                            
+                            <span class="score-pill score-mid">76.0/100</span>
+                            
+                        </div>
+                        
+                        <p class="llm-notes">A heartwarming image that relies heavily on its emotional content. The technical edits should focus on cleaning up the 'indoor' feel (yellow cast and noise) without making the image look sterile or losing its soft, dreamy atmosphere.</p>
+                        
+                        
+                        <ul class="llm-improvements">
+                            
+                            <li>Reduce color temperature (Cool White Balance)</li>
+                            
+                            <li>Apply luminance noise reduction</li>
+                            
+                            <li>Selective sharpening/texture on the nose and fingernails</li>
+                            
+                        </ul>
+                        
+                    </div>
+                    
+                    <div class="llm-critique llm-openai">
+                        <div class="llm-critique-header">
+                            <strong class="llm-name">openai</strong>
+                            
+                            <span class="score-pill score-mid">78.0/100</span>
+                            
+                        </div>
+                        
+                        <p class="llm-notes">This is a charming, intimate pet close-up with pleasing background separation and solid exposure. The main opportunities are correcting the slightly warm indoor cast, reducing moderate noise, and using selective edits to bring more attention and detail to the dog’s eye and fur while keeping the cozy mood.</p>
+                        
+                        
+                        <ul class="llm-improvements">
+                            
+                            <li>Cool white balance slightly and add a touch of magenta (e.g., Temp -300 to -700K, Tint +3 to +8) to reduce the yellow/green indoor cast while keeping a warm feel</li>
+                            
+                            <li>Reduce luminance noise (e.g., Luminance NR 15–30) and apply light color noise reduction (e.g., 20–30), then add mild sharpening with masking (Amount 40–70, Masking 60–90)</li>
+                            
+                            <li>Local adjustments on the face: lift shadows around the eye and muzzle slightly (+10 to +25), lower highlights on bright fur (-10 to -25), and add a small clarity/texture boost on fur (+5 to +15); add subtle dodge/catchlight enhancement to the visible eye</li>
+                            
+                        </ul>
+                        
+                    </div>
+                    
+                    <div class="llm-critique llm-anthropic">
+                        <div class="llm-critique-header">
+                            <strong class="llm-name">anthropic</strong>
+                            
+                            <span class="score-pill score-fail">Failed</span>
+                            
+                        </div>
+                        
+                        <p class="llm-notes">Analysis failed: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.0.image.source.base64: image exceeds 5 MB maximum: 5461968 bytes > 5242880 bytes'}, 'request_id': 'req_011CXeE1UN43syfF2M2fwQ96'}</p>
+                        
+                        
+                    </div>
+                    
+                </div>
+                
+
+                <div class="improvements-list">
+                    <h4>Combined Improvements Applied:</h4>
+                    <ul>
+                        
+                        <li>Reduce color temperature (Cool White Balance)</li>
+                        
+                        <li>Apply luminance noise reduction</li>
+                        
+                        <li>Selective sharpening/texture on the nose and fingernails</li>
+                        
+                        <li>HSL Adjustment: Desaturate yellows and adjust orange luminance</li>
+                        
+                        <li>Cool white balance slightly and add a touch of magenta (e.g., Temp -300 to -700K, Tint +3 to +8) to reduce the yellow/green indoor cast while keeping a warm feel</li>
+                        
+                        <li>Reduce luminance noise (e.g., Luminance NR 15–30) and apply light color noise reduction (e.g., 20–30), then add mild sharpening with masking (Amount 40–70, Masking 60–90)</li>
+                        
+                        <li>Local adjustments on the face: lift shadows around the eye and muzzle slightly (+10 to +25), lower highlights on bright fur (-10 to -25), and add a small clarity/texture boost on fur (+5 to +15); add subtle dodge/catchlight enhancement to the visible eye</li>
+                        
+                        <li>Crop slightly from the left and bottom to reduce the dominance of the forearms/harness and center the dog’s eye/face more strongly (maintain enough hands for context)</li>
+                        
+                    </ul>
+                </div>
+            </div>
+
+            <div class="comparison-container">
+                <h3 class="comparison-title">Before & After Comparison</h3>
+
+                <!-- Interactive Before/After Slider -->
+                <div class="comparison-slider" id="comparison-slider">
+                    <div class="comparison-wrapper">
+                        <img src="images/20260130-205234-8ff58e65-edited.jpeg" alt="Enhanced" class="comparison-img comparison-after">
+                        <div class="comparison-overlay" id="comparison-overlay">
+                            <img src="images/20260130-205234-8ff58e65-original.jpeg" alt="Original" class="comparison-img comparison-before">
+                        </div>
+                        <div class="slider-handle" id="slider-handle">
+                            <div class="slider-line"></div>
+                            <div class="slider-button">
+                                <span class="slider-arrows"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comparison-labels">
+                        <span class="label-before">Original</span>
+                        <span class="label-after">Enhanced</span>
+                    </div>
+                </div>
+
+                <!-- Fallback side-by-side (shown if JS disabled) -->
+                <noscript>
+                    <div class="comparison-simple">
+                        <div>
+                            <div class="comparison-label">Original</div>
+                            <img src="images/20260130-205234-8ff58e65-original.jpeg" alt="Original">
+                        </div>
+                        <div>
+                            <div class="comparison-label">Enhanced</div>
+                            <img src="images/20260130-205234-8ff58e65-edited.jpeg" alt="Enhanced">
+                        </div>
+                    </div>
+                </noscript>
+
+                <!-- Full comparison image -->
+                <div class="comparison-full">
+                    <div class="comparison-label">Side-by-Side</div>
+                    <img src="images/20260130-205234-8ff58e65-comparison.jpg" alt="Comparison" class="comparison-full-image">
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>REFRACT - Self-Correcting Photography Log</p>
+            <p>Powered by Multi-LLM Analysis (Gemini, OpenAI, Anthropic)</p>
+        </footer>
+    </div>
+
+    <script>
+        // Interactive Before/After Slider
+        (function() {
+            const slider = document.getElementById('comparison-slider');
+            const overlay = document.getElementById('comparison-overlay');
+            const handle = document.getElementById('slider-handle');
+
+            if (!slider || !overlay || !handle) return;
+
+            let isDragging = false;
+
+            function updateSlider(x) {
+                const rect = slider.getBoundingClientRect();
+                let percentage = ((x - rect.left) / rect.width) * 100;
+                percentage = Math.max(0, Math.min(100, percentage));
+
+                overlay.style.width = percentage + '%';
+                handle.style.left = percentage + '%';
+            }
+
+            function startDrag(e) {
+                isDragging = true;
+                e.preventDefault();
+            }
+
+            function endDrag() {
+                isDragging = false;
+            }
+
+            function drag(e) {
+                if (!isDragging) return;
+                e.preventDefault();
+                const x = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+                updateSlider(x);
+            }
+
+            // Mouse events
+            handle.addEventListener('mousedown', startDrag);
+            document.addEventListener('mouseup', endDrag);
+            document.addEventListener('mousemove', drag);
+
+            // Touch events
+            handle.addEventListener('touchstart', startDrag);
+            document.addEventListener('touchend', endDrag);
+            document.addEventListener('touchmove', drag);
+
+            // Click to position
+            slider.addEventListener('click', function(e) {
+                if (e.target === handle || e.target.closest('.slider-handle')) return;
+                updateSlider(e.clientX);
+            });
+
+            // Initialize at 50%
+            updateSlider(slider.getBoundingClientRect().left + slider.offsetWidth / 2);
+        })();
+    </script>
+</body>
+</html>

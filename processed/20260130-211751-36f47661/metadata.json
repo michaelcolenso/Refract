@@ -1,0 +1,586 @@
+{
+  "critiques": [
+    {
+      "genre": "landscape",
+      "subject": "Sunset with swirling lenticular-style clouds and tree silhouettes",
+      "mood": "Serene, dramatic, and warm",
+      "score": 78.0,
+      "technical_assessment": {
+        "exposure": "good",
+        "white_balance": "slightly_warm",
+        "focus": "sharp",
+        "noise": "low"
+      },
+      "improvements": [
+        "[MODERATE] Increase Dehaze (+15) and Texture (+10) specifically on the clouds",
+        "[SUBTLE] Lower the Black point (-10) to crush deep shadows",
+        "[MODERATE] Boost Vibrance (+15) and slightly shift Orange hue toward Red",
+        "[SUBTLE] Apply a linear gradient to the top sky with reduced Exposure (-0.3) and increased Saturation"
+      ],
+      "preserve": [
+        "The blown-out highlight of the sun disk (recovery would look unnatural)",
+        "The compositional balance between the sun and the tall tree group"
+      ],
+      "notes": "A beautiful capture of atmospheric conditions. The editing strategy focuses on bringing out the texture in the sky to make the cloud formations the star of the show, while keeping the foreground clean and silhouetted.",
+      "improvements_detailed": [
+        {
+          "action": "Increase Dehaze (+15) and Texture (+10) specifically on the clouds",
+          "intensity": "moderate",
+          "priority": 1,
+          "reason": "To accentuate the unique swirling patterns and definition in the cloud layers"
+        },
+        {
+          "action": "Lower the Black point (-10) to crush deep shadows",
+          "intensity": "subtle",
+          "priority": 2,
+          "reason": "To solidify the tree silhouettes and remove muddy details in the foreground, creating a stronger graphical element"
+        },
+        {
+          "action": "Boost Vibrance (+15) and slightly shift Orange hue toward Red",
+          "intensity": "moderate",
+          "priority": 3,
+          "reason": "To enhance the richness of the sunset colors without oversaturating the cooler blue tones at the top"
+        },
+        {
+          "action": "Apply a linear gradient to the top sky with reduced Exposure (-0.3) and increased Saturation",
+          "intensity": "subtle",
+          "priority": 4,
+          "reason": "To deepen the blue sky and create a stronger color contrast against the warm horizon"
+        }
+      ],
+      "context": {
+        "genre": "landscape",
+        "subject": "Sunset with swirling lenticular-style clouds and tree silhouettes",
+        "mood": "Serene, dramatic, and warm",
+        "preserve": [
+          "The blown-out highlight of the sun disk (recovery would look unnatural)",
+          "The compositional balance between the sun and the tall tree group"
+        ],
+        "technical": {
+          "exposure": "good",
+          "white_balance": "slightly_warm",
+          "focus": "sharp",
+          "noise": "low"
+        }
+      },
+      "llm": "gemini"
+    },
+    {
+      "genre": "landscape",
+      "subject": "Sunset over a distant horizon with silhouetted trees and layered clouds",
+      "mood": "calm, warm, and contemplative",
+      "score": 82.0,
+      "technical_assessment": {
+        "exposure": "slightly_under",
+        "white_balance": "slightly_warm",
+        "focus": "acceptable",
+        "noise": "low"
+      },
+      "improvements": [
+        "[MODERATE] Recover bright areas around the sun by lowering Highlights (~-30 to -60) and Whites (~-10 to -25), then add a gentle midtone S-curve for contrast without crushing silhouettes",
+        "[SUBTLE] Apply a graduated mask to the upper sky: reduce exposure slightly (~-0.2 to -0.4), add Dehaze (+5 to +12) and Clarity/Texture (+5 to +10) to emphasize cloud structure while keeping it natural",
+        "[SUBTLE] Crop slightly from the left edge (and a touch from the bottom if needed) to remove the small distracting dark blob/edge artifact and tighten the composition around the sun and main tree group",
+        "[SUBTLE] Fine-tune color: reduce Orange saturation slightly (-5 to -15) and increase Orange luminance (+5 to +15); optionally cool the shadows a touch via Color Grading (very mild blue in shadows) while keeping warm highlights",
+        "[SUBTLE] Apply light sharpening with masking (Amount ~40\u201370, Masking ~70\u201390) and mild luminance noise reduction (5\u201315) if needed after tonal recovery"
+      ],
+      "preserve": [
+        "The strong silhouetted tree shapes against the sky",
+        "The warm sunset gradient and tranquil atmosphere"
+      ],
+      "notes": "The image has strong composition and a pleasing warm sunset palette, with attractive layered clouds and silhouettes. Minor highlight recovery and subtle sky shaping would add detail and depth, while a small crop/cleanup removes edge distractions without altering the intended mood.",
+      "improvements_detailed": [
+        {
+          "action": "Recover bright areas around the sun by lowering Highlights (~-30 to -60) and Whites (~-10 to -25), then add a gentle midtone S-curve for contrast without crushing silhouettes",
+          "intensity": "moderate",
+          "priority": 1,
+          "reason": "Preserves detail in the brightest glow while keeping the image punchy and sunset-like rather than flat or clipped."
+        },
+        {
+          "action": "Apply a graduated mask to the upper sky: reduce exposure slightly (~-0.2 to -0.4), add Dehaze (+5 to +12) and Clarity/Texture (+5 to +10) to emphasize cloud structure while keeping it natural",
+          "intensity": "subtle",
+          "priority": 2,
+          "reason": "Enhances the layered cloud bands and improves perceived depth in the sky without changing the scene\u2019s mood."
+        },
+        {
+          "action": "Crop slightly from the left edge (and a touch from the bottom if needed) to remove the small distracting dark blob/edge artifact and tighten the composition around the sun and main tree group",
+          "intensity": "subtle",
+          "priority": 3,
+          "reason": "Eliminates a visual distraction and strengthens the balance between the sun (left) and tall trees (right)."
+        },
+        {
+          "action": "Fine-tune color: reduce Orange saturation slightly (-5 to -15) and increase Orange luminance (+5 to +15); optionally cool the shadows a touch via Color Grading (very mild blue in shadows) while keeping warm highlights",
+          "intensity": "subtle",
+          "priority": 4,
+          "reason": "Keeps the sunset from looking overly orange and improves color separation between warm horizon glow and cooler upper sky."
+        },
+        {
+          "action": "Apply light sharpening with masking (Amount ~40\u201370, Masking ~70\u201390) and mild luminance noise reduction (5\u201315) if needed after tonal recovery",
+          "intensity": "subtle",
+          "priority": 5,
+          "reason": "Maintains crisp tree silhouettes and cloud edges while preventing noise from appearing in smoother gradient areas after edits."
+        }
+      ],
+      "context": {
+        "genre": "landscape",
+        "subject": "Sunset over a distant horizon with silhouetted trees and layered clouds",
+        "mood": "calm, warm, and contemplative",
+        "preserve": [
+          "The strong silhouetted tree shapes against the sky",
+          "The warm sunset gradient and tranquil atmosphere"
+        ],
+        "technical": {
+          "exposure": "slightly_under",
+          "white_balance": "slightly_warm",
+          "focus": "acceptable",
+          "noise": "low"
+        }
+      },
+      "llm": "openai"
+    },
+    {
+      "genre": "landscape",
+      "subject": "Sunset over water with silhouetted trees",
+      "mood": "Tranquil and contemplative",
+      "score": 72.0,
+      "technical_assessment": {
+        "exposure": "slightly_under",
+        "white_balance": "slightly_warm",
+        "focus": "acceptable",
+        "noise": "low"
+      },
+      "improvements": [
+        "[SUBTLE] Increase overall exposure by +0.3 to +0.5 EV to brighten the midtones and reveal more detail in the water reflection",
+        "[MODERATE] Apply graduated filter to upper third of sky, reducing exposure by -0.3 and adding contrast to emphasize the dramatic cloud patterns",
+        "[SUBTLE] Increase vibrance by +10 to +15 (not saturation) to subtly enrich the orange and yellow tones in the sunset without oversaturating",
+        "[SUBTLE] Lift shadows by +15 to +20 in the foreground trees to reveal subtle silhouette detail while preserving the dark framing effect",
+        "[MODERATE] Apply sharpening (amount 40-50, radius 1.0, detail 25) with masking to enhance tree branch definition and cloud edges"
+      ],
+      "preserve": [
+        "Natural warm color palette of the sunset",
+        "Silhouette composition of the trees",
+        "Soft, layered cloud texture"
+      ],
+      "notes": "This is a well-composed sunset landscape with strong potential. The exposure is slightly conservative, leaving the image darker than optimal. Gentle lifting of exposure and targeted enhancements to the sky and foreground will add depth and visual interest while maintaining the peaceful, contemplative mood. The photographer's choice to silhouette the trees should be respected as a key compositional element.",
+      "improvements_detailed": [
+        {
+          "action": "Increase overall exposure by +0.3 to +0.5 EV to brighten the midtones and reveal more detail in the water reflection",
+          "intensity": "subtle",
+          "priority": 1,
+          "reason": "The image is slightly underexposed, particularly in the midtones; lifting exposure will add dimension without losing the sunset atmosphere"
+        },
+        {
+          "action": "Apply graduated filter to upper third of sky, reducing exposure by -0.3 and adding contrast to emphasize the dramatic cloud patterns",
+          "intensity": "moderate",
+          "priority": 2,
+          "reason": "The cloud formations have interesting texture that can be enhanced to create better visual separation from the warm sunset tones below"
+        },
+        {
+          "action": "Increase vibrance by +10 to +15 (not saturation) to subtly enrich the orange and yellow tones in the sunset without oversaturating",
+          "intensity": "subtle",
+          "priority": 3,
+          "reason": "The warm tones are somewhat muted; vibrance will add depth to the colors while maintaining natural appearance"
+        },
+        {
+          "action": "Lift shadows by +15 to +20 in the foreground trees to reveal subtle silhouette detail while preserving the dark framing effect",
+          "intensity": "subtle",
+          "priority": 4,
+          "reason": "The trees are completely black; minimal shadow lifting will add dimension and separate individual trees without compromising the silhouette aesthetic"
+        },
+        {
+          "action": "Apply sharpening (amount 40-50, radius 1.0, detail 25) with masking to enhance tree branch definition and cloud edges",
+          "intensity": "moderate",
+          "priority": 5,
+          "reason": "The image appears slightly soft; targeted sharpening will improve clarity of key elements without introducing artifacts"
+        }
+      ],
+      "context": {
+        "genre": "landscape",
+        "subject": "Sunset over water with silhouetted trees",
+        "mood": "Tranquil and contemplative",
+        "preserve": [
+          "Natural warm color palette of the sunset",
+          "Silhouette composition of the trees",
+          "Soft, layered cloud texture"
+        ],
+        "technical": {
+          "exposure": "slightly_under",
+          "white_balance": "slightly_warm",
+          "focus": "acceptable",
+          "noise": "low"
+        }
+      },
+      "llm": "anthropic"
+    }
+  ],
+  "consensus_score": 77.3,
+  "combined_improvements": [
+    "[MODERATE] Increase Dehaze (+15) and Texture (+10) specifically on the clouds",
+    "[SUBTLE] Lower the Black point (-10) to crush deep shadows",
+    "[MODERATE] Boost Vibrance (+15) and slightly shift Orange hue toward Red",
+    "[SUBTLE] Apply a linear gradient to the top sky with reduced Exposure (-0.3) and increased Saturation",
+    "[MODERATE] Recover bright areas around the sun by lowering Highlights (~-30 to -60) and Whites (~-10 to -25), then add a gentle midtone S-curve for contrast without crushing silhouettes",
+    "[SUBTLE] Apply a graduated mask to the upper sky: reduce exposure slightly (~-0.2 to -0.4), add Dehaze (+5 to +12) and Clarity/Texture (+5 to +10) to emphasize cloud structure while keeping it natural",
+    "[SUBTLE] Crop slightly from the left edge (and a touch from the bottom if needed) to remove the small distracting dark blob/edge artifact and tighten the composition around the sun and main tree group",
+    "[SUBTLE] Fine-tune color: reduce Orange saturation slightly (-5 to -15) and increase Orange luminance (+5 to +15); optionally cool the shadows a touch via Color Grading (very mild blue in shadows) while keeping warm highlights",
+    "[SUBTLE] Apply light sharpening with masking (Amount ~40\u201370, Masking ~70\u201390) and mild luminance noise reduction (5\u201315) if needed after tonal recovery",
+    "[SUBTLE] Increase overall exposure by +0.3 to +0.5 EV to brighten the midtones and reveal more detail in the water reflection",
+    "[MODERATE] Apply graduated filter to upper third of sky, reducing exposure by -0.3 and adding contrast to emphasize the dramatic cloud patterns",
+    "[SUBTLE] Increase vibrance by +10 to +15 (not saturation) to subtly enrich the orange and yellow tones in the sunset without oversaturating",
+    "[SUBTLE] Lift shadows by +15 to +20 in the foreground trees to reveal subtle silhouette detail while preserving the dark framing effect",
+    "[MODERATE] Apply sharpening (amount 40-50, radius 1.0, detail 25) with masking to enhance tree branch definition and cloud edges"
+  ],
+  "improvements_detailed": [
+    {
+      "action": "Increase Dehaze (+15) and Texture (+10) specifically on the clouds",
+      "intensity": "moderate",
+      "priority": 1,
+      "reason": "To accentuate the unique swirling patterns and definition in the cloud layers"
+    },
+    {
+      "action": "Lower the Black point (-10) to crush deep shadows",
+      "intensity": "subtle",
+      "priority": 2,
+      "reason": "To solidify the tree silhouettes and remove muddy details in the foreground, creating a stronger graphical element"
+    },
+    {
+      "action": "Boost Vibrance (+15) and slightly shift Orange hue toward Red",
+      "intensity": "moderate",
+      "priority": 3,
+      "reason": "To enhance the richness of the sunset colors without oversaturating the cooler blue tones at the top"
+    },
+    {
+      "action": "Apply a linear gradient to the top sky with reduced Exposure (-0.3) and increased Saturation",
+      "intensity": "subtle",
+      "priority": 4,
+      "reason": "To deepen the blue sky and create a stronger color contrast against the warm horizon"
+    },
+    {
+      "action": "Recover bright areas around the sun by lowering Highlights (~-30 to -60) and Whites (~-10 to -25), then add a gentle midtone S-curve for contrast without crushing silhouettes",
+      "intensity": "moderate",
+      "priority": 1,
+      "reason": "Preserves detail in the brightest glow while keeping the image punchy and sunset-like rather than flat or clipped."
+    },
+    {
+      "action": "Apply a graduated mask to the upper sky: reduce exposure slightly (~-0.2 to -0.4), add Dehaze (+5 to +12) and Clarity/Texture (+5 to +10) to emphasize cloud structure while keeping it natural",
+      "intensity": "subtle",
+      "priority": 2,
+      "reason": "Enhances the layered cloud bands and improves perceived depth in the sky without changing the scene\u2019s mood."
+    },
+    {
+      "action": "Crop slightly from the left edge (and a touch from the bottom if needed) to remove the small distracting dark blob/edge artifact and tighten the composition around the sun and main tree group",
+      "intensity": "subtle",
+      "priority": 3,
+      "reason": "Eliminates a visual distraction and strengthens the balance between the sun (left) and tall trees (right)."
+    },
+    {
+      "action": "Fine-tune color: reduce Orange saturation slightly (-5 to -15) and increase Orange luminance (+5 to +15); optionally cool the shadows a touch via Color Grading (very mild blue in shadows) while keeping warm highlights",
+      "intensity": "subtle",
+      "priority": 4,
+      "reason": "Keeps the sunset from looking overly orange and improves color separation between warm horizon glow and cooler upper sky."
+    },
+    {
+      "action": "Apply light sharpening with masking (Amount ~40\u201370, Masking ~70\u201390) and mild luminance noise reduction (5\u201315) if needed after tonal recovery",
+      "intensity": "subtle",
+      "priority": 5,
+      "reason": "Maintains crisp tree silhouettes and cloud edges while preventing noise from appearing in smoother gradient areas after edits."
+    },
+    {
+      "action": "Increase overall exposure by +0.3 to +0.5 EV to brighten the midtones and reveal more detail in the water reflection",
+      "intensity": "subtle",
+      "priority": 1,
+      "reason": "The image is slightly underexposed, particularly in the midtones; lifting exposure will add dimension without losing the sunset atmosphere"
+    },
+    {
+      "action": "Apply graduated filter to upper third of sky, reducing exposure by -0.3 and adding contrast to emphasize the dramatic cloud patterns",
+      "intensity": "moderate",
+      "priority": 2,
+      "reason": "The cloud formations have interesting texture that can be enhanced to create better visual separation from the warm sunset tones below"
+    },
+    {
+      "action": "Increase vibrance by +10 to +15 (not saturation) to subtly enrich the orange and yellow tones in the sunset without oversaturating",
+      "intensity": "subtle",
+      "priority": 3,
+      "reason": "The warm tones are somewhat muted; vibrance will add depth to the colors while maintaining natural appearance"
+    },
+    {
+      "action": "Lift shadows by +15 to +20 in the foreground trees to reveal subtle silhouette detail while preserving the dark framing effect",
+      "intensity": "subtle",
+      "priority": 4,
+      "reason": "The trees are completely black; minimal shadow lifting will add dimension and separate individual trees without compromising the silhouette aesthetic"
+    },
+    {
+      "action": "Apply sharpening (amount 40-50, radius 1.0, detail 25) with masking to enhance tree branch definition and cloud edges",
+      "intensity": "moderate",
+      "priority": 5,
+      "reason": "The image appears slightly soft; targeted sharpening will improve clarity of key elements without introducing artifacts"
+    }
+  ],
+  "context": {
+    "genre": "landscape",
+    "subject": "Sunset over a distant horizon with silhouetted trees and layered clouds",
+    "mood": "calm, warm, and contemplative",
+    "preserve": [
+      "The blown-out highlight of the sun disk (recovery would look unnatural)",
+      "The compositional balance between the sun and the tall tree group",
+      "The strong silhouetted tree shapes against the sky",
+      "The warm sunset gradient and tranquil atmosphere",
+      "Natural warm color palette of the sunset",
+      "Silhouette composition of the trees",
+      "Soft, layered cloud texture"
+    ],
+    "technical": {
+      "exposure": "slightly_under",
+      "white_balance": "slightly_warm",
+      "focus": "acceptable",
+      "noise": "low"
+    }
+  },
+  "summary": "[GEMINI] A beautiful capture of atmospheric conditions. The editing strategy focuses on bringing out the texture in the sky to make the cloud formations the star of the show, while keeping the foreground clean and silhouetted. | [OPENAI] The image has strong composition and a pleasing warm sunset palette, with attractive layered clouds and silhouettes. Minor highlight recovery and subtle sky shaping would add detail and depth, while a small crop/cleanup removes edge distractions without altering the intended mood. | [ANTHROPIC] This is a well-composed sunset landscape with strong potential. The exposure is slightly conservative, leaving the image darker than optimal. Gentle lifting of exposure and targeted enhancements to the sky and foreground will add depth and visual interest while maintaining the peaceful, contemplative mood. The photographer's choice to silhouette the trees should be respected as a key compositional element.",
+  "score": 77.3,
+  "improvements": [
+    "[MODERATE] Increase Dehaze (+15) and Texture (+10) specifically on the clouds",
+    "[SUBTLE] Lower the Black point (-10) to crush deep shadows",
+    "[MODERATE] Boost Vibrance (+15) and slightly shift Orange hue toward Red",
+    "[SUBTLE] Apply a linear gradient to the top sky with reduced Exposure (-0.3) and increased Saturation",
+    "[MODERATE] Recover bright areas around the sun by lowering Highlights (~-30 to -60) and Whites (~-10 to -25), then add a gentle midtone S-curve for contrast without crushing silhouettes"
+  ],
+  "notes": "[GEMINI] A beautiful capture of atmospheric conditions. The editing strategy focuses on bringing out the texture in the sky to make the cloud formations the star of the show, while keeping the foreground clean and silhouetted. | [OPENAI] The image has strong composition and a pleasing warm sunset palette, with attractive layered clouds and silhouettes. Minor highlight recovery and subtle sky shaping would add detail and depth, while a small crop/cleanup removes edge distractions without altering the intended mood. | [ANTHROPIC] This is a well-composed sunset landscape with strong potential. The exposure is slightly conservative, leaving the image darker than optimal. Gentle lifting of exposure and targeted enhancements to the sky and foreground will add depth and visual interest while maintaining the peaceful, contemplative mood. The photographer's choice to silhouette the trees should be respected as a key compositional element.",
+  "re_review": {
+    "critiques": [
+      {
+        "genre": "landscape",
+        "subject": "Sunset with rippled lenticular clouds and silhouetted poplar trees",
+        "mood": "serene and atmospheric",
+        "score": 85.0,
+        "technical_assessment": {
+          "exposure": "good",
+          "white_balance": "neutral",
+          "focus": "sharp",
+          "noise": "low"
+        },
+        "improvements": [
+          "[MODERATE] Increase Clarity and Dehaze on upper sky",
+          "[SUBTLE] Reduce Highlights",
+          "[SUBTLE] Lower Black point (Clip Blacks)",
+          "[SUBTLE] Selective Saturation (Blues)"
+        ],
+        "preserve": [
+          "The smooth color gradient from orange to blue",
+          "The natural softness of the light diffusion"
+        ],
+        "notes": "A strong capture featuring distinctive atmospheric conditions. The image relies on the contrast between the textured clouds and the stark foreground silhouettes; editing should focus on enhancing this texture without introducing noise.",
+        "improvements_detailed": [
+          {
+            "action": "Increase Clarity and Dehaze on upper sky",
+            "intensity": "moderate",
+            "priority": 1,
+            "reason": "To define the unique ripple texture in the cloud formations which creates the primary visual interest"
+          },
+          {
+            "action": "Reduce Highlights",
+            "intensity": "subtle",
+            "priority": 2,
+            "reason": "To recover detail and color in the bright yellow areas immediately surrounding the sun disc"
+          },
+          {
+            "action": "Lower Black point (Clip Blacks)",
+            "intensity": "subtle",
+            "priority": 3,
+            "reason": "To ensure the tree silhouettes are solid black, removing any distraction from semi-lit branches"
+          },
+          {
+            "action": "Selective Saturation (Blues)",
+            "intensity": "subtle",
+            "priority": 4,
+            "reason": "To enhance the complementary color contrast between the cool upper sky and the warm horizon"
+          }
+        ],
+        "context": {
+          "genre": "landscape",
+          "subject": "Sunset with rippled lenticular clouds and silhouetted poplar trees",
+          "mood": "serene and atmospheric",
+          "preserve": [
+            "The smooth color gradient from orange to blue",
+            "The natural softness of the light diffusion"
+          ],
+          "technical": {
+            "exposure": "good",
+            "white_balance": "neutral",
+            "focus": "sharp",
+            "noise": "low"
+          }
+        },
+        "llm": "gemini"
+      },
+      {
+        "genre": "landscape",
+        "subject": "Sunset over a distant body of water with silhouetted trees in the foreground",
+        "mood": "Warm, calm, and slightly dramatic",
+        "score": 82.0,
+        "technical_assessment": {
+          "exposure": "good",
+          "white_balance": "slightly_warm",
+          "focus": "acceptable",
+          "noise": "low"
+        },
+        "improvements": [
+          "[MODERATE] Reduce highlights in the sun/bright horizon area (Highlights -40 to -70; Whites -10 to -25) and use a local gradient to slightly pull back the brightest glow while keeping it luminous",
+          "[SUBTLE] Lift foreground shadows slightly (Shadows +15 to +30) and add mild noise reduction in the darkest tree silhouettes; keep blacks anchored (Blacks -5 to -15) for contrast",
+          "[SUBTLE] Increase sky and cloud definition with targeted micro-contrast (Texture +10, Clarity +8 to +15) and a gentle midtone S-curve; avoid pushing clarity in the sun glow",
+          "[SUBTLE] Fine-tune color balance: slightly reduce orange/red saturation (Orange/Red Sat -5 to -15) and raise orange luminance (+5 to +15); optionally add a very subtle cool shift to upper sky via split toning or calibration",
+          "[SUBTLE] Crop slightly from the right edge and/or bottom to reduce dead space and edge distractions; keep the tall tree near the right third and the sun near the left third"
+        ],
+        "preserve": [
+          "The strong warm sunset palette and gradient in the sky",
+          "The silhouetted tree shapes as the primary foreground graphic element"
+        ],
+        "notes": "The image has a strong sunset color gradient and pleasing layered clouds, with silhouettes providing a clear foreground anchor. The main opportunity is controlling highlight intensity around the sun and adding a touch of local contrast in the sky while keeping the scene\u2019s natural, calm mood.",
+        "improvements_detailed": [
+          {
+            "action": "Reduce highlights in the sun/bright horizon area (Highlights -40 to -70; Whites -10 to -25) and use a local gradient to slightly pull back the brightest glow while keeping it luminous",
+            "intensity": "moderate",
+            "priority": 1,
+            "reason": "Preserves detail and prevents the brightest area from feeling clipped, improving tonal separation around the sun."
+          },
+          {
+            "action": "Lift foreground shadows slightly (Shadows +15 to +30) and add mild noise reduction in the darkest tree silhouettes; keep blacks anchored (Blacks -5 to -15) for contrast",
+            "intensity": "subtle",
+            "priority": 2,
+            "reason": "Reveals a touch of structure in the trees without destroying the intentional silhouette mood or introducing noisy, muddy blacks."
+          },
+          {
+            "action": "Increase sky and cloud definition with targeted micro-contrast (Texture +10, Clarity +8 to +15) and a gentle midtone S-curve; avoid pushing clarity in the sun glow",
+            "intensity": "subtle",
+            "priority": 3,
+            "reason": "Enhances the layered cloud bands and depth in the sky while maintaining natural gradations."
+          },
+          {
+            "action": "Fine-tune color balance: slightly reduce orange/red saturation (Orange/Red Sat -5 to -15) and raise orange luminance (+5 to +15); optionally add a very subtle cool shift to upper sky via split toning or calibration",
+            "intensity": "subtle",
+            "priority": 4,
+            "reason": "Keeps the sunset rich without oversaturation and improves color separation between warm horizon and cooler upper sky."
+          },
+          {
+            "action": "Crop slightly from the right edge and/or bottom to reduce dead space and edge distractions; keep the tall tree near the right third and the sun near the left third",
+            "intensity": "subtle",
+            "priority": 5,
+            "reason": "Strengthens composition and visual flow by minimizing peripheral elements that pull attention from the sunset and main silhouette."
+          }
+        ],
+        "context": {
+          "genre": "landscape",
+          "subject": "Sunset over a distant body of water with silhouetted trees in the foreground",
+          "mood": "Warm, calm, and slightly dramatic",
+          "preserve": [
+            "The strong warm sunset palette and gradient in the sky",
+            "The silhouetted tree shapes as the primary foreground graphic element"
+          ],
+          "technical": {
+            "exposure": "good",
+            "white_balance": "slightly_warm",
+            "focus": "acceptable",
+            "noise": "low"
+          }
+        },
+        "llm": "openai"
+      },
+      {
+        "genre": "landscape",
+        "subject": "Silhouetted trees against a vibrant sunset sky with dramatic cloud formations",
+        "mood": "Peaceful and contemplative with warm, serene tones",
+        "score": 78.0,
+        "technical_assessment": {
+          "exposure": "slightly_under",
+          "white_balance": "slightly_warm",
+          "focus": "sharp",
+          "noise": "low"
+        },
+        "improvements": [
+          "[MODERATE] Enhance contrast in the mid-orange tones using targeted curve adjustment to create more separation between cloud layers",
+          "[SUBTLE] Lift shadows in the foreground trees by +15-20 to reveal subtle branch detail while maintaining strong silhouette",
+          "[SUBTLE] Apply graduated filter from top to reduce gray sky luminosity by -0.3 stops and add subtle blue saturation",
+          "[MODERATE] Increase vibrance by +10-15 in the orange-to-yellow range to intensify the sunset glow"
+        ],
+        "preserve": [
+          "The warm color palette and natural gradient from orange to gray",
+          "The strong silhouette contrast of the central poplar tree",
+          "The organic cloud patterns and texture"
+        ],
+        "notes": "This is a well-composed sunset landscape with excellent cloud formations and strong compositional elements. The main opportunities lie in enhancing the existing drama through selective contrast and subtle tonal adjustments. The image already has a cohesive aesthetic that should be preserved while bringing out the natural beauty of the scene's elements.",
+        "improvements_detailed": [
+          {
+            "action": "Enhance contrast in the mid-orange tones using targeted curve adjustment to create more separation between cloud layers",
+            "intensity": "moderate",
+            "priority": 1,
+            "reason": "The cloud patterns have beautiful wave formations that would benefit from increased definition and dimensionality"
+          },
+          {
+            "action": "Lift shadows in the foreground trees by +15-20 to reveal subtle branch detail while maintaining strong silhouette",
+            "intensity": "subtle",
+            "priority": 2,
+            "reason": "Currently pure black silhouettes lack micro-detail; slight lift would add depth without compromising the dramatic effect"
+          },
+          {
+            "action": "Apply graduated filter from top to reduce gray sky luminosity by -0.3 stops and add subtle blue saturation",
+            "intensity": "subtle",
+            "priority": 3,
+            "reason": "Creates better tonal balance between the dramatic sunset and the flatter upper sky portion"
+          },
+          {
+            "action": "Increase vibrance by +10-15 in the orange-to-yellow range to intensify the sunset glow",
+            "intensity": "moderate",
+            "priority": 4,
+            "reason": "The sunset colors are pleasant but slightly muted; selective boost would add more visual impact while maintaining realism"
+          }
+        ],
+        "context": {
+          "genre": "landscape",
+          "subject": "Silhouetted trees against a vibrant sunset sky with dramatic cloud formations",
+          "mood": "Peaceful and contemplative with warm, serene tones",
+          "preserve": [
+            "The warm color palette and natural gradient from orange to gray",
+            "The strong silhouette contrast of the central poplar tree",
+            "The organic cloud patterns and texture"
+          ],
+          "technical": {
+            "exposure": "slightly_under",
+            "white_balance": "slightly_warm",
+            "focus": "sharp",
+            "noise": "low"
+          }
+        },
+        "llm": "anthropic"
+      }
+    ],
+    "consensus_score": 81.7,
+    "score": 81.7,
+    "notes": "[GEMINI] A strong capture featuring distinctive atmospheric conditions. The image relies on the contrast between the textured clouds and the stark foreground silhouettes; editing should focus on enhancing this texture without introducing noise. | [OPENAI] The image has a strong sunset color gradient and pleasing layered clouds, with silhouettes providing a clear foreground anchor. The main opportunity is controlling highlight intensity around the sun and adding a touch of local contrast in the sky while keeping the scene\u2019s natural, calm mood. | [ANTHROPIC] This is a well-composed sunset landscape with excellent cloud formations and strong compositional elements. The main opportunities lie in enhancing the existing drama through selective contrast and subtle tonal adjustments. The image already has a cohesive aesthetic that should be preserved while bringing out the natural beauty of the scene's elements.",
+    "summary": "[GEMINI] A strong capture featuring distinctive atmospheric conditions. The image relies on the contrast between the textured clouds and the stark foreground silhouettes; editing should focus on enhancing this texture without introducing noise. | [OPENAI] The image has a strong sunset color gradient and pleasing layered clouds, with silhouettes providing a clear foreground anchor. The main opportunity is controlling highlight intensity around the sun and adding a touch of local contrast in the sky while keeping the scene\u2019s natural, calm mood. | [ANTHROPIC] This is a well-composed sunset landscape with excellent cloud formations and strong compositional elements. The main opportunities lie in enhancing the existing drama through selective contrast and subtle tonal adjustments. The image already has a cohesive aesthetic that should be preserved while bringing out the natural beauty of the scene's elements.",
+    "context": {
+      "genre": "landscape",
+      "subject": "Silhouetted trees against a vibrant sunset sky with dramatic cloud formations",
+      "mood": "Peaceful and contemplative with warm, serene tones",
+      "preserve": [
+        "The smooth color gradient from orange to blue",
+        "The natural softness of the light diffusion",
+        "The strong warm sunset palette and gradient in the sky",
+        "The silhouetted tree shapes as the primary foreground graphic element",
+        "The warm color palette and natural gradient from orange to gray",
+        "The strong silhouette contrast of the central poplar tree",
+        "The organic cloud patterns and texture"
+      ],
+      "technical": {
+        "exposure": "good",
+        "white_balance": "slightly_warm",
+        "focus": "sharp",
+        "noise": "low"
+      }
+    },
+    "score_delta": 4.4
+  },
+  "timestamp": "20260130-211751",
+  "entry_id": "20260130-211751-36f47661",
+  "original_filename": "IMG_2008_Original.jpeg",
+  "original_image": "original.jpeg",
+  "edited_image": "edited.jpeg"
+}

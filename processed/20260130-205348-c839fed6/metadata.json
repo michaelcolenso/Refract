@@ -1,0 +1,353 @@
+{
+  "critiques": [
+    {
+      "genre": "street",
+      "subject": "Two construction workers on a high-rise beam with an American flag and city buildings",
+      "mood": "Industrial, gritty, patriotic",
+      "score": 40.0,
+      "technical_assessment": {
+        "exposure": "good",
+        "white_balance": "slightly_cool",
+        "focus": "soft",
+        "noise": "high"
+      },
+      "improvements": [
+        "[SIGNIFICANT] Apply AI restoration or aggressive artifact removal",
+        "[MODERATE] Mask subject and increase Clarity and Dehaze",
+        "[SUBTLE] Warm White Balance locally on the workers and rusty beam",
+        "[MODERATE] Selectively saturate the red and blue channels on the flag"
+      ],
+      "preserve": [
+        "The compositional balance between the workers and the flag",
+        "The sense of height and verticality provided by the cables"
+      ],
+      "notes": "The primary issue is technical quality; the image appears to be a low-resolution file that was upscaled or heavily compressed, resulting in distinct square artifacts. Restoration is required before stylistic editing can be effective.",
+      "improvements_detailed": [
+        {
+          "action": "Apply AI restoration or aggressive artifact removal",
+          "intensity": "significant",
+          "priority": 1,
+          "reason": "The image suffers from severe blocky compression artifacts that distort the background and subjects."
+        },
+        {
+          "action": "Mask subject and increase Clarity and Dehaze",
+          "intensity": "moderate",
+          "priority": 2,
+          "reason": "To visually separate the workers from the chaotic, pixelated background pattern."
+        },
+        {
+          "action": "Warm White Balance locally on the workers and rusty beam",
+          "intensity": "subtle",
+          "priority": 3,
+          "reason": "Corrects the slight blue cast to make skin tones look natural and metallic textures distinct."
+        },
+        {
+          "action": "Selectively saturate the red and blue channels on the flag",
+          "intensity": "moderate",
+          "priority": 4,
+          "reason": "Strengthens the flag as a visual anchor and provides color contrast to the grey cityscape."
+        }
+      ],
+      "context": {
+        "genre": "street",
+        "subject": "Two construction workers on a high-rise beam with an American flag and city buildings",
+        "mood": "Industrial, gritty, patriotic",
+        "preserve": [
+          "The compositional balance between the workers and the flag",
+          "The sense of height and verticality provided by the cables"
+        ],
+        "technical": {
+          "exposure": "good",
+          "white_balance": "slightly_cool",
+          "focus": "soft",
+          "noise": "high"
+        }
+      },
+      "llm": "gemini"
+    },
+    {
+      "genre": "street",
+      "subject": "Two construction workers on a suspended platform with a city building fa\u00e7ade behind them",
+      "mood": "gritty, industrial, documentary",
+      "score": 52.0,
+      "technical_assessment": {
+        "exposure": "good",
+        "white_balance": "slightly_cool",
+        "focus": "acceptable",
+        "noise": "moderate"
+      },
+      "improvements": [
+        "[SIGNIFICANT] Address severe compression/mosaic artifacts: if possible, re-export from the original file at higher quality (JPEG quality 90\u2013100) or use an AI artifact reduction tool; avoid heavy clarity/texture/sharpening which will amplify blockiness",
+        "[MODERATE] Crop and straighten for stronger composition: trim some of the busy upper building area and slightly reduce the bottom edge; keep the workers and flag as the visual anchors and align verticals so the building reads more stable",
+        "[MODERATE] Selective subject separation: apply a subtle radial/brush mask on the workers to lift exposure +0.2 to +0.4, add midtone contrast, and slightly warm their skin/clothing; apply a counter-mask to the background with -10 to -20 clarity/texture",
+        "[SUBTLE] Color/WB refinement: warm overall WB slightly (+200 to +500K) and reduce cyan/blue saturation in shadows; keep neutrals in the building from skewing blue",
+        "[SUBTLE] Noise management after artifact control: apply mild luminance noise reduction (10\u201325) and very conservative sharpening with masking (amount low, masking high) to avoid re-emphasizing blocks"
+      ],
+      "preserve": [
+        "The documentary, worksite atmosphere and candid feel",
+        "The strong graphic element of the American flag and vertical rigging lines"
+      ],
+      "notes": "The image has a compelling gritty subject, but heavy compression/mosaic artifacts dominate and reduce perceived sharpness and detail. After addressing artifacts, a tighter crop and selective contrast/brightness on the workers will improve storytelling and subject separation while maintaining the industrial mood.",
+      "improvements_detailed": [
+        {
+          "action": "Address severe compression/mosaic artifacts: if possible, re-export from the original file at higher quality (JPEG quality 90\u2013100) or use an AI artifact reduction tool; avoid heavy clarity/texture/sharpening which will amplify blockiness",
+          "intensity": "significant",
+          "priority": 1,
+          "reason": "The blocky pixelation across the frame is the dominant quality issue and masks fine detail, making other edits less effective."
+        },
+        {
+          "action": "Crop and straighten for stronger composition: trim some of the busy upper building area and slightly reduce the bottom edge; keep the workers and flag as the visual anchors and align verticals so the building reads more stable",
+          "intensity": "moderate",
+          "priority": 2,
+          "reason": "Reduces background overwhelm and improves subject emphasis while making architectural lines feel intentional."
+        },
+        {
+          "action": "Selective subject separation: apply a subtle radial/brush mask on the workers to lift exposure +0.2 to +0.4, add midtone contrast, and slightly warm their skin/clothing; apply a counter-mask to the background with -10 to -20 clarity/texture",
+          "intensity": "moderate",
+          "priority": 3,
+          "reason": "Guides the eye to the human moment and reduces the distracting, highly detailed fa\u00e7ade competing with the subjects."
+        },
+        {
+          "action": "Color/WB refinement: warm overall WB slightly (+200 to +500K) and reduce cyan/blue saturation in shadows; keep neutrals in the building from skewing blue",
+          "intensity": "subtle",
+          "priority": 4,
+          "reason": "Improves natural rendering and keeps the scene from feeling overly cold without losing the industrial mood."
+        },
+        {
+          "action": "Noise management after artifact control: apply mild luminance noise reduction (10\u201325) and very conservative sharpening with masking (amount low, masking high) to avoid re-emphasizing blocks",
+          "intensity": "subtle",
+          "priority": 5,
+          "reason": "Cleans up grainy texture while preventing halos and artifact accentuation."
+        }
+      ],
+      "context": {
+        "genre": "street",
+        "subject": "Two construction workers on a suspended platform with a city building fa\u00e7ade behind them",
+        "mood": "gritty, industrial, documentary",
+        "preserve": [
+          "The documentary, worksite atmosphere and candid feel",
+          "The strong graphic element of the American flag and vertical rigging lines"
+        ],
+        "technical": {
+          "exposure": "good",
+          "white_balance": "slightly_cool",
+          "focus": "acceptable",
+          "noise": "moderate"
+        }
+      },
+      "llm": "openai"
+    },
+    {
+      "genre": "street",
+      "subject": "Construction workers on scaffolding with American flag against urban high-rise buildings",
+      "mood": "Gritty, industrial, documentary realism with patriotic undertones",
+      "score": 58.0,
+      "technical_assessment": {
+        "exposure": "slightly_under",
+        "white_balance": "slightly_cool",
+        "focus": "soft",
+        "noise": "moderate"
+      },
+      "improvements": [
+        "[MODERATE] Apply selective sharpening to worker figures and flag using unsharp mask (amount 80-100, radius 1.0) with layer mask to avoid over-sharpening pixelated background",
+        "[MODERATE] Lift shadows globally by +15-20 and increase exposure by +0.3-0.5 stops to reveal detail in worker clothing and foreground platform",
+        "[SUBTLE] Add warmth to midtones using split toning or temperature adjustment (+5-8 towards yellow/orange) while keeping shadows cool",
+        "[SUBTLE] Apply localized clarity boost (+10-15) to the American flag to enhance texture and visual prominence",
+        "[MODERATE] Reduce luminance noise in shadow areas using targeted noise reduction while preserving edge detail"
+      ],
+      "preserve": [
+        "Pixelated/mosaic treatment of buildings which appears intentional and artistic",
+        "Overall cool-toned color palette that reinforces industrial urban atmosphere",
+        "Gritty documentary quality and sense of authenticity"
+      ],
+      "notes": "This image has strong documentary storytelling with the juxtaposition of construction workers and urban architecture, but suffers from soft focus on the main subjects and underexposure in key areas. The pixelated building treatment appears intentional and should be preserved. Editing should focus on enhancing subject clarity and recovering shadow detail while maintaining the authentic, gritty industrial aesthetic.",
+      "improvements_detailed": [
+        {
+          "action": "Apply selective sharpening to worker figures and flag using unsharp mask (amount 80-100, radius 1.0) with layer mask to avoid over-sharpening pixelated background",
+          "intensity": "moderate",
+          "priority": 1,
+          "reason": "Main subjects appear soft/out of focus; targeted sharpening will draw viewer attention to the human element while respecting the deliberately pixelated/mosaic aesthetic of the buildings"
+        },
+        {
+          "action": "Lift shadows globally by +15-20 and increase exposure by +0.3-0.5 stops to reveal detail in worker clothing and foreground platform",
+          "intensity": "moderate",
+          "priority": 2,
+          "reason": "Workers in shadow lose important detail; moderate lifting maintains industrial mood while improving readability of the main subjects"
+        },
+        {
+          "action": "Add warmth to midtones using split toning or temperature adjustment (+5-8 towards yellow/orange) while keeping shadows cool",
+          "intensity": "subtle",
+          "priority": 3,
+          "reason": "Current cool tone feels slightly clinical; subtle warmth in skin tones and work gear creates better separation from cool architectural background and enhances human element"
+        },
+        {
+          "action": "Apply localized clarity boost (+10-15) to the American flag to enhance texture and visual prominence",
+          "intensity": "subtle",
+          "priority": 4,
+          "reason": "Flag is a key symbolic element but lacks definition; targeted clarity enhancement makes it a stronger anchor point without appearing over-processed"
+        },
+        {
+          "action": "Reduce luminance noise in shadow areas using targeted noise reduction while preserving edge detail",
+          "intensity": "moderate",
+          "priority": 5,
+          "reason": "Moderate noise visible in darker areas; reduction improves overall image quality without sacrificing the gritty documentary aesthetic"
+        }
+      ],
+      "context": {
+        "genre": "street",
+        "subject": "Construction workers on scaffolding with American flag against urban high-rise buildings",
+        "mood": "Gritty, industrial, documentary realism with patriotic undertones",
+        "preserve": [
+          "Pixelated/mosaic treatment of buildings which appears intentional and artistic",
+          "Overall cool-toned color palette that reinforces industrial urban atmosphere",
+          "Gritty documentary quality and sense of authenticity"
+        ],
+        "technical": {
+          "exposure": "slightly_under",
+          "white_balance": "slightly_cool",
+          "focus": "soft",
+          "noise": "moderate"
+        }
+      },
+      "llm": "anthropic"
+    }
+  ],
+  "consensus_score": 50.0,
+  "combined_improvements": [
+    "[SIGNIFICANT] Apply AI restoration or aggressive artifact removal",
+    "[MODERATE] Mask subject and increase Clarity and Dehaze",
+    "[SUBTLE] Warm White Balance locally on the workers and rusty beam",
+    "[MODERATE] Selectively saturate the red and blue channels on the flag",
+    "[SIGNIFICANT] Address severe compression/mosaic artifacts: if possible, re-export from the original file at higher quality (JPEG quality 90\u2013100) or use an AI artifact reduction tool; avoid heavy clarity/texture/sharpening which will amplify blockiness",
+    "[MODERATE] Crop and straighten for stronger composition: trim some of the busy upper building area and slightly reduce the bottom edge; keep the workers and flag as the visual anchors and align verticals so the building reads more stable",
+    "[MODERATE] Selective subject separation: apply a subtle radial/brush mask on the workers to lift exposure +0.2 to +0.4, add midtone contrast, and slightly warm their skin/clothing; apply a counter-mask to the background with -10 to -20 clarity/texture",
+    "[SUBTLE] Color/WB refinement: warm overall WB slightly (+200 to +500K) and reduce cyan/blue saturation in shadows; keep neutrals in the building from skewing blue",
+    "[SUBTLE] Noise management after artifact control: apply mild luminance noise reduction (10\u201325) and very conservative sharpening with masking (amount low, masking high) to avoid re-emphasizing blocks",
+    "[MODERATE] Apply selective sharpening to worker figures and flag using unsharp mask (amount 80-100, radius 1.0) with layer mask to avoid over-sharpening pixelated background",
+    "[MODERATE] Lift shadows globally by +15-20 and increase exposure by +0.3-0.5 stops to reveal detail in worker clothing and foreground platform",
+    "[SUBTLE] Add warmth to midtones using split toning or temperature adjustment (+5-8 towards yellow/orange) while keeping shadows cool",
+    "[SUBTLE] Apply localized clarity boost (+10-15) to the American flag to enhance texture and visual prominence",
+    "[MODERATE] Reduce luminance noise in shadow areas using targeted noise reduction while preserving edge detail"
+  ],
+  "improvements_detailed": [
+    {
+      "action": "Apply AI restoration or aggressive artifact removal",
+      "intensity": "significant",
+      "priority": 1,
+      "reason": "The image suffers from severe blocky compression artifacts that distort the background and subjects."
+    },
+    {
+      "action": "Mask subject and increase Clarity and Dehaze",
+      "intensity": "moderate",
+      "priority": 2,
+      "reason": "To visually separate the workers from the chaotic, pixelated background pattern."
+    },
+    {
+      "action": "Warm White Balance locally on the workers and rusty beam",
+      "intensity": "subtle",
+      "priority": 3,
+      "reason": "Corrects the slight blue cast to make skin tones look natural and metallic textures distinct."
+    },
+    {
+      "action": "Selectively saturate the red and blue channels on the flag",
+      "intensity": "moderate",
+      "priority": 4,
+      "reason": "Strengthens the flag as a visual anchor and provides color contrast to the grey cityscape."
+    },
+    {
+      "action": "Address severe compression/mosaic artifacts: if possible, re-export from the original file at higher quality (JPEG quality 90\u2013100) or use an AI artifact reduction tool; avoid heavy clarity/texture/sharpening which will amplify blockiness",
+      "intensity": "significant",
+      "priority": 1,
+      "reason": "The blocky pixelation across the frame is the dominant quality issue and masks fine detail, making other edits less effective."
+    },
+    {
+      "action": "Crop and straighten for stronger composition: trim some of the busy upper building area and slightly reduce the bottom edge; keep the workers and flag as the visual anchors and align verticals so the building reads more stable",
+      "intensity": "moderate",
+      "priority": 2,
+      "reason": "Reduces background overwhelm and improves subject emphasis while making architectural lines feel intentional."
+    },
+    {
+      "action": "Selective subject separation: apply a subtle radial/brush mask on the workers to lift exposure +0.2 to +0.4, add midtone contrast, and slightly warm their skin/clothing; apply a counter-mask to the background with -10 to -20 clarity/texture",
+      "intensity": "moderate",
+      "priority": 3,
+      "reason": "Guides the eye to the human moment and reduces the distracting, highly detailed fa\u00e7ade competing with the subjects."
+    },
+    {
+      "action": "Color/WB refinement: warm overall WB slightly (+200 to +500K) and reduce cyan/blue saturation in shadows; keep neutrals in the building from skewing blue",
+      "intensity": "subtle",
+      "priority": 4,
+      "reason": "Improves natural rendering and keeps the scene from feeling overly cold without losing the industrial mood."
+    },
+    {
+      "action": "Noise management after artifact control: apply mild luminance noise reduction (10\u201325) and very conservative sharpening with masking (amount low, masking high) to avoid re-emphasizing blocks",
+      "intensity": "subtle",
+      "priority": 5,
+      "reason": "Cleans up grainy texture while preventing halos and artifact accentuation."
+    },
+    {
+      "action": "Apply selective sharpening to worker figures and flag using unsharp mask (amount 80-100, radius 1.0) with layer mask to avoid over-sharpening pixelated background",
+      "intensity": "moderate",
+      "priority": 1,
+      "reason": "Main subjects appear soft/out of focus; targeted sharpening will draw viewer attention to the human element while respecting the deliberately pixelated/mosaic aesthetic of the buildings"
+    },
+    {
+      "action": "Lift shadows globally by +15-20 and increase exposure by +0.3-0.5 stops to reveal detail in worker clothing and foreground platform",
+      "intensity": "moderate",
+      "priority": 2,
+      "reason": "Workers in shadow lose important detail; moderate lifting maintains industrial mood while improving readability of the main subjects"
+    },
+    {
+      "action": "Add warmth to midtones using split toning or temperature adjustment (+5-8 towards yellow/orange) while keeping shadows cool",
+      "intensity": "subtle",
+      "priority": 3,
+      "reason": "Current cool tone feels slightly clinical; subtle warmth in skin tones and work gear creates better separation from cool architectural background and enhances human element"
+    },
+    {
+      "action": "Apply localized clarity boost (+10-15) to the American flag to enhance texture and visual prominence",
+      "intensity": "subtle",
+      "priority": 4,
+      "reason": "Flag is a key symbolic element but lacks definition; targeted clarity enhancement makes it a stronger anchor point without appearing over-processed"
+    },
+    {
+      "action": "Reduce luminance noise in shadow areas using targeted noise reduction while preserving edge detail",
+      "intensity": "moderate",
+      "priority": 5,
+      "reason": "Moderate noise visible in darker areas; reduction improves overall image quality without sacrificing the gritty documentary aesthetic"
+    }
+  ],
+  "context": {
+    "genre": "street",
+    "subject": "Two construction workers on a suspended platform with a city building fa\u00e7ade behind them",
+    "mood": "Gritty, industrial, documentary realism with patriotic undertones",
+    "preserve": [
+      "The compositional balance between the workers and the flag",
+      "The sense of height and verticality provided by the cables",
+      "The documentary, worksite atmosphere and candid feel",
+      "The strong graphic element of the American flag and vertical rigging lines",
+      "Pixelated/mosaic treatment of buildings which appears intentional and artistic",
+      "Overall cool-toned color palette that reinforces industrial urban atmosphere",
+      "Gritty documentary quality and sense of authenticity"
+    ],
+    "technical": {
+      "exposure": "good",
+      "white_balance": "slightly_cool",
+      "focus": "soft",
+      "noise": "moderate"
+    }
+  },
+  "summary": "[GEMINI] The primary issue is technical quality; the image appears to be a low-resolution file that was upscaled or heavily compressed, resulting in distinct square artifacts. Restoration is required before stylistic editing can be effective. | [OPENAI] The image has a compelling gritty subject, but heavy compression/mosaic artifacts dominate and reduce perceived sharpness and detail. After addressing artifacts, a tighter crop and selective contrast/brightness on the workers will improve storytelling and subject separation while maintaining the industrial mood. | [ANTHROPIC] This image has strong documentary storytelling with the juxtaposition of construction workers and urban architecture, but suffers from soft focus on the main subjects and underexposure in key areas. The pixelated building treatment appears intentional and should be preserved. Editing should focus on enhancing subject clarity and recovering shadow detail while maintaining the authentic, gritty industrial aesthetic.",
+  "score": 50.0,
+  "improvements": [
+    "[SIGNIFICANT] Apply AI restoration or aggressive artifact removal",
+    "[MODERATE] Mask subject and increase Clarity and Dehaze",
+    "[SUBTLE] Warm White Balance locally on the workers and rusty beam",
+    "[MODERATE] Selectively saturate the red and blue channels on the flag",
+    "[SIGNIFICANT] Address severe compression/mosaic artifacts: if possible, re-export from the original file at higher quality (JPEG quality 90\u2013100) or use an AI artifact reduction tool; avoid heavy clarity/texture/sharpening which will amplify blockiness"
+  ],
+  "notes": "[GEMINI] The primary issue is technical quality; the image appears to be a low-resolution file that was upscaled or heavily compressed, resulting in distinct square artifacts. Restoration is required before stylistic editing can be effective. | [OPENAI] The image has a compelling gritty subject, but heavy compression/mosaic artifacts dominate and reduce perceived sharpness and detail. After addressing artifacts, a tighter crop and selective contrast/brightness on the workers will improve storytelling and subject separation while maintaining the industrial mood. | [ANTHROPIC] This image has strong documentary storytelling with the juxtaposition of construction workers and urban architecture, but suffers from soft focus on the main subjects and underexposure in key areas. The pixelated building treatment appears intentional and should be preserved. Editing should focus on enhancing subject clarity and recovering shadow detail while maintaining the authentic, gritty industrial aesthetic.",
+  "timestamp": "20260130-205348",
+  "entry_id": "20260130-205348-c839fed6",
+  "original_filename": "image.webp",
+  "original_image": "original.webp",
+  "edited_image": "edited.webp"
+}

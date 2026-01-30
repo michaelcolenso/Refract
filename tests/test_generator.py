@@ -233,6 +233,100 @@ class TestSiteGenerator:
         assert img.width > 200  # At least two images side by side
 
 
+class TestReReview:
+    """Tests for re-review data handling."""
+
+    def test_entry_with_re_review_metadata(self, temp_repo, test_image, edited_image):
+        """create_entry should store re-review data in metadata."""
+        generator = SiteGenerator(temp_repo)
+
+        metadata = {
+            "score": 65,
+            "consensus_score": 65.0,
+            "improvements": ["[MODERATE] Boost contrast"],
+            "combined_improvements": ["[MODERATE] Boost contrast"],
+            "notes": "Original notes",
+            "critiques": [
+                {"llm": "gemini", "score": 65.0, "improvements": ["[MODERATE] Boost contrast"], "notes": "Needs work"}
+            ],
+            "re_review": {
+                "critiques": [
+                    {"llm": "gemini", "score": 78.0, "improvements": ["[SUBTLE] Fine-tune highlights"], "notes": "Much improved"}
+                ],
+                "consensus_score": 78.0,
+                "score": 78.0,
+                "notes": "[GEMINI] Much improved",
+                "summary": "[GEMINI] Much improved",
+                "context": {},
+                "score_delta": 13.0,
+            }
+        }
+
+        entry_dir = generator.create_entry(test_image, edited_image, metadata)
+
+        with open(entry_dir / 'metadata.json') as f:
+            saved = json.load(f)
+
+        assert 're_review' in saved
+        assert saved['re_review']['consensus_score'] == 78.0
+        assert saved['re_review']['score_delta'] == 13.0
+        assert len(saved['re_review']['critiques']) == 1
+
+    def test_build_site_cleans_re_review_improvements(self, temp_repo, test_image, edited_image):
+        """build_site should clean severity tags from re-review critique improvements."""
+        generator = SiteGenerator(temp_repo)
+
+        metadata = {
+            "score": 60,
+            "consensus_score": 60.0,
+            "improvements": ["[MODERATE] Boost contrast"],
+            "combined_improvements": ["[MODERATE] Boost contrast"],
+            "notes": "Test",
+            "critiques": [
+                {"llm": "gemini", "score": 60.0, "improvements": ["[MODERATE] Boost contrast"], "notes": "Needs work"}
+            ],
+            "re_review": {
+                "critiques": [
+                    {"llm": "gemini", "score": 75.0, "improvements": ["[SUBTLE] Fine-tune highlights"], "notes": "Improved"}
+                ],
+                "consensus_score": 75.0,
+                "score": 75.0,
+                "notes": "[GEMINI] Improved",
+                "summary": "[GEMINI] Improved",
+                "context": {},
+                "score_delta": 15.0,
+            }
+        }
+
+        generator.create_entry(test_image, edited_image, metadata)
+        generator.build_site()
+
+        entries = generator.get_all_entries()
+        assert len(entries) == 1
+
+        # The re-review data should be preserved in the stored metadata
+        entry = entries[0]
+        assert 're_review' in entry
+        assert entry['re_review']['score_delta'] == 15.0
+
+    def test_build_site_without_re_review(self, temp_repo, test_image, edited_image):
+        """build_site should work when no re-review data is present."""
+        generator = SiteGenerator(temp_repo)
+
+        metadata = {
+            "score": 80,
+            "improvements": ["Test improvement"],
+            "notes": "No re-review"
+        }
+
+        generator.create_entry(test_image, edited_image, metadata)
+        generator.build_site()
+
+        entries = generator.get_all_entries()
+        assert len(entries) == 1
+        assert entries[0].get('re_review') is None
+
+
 class TestIncrementalBuilds:
     """Tests for incremental build functionality."""
 

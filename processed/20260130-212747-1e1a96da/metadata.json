@@ -1,0 +1,596 @@
+{
+  "critiques": [
+    {
+      "genre": "portrait",
+      "subject": "Close-up of a white Samoyed dog sticking its tongue out",
+      "mood": "playful and endearing",
+      "score": 68.0,
+      "technical_assessment": {
+        "exposure": "good",
+        "white_balance": "slightly_warm",
+        "focus": "acceptable",
+        "noise": "moderate"
+      },
+      "improvements": [
+        "[MODERATE] Adjust tint towards green/neutral to remove magenta cast",
+        "[MODERATE] Apply selective sharpening to the eyes",
+        "[SUBTLE] Increase texture or clarity on the fur",
+        "[SUBTLE] Apply weak noise reduction"
+      ],
+      "preserve": [
+        "The soft bokeh of the background highlights",
+        "The vibrant pink color of the tongue"
+      ],
+      "notes": "A cute pet portrait that captures a great moment. The primary edits should focus on correcting the color cast on the white fur and compensating for the slightly missed focus on the eyes.",
+      "improvements_detailed": [
+        {
+          "action": "Adjust tint towards green/neutral to remove magenta cast",
+          "intensity": "moderate",
+          "priority": 1,
+          "reason": "The white fur currently has a noticeable pink/purple tint; correcting this will restore a clean, natural white look."
+        },
+        {
+          "action": "Apply selective sharpening to the eyes",
+          "intensity": "moderate",
+          "priority": 2,
+          "reason": "The depth of field is very shallow with focus landing on the nose; sharpening the eyes helps balance the focal point."
+        },
+        {
+          "action": "Increase texture or clarity on the fur",
+          "intensity": "subtle",
+          "priority": 3,
+          "reason": "Adds definition to the individual strands of fur which currently look slightly soft and matted."
+        },
+        {
+          "action": "Apply weak noise reduction",
+          "intensity": "subtle",
+          "priority": 4,
+          "reason": "Smooths out the grain visible in the darker background areas without losing fur detail."
+        }
+      ],
+      "context": {
+        "genre": "portrait",
+        "subject": "Close-up of a white Samoyed dog sticking its tongue out",
+        "mood": "playful and endearing",
+        "preserve": [
+          "The soft bokeh of the background highlights",
+          "The vibrant pink color of the tongue"
+        ],
+        "technical": {
+          "exposure": "good",
+          "white_balance": "slightly_warm",
+          "focus": "acceptable",
+          "noise": "moderate"
+        }
+      },
+      "llm": "gemini"
+    },
+    {
+      "genre": "portrait",
+      "subject": "Close-up pet portrait of a fluffy white dog with tongue slightly out",
+      "mood": "Soft, playful, cozy",
+      "score": 78.0,
+      "technical_assessment": {
+        "exposure": "good",
+        "white_balance": "slightly_warm",
+        "focus": "acceptable",
+        "noise": "low"
+      },
+      "improvements": [
+        "[MODERATE] Tighten the crop to center attention on the face (trim some of the bright top-left bokeh and the darker right edge), keeping ears and tongue included",
+        "[MODERATE] Add selective sharpening/texture to the eyes and nose only (masking: Sharpening +30 to +50, Texture +10 to +20; avoid fur and background)",
+        "[SUBTLE] Recover fur detail by lowering highlights slightly (-10 to -25) and raising whites subtly (+5 to +15), then add a gentle midtone S-curve for depth",
+        "[SUBTLE] Neutralize the warm cast slightly (cool WB a touch and/or reduce orange/yellow saturation in HSL by ~-5 to -15)",
+        "[SUBTLE] Apply mild background noise reduction and a small clarity reduction to the background only (mask: Luminance NR +10 to +20; Clarity -5 to -15)"
+      ],
+      "preserve": [
+        "Soft, pleasant background bokeh",
+        "Playful expression with tongue out"
+      ],
+      "notes": "Strong, charming pet portrait with nice separation and pleasing tones. The main opportunities are improving composition by cropping distractions and increasing perceived sharpness in the eyes/nose while keeping the fur soft and natural.",
+      "improvements_detailed": [
+        {
+          "action": "Tighten the crop to center attention on the face (trim some of the bright top-left bokeh and the darker right edge), keeping ears and tongue included",
+          "intensity": "moderate",
+          "priority": 1,
+          "reason": "Reduces background distractions and strengthens the portrait composition and subject isolation."
+        },
+        {
+          "action": "Add selective sharpening/texture to the eyes and nose only (masking: Sharpening +30 to +50, Texture +10 to +20; avoid fur and background)",
+          "intensity": "moderate",
+          "priority": 2,
+          "reason": "The overall image is a bit soft; boosting micro-contrast in key features increases perceived sharpness and viewer connection without making fur crunchy."
+        },
+        {
+          "action": "Recover fur detail by lowering highlights slightly (-10 to -25) and raising whites subtly (+5 to +15), then add a gentle midtone S-curve for depth",
+          "intensity": "subtle",
+          "priority": 3,
+          "reason": "Balances the bright coat while adding dimensionality, preventing the white fur from looking flat."
+        },
+        {
+          "action": "Neutralize the warm cast slightly (cool WB a touch and/or reduce orange/yellow saturation in HSL by ~-5 to -15)",
+          "intensity": "subtle",
+          "priority": 4,
+          "reason": "Keeps the white coat looking clean and natural while preserving a warm, friendly feel."
+        },
+        {
+          "action": "Apply mild background noise reduction and a small clarity reduction to the background only (mask: Luminance NR +10 to +20; Clarity -5 to -15)",
+          "intensity": "subtle",
+          "priority": 5,
+          "reason": "Smooths busy bokeh and helps the subject pop without affecting fur detail."
+        }
+      ],
+      "context": {
+        "genre": "portrait",
+        "subject": "Close-up pet portrait of a fluffy white dog with tongue slightly out",
+        "mood": "Soft, playful, cozy",
+        "preserve": [
+          "Soft, pleasant background bokeh",
+          "Playful expression with tongue out"
+        ],
+        "technical": {
+          "exposure": "good",
+          "white_balance": "slightly_warm",
+          "focus": "acceptable",
+          "noise": "low"
+        }
+      },
+      "llm": "openai"
+    },
+    {
+      "genre": "portrait",
+      "subject": "white fluffy dog (appears to be a Samoyed) with tongue out",
+      "mood": "cheerful and friendly",
+      "score": 72.0,
+      "technical_assessment": {
+        "exposure": "slightly_over",
+        "white_balance": "slightly_cool",
+        "focus": "soft",
+        "noise": "low"
+      },
+      "improvements": [
+        "[MODERATE] Apply sharpening to eyes and nose area using unsharp mask (Amount: 80, Radius: 1.0, Threshold: 3) to bring focus to key facial features",
+        "[MODERATE] Reduce highlights by -15 to -20 and decrease whites by -10 to recover detail in the bright white fur, especially around the head and chest",
+        "[SUBTLE] Warm white balance by shifting temperature +200K and adding +5 tint to achieve more natural, inviting fur tones",
+        "[SUBTLE] Apply subtle vignette (Amount: -8 to -10) to darken edges and direct focus to the dog's face",
+        "[SUBTLE] Increase clarity by +10 to +15 on the facial features to enhance texture in the fur without over-processing"
+      ],
+      "preserve": [
+        "Natural expression and pose of the dog",
+        "Soft, diffused lighting quality",
+        "Pink tongue color and saturation",
+        "Blurred background for depth of field"
+      ],
+      "notes": "This is a charming dog portrait with good composition and lighting. The main issues are slight overexposure in the white fur causing loss of texture, soft focus reducing sharpness on key features, and a cool color cast. With targeted adjustments to exposure, sharpening, and white balance, this image can achieve professional quality while maintaining its friendly, approachable character.",
+      "improvements_detailed": [
+        {
+          "action": "Apply sharpening to eyes and nose area using unsharp mask (Amount: 80, Radius: 1.0, Threshold: 3) to bring focus to key facial features",
+          "intensity": "moderate",
+          "priority": 1,
+          "reason": "The soft focus on the dog's face diminishes impact; selective sharpening on eyes and nose will draw viewer attention and add definition"
+        },
+        {
+          "action": "Reduce highlights by -15 to -20 and decrease whites by -10 to recover detail in the bright white fur, especially around the head and chest",
+          "intensity": "moderate",
+          "priority": 2,
+          "reason": "White fur is slightly blown out with lost texture; recovering highlights will add dimension and prevent the subject from appearing flat"
+        },
+        {
+          "action": "Warm white balance by shifting temperature +200K and adding +5 tint to achieve more natural, inviting fur tones",
+          "intensity": "subtle",
+          "priority": 3,
+          "reason": "Current cool cast makes the white fur appear sterile; warming will create a more appealing, lifelike appearance"
+        },
+        {
+          "action": "Apply subtle vignette (Amount: -8 to -10) to darken edges and direct focus to the dog's face",
+          "intensity": "subtle",
+          "priority": 4,
+          "reason": "Background is slightly distracting; gentle vignetting will keep viewer's eye on the subject without appearing obvious"
+        },
+        {
+          "action": "Increase clarity by +10 to +15 on the facial features to enhance texture in the fur without over-processing",
+          "intensity": "subtle",
+          "priority": 5,
+          "reason": "Adding midtone contrast will bring out the fluffy texture and add depth to the portrait"
+        }
+      ],
+      "context": {
+        "genre": "portrait",
+        "subject": "white fluffy dog (appears to be a Samoyed) with tongue out",
+        "mood": "cheerful and friendly",
+        "preserve": [
+          "Natural expression and pose of the dog",
+          "Soft, diffused lighting quality",
+          "Pink tongue color and saturation",
+          "Blurred background for depth of field"
+        ],
+        "technical": {
+          "exposure": "slightly_over",
+          "white_balance": "slightly_cool",
+          "focus": "soft",
+          "noise": "low"
+        }
+      },
+      "llm": "anthropic"
+    }
+  ],
+  "consensus_score": 72.7,
+  "combined_improvements": [
+    "[MODERATE] Adjust tint towards green/neutral to remove magenta cast",
+    "[MODERATE] Apply selective sharpening to the eyes",
+    "[SUBTLE] Increase texture or clarity on the fur",
+    "[SUBTLE] Apply weak noise reduction",
+    "[MODERATE] Tighten the crop to center attention on the face (trim some of the bright top-left bokeh and the darker right edge), keeping ears and tongue included",
+    "[MODERATE] Add selective sharpening/texture to the eyes and nose only (masking: Sharpening +30 to +50, Texture +10 to +20; avoid fur and background)",
+    "[SUBTLE] Recover fur detail by lowering highlights slightly (-10 to -25) and raising whites subtly (+5 to +15), then add a gentle midtone S-curve for depth",
+    "[SUBTLE] Neutralize the warm cast slightly (cool WB a touch and/or reduce orange/yellow saturation in HSL by ~-5 to -15)",
+    "[SUBTLE] Apply mild background noise reduction and a small clarity reduction to the background only (mask: Luminance NR +10 to +20; Clarity -5 to -15)",
+    "[MODERATE] Apply sharpening to eyes and nose area using unsharp mask (Amount: 80, Radius: 1.0, Threshold: 3) to bring focus to key facial features",
+    "[MODERATE] Reduce highlights by -15 to -20 and decrease whites by -10 to recover detail in the bright white fur, especially around the head and chest",
+    "[SUBTLE] Warm white balance by shifting temperature +200K and adding +5 tint to achieve more natural, inviting fur tones",
+    "[SUBTLE] Apply subtle vignette (Amount: -8 to -10) to darken edges and direct focus to the dog's face",
+    "[SUBTLE] Increase clarity by +10 to +15 on the facial features to enhance texture in the fur without over-processing"
+  ],
+  "improvements_detailed": [
+    {
+      "action": "Adjust tint towards green/neutral to remove magenta cast",
+      "intensity": "moderate",
+      "priority": 1,
+      "reason": "The white fur currently has a noticeable pink/purple tint; correcting this will restore a clean, natural white look."
+    },
+    {
+      "action": "Apply selective sharpening to the eyes",
+      "intensity": "moderate",
+      "priority": 2,
+      "reason": "The depth of field is very shallow with focus landing on the nose; sharpening the eyes helps balance the focal point."
+    },
+    {
+      "action": "Increase texture or clarity on the fur",
+      "intensity": "subtle",
+      "priority": 3,
+      "reason": "Adds definition to the individual strands of fur which currently look slightly soft and matted."
+    },
+    {
+      "action": "Apply weak noise reduction",
+      "intensity": "subtle",
+      "priority": 4,
+      "reason": "Smooths out the grain visible in the darker background areas without losing fur detail."
+    },
+    {
+      "action": "Tighten the crop to center attention on the face (trim some of the bright top-left bokeh and the darker right edge), keeping ears and tongue included",
+      "intensity": "moderate",
+      "priority": 1,
+      "reason": "Reduces background distractions and strengthens the portrait composition and subject isolation."
+    },
+    {
+      "action": "Add selective sharpening/texture to the eyes and nose only (masking: Sharpening +30 to +50, Texture +10 to +20; avoid fur and background)",
+      "intensity": "moderate",
+      "priority": 2,
+      "reason": "The overall image is a bit soft; boosting micro-contrast in key features increases perceived sharpness and viewer connection without making fur crunchy."
+    },
+    {
+      "action": "Recover fur detail by lowering highlights slightly (-10 to -25) and raising whites subtly (+5 to +15), then add a gentle midtone S-curve for depth",
+      "intensity": "subtle",
+      "priority": 3,
+      "reason": "Balances the bright coat while adding dimensionality, preventing the white fur from looking flat."
+    },
+    {
+      "action": "Neutralize the warm cast slightly (cool WB a touch and/or reduce orange/yellow saturation in HSL by ~-5 to -15)",
+      "intensity": "subtle",
+      "priority": 4,
+      "reason": "Keeps the white coat looking clean and natural while preserving a warm, friendly feel."
+    },
+    {
+      "action": "Apply mild background noise reduction and a small clarity reduction to the background only (mask: Luminance NR +10 to +20; Clarity -5 to -15)",
+      "intensity": "subtle",
+      "priority": 5,
+      "reason": "Smooths busy bokeh and helps the subject pop without affecting fur detail."
+    },
+    {
+      "action": "Apply sharpening to eyes and nose area using unsharp mask (Amount: 80, Radius: 1.0, Threshold: 3) to bring focus to key facial features",
+      "intensity": "moderate",
+      "priority": 1,
+      "reason": "The soft focus on the dog's face diminishes impact; selective sharpening on eyes and nose will draw viewer attention and add definition"
+    },
+    {
+      "action": "Reduce highlights by -15 to -20 and decrease whites by -10 to recover detail in the bright white fur, especially around the head and chest",
+      "intensity": "moderate",
+      "priority": 2,
+      "reason": "White fur is slightly blown out with lost texture; recovering highlights will add dimension and prevent the subject from appearing flat"
+    },
+    {
+      "action": "Warm white balance by shifting temperature +200K and adding +5 tint to achieve more natural, inviting fur tones",
+      "intensity": "subtle",
+      "priority": 3,
+      "reason": "Current cool cast makes the white fur appear sterile; warming will create a more appealing, lifelike appearance"
+    },
+    {
+      "action": "Apply subtle vignette (Amount: -8 to -10) to darken edges and direct focus to the dog's face",
+      "intensity": "subtle",
+      "priority": 4,
+      "reason": "Background is slightly distracting; gentle vignetting will keep viewer's eye on the subject without appearing obvious"
+    },
+    {
+      "action": "Increase clarity by +10 to +15 on the facial features to enhance texture in the fur without over-processing",
+      "intensity": "subtle",
+      "priority": 5,
+      "reason": "Adding midtone contrast will bring out the fluffy texture and add depth to the portrait"
+    }
+  ],
+  "context": {
+    "genre": "portrait",
+    "subject": "Close-up pet portrait of a fluffy white dog with tongue slightly out",
+    "mood": "playful and endearing",
+    "preserve": [
+      "The soft bokeh of the background highlights",
+      "The vibrant pink color of the tongue",
+      "Soft, pleasant background bokeh",
+      "Playful expression with tongue out",
+      "Natural expression and pose of the dog",
+      "Soft, diffused lighting quality",
+      "Pink tongue color and saturation",
+      "Blurred background for depth of field"
+    ],
+    "technical": {
+      "exposure": "good",
+      "white_balance": "slightly_warm",
+      "focus": "acceptable",
+      "noise": "low"
+    }
+  },
+  "summary": "[GEMINI] A cute pet portrait that captures a great moment. The primary edits should focus on correcting the color cast on the white fur and compensating for the slightly missed focus on the eyes. | [OPENAI] Strong, charming pet portrait with nice separation and pleasing tones. The main opportunities are improving composition by cropping distractions and increasing perceived sharpness in the eyes/nose while keeping the fur soft and natural. | [ANTHROPIC] This is a charming dog portrait with good composition and lighting. The main issues are slight overexposure in the white fur causing loss of texture, soft focus reducing sharpness on key features, and a cool color cast. With targeted adjustments to exposure, sharpening, and white balance, this image can achieve professional quality while maintaining its friendly, approachable character.",
+  "score": 72.7,
+  "improvements": [
+    "[MODERATE] Adjust tint towards green/neutral to remove magenta cast",
+    "[MODERATE] Apply selective sharpening to the eyes",
+    "[SUBTLE] Increase texture or clarity on the fur",
+    "[SUBTLE] Apply weak noise reduction",
+    "[MODERATE] Tighten the crop to center attention on the face (trim some of the bright top-left bokeh and the darker right edge), keeping ears and tongue included"
+  ],
+  "notes": "[GEMINI] A cute pet portrait that captures a great moment. The primary edits should focus on correcting the color cast on the white fur and compensating for the slightly missed focus on the eyes. | [OPENAI] Strong, charming pet portrait with nice separation and pleasing tones. The main opportunities are improving composition by cropping distractions and increasing perceived sharpness in the eyes/nose while keeping the fur soft and natural. | [ANTHROPIC] This is a charming dog portrait with good composition and lighting. The main issues are slight overexposure in the white fur causing loss of texture, soft focus reducing sharpness on key features, and a cool color cast. With targeted adjustments to exposure, sharpening, and white balance, this image can achieve professional quality while maintaining its friendly, approachable character.",
+  "re_review": {
+    "critiques": [
+      {
+        "genre": "portrait",
+        "subject": "Close-up of a white Samoyed dog sticking its tongue out",
+        "mood": "Playful and endearing",
+        "score": 72.0,
+        "technical_assessment": {
+          "exposure": "slightly_under",
+          "white_balance": "slightly_warm",
+          "focus": "soft",
+          "noise": "moderate"
+        },
+        "improvements": [
+          "[MODERATE] Adjust white balance toward blue",
+          "[MODERATE] Increase exposure (+0.40) and lift whites",
+          "[SUBTLE] Spot heal dark specks in fur",
+          "[MODERATE] Apply selective sharpening to eyes and nose"
+        ],
+        "preserve": [
+          "Soft texture of the fur",
+          "Natural pink tone of the tongue"
+        ],
+        "notes": "A charming pet portrait that is currently held back by flat lighting and a muddy color cast. Brightening the whites and cleaning up the fur will significantly enhance the 'snow dog' aesthetic while maintaining the playful mood.",
+        "improvements_detailed": [
+          {
+            "action": "Adjust white balance toward blue",
+            "intensity": "moderate",
+            "priority": 1,
+            "reason": "Neutralize the yellow cast to make the white fur look cleaner and brighter"
+          },
+          {
+            "action": "Increase exposure (+0.40) and lift whites",
+            "intensity": "moderate",
+            "priority": 2,
+            "reason": "Brighten the image to remove the gray dullness from the fur"
+          },
+          {
+            "action": "Spot heal dark specks in fur",
+            "intensity": "subtle",
+            "priority": 3,
+            "reason": "Remove distracting debris on the right side of the face to clean up the portrait"
+          },
+          {
+            "action": "Apply selective sharpening to eyes and nose",
+            "intensity": "moderate",
+            "priority": 4,
+            "reason": "Draw attention to facial features which are slightly soft compared to the tongue"
+          }
+        ],
+        "context": {
+          "genre": "portrait",
+          "subject": "Close-up of a white Samoyed dog sticking its tongue out",
+          "mood": "Playful and endearing",
+          "preserve": [
+            "Soft texture of the fur",
+            "Natural pink tone of the tongue"
+          ],
+          "technical": {
+            "exposure": "slightly_under",
+            "white_balance": "slightly_warm",
+            "focus": "soft",
+            "noise": "moderate"
+          }
+        },
+        "llm": "gemini"
+      },
+      {
+        "genre": "portrait",
+        "subject": "Close-up pet portrait of a fluffy white dog with tongue slightly out",
+        "mood": "Playful, cozy, gentle",
+        "score": 78.0,
+        "technical_assessment": {
+          "exposure": "good",
+          "white_balance": "slightly_warm",
+          "focus": "acceptable",
+          "noise": "low"
+        },
+        "improvements": [
+          "[MODERATE] Crop slightly tighter and straighten to center the eyes and reduce excess space at the top; keep a bit more breathing room on the right side than left to balance the face",
+          "[SUBTLE] Cool white balance a touch (reduce Temp slightly) and fine-tune Tint toward neutral; then use HSL to reduce yellow/orange saturation in the fur slightly",
+          "[MODERATE] Apply a local mask on the eyes: lift exposure slightly, add a bit of contrast/clarity, and sharpen; enhance catchlights subtly while keeping blacks natural",
+          "[SUBTLE] Reduce background prominence with a gentle background mask: lower clarity/texture slightly and darken by ~0.2\u20130.4 stops; optionally add a subtle vignette",
+          "[SUBTLE] Retouch small distractions in the fur (tiny specks/marks) using healing/clone and selectively add Texture to the fur (global texture +5 to +15, avoid eyes/nose)"
+        ],
+        "preserve": [
+          "The playful expression with the tongue out",
+          "Soft, fluffy fur texture and overall gentle lighting"
+        ],
+        "notes": "The image is a charming pet portrait with pleasing exposure and a soft, cozy feel. Minor warmth in the whites and slightly soft focus can be improved with targeted adjustments to eyes, color neutrality in the fur, and gentle background de-emphasis for stronger subject separation.",
+        "improvements_detailed": [
+          {
+            "action": "Crop slightly tighter and straighten to center the eyes and reduce excess space at the top; keep a bit more breathing room on the right side than left to balance the face",
+            "intensity": "moderate",
+            "priority": 1,
+            "reason": "Improves composition and draws attention to the dog\u2019s expression by minimizing distracting empty areas."
+          },
+          {
+            "action": "Cool white balance a touch (reduce Temp slightly) and fine-tune Tint toward neutral; then use HSL to reduce yellow/orange saturation in the fur slightly",
+            "intensity": "subtle",
+            "priority": 2,
+            "reason": "Keeps the white fur looking clean and neutral without losing the warm, homey feel."
+          },
+          {
+            "action": "Apply a local mask on the eyes: lift exposure slightly, add a bit of contrast/clarity, and sharpen; enhance catchlights subtly while keeping blacks natural",
+            "intensity": "moderate",
+            "priority": 3,
+            "reason": "Adds life and perceived sharpness where viewers look first, improving portrait impact."
+          },
+          {
+            "action": "Reduce background prominence with a gentle background mask: lower clarity/texture slightly and darken by ~0.2\u20130.4 stops; optionally add a subtle vignette",
+            "intensity": "subtle",
+            "priority": 4,
+            "reason": "Separates the subject from the background and keeps attention on the face without looking over-processed."
+          },
+          {
+            "action": "Retouch small distractions in the fur (tiny specks/marks) using healing/clone and selectively add Texture to the fur (global texture +5 to +15, avoid eyes/nose)",
+            "intensity": "subtle",
+            "priority": 5,
+            "reason": "Cleans up minor imperfections and enhances fluffy detail while maintaining a natural look."
+          }
+        ],
+        "context": {
+          "genre": "portrait",
+          "subject": "Close-up pet portrait of a fluffy white dog with tongue slightly out",
+          "mood": "Playful, cozy, gentle",
+          "preserve": [
+            "The playful expression with the tongue out",
+            "Soft, fluffy fur texture and overall gentle lighting"
+          ],
+          "technical": {
+            "exposure": "good",
+            "white_balance": "slightly_warm",
+            "focus": "acceptable",
+            "noise": "low"
+          }
+        },
+        "llm": "openai"
+      },
+      {
+        "genre": "portrait",
+        "subject": "White fluffy Samoyed or similar spitz-type dog with tongue out",
+        "mood": "Cheerful, friendly, and approachable",
+        "score": 72.0,
+        "technical_assessment": {
+          "exposure": "slightly_over",
+          "white_balance": "slightly_cool",
+          "focus": "acceptable",
+          "noise": "low"
+        },
+        "improvements": [
+          "[MODERATE] Increase sharpness and clarity on the eyes and nose area to create a stronger focal point",
+          "[SUBTLE] Add warmth by adjusting white balance +300K and increasing yellow tint slightly to counter the cool cast",
+          "[MODERATE] Reduce highlights by -15 to -20 to recover texture detail in the bright white fur areas",
+          "[SUBTLE] Apply subtle vignette darkening to the blurred background to draw attention to the subject",
+          "[SUBTLE] Increase texture slider by +10 to +15 specifically on fur to enhance the fluffy appearance"
+        ],
+        "preserve": [
+          "The natural, happy expression with tongue out",
+          "The soft bokeh background that isolates the subject",
+          "The overall light and airy feel of the portrait"
+        ],
+        "notes": "This is a charming pet portrait with good composition and subject expression. The main issues are slight overexposure in the white fur causing loss of texture, a cool color cast that diminishes warmth, and soft focus on the critical eye area. These technical improvements will enhance the image while maintaining its friendly, approachable character.",
+        "improvements_detailed": [
+          {
+            "action": "Increase sharpness and clarity on the eyes and nose area to create a stronger focal point",
+            "intensity": "moderate",
+            "priority": 1,
+            "reason": "The eyes lack definition and sharpness, which is critical for engaging pet portraits"
+          },
+          {
+            "action": "Add warmth by adjusting white balance +300K and increasing yellow tint slightly to counter the cool cast",
+            "intensity": "subtle",
+            "priority": 2,
+            "reason": "The bluish-cool tone makes the white fur appear less inviting and natural"
+          },
+          {
+            "action": "Reduce highlights by -15 to -20 to recover texture detail in the bright white fur areas",
+            "intensity": "moderate",
+            "priority": 3,
+            "reason": "Overexposed areas on the fur lack texture and dimension, appearing blown out"
+          },
+          {
+            "action": "Apply subtle vignette darkening to the blurred background to draw attention to the subject",
+            "intensity": "subtle",
+            "priority": 4,
+            "reason": "The bright background competes slightly with the subject for viewer attention"
+          },
+          {
+            "action": "Increase texture slider by +10 to +15 specifically on fur to enhance the fluffy appearance",
+            "intensity": "subtle",
+            "priority": 5,
+            "reason": "The fur softness could be enhanced to showcase the breed's characteristic fluffiness"
+          }
+        ],
+        "context": {
+          "genre": "portrait",
+          "subject": "White fluffy Samoyed or similar spitz-type dog with tongue out",
+          "mood": "Cheerful, friendly, and approachable",
+          "preserve": [
+            "The natural, happy expression with tongue out",
+            "The soft bokeh background that isolates the subject",
+            "The overall light and airy feel of the portrait"
+          ],
+          "technical": {
+            "exposure": "slightly_over",
+            "white_balance": "slightly_cool",
+            "focus": "acceptable",
+            "noise": "low"
+          }
+        },
+        "llm": "anthropic"
+      }
+    ],
+    "consensus_score": 74.0,
+    "score": 74.0,
+    "notes": "[GEMINI] A charming pet portrait that is currently held back by flat lighting and a muddy color cast. Brightening the whites and cleaning up the fur will significantly enhance the 'snow dog' aesthetic while maintaining the playful mood. | [OPENAI] The image is a charming pet portrait with pleasing exposure and a soft, cozy feel. Minor warmth in the whites and slightly soft focus can be improved with targeted adjustments to eyes, color neutrality in the fur, and gentle background de-emphasis for stronger subject separation. | [ANTHROPIC] This is a charming pet portrait with good composition and subject expression. The main issues are slight overexposure in the white fur causing loss of texture, a cool color cast that diminishes warmth, and soft focus on the critical eye area. These technical improvements will enhance the image while maintaining its friendly, approachable character.",
+    "summary": "[GEMINI] A charming pet portrait that is currently held back by flat lighting and a muddy color cast. Brightening the whites and cleaning up the fur will significantly enhance the 'snow dog' aesthetic while maintaining the playful mood. | [OPENAI] The image is a charming pet portrait with pleasing exposure and a soft, cozy feel. Minor warmth in the whites and slightly soft focus can be improved with targeted adjustments to eyes, color neutrality in the fur, and gentle background de-emphasis for stronger subject separation. | [ANTHROPIC] This is a charming pet portrait with good composition and subject expression. The main issues are slight overexposure in the white fur causing loss of texture, a cool color cast that diminishes warmth, and soft focus on the critical eye area. These technical improvements will enhance the image while maintaining its friendly, approachable character.",
+    "context": {
+      "genre": "portrait",
+      "subject": "Close-up pet portrait of a fluffy white dog with tongue slightly out",
+      "mood": "Cheerful, friendly, and approachable",
+      "preserve": [
+        "Soft texture of the fur",
+        "Natural pink tone of the tongue",
+        "The playful expression with the tongue out",
+        "Soft, fluffy fur texture and overall gentle lighting",
+        "The natural, happy expression with tongue out",
+        "The soft bokeh background that isolates the subject",
+        "The overall light and airy feel of the portrait"
+      ],
+      "technical": {
+        "exposure": "good",
+        "white_balance": "slightly_warm",
+        "focus": "acceptable",
+        "noise": "low"
+      }
+    },
+    "score_delta": 1.3
+  },
+  "timestamp": "20260130-212747",
+  "entry_id": "20260130-212747-1e1a96da",
+  "original_filename": "IMG_2423_Original_Original.jpeg",
+  "original_image": "original.jpeg",
+  "edited_image": "edited.jpeg"
+}

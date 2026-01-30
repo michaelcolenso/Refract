@@ -1,0 +1,593 @@
+{
+  "critiques": [
+    {
+      "genre": "portrait",
+      "subject": "White Samoyed dog mid-yawn or howl",
+      "mood": "playful and energetic",
+      "score": 78.0,
+      "technical_assessment": {
+        "exposure": "slightly_over",
+        "white_balance": "neutral",
+        "focus": "sharp",
+        "noise": "low"
+      },
+      "improvements": [
+        "[SIGNIFICANT] Reduce highlights",
+        "[MODERATE] Lift shadows",
+        "[SUBTLE] Increase texture/clarity",
+        "[SUBTLE] Radial gradient exposure boost on face"
+      ],
+      "preserve": [
+        "The sharp focus on the nose and snout",
+        "The dramatic backlighting/rim light effect"
+      ],
+      "notes": "A charming pet portrait that handles backlighting well, though the dynamic range is stretching the limits of the sensor. The main goal is to compress the dynamic range to show detail in both the bright white fur and the dark mouth.",
+      "improvements_detailed": [
+        {
+          "action": "Reduce highlights",
+          "intensity": "significant",
+          "priority": 1,
+          "reason": "Recover lost texture detail in the blown-out fur on the top of the head caused by strong backlighting"
+        },
+        {
+          "action": "Lift shadows",
+          "intensity": "moderate",
+          "priority": 2,
+          "reason": "Reveal details of the tongue and teeth inside the dark mouth cavity"
+        },
+        {
+          "action": "Increase texture/clarity",
+          "intensity": "subtle",
+          "priority": 3,
+          "reason": "Emphasize the fluffiness of the coat and definition of the whiskers"
+        },
+        {
+          "action": "Radial gradient exposure boost on face",
+          "intensity": "subtle",
+          "priority": 4,
+          "reason": "Gently brighten the face to balance it against the bright rim light"
+        }
+      ],
+      "context": {
+        "genre": "portrait",
+        "subject": "White Samoyed dog mid-yawn or howl",
+        "mood": "playful and energetic",
+        "preserve": [
+          "The sharp focus on the nose and snout",
+          "The dramatic backlighting/rim light effect"
+        ],
+        "technical": {
+          "exposure": "slightly_over",
+          "white_balance": "neutral",
+          "focus": "sharp",
+          "noise": "low"
+        }
+      },
+      "llm": "gemini"
+    },
+    {
+      "genre": "wildlife",
+      "subject": "close-up portrait of a fluffy white dog (likely a Samoyed) yawning with a dark, blurred background",
+      "mood": "playful, candid, and cozy",
+      "score": 78.0,
+      "technical_assessment": {
+        "exposure": "slightly_over",
+        "white_balance": "neutral",
+        "focus": "acceptable",
+        "noise": "low"
+      },
+      "improvements": [
+        "[MODERATE] Recover detail in the white fur by lowering Highlights (~-30 to -60) and slightly lowering Whites (~-10 to -25); add a mild midtone contrast S-curve to keep depth",
+        "[MODERATE] Apply a selective mask on the face/muzzle: lift Shadows slightly (+10 to +25) and add Texture/Clarity (+10 to +20) while protecting highlights with mask range (luminance)",
+        "[SUBTLE] Refine composition with a tighter crop (reduce empty space above the head) and slight vertical alignment so the head feels more centered and intentional",
+        "[SUBTLE] Subtle color cleanup: reduce Purple/Magenta saturation in HSL slightly and, if needed, use a local desaturate brush on any fringe areas near bright fur edges",
+        "[SUBTLE] Finish with controlled sharpening: moderate Amount with higher Masking (e.g., Masking 70\u201390) to sharpen fur edges while avoiding background noise; optional light vignette (-5 to -15)"
+      ],
+      "preserve": [
+        "the soft, blurred background and strong subject separation",
+        "the candid yawn expression and natural, neutral color feel"
+      ],
+      "notes": "The image has a strong, engaging moment and pleasing background blur, but the bright white fur is slightly hot and could use highlight recovery to restore texture. Local contrast/detail on the face and a slightly tighter crop would increase impact without changing the candid, cozy mood.",
+      "improvements_detailed": [
+        {
+          "action": "Recover detail in the white fur by lowering Highlights (~-30 to -60) and slightly lowering Whites (~-10 to -25); add a mild midtone contrast S-curve to keep depth",
+          "intensity": "moderate",
+          "priority": 1,
+          "reason": "The bright fur is close to clipping and looks a bit flat; highlight recovery improves texture while maintaining the airy look."
+        },
+        {
+          "action": "Apply a selective mask on the face/muzzle: lift Shadows slightly (+10 to +25) and add Texture/Clarity (+10 to +20) while protecting highlights with mask range (luminance)",
+          "intensity": "moderate",
+          "priority": 2,
+          "reason": "Brings attention to the facial features and fur detail without globally increasing contrast or blowing the whites."
+        },
+        {
+          "action": "Refine composition with a tighter crop (reduce empty space above the head) and slight vertical alignment so the head feels more centered and intentional",
+          "intensity": "subtle",
+          "priority": 3,
+          "reason": "Strengthens subject emphasis and improves balance, especially since the background is already clean and unobtrusive."
+        },
+        {
+          "action": "Subtle color cleanup: reduce Purple/Magenta saturation in HSL slightly and, if needed, use a local desaturate brush on any fringe areas near bright fur edges",
+          "intensity": "subtle",
+          "priority": 4,
+          "reason": "Minimizes potential chromatic fringing/color casts in high-contrast fur highlights, keeping the whites looking clean."
+        },
+        {
+          "action": "Finish with controlled sharpening: moderate Amount with higher Masking (e.g., Masking 70\u201390) to sharpen fur edges while avoiding background noise; optional light vignette (-5 to -15)",
+          "intensity": "subtle",
+          "priority": 5,
+          "reason": "Improves perceived crispness on the subject without amplifying the dark background, and the vignette gently reinforces subject separation."
+        }
+      ],
+      "context": {
+        "genre": "wildlife",
+        "subject": "close-up portrait of a fluffy white dog (likely a Samoyed) yawning with a dark, blurred background",
+        "mood": "playful, candid, and cozy",
+        "preserve": [
+          "the soft, blurred background and strong subject separation",
+          "the candid yawn expression and natural, neutral color feel"
+        ],
+        "technical": {
+          "exposure": "slightly_over",
+          "white_balance": "neutral",
+          "focus": "acceptable",
+          "noise": "low"
+        }
+      },
+      "llm": "openai"
+    },
+    {
+      "genre": "portrait",
+      "subject": "White Samoyed dog with mouth open in happy expression",
+      "mood": "Joyful and cheerful",
+      "score": 68.0,
+      "technical_assessment": {
+        "exposure": "slightly_under",
+        "white_balance": "slightly_cool",
+        "focus": "acceptable",
+        "noise": "low"
+      },
+      "improvements": [
+        "[MODERATE] Increase overall exposure by +0.5 to +0.7 stops to brighten the white fur and reveal texture detail",
+        "[SUBTLE] Adjust white balance by adding +300-400K warmth to shift from cool/neutral to slightly warm tone",
+        "[MODERATE] Apply selective sharpening to the eyes, nose, and whiskers using a clarity or sharpening mask",
+        "[SUBTLE] Lift shadows in the lower chest area by +15-20 to recover fur texture without flattening the image",
+        "[SUBTLE] Apply subtle vignette darkening to the upper corners to draw focus toward the dog's face"
+      ],
+      "preserve": [
+        "The dark, moody background that creates excellent separation from the white subject",
+        "The natural happy expression and open mouth pose",
+        "The soft, natural backlighting that creates the halo effect on the fur edges"
+      ],
+      "notes": "This is a charming portrait with good separation between subject and background. The main technical issue is underexposure that robs the white coat of its brilliance and a cool color cast that makes the fur appear bluish. With moderate exposure and white balance corrections plus targeted sharpening, this could become a striking portrait that showcases the breed's characteristic fluffy white coat and joyful personality.",
+      "improvements_detailed": [
+        {
+          "action": "Increase overall exposure by +0.5 to +0.7 stops to brighten the white fur and reveal texture detail",
+          "intensity": "moderate",
+          "priority": 1,
+          "reason": "The dog's white coat is slightly underexposed, making it appear gray rather than brilliant white, which diminishes the Samoyed's characteristic fluffy appearance"
+        },
+        {
+          "action": "Adjust white balance by adding +300-400K warmth to shift from cool/neutral to slightly warm tone",
+          "intensity": "subtle",
+          "priority": 2,
+          "reason": "The current cool cast makes the white fur appear blue-tinted; a warmer tone will create more natural, inviting white fur and enhance the happy mood"
+        },
+        {
+          "action": "Apply selective sharpening to the eyes, nose, and whiskers using a clarity or sharpening mask",
+          "intensity": "moderate",
+          "priority": 3,
+          "reason": "The facial features lack crisp definition; targeted sharpening will draw attention to the expressive eyes and create a more professional portrait"
+        },
+        {
+          "action": "Lift shadows in the lower chest area by +15-20 to recover fur texture without flattening the image",
+          "intensity": "subtle",
+          "priority": 4,
+          "reason": "The chest area loses detail in darker tones; gentle shadow recovery will reveal the full fluffiness while maintaining dimension"
+        },
+        {
+          "action": "Apply subtle vignette darkening to the upper corners to draw focus toward the dog's face",
+          "intensity": "subtle",
+          "priority": 5,
+          "reason": "The darker background already exists but is uneven; a controlled vignette will strengthen compositional focus on the subject's joyful expression"
+        }
+      ],
+      "context": {
+        "genre": "portrait",
+        "subject": "White Samoyed dog with mouth open in happy expression",
+        "mood": "Joyful and cheerful",
+        "preserve": [
+          "The dark, moody background that creates excellent separation from the white subject",
+          "The natural happy expression and open mouth pose",
+          "The soft, natural backlighting that creates the halo effect on the fur edges"
+        ],
+        "technical": {
+          "exposure": "slightly_under",
+          "white_balance": "slightly_cool",
+          "focus": "acceptable",
+          "noise": "low"
+        }
+      },
+      "llm": "anthropic"
+    }
+  ],
+  "consensus_score": 74.7,
+  "combined_improvements": [
+    "[SIGNIFICANT] Reduce highlights",
+    "[MODERATE] Lift shadows",
+    "[SUBTLE] Increase texture/clarity",
+    "[SUBTLE] Radial gradient exposure boost on face",
+    "[MODERATE] Recover detail in the white fur by lowering Highlights (~-30 to -60) and slightly lowering Whites (~-10 to -25); add a mild midtone contrast S-curve to keep depth",
+    "[MODERATE] Apply a selective mask on the face/muzzle: lift Shadows slightly (+10 to +25) and add Texture/Clarity (+10 to +20) while protecting highlights with mask range (luminance)",
+    "[SUBTLE] Refine composition with a tighter crop (reduce empty space above the head) and slight vertical alignment so the head feels more centered and intentional",
+    "[SUBTLE] Subtle color cleanup: reduce Purple/Magenta saturation in HSL slightly and, if needed, use a local desaturate brush on any fringe areas near bright fur edges",
+    "[SUBTLE] Finish with controlled sharpening: moderate Amount with higher Masking (e.g., Masking 70\u201390) to sharpen fur edges while avoiding background noise; optional light vignette (-5 to -15)",
+    "[MODERATE] Increase overall exposure by +0.5 to +0.7 stops to brighten the white fur and reveal texture detail",
+    "[SUBTLE] Adjust white balance by adding +300-400K warmth to shift from cool/neutral to slightly warm tone",
+    "[MODERATE] Apply selective sharpening to the eyes, nose, and whiskers using a clarity or sharpening mask",
+    "[SUBTLE] Lift shadows in the lower chest area by +15-20 to recover fur texture without flattening the image",
+    "[SUBTLE] Apply subtle vignette darkening to the upper corners to draw focus toward the dog's face"
+  ],
+  "improvements_detailed": [
+    {
+      "action": "Reduce highlights",
+      "intensity": "significant",
+      "priority": 1,
+      "reason": "Recover lost texture detail in the blown-out fur on the top of the head caused by strong backlighting"
+    },
+    {
+      "action": "Lift shadows",
+      "intensity": "moderate",
+      "priority": 2,
+      "reason": "Reveal details of the tongue and teeth inside the dark mouth cavity"
+    },
+    {
+      "action": "Increase texture/clarity",
+      "intensity": "subtle",
+      "priority": 3,
+      "reason": "Emphasize the fluffiness of the coat and definition of the whiskers"
+    },
+    {
+      "action": "Radial gradient exposure boost on face",
+      "intensity": "subtle",
+      "priority": 4,
+      "reason": "Gently brighten the face to balance it against the bright rim light"
+    },
+    {
+      "action": "Recover detail in the white fur by lowering Highlights (~-30 to -60) and slightly lowering Whites (~-10 to -25); add a mild midtone contrast S-curve to keep depth",
+      "intensity": "moderate",
+      "priority": 1,
+      "reason": "The bright fur is close to clipping and looks a bit flat; highlight recovery improves texture while maintaining the airy look."
+    },
+    {
+      "action": "Apply a selective mask on the face/muzzle: lift Shadows slightly (+10 to +25) and add Texture/Clarity (+10 to +20) while protecting highlights with mask range (luminance)",
+      "intensity": "moderate",
+      "priority": 2,
+      "reason": "Brings attention to the facial features and fur detail without globally increasing contrast or blowing the whites."
+    },
+    {
+      "action": "Refine composition with a tighter crop (reduce empty space above the head) and slight vertical alignment so the head feels more centered and intentional",
+      "intensity": "subtle",
+      "priority": 3,
+      "reason": "Strengthens subject emphasis and improves balance, especially since the background is already clean and unobtrusive."
+    },
+    {
+      "action": "Subtle color cleanup: reduce Purple/Magenta saturation in HSL slightly and, if needed, use a local desaturate brush on any fringe areas near bright fur edges",
+      "intensity": "subtle",
+      "priority": 4,
+      "reason": "Minimizes potential chromatic fringing/color casts in high-contrast fur highlights, keeping the whites looking clean."
+    },
+    {
+      "action": "Finish with controlled sharpening: moderate Amount with higher Masking (e.g., Masking 70\u201390) to sharpen fur edges while avoiding background noise; optional light vignette (-5 to -15)",
+      "intensity": "subtle",
+      "priority": 5,
+      "reason": "Improves perceived crispness on the subject without amplifying the dark background, and the vignette gently reinforces subject separation."
+    },
+    {
+      "action": "Increase overall exposure by +0.5 to +0.7 stops to brighten the white fur and reveal texture detail",
+      "intensity": "moderate",
+      "priority": 1,
+      "reason": "The dog's white coat is slightly underexposed, making it appear gray rather than brilliant white, which diminishes the Samoyed's characteristic fluffy appearance"
+    },
+    {
+      "action": "Adjust white balance by adding +300-400K warmth to shift from cool/neutral to slightly warm tone",
+      "intensity": "subtle",
+      "priority": 2,
+      "reason": "The current cool cast makes the white fur appear blue-tinted; a warmer tone will create more natural, inviting white fur and enhance the happy mood"
+    },
+    {
+      "action": "Apply selective sharpening to the eyes, nose, and whiskers using a clarity or sharpening mask",
+      "intensity": "moderate",
+      "priority": 3,
+      "reason": "The facial features lack crisp definition; targeted sharpening will draw attention to the expressive eyes and create a more professional portrait"
+    },
+    {
+      "action": "Lift shadows in the lower chest area by +15-20 to recover fur texture without flattening the image",
+      "intensity": "subtle",
+      "priority": 4,
+      "reason": "The chest area loses detail in darker tones; gentle shadow recovery will reveal the full fluffiness while maintaining dimension"
+    },
+    {
+      "action": "Apply subtle vignette darkening to the upper corners to draw focus toward the dog's face",
+      "intensity": "subtle",
+      "priority": 5,
+      "reason": "The darker background already exists but is uneven; a controlled vignette will strengthen compositional focus on the subject's joyful expression"
+    }
+  ],
+  "context": {
+    "genre": "portrait",
+    "subject": "close-up portrait of a fluffy white dog (likely a Samoyed) yawning with a dark, blurred background",
+    "mood": "playful, candid, and cozy",
+    "preserve": [
+      "The sharp focus on the nose and snout",
+      "The dramatic backlighting/rim light effect",
+      "the soft, blurred background and strong subject separation",
+      "the candid yawn expression and natural, neutral color feel",
+      "The dark, moody background that creates excellent separation from the white subject",
+      "The natural happy expression and open mouth pose",
+      "The soft, natural backlighting that creates the halo effect on the fur edges"
+    ],
+    "technical": {
+      "exposure": "slightly_over",
+      "white_balance": "neutral",
+      "focus": "acceptable",
+      "noise": "low"
+    }
+  },
+  "summary": "[GEMINI] A charming pet portrait that handles backlighting well, though the dynamic range is stretching the limits of the sensor. The main goal is to compress the dynamic range to show detail in both the bright white fur and the dark mouth. | [OPENAI] The image has a strong, engaging moment and pleasing background blur, but the bright white fur is slightly hot and could use highlight recovery to restore texture. Local contrast/detail on the face and a slightly tighter crop would increase impact without changing the candid, cozy mood. | [ANTHROPIC] This is a charming portrait with good separation between subject and background. The main technical issue is underexposure that robs the white coat of its brilliance and a cool color cast that makes the fur appear bluish. With moderate exposure and white balance corrections plus targeted sharpening, this could become a striking portrait that showcases the breed's characteristic fluffy white coat and joyful personality.",
+  "score": 74.7,
+  "improvements": [
+    "[SIGNIFICANT] Reduce highlights",
+    "[MODERATE] Lift shadows",
+    "[SUBTLE] Increase texture/clarity",
+    "[SUBTLE] Radial gradient exposure boost on face",
+    "[MODERATE] Recover detail in the white fur by lowering Highlights (~-30 to -60) and slightly lowering Whites (~-10 to -25); add a mild midtone contrast S-curve to keep depth"
+  ],
+  "notes": "[GEMINI] A charming pet portrait that handles backlighting well, though the dynamic range is stretching the limits of the sensor. The main goal is to compress the dynamic range to show detail in both the bright white fur and the dark mouth. | [OPENAI] The image has a strong, engaging moment and pleasing background blur, but the bright white fur is slightly hot and could use highlight recovery to restore texture. Local contrast/detail on the face and a slightly tighter crop would increase impact without changing the candid, cozy mood. | [ANTHROPIC] This is a charming portrait with good separation between subject and background. The main technical issue is underexposure that robs the white coat of its brilliance and a cool color cast that makes the fur appear bluish. With moderate exposure and white balance corrections plus targeted sharpening, this could become a striking portrait that showcases the breed's characteristic fluffy white coat and joyful personality.",
+  "re_review": {
+    "critiques": [
+      {
+        "genre": "portrait",
+        "subject": "White Samoyed dog yawning or howling",
+        "mood": "expressive, serene, ethereal",
+        "score": 78.0,
+        "technical_assessment": {
+          "exposure": "slightly_under",
+          "white_balance": "neutral",
+          "focus": "sharp",
+          "noise": "low"
+        },
+        "improvements": [
+          "[MODERATE] Apply a radial mask to the face and chest to lift Shadows (+30) and Exposure (+0.3)",
+          "[SUBTLE] Reduce Highlights (-20) specifically on the top of the head",
+          "[MODERATE] Brush adjustment inside the mouth to lift Shadows (+20) and Blacks (+10)",
+          "[SUBTLE] Increase Texture (+10) and Clarity (+5) on the fur"
+        ],
+        "preserve": [
+          "The glowing rim light effect on the outer fur",
+          "The dark, blurred background separation"
+        ],
+        "notes": "This is a beautiful backlit shot with excellent subject separation. The primary editing goal is to balance the dynamic range by brightening the face (the focal point) which is currently overpowered by the rim light, while maintaining the dreamy atmosphere.",
+        "improvements_detailed": [
+          {
+            "action": "Apply a radial mask to the face and chest to lift Shadows (+30) and Exposure (+0.3)",
+            "intensity": "moderate",
+            "priority": 1,
+            "reason": "The strong backlighting has left the subject's face in shadow; lifting this reveals expression and detail."
+          },
+          {
+            "action": "Reduce Highlights (-20) specifically on the top of the head",
+            "intensity": "subtle",
+            "priority": 2,
+            "reason": "Recovers texture in the brightest rim-lit fur without destroying the glowing effect."
+          },
+          {
+            "action": "Brush adjustment inside the mouth to lift Shadows (+20) and Blacks (+10)",
+            "intensity": "moderate",
+            "priority": 3,
+            "reason": "Reveals lost detail in the tongue and teeth which are currently crushed by darkness."
+          },
+          {
+            "action": "Increase Texture (+10) and Clarity (+5) on the fur",
+            "intensity": "subtle",
+            "priority": 4,
+            "reason": "Enhances the perception of fluffiness and defines individual strands of the coat."
+          }
+        ],
+        "context": {
+          "genre": "portrait",
+          "subject": "White Samoyed dog yawning or howling",
+          "mood": "expressive, serene, ethereal",
+          "preserve": [
+            "The glowing rim light effect on the outer fur",
+            "The dark, blurred background separation"
+          ],
+          "technical": {
+            "exposure": "slightly_under",
+            "white_balance": "neutral",
+            "focus": "sharp",
+            "noise": "low"
+          }
+        },
+        "llm": "gemini"
+      },
+      {
+        "genre": "wildlife",
+        "subject": "Close-up portrait of a fluffy white dog (Samoyed-type) with mouth open, backlit",
+        "mood": "Playful and candid with a slightly dreamy, backlit glow",
+        "score": 78.0,
+        "technical_assessment": {
+          "exposure": "slightly_over",
+          "white_balance": "slightly_cool",
+          "focus": "acceptable",
+          "noise": "low"
+        },
+        "improvements": [
+          "[MODERATE] Recover highlight detail in the fur by lowering Highlights (~-40 to -70) and Whites (~-10 to -25), then fine-tune with a mild tone curve to keep contrast",
+          "[MODERATE] Apply a selective mask on the face (eyes/nose/muzzle) to add Texture/Clarity (+10 to +25) and a small exposure lift on the eyes (+0.2 to +0.4), plus subtle sharpening with masking to avoid the fur background",
+          "[SUBTLE] Warm the white balance slightly (Temp +200 to +500K) and reduce any magenta/purple fringing around whiskers/edges via Defringe or manual Purple Amount",
+          "[MODERATE] Darken and simplify the background with a linear gradient or subject-inverted mask (Exposure -0.3 to -0.7, reduce Highlights -20, add slight Dehaze +5 to +10)",
+          "[SUBTLE] Crop slightly from the top to reduce empty dark space and keep the ears comfortably within frame, maintaining centered symmetry (minor reframe)"
+        ],
+        "preserve": [
+          "Backlit glow and soft rim light around the fur",
+          "Natural, candid expression and centered framing style"
+        ],
+        "notes": "Strong, charming pet portrait with pleasing backlight, but the brightest fur areas are a bit hot and the facial features could use more local definition. Subtle highlight recovery, targeted sharpening/contrast on the face, and background suppression will improve subject separation while keeping the airy, glowing look.",
+        "improvements_detailed": [
+          {
+            "action": "Recover highlight detail in the fur by lowering Highlights (~-40 to -70) and Whites (~-10 to -25), then fine-tune with a mild tone curve to keep contrast",
+            "intensity": "moderate",
+            "priority": 1,
+            "reason": "The white fur is close to clipping in the brightest areas; recovering highlights will restore texture and depth without losing the airy backlit feel."
+          },
+          {
+            "action": "Apply a selective mask on the face (eyes/nose/muzzle) to add Texture/Clarity (+10 to +25) and a small exposure lift on the eyes (+0.2 to +0.4), plus subtle sharpening with masking to avoid the fur background",
+            "intensity": "moderate",
+            "priority": 2,
+            "reason": "The face reads a bit soft/flat compared to the bright fur; targeted micro-contrast and sharpening will pull attention to the expression."
+          },
+          {
+            "action": "Warm the white balance slightly (Temp +200 to +500K) and reduce any magenta/purple fringing around whiskers/edges via Defringe or manual Purple Amount",
+            "intensity": "subtle",
+            "priority": 3,
+            "reason": "A touch of warmth makes the fur feel more natural and reduces the cool cast; defringing cleans up backlit edge artifacts."
+          },
+          {
+            "action": "Darken and simplify the background with a linear gradient or subject-inverted mask (Exposure -0.3 to -0.7, reduce Highlights -20, add slight Dehaze +5 to +10)",
+            "intensity": "moderate",
+            "priority": 4,
+            "reason": "The bright streaks and bokeh in the background compete with the subject; lowering them increases separation and directs the eye to the dog."
+          },
+          {
+            "action": "Crop slightly from the top to reduce empty dark space and keep the ears comfortably within frame, maintaining centered symmetry (minor reframe)",
+            "intensity": "subtle",
+            "priority": 5,
+            "reason": "A tighter crop strengthens composition and emphasizes the expression while minimizing dead space."
+          }
+        ],
+        "context": {
+          "genre": "wildlife",
+          "subject": "Close-up portrait of a fluffy white dog (Samoyed-type) with mouth open, backlit",
+          "mood": "Playful and candid with a slightly dreamy, backlit glow",
+          "preserve": [
+            "Backlit glow and soft rim light around the fur",
+            "Natural, candid expression and centered framing style"
+          ],
+          "technical": {
+            "exposure": "slightly_over",
+            "white_balance": "slightly_cool",
+            "focus": "acceptable",
+            "noise": "low"
+          }
+        },
+        "llm": "openai"
+      },
+      {
+        "genre": "portrait",
+        "subject": "White fluffy dog (appears to be a Samoyed) with mouth open in a happy expression",
+        "mood": "Joyful and energetic",
+        "score": 72.0,
+        "technical_assessment": {
+          "exposure": "slightly_under",
+          "white_balance": "slightly_cool",
+          "focus": "sharp",
+          "noise": "low"
+        },
+        "improvements": [
+          "[MODERATE] Increase overall exposure by +0.5 to +0.7 stops to brighten the white fur and enhance detail",
+          "[SUBTLE] Warm white balance by adjusting temperature +300K to +500K for more natural fur tones",
+          "[SUBTLE] Increase clarity by +10 to +15 to enhance fur texture and facial definition",
+          "[MODERATE] Darken background by reducing shadows -15 to -25 to improve subject separation",
+          "[SUBTLE] Add slight vignette (subtle darkening at edges) to guide eye toward the subject's face"
+        ],
+        "preserve": [
+          "Sharp focus on facial features and nose",
+          "Natural expression and mouth position",
+          "Soft fur texture and halo lighting effect"
+        ],
+        "notes": "This is a charming dog portrait with excellent focus and composition. The main issues are slight underexposure making the white fur appear gray, and a cool color cast affecting the fur tones. The joyful expression and sharp focus should be preserved while enhancing luminosity and warmth to make the subject truly shine against the background.",
+        "improvements_detailed": [
+          {
+            "action": "Increase overall exposure by +0.5 to +0.7 stops to brighten the white fur and enhance detail",
+            "intensity": "moderate",
+            "priority": 1,
+            "reason": "The image is slightly underexposed, making the white fur appear dull gray; lifting exposure will reveal texture and luminosity while maintaining black nose contrast"
+          },
+          {
+            "action": "Warm white balance by adjusting temperature +300K to +500K for more natural fur tones",
+            "intensity": "subtle",
+            "priority": 2,
+            "reason": "The cool color cast makes the white fur appear blue-gray; warming will create more accurate and appealing white/cream tones"
+          },
+          {
+            "action": "Increase clarity by +10 to +15 to enhance fur texture and facial definition",
+            "intensity": "subtle",
+            "priority": 3,
+            "reason": "Adding midtone contrast will bring out the individual fur strands and create more dimension in the fluffy coat"
+          },
+          {
+            "action": "Darken background by reducing shadows -15 to -25 to improve subject separation",
+            "intensity": "moderate",
+            "priority": 4,
+            "reason": "The gray background competes with the subject; darkening it will make the white dog pop and draw viewer attention to the face"
+          },
+          {
+            "action": "Add slight vignette (subtle darkening at edges) to guide eye toward the subject's face",
+            "intensity": "subtle",
+            "priority": 5,
+            "reason": "A gentle vignette will further emphasize the dog's expressive face and joyful expression"
+          }
+        ],
+        "context": {
+          "genre": "portrait",
+          "subject": "White fluffy dog (appears to be a Samoyed) with mouth open in a happy expression",
+          "mood": "Joyful and energetic",
+          "preserve": [
+            "Sharp focus on facial features and nose",
+            "Natural expression and mouth position",
+            "Soft fur texture and halo lighting effect"
+          ],
+          "technical": {
+            "exposure": "slightly_under",
+            "white_balance": "slightly_cool",
+            "focus": "sharp",
+            "noise": "low"
+          }
+        },
+        "llm": "anthropic"
+      }
+    ],
+    "consensus_score": 76.0,
+    "score": 76.0,
+    "notes": "[GEMINI] This is a beautiful backlit shot with excellent subject separation. The primary editing goal is to balance the dynamic range by brightening the face (the focal point) which is currently overpowered by the rim light, while maintaining the dreamy atmosphere. | [OPENAI] Strong, charming pet portrait with pleasing backlight, but the brightest fur areas are a bit hot and the facial features could use more local definition. Subtle highlight recovery, targeted sharpening/contrast on the face, and background suppression will improve subject separation while keeping the airy, glowing look. | [ANTHROPIC] This is a charming dog portrait with excellent focus and composition. The main issues are slight underexposure making the white fur appear gray, and a cool color cast affecting the fur tones. The joyful expression and sharp focus should be preserved while enhancing luminosity and warmth to make the subject truly shine against the background.",
+    "summary": "[GEMINI] This is a beautiful backlit shot with excellent subject separation. The primary editing goal is to balance the dynamic range by brightening the face (the focal point) which is currently overpowered by the rim light, while maintaining the dreamy atmosphere. | [OPENAI] Strong, charming pet portrait with pleasing backlight, but the brightest fur areas are a bit hot and the facial features could use more local definition. Subtle highlight recovery, targeted sharpening/contrast on the face, and background suppression will improve subject separation while keeping the airy, glowing look. | [ANTHROPIC] This is a charming dog portrait with excellent focus and composition. The main issues are slight underexposure making the white fur appear gray, and a cool color cast affecting the fur tones. The joyful expression and sharp focus should be preserved while enhancing luminosity and warmth to make the subject truly shine against the background.",
+    "context": {
+      "genre": "portrait",
+      "subject": "White fluffy dog (appears to be a Samoyed) with mouth open in a happy expression",
+      "mood": "Playful and candid with a slightly dreamy, backlit glow",
+      "preserve": [
+        "The glowing rim light effect on the outer fur",
+        "The dark, blurred background separation",
+        "Backlit glow and soft rim light around the fur",
+        "Natural, candid expression and centered framing style",
+        "Sharp focus on facial features and nose",
+        "Natural expression and mouth position",
+        "Soft fur texture and halo lighting effect"
+      ],
+      "technical": {
+        "exposure": "slightly_under",
+        "white_balance": "slightly_cool",
+        "focus": "sharp",
+        "noise": "low"
+      }
+    },
+    "score_delta": 1.3
+  },
+  "timestamp": "20260130-212543",
+  "entry_id": "20260130-212543-6135c3de",
+  "original_filename": "IMG_0629 Copy.jpeg",
+  "original_image": "original.jpeg",
+  "edited_image": "edited.jpeg"
+}
