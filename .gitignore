@@ -8,6 +8,7 @@ env/
 venv/
 ENV/
 .venv
+.venv.bak/
 
 # Environment variables
 .env
@@ -26,6 +27,15 @@ Thumbs.db
 # Temporary files
 *.tmp
 *.log
+.pytest_cache/
+
+# Pipeline artifacts
+inbox/*
+!inbox/.gitkeep
+processed/
+tmp/
+site/public/images/
+site/public/*-*.html
 
 # Site build (tracked for deployment)
 # site/public/  # We actually want to track this for GitHub Pages
