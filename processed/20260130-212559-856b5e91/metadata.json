@@ -1,0 +1,596 @@
+{
+  "critiques": [
+    {
+      "genre": "portrait",
+      "subject": "White Samoyed puppy lying on a kitchen floor with a chew treat",
+      "mood": "playful, cozy, and endearing",
+      "score": 72.0,
+      "technical_assessment": {
+        "exposure": "good",
+        "white_balance": "too_warm",
+        "focus": "acceptable",
+        "noise": "moderate"
+      },
+      "improvements": [
+        "[SIGNIFICANT] Correct White Balance (Cooling)",
+        "[MODERATE] HSL Desaturation (Oranges/Yellows)",
+        "[SUBTLE] Local Texture/Clarity",
+        "[MODERATE] Luminance Noise Reduction",
+        "[SUBTLE] Vignette"
+      ],
+      "preserve": [
+        "The wide-angle perspective distortion (big nose effect)",
+        "The catchlights in the puppy's eyes"
+      ],
+      "notes": "This is a charming low-angle shot with great engagement from the subject. The primary edit required is color correction; the warm ambient light is overpowering the dog's natural white coat. Neutralizing this will instantly elevate the image quality.",
+      "improvements_detailed": [
+        {
+          "action": "Correct White Balance (Cooling)",
+          "intensity": "significant",
+          "priority": 1,
+          "reason": "The image has a strong yellow/orange cast from the wooden cabinets and indoor lighting; cooling the temperature will make the fur look properly white."
+        },
+        {
+          "action": "HSL Desaturation (Oranges/Yellows)",
+          "intensity": "moderate",
+          "priority": 2,
+          "reason": "Reducing the saturation of the background cabinetry will separate the subject from the background and reduce color contamination on the fur."
+        },
+        {
+          "action": "Local Texture/Clarity",
+          "intensity": "subtle",
+          "priority": 3,
+          "reason": "Apply a subject mask to slightly boost texture and clarity, enhancing the fluffiness of the fur and details in the face."
+        },
+        {
+          "action": "Luminance Noise Reduction",
+          "intensity": "moderate",
+          "priority": 4,
+          "reason": "Smooth out the digital grain visible in the darker areas of the floor and background."
+        },
+        {
+          "action": "Vignette",
+          "intensity": "subtle",
+          "priority": 5,
+          "reason": "Draw focus toward the center of the frame and away from the busy kitchen background."
+        }
+      ],
+      "context": {
+        "genre": "portrait",
+        "subject": "White Samoyed puppy lying on a kitchen floor with a chew treat",
+        "mood": "playful, cozy, and endearing",
+        "preserve": [
+          "The wide-angle perspective distortion (big nose effect)",
+          "The catchlights in the puppy's eyes"
+        ],
+        "technical": {
+          "exposure": "good",
+          "white_balance": "too_warm",
+          "focus": "acceptable",
+          "noise": "moderate"
+        }
+      },
+      "llm": "gemini"
+    },
+    {
+      "genre": "other",
+      "subject": "A fluffy white puppy lying on a kitchen floor with a treat in front",
+      "mood": "Cozy, playful, intimate",
+      "score": 78.0,
+      "technical_assessment": {
+        "exposure": "good",
+        "white_balance": "slightly_warm",
+        "focus": "acceptable",
+        "noise": "low"
+      },
+      "improvements": [
+        "[MODERATE] Crop slightly from the top and right to reduce the dominance of cabinets/appliance and place the puppy's eyes closer to the upper third; keep paws and treat in frame",
+        "[SUBTLE] Cool white balance a touch (Temp -300 to -700K) and reduce orange/yellow saturation in the background (HSL: Orange -10 to -20, Yellow -5 to -15)",
+        "[SUBTLE] Local adjustment on the face: lift exposure +0.2 to +0.4, open shadows +10 to +20, and add slight texture/clarity on fur (Texture +10, Clarity +5); avoid overdoing around the nose",
+        "[SUBTLE] Tone control: pull highlights -10 to -25 to protect fur detail and add a gentle S-curve or midtone contrast (+5 to +10) to increase depth",
+        "[SUBTLE] Minor retouch/cleanup: remove small distracting spots/crumbs on the floor and any stray glare lines near the muzzle using healing/clone; optionally darken bright cabinet hotspots with a soft brush"
+      ],
+      "preserve": [
+        "The low, ground-level perspective that feels intimate and playful",
+        "Natural fur texture and the overall cozy indoor atmosphere"
+      ],
+      "notes": "The photo has a strong, engaging low-angle composition and good exposure, with a slightly warm indoor color cast from the kitchen lighting. A modest crop, mild WB/HSL correction, and selective face enhancement will make the puppy\u2019s eyes and fur stand out more while keeping the candid, cozy feel.",
+      "improvements_detailed": [
+        {
+          "action": "Crop slightly from the top and right to reduce the dominance of cabinets/appliance and place the puppy's eyes closer to the upper third; keep paws and treat in frame",
+          "intensity": "moderate",
+          "priority": 1,
+          "reason": "Strengthens subject emphasis and simplifies the composition without losing the cute low-angle perspective."
+        },
+        {
+          "action": "Cool white balance a touch (Temp -300 to -700K) and reduce orange/yellow saturation in the background (HSL: Orange -10 to -20, Yellow -5 to -15)",
+          "intensity": "subtle",
+          "priority": 2,
+          "reason": "Neutralizes the warm kitchen cast so the white fur reads cleaner while keeping the cozy indoor feel."
+        },
+        {
+          "action": "Local adjustment on the face: lift exposure +0.2 to +0.4, open shadows +10 to +20, and add slight texture/clarity on fur (Texture +10, Clarity +5); avoid overdoing around the nose",
+          "intensity": "subtle",
+          "priority": 3,
+          "reason": "Brings attention to the eyes and facial detail while maintaining natural softness in the puppy fur."
+        },
+        {
+          "action": "Tone control: pull highlights -10 to -25 to protect fur detail and add a gentle S-curve or midtone contrast (+5 to +10) to increase depth",
+          "intensity": "subtle",
+          "priority": 4,
+          "reason": "Recovers texture in bright fur and gives the image more dimensionality without making it harsh."
+        },
+        {
+          "action": "Minor retouch/cleanup: remove small distracting spots/crumbs on the floor and any stray glare lines near the muzzle using healing/clone; optionally darken bright cabinet hotspots with a soft brush",
+          "intensity": "subtle",
+          "priority": 5,
+          "reason": "Reduces visual distractions so the viewer stays focused on the puppy and treat."
+        }
+      ],
+      "context": {
+        "genre": "other",
+        "subject": "A fluffy white puppy lying on a kitchen floor with a treat in front",
+        "mood": "Cozy, playful, intimate",
+        "preserve": [
+          "The low, ground-level perspective that feels intimate and playful",
+          "Natural fur texture and the overall cozy indoor atmosphere"
+        ],
+        "technical": {
+          "exposure": "good",
+          "white_balance": "slightly_warm",
+          "focus": "acceptable",
+          "noise": "low"
+        }
+      },
+      "llm": "openai"
+    },
+    {
+      "genre": "portrait",
+      "subject": "White fluffy dog (appears to be a Samoyed) lying on kitchen floor with a treat between its paws",
+      "mood": "Warm, endearing, and intimate",
+      "score": 72.0,
+      "technical_assessment": {
+        "exposure": "slightly_over",
+        "white_balance": "slightly_warm",
+        "focus": "sharp",
+        "noise": "low"
+      },
+      "improvements": [
+        "[MODERATE] Reduce highlights in the white fur areas, particularly on the head and chest, by -15 to -20 to recover texture and detail",
+        "[SUBTLE] Apply selective exposure reduction (-0.3 to -0.5 EV) to the background cabinets to draw more attention to the dog",
+        "[SUBTLE] Add clarity or texture (+10 to +15) selectively to the dog's eyes and nose to enhance sharpness and create more engaging eye contact",
+        "[SUBTLE] Lift shadows slightly in the floor area beneath the dog (+10 to +15) to reveal more paw detail without flattening the image"
+      ],
+      "preserve": [
+        "The warm color temperature that complements the wood tones and creates inviting atmosphere",
+        "The sharp focus on the dog's face and expressive eyes",
+        "The low angle perspective that creates intimacy with the subject"
+      ],
+      "notes": "This is a charming pet portrait with good focus and composition. The main technical issue is slight overexposure in the white fur causing loss of texture detail. The warm kitchen setting works well, but subtle adjustments to reduce bright areas and enhance facial features would strengthen the image's impact while maintaining its cozy, intimate feel.",
+      "improvements_detailed": [
+        {
+          "action": "Reduce highlights in the white fur areas, particularly on the head and chest, by -15 to -20 to recover texture and detail",
+          "intensity": "moderate",
+          "priority": 1,
+          "reason": "White fur is slightly blown out, losing the fluffy texture detail that makes the subject appealing"
+        },
+        {
+          "action": "Apply selective exposure reduction (-0.3 to -0.5 EV) to the background cabinets to draw more attention to the dog",
+          "intensity": "subtle",
+          "priority": 2,
+          "reason": "The bright warm wood cabinets compete slightly with the subject; subtle darkening will enhance subject separation"
+        },
+        {
+          "action": "Add clarity or texture (+10 to +15) selectively to the dog's eyes and nose to enhance sharpness and create more engaging eye contact",
+          "intensity": "subtle",
+          "priority": 3,
+          "reason": "The facial features would benefit from enhanced definition to strengthen the connection with the viewer"
+        },
+        {
+          "action": "Lift shadows slightly in the floor area beneath the dog (+10 to +15) to reveal more paw detail without flattening the image",
+          "intensity": "subtle",
+          "priority": 4,
+          "reason": "Some shadow detail is lost in the darker floor tones; gentle lifting would add dimension while maintaining natural contrast"
+        }
+      ],
+      "context": {
+        "genre": "portrait",
+        "subject": "White fluffy dog (appears to be a Samoyed) lying on kitchen floor with a treat between its paws",
+        "mood": "Warm, endearing, and intimate",
+        "preserve": [
+          "The warm color temperature that complements the wood tones and creates inviting atmosphere",
+          "The sharp focus on the dog's face and expressive eyes",
+          "The low angle perspective that creates intimacy with the subject"
+        ],
+        "technical": {
+          "exposure": "slightly_over",
+          "white_balance": "slightly_warm",
+          "focus": "sharp",
+          "noise": "low"
+        }
+      },
+      "llm": "anthropic"
+    }
+  ],
+  "consensus_score": 74.0,
+  "combined_improvements": [
+    "[SIGNIFICANT] Correct White Balance (Cooling)",
+    "[MODERATE] HSL Desaturation (Oranges/Yellows)",
+    "[SUBTLE] Local Texture/Clarity",
+    "[MODERATE] Luminance Noise Reduction",
+    "[SUBTLE] Vignette",
+    "[MODERATE] Crop slightly from the top and right to reduce the dominance of cabinets/appliance and place the puppy's eyes closer to the upper third; keep paws and treat in frame",
+    "[SUBTLE] Cool white balance a touch (Temp -300 to -700K) and reduce orange/yellow saturation in the background (HSL: Orange -10 to -20, Yellow -5 to -15)",
+    "[SUBTLE] Local adjustment on the face: lift exposure +0.2 to +0.4, open shadows +10 to +20, and add slight texture/clarity on fur (Texture +10, Clarity +5); avoid overdoing around the nose",
+    "[SUBTLE] Tone control: pull highlights -10 to -25 to protect fur detail and add a gentle S-curve or midtone contrast (+5 to +10) to increase depth",
+    "[SUBTLE] Minor retouch/cleanup: remove small distracting spots/crumbs on the floor and any stray glare lines near the muzzle using healing/clone; optionally darken bright cabinet hotspots with a soft brush",
+    "[MODERATE] Reduce highlights in the white fur areas, particularly on the head and chest, by -15 to -20 to recover texture and detail",
+    "[SUBTLE] Apply selective exposure reduction (-0.3 to -0.5 EV) to the background cabinets to draw more attention to the dog",
+    "[SUBTLE] Add clarity or texture (+10 to +15) selectively to the dog's eyes and nose to enhance sharpness and create more engaging eye contact",
+    "[SUBTLE] Lift shadows slightly in the floor area beneath the dog (+10 to +15) to reveal more paw detail without flattening the image"
+  ],
+  "improvements_detailed": [
+    {
+      "action": "Correct White Balance (Cooling)",
+      "intensity": "significant",
+      "priority": 1,
+      "reason": "The image has a strong yellow/orange cast from the wooden cabinets and indoor lighting; cooling the temperature will make the fur look properly white."
+    },
+    {
+      "action": "HSL Desaturation (Oranges/Yellows)",
+      "intensity": "moderate",
+      "priority": 2,
+      "reason": "Reducing the saturation of the background cabinetry will separate the subject from the background and reduce color contamination on the fur."
+    },
+    {
+      "action": "Local Texture/Clarity",
+      "intensity": "subtle",
+      "priority": 3,
+      "reason": "Apply a subject mask to slightly boost texture and clarity, enhancing the fluffiness of the fur and details in the face."
+    },
+    {
+      "action": "Luminance Noise Reduction",
+      "intensity": "moderate",
+      "priority": 4,
+      "reason": "Smooth out the digital grain visible in the darker areas of the floor and background."
+    },
+    {
+      "action": "Vignette",
+      "intensity": "subtle",
+      "priority": 5,
+      "reason": "Draw focus toward the center of the frame and away from the busy kitchen background."
+    },
+    {
+      "action": "Crop slightly from the top and right to reduce the dominance of cabinets/appliance and place the puppy's eyes closer to the upper third; keep paws and treat in frame",
+      "intensity": "moderate",
+      "priority": 1,
+      "reason": "Strengthens subject emphasis and simplifies the composition without losing the cute low-angle perspective."
+    },
+    {
+      "action": "Cool white balance a touch (Temp -300 to -700K) and reduce orange/yellow saturation in the background (HSL: Orange -10 to -20, Yellow -5 to -15)",
+      "intensity": "subtle",
+      "priority": 2,
+      "reason": "Neutralizes the warm kitchen cast so the white fur reads cleaner while keeping the cozy indoor feel."
+    },
+    {
+      "action": "Local adjustment on the face: lift exposure +0.2 to +0.4, open shadows +10 to +20, and add slight texture/clarity on fur (Texture +10, Clarity +5); avoid overdoing around the nose",
+      "intensity": "subtle",
+      "priority": 3,
+      "reason": "Brings attention to the eyes and facial detail while maintaining natural softness in the puppy fur."
+    },
+    {
+      "action": "Tone control: pull highlights -10 to -25 to protect fur detail and add a gentle S-curve or midtone contrast (+5 to +10) to increase depth",
+      "intensity": "subtle",
+      "priority": 4,
+      "reason": "Recovers texture in bright fur and gives the image more dimensionality without making it harsh."
+    },
+    {
+      "action": "Minor retouch/cleanup: remove small distracting spots/crumbs on the floor and any stray glare lines near the muzzle using healing/clone; optionally darken bright cabinet hotspots with a soft brush",
+      "intensity": "subtle",
+      "priority": 5,
+      "reason": "Reduces visual distractions so the viewer stays focused on the puppy and treat."
+    },
+    {
+      "action": "Reduce highlights in the white fur areas, particularly on the head and chest, by -15 to -20 to recover texture and detail",
+      "intensity": "moderate",
+      "priority": 1,
+      "reason": "White fur is slightly blown out, losing the fluffy texture detail that makes the subject appealing"
+    },
+    {
+      "action": "Apply selective exposure reduction (-0.3 to -0.5 EV) to the background cabinets to draw more attention to the dog",
+      "intensity": "subtle",
+      "priority": 2,
+      "reason": "The bright warm wood cabinets compete slightly with the subject; subtle darkening will enhance subject separation"
+    },
+    {
+      "action": "Add clarity or texture (+10 to +15) selectively to the dog's eyes and nose to enhance sharpness and create more engaging eye contact",
+      "intensity": "subtle",
+      "priority": 3,
+      "reason": "The facial features would benefit from enhanced definition to strengthen the connection with the viewer"
+    },
+    {
+      "action": "Lift shadows slightly in the floor area beneath the dog (+10 to +15) to reveal more paw detail without flattening the image",
+      "intensity": "subtle",
+      "priority": 4,
+      "reason": "Some shadow detail is lost in the darker floor tones; gentle lifting would add dimension while maintaining natural contrast"
+    }
+  ],
+  "context": {
+    "genre": "portrait",
+    "subject": "White fluffy dog (appears to be a Samoyed) lying on kitchen floor with a treat between its paws",
+    "mood": "Warm, endearing, and intimate",
+    "preserve": [
+      "The wide-angle perspective distortion (big nose effect)",
+      "The catchlights in the puppy's eyes",
+      "The low, ground-level perspective that feels intimate and playful",
+      "Natural fur texture and the overall cozy indoor atmosphere",
+      "The warm color temperature that complements the wood tones and creates inviting atmosphere",
+      "The sharp focus on the dog's face and expressive eyes",
+      "The low angle perspective that creates intimacy with the subject"
+    ],
+    "technical": {
+      "exposure": "good",
+      "white_balance": "slightly_warm",
+      "focus": "acceptable",
+      "noise": "low"
+    }
+  },
+  "summary": "[GEMINI] This is a charming low-angle shot with great engagement from the subject. The primary edit required is color correction; the warm ambient light is overpowering the dog's natural white coat. Neutralizing this will instantly elevate the image quality. | [OPENAI] The photo has a strong, engaging low-angle composition and good exposure, with a slightly warm indoor color cast from the kitchen lighting. A modest crop, mild WB/HSL correction, and selective face enhancement will make the puppy\u2019s eyes and fur stand out more while keeping the candid, cozy feel. | [ANTHROPIC] This is a charming pet portrait with good focus and composition. The main technical issue is slight overexposure in the white fur causing loss of texture detail. The warm kitchen setting works well, but subtle adjustments to reduce bright areas and enhance facial features would strengthen the image's impact while maintaining its cozy, intimate feel.",
+  "score": 74.0,
+  "improvements": [
+    "[SIGNIFICANT] Correct White Balance (Cooling)",
+    "[MODERATE] HSL Desaturation (Oranges/Yellows)",
+    "[SUBTLE] Local Texture/Clarity",
+    "[MODERATE] Luminance Noise Reduction",
+    "[SUBTLE] Vignette"
+  ],
+  "notes": "[GEMINI] This is a charming low-angle shot with great engagement from the subject. The primary edit required is color correction; the warm ambient light is overpowering the dog's natural white coat. Neutralizing this will instantly elevate the image quality. | [OPENAI] The photo has a strong, engaging low-angle composition and good exposure, with a slightly warm indoor color cast from the kitchen lighting. A modest crop, mild WB/HSL correction, and selective face enhancement will make the puppy\u2019s eyes and fur stand out more while keeping the candid, cozy feel. | [ANTHROPIC] This is a charming pet portrait with good focus and composition. The main technical issue is slight overexposure in the white fur causing loss of texture detail. The warm kitchen setting works well, but subtle adjustments to reduce bright areas and enhance facial features would strengthen the image's impact while maintaining its cozy, intimate feel.",
+  "re_review": {
+    "critiques": [
+      {
+        "genre": "portrait",
+        "subject": "White fluffy Samoyed puppy lying on a kitchen floor",
+        "mood": "Playful, cozy, and adorable",
+        "score": 78.0,
+        "technical_assessment": {
+          "exposure": "good",
+          "white_balance": "slightly_warm",
+          "focus": "sharp",
+          "noise": "low"
+        },
+        "improvements": [
+          "[MODERATE] Cool white balance and desaturate oranges/yellows",
+          "[SUBTLE] Apply texture and clarity specifically to the fur",
+          "[SUBTLE] Radial exposure lift on the eyes",
+          "[SUBTLE] Add subtle vignette"
+        ],
+        "preserve": [
+          "The distinctive low-angle perspective",
+          "The intricate texture of the nose"
+        ],
+        "notes": "A charming image with a strong composition and engaging perspective. The main opportunity for improvement lies in color correction, specifically separating the white subject from the warm, monochromatic environment of the kitchen.",
+        "improvements_detailed": [
+          {
+            "action": "Cool white balance and desaturate oranges/yellows",
+            "intensity": "moderate",
+            "priority": 1,
+            "reason": "Neutralize the color cast from the wooden cabinets to make the white fur look clean and true to life"
+          },
+          {
+            "action": "Apply texture and clarity specifically to the fur",
+            "intensity": "subtle",
+            "priority": 2,
+            "reason": "Enhance the detail and fluffiness of the coat without adding noise to the background"
+          },
+          {
+            "action": "Radial exposure lift on the eyes",
+            "intensity": "subtle",
+            "priority": 3,
+            "reason": "Brighten the dark eyes slightly to create better connection and catchlights"
+          },
+          {
+            "action": "Add subtle vignette",
+            "intensity": "subtle",
+            "priority": 4,
+            "reason": "Draw attention away from the kitchen appliances and focus the viewer on the puppy"
+          }
+        ],
+        "context": {
+          "genre": "portrait",
+          "subject": "White fluffy Samoyed puppy lying on a kitchen floor",
+          "mood": "Playful, cozy, and adorable",
+          "preserve": [
+            "The distinctive low-angle perspective",
+            "The intricate texture of the nose"
+          ],
+          "technical": {
+            "exposure": "good",
+            "white_balance": "slightly_warm",
+            "focus": "sharp",
+            "noise": "low"
+          }
+        },
+        "llm": "gemini"
+      },
+      {
+        "genre": "other",
+        "subject": "A fluffy white puppy lying on a kitchen floor with a chew treat between its paws",
+        "mood": "Cozy, playful, intimate",
+        "score": 78.0,
+        "technical_assessment": {
+          "exposure": "good",
+          "white_balance": "slightly_warm",
+          "focus": "acceptable",
+          "noise": "moderate"
+        },
+        "improvements": [
+          "[MODERATE] Crop slightly from the top and right to reduce the bright ceiling/cabinet area and the strong black appliance edge, keeping the puppy\u2019s face centered; consider a 4:5 crop for a tighter portrait feel",
+          "[SUBTLE] Cool white balance a touch (Temp -300 to -800K) and reduce orange/yellow saturation in HSL (Orange -5 to -15, Yellow -5 to -10) to neutralize fur highlights",
+          "[SUBTLE] Recover highlight detail in the fur using Highlights -20 to -40 and Whites -5 to -15; add a gentle S-curve or Contrast +5 to +10 while protecting highlights",
+          "[MODERATE] Apply selective sharpening and clarity/texture on the face: mask to eyes/nose (Sharpening Amount 40\u201370 with Masking 70\u201390; Texture +10 to +20; Clarity +5); add small dodge to eyes (+0.2 to +0.4 EV) and a tiny catchlight enhancement if needed",
+          "[MODERATE] Use AI/Detail denoise or Luminance NR (15\u201330) with Color NR (20\u201330), then avoid over-smoothing by masking NR away from the eyes and whiskers"
+        ],
+        "preserve": [
+          "The low, floor-level perspective that creates an intimate, playful feel",
+          "Natural fur texture and the overall cozy indoor ambience"
+        ],
+        "notes": "Strong, engaging pet portrait with a compelling low angle and centered subject. The main opportunities are reducing background distractions, neutralizing the warm indoor cast on the white fur, and adding selective detail to the eyes while controlling moderate noise.",
+        "improvements_detailed": [
+          {
+            "action": "Crop slightly from the top and right to reduce the bright ceiling/cabinet area and the strong black appliance edge, keeping the puppy\u2019s face centered; consider a 4:5 crop for a tighter portrait feel",
+            "intensity": "moderate",
+            "priority": 1,
+            "reason": "Removes competing high-contrast/background distractions and strengthens attention on the eyes and face."
+          },
+          {
+            "action": "Cool white balance a touch (Temp -300 to -800K) and reduce orange/yellow saturation in HSL (Orange -5 to -15, Yellow -5 to -10) to neutralize fur highlights",
+            "intensity": "subtle",
+            "priority": 2,
+            "reason": "Keeps the white fur looking clean and detailed rather than slightly warm/creamy from indoor lighting."
+          },
+          {
+            "action": "Recover highlight detail in the fur using Highlights -20 to -40 and Whites -5 to -15; add a gentle S-curve or Contrast +5 to +10 while protecting highlights",
+            "intensity": "subtle",
+            "priority": 3,
+            "reason": "Improves texture in bright fur and adds depth without losing the soft, cozy indoor mood."
+          },
+          {
+            "action": "Apply selective sharpening and clarity/texture on the face: mask to eyes/nose (Sharpening Amount 40\u201370 with Masking 70\u201390; Texture +10 to +20; Clarity +5); add small dodge to eyes (+0.2 to +0.4 EV) and a tiny catchlight enhancement if needed",
+            "intensity": "moderate",
+            "priority": 4,
+            "reason": "Draws attention to the puppy\u2019s expression and increases perceived sharpness where it matters most."
+          },
+          {
+            "action": "Use AI/Detail denoise or Luminance NR (15\u201330) with Color NR (20\u201330), then avoid over-smoothing by masking NR away from the eyes and whiskers",
+            "intensity": "moderate",
+            "priority": 5,
+            "reason": "Reduces visible grain in midtones/shadows while keeping fine fur detail from turning plasticky."
+          }
+        ],
+        "context": {
+          "genre": "other",
+          "subject": "A fluffy white puppy lying on a kitchen floor with a chew treat between its paws",
+          "mood": "Cozy, playful, intimate",
+          "preserve": [
+            "The low, floor-level perspective that creates an intimate, playful feel",
+            "Natural fur texture and the overall cozy indoor ambience"
+          ],
+          "technical": {
+            "exposure": "good",
+            "white_balance": "slightly_warm",
+            "focus": "acceptable",
+            "noise": "moderate"
+          }
+        },
+        "llm": "openai"
+      },
+      {
+        "genre": "portrait",
+        "subject": "White fluffy dog (appears to be a Samoyed or similar breed) lying on kitchen floor with a treat between its paws",
+        "mood": "Warm, cozy, and playful - an intimate pet portrait taken from ground level",
+        "score": 72.0,
+        "technical_assessment": {
+          "exposure": "slightly_under",
+          "white_balance": "slightly_warm",
+          "focus": "very_sharp",
+          "noise": "low"
+        },
+        "improvements": [
+          "[MODERATE] Lift shadows by +15-20 to reveal more detail in the dog's chest and paw fur without losing dimension",
+          "[SUBTLE] Brighten exposure globally by +0.3 to +0.5 stops to enhance overall image brightness",
+          "[SUBTLE] Apply selective brightening to the dog's face and eyes to draw viewer attention to the primary focal point",
+          "[MODERATE] Increase texture and clarity in the dog's fur by +10-15 to emphasize the fluffy coat details",
+          "[SUBTLE] Apply subtle lens correction and reduce slight chromatic aberration visible around high-contrast edges"
+        ],
+        "preserve": [
+          "The warm, natural kitchen lighting and color temperature",
+          "Sharp focus on the dog's face and eyes",
+          "Natural expression and intimate ground-level perspective",
+          "Overall composition and framing"
+        ],
+        "notes": "This is a charming pet portrait with excellent focus and composition. The main limitation is slight underexposure that obscures detail in the white fur, particularly in shadow areas. The warm kitchen environment and low angle create intimacy, which should be preserved while gently lifting exposure and shadows to reveal the dog's beautiful coat texture and facial features more fully.",
+        "improvements_detailed": [
+          {
+            "action": "Lift shadows by +15-20 to reveal more detail in the dog's chest and paw fur without losing dimension",
+            "intensity": "moderate",
+            "priority": 1,
+            "reason": "The white fur in shadowed areas lacks detail and appears muddy; gentle lifting will add depth while maintaining the natural lighting mood"
+          },
+          {
+            "action": "Brighten exposure globally by +0.3 to +0.5 stops to enhance overall image brightness",
+            "intensity": "subtle",
+            "priority": 2,
+            "reason": "Slight underexposure makes the image feel darker than intended for this warm, friendly portrait; gentle lift maintains atmosphere while improving visibility"
+          },
+          {
+            "action": "Apply selective brightening to the dog's face and eyes to draw viewer attention to the primary focal point",
+            "intensity": "subtle",
+            "priority": 3,
+            "reason": "The eyes and face are the emotional center but get slightly lost; subtle enhancement will strengthen the connection with the viewer"
+          },
+          {
+            "action": "Increase texture and clarity in the dog's fur by +10-15 to emphasize the fluffy coat details",
+            "intensity": "moderate",
+            "priority": 4,
+            "reason": "The beautiful fur texture is the defining characteristic of this breed; enhancing it adds visual interest and tactile quality"
+          },
+          {
+            "action": "Apply subtle lens correction and reduce slight chromatic aberration visible around high-contrast edges",
+            "intensity": "subtle",
+            "priority": 5,
+            "reason": "Minor technical cleanup will polish the image without altering the composition or mood"
+          }
+        ],
+        "context": {
+          "genre": "portrait",
+          "subject": "White fluffy dog (appears to be a Samoyed or similar breed) lying on kitchen floor with a treat between its paws",
+          "mood": "Warm, cozy, and playful - an intimate pet portrait taken from ground level",
+          "preserve": [
+            "The warm, natural kitchen lighting and color temperature",
+            "Sharp focus on the dog's face and eyes",
+            "Natural expression and intimate ground-level perspective",
+            "Overall composition and framing"
+          ],
+          "technical": {
+            "exposure": "slightly_under",
+            "white_balance": "slightly_warm",
+            "focus": "very_sharp",
+            "noise": "low"
+          }
+        },
+        "llm": "anthropic"
+      }
+    ],
+    "consensus_score": 76.0,
+    "score": 76.0,
+    "notes": "[GEMINI] A charming image with a strong composition and engaging perspective. The main opportunity for improvement lies in color correction, specifically separating the white subject from the warm, monochromatic environment of the kitchen. | [OPENAI] Strong, engaging pet portrait with a compelling low angle and centered subject. The main opportunities are reducing background distractions, neutralizing the warm indoor cast on the white fur, and adding selective detail to the eyes while controlling moderate noise. | [ANTHROPIC] This is a charming pet portrait with excellent focus and composition. The main limitation is slight underexposure that obscures detail in the white fur, particularly in shadow areas. The warm kitchen environment and low angle create intimacy, which should be preserved while gently lifting exposure and shadows to reveal the dog's beautiful coat texture and facial features more fully.",
+    "summary": "[GEMINI] A charming image with a strong composition and engaging perspective. The main opportunity for improvement lies in color correction, specifically separating the white subject from the warm, monochromatic environment of the kitchen. | [OPENAI] Strong, engaging pet portrait with a compelling low angle and centered subject. The main opportunities are reducing background distractions, neutralizing the warm indoor cast on the white fur, and adding selective detail to the eyes while controlling moderate noise. | [ANTHROPIC] This is a charming pet portrait with excellent focus and composition. The main limitation is slight underexposure that obscures detail in the white fur, particularly in shadow areas. The warm kitchen environment and low angle create intimacy, which should be preserved while gently lifting exposure and shadows to reveal the dog's beautiful coat texture and facial features more fully.",
+    "context": {
+      "genre": "portrait",
+      "subject": "White fluffy dog (appears to be a Samoyed or similar breed) lying on kitchen floor with a treat between its paws",
+      "mood": "Warm, cozy, and playful - an intimate pet portrait taken from ground level",
+      "preserve": [
+        "The distinctive low-angle perspective",
+        "The intricate texture of the nose",
+        "The low, floor-level perspective that creates an intimate, playful feel",
+        "Natural fur texture and the overall cozy indoor ambience",
+        "The warm, natural kitchen lighting and color temperature",
+        "Sharp focus on the dog's face and eyes",
+        "Natural expression and intimate ground-level perspective",
+        "Overall composition and framing"
+      ],
+      "technical": {
+        "exposure": "good",
+        "white_balance": "slightly_warm",
+        "focus": "sharp",
+        "noise": "low"
+      }
+    },
+    "score_delta": 2.0
+  },
+  "timestamp": "20260130-212559",
+  "entry_id": "20260130-212559-856b5e91",
+  "original_filename": "IMG_1361_Original.jpeg",
+  "original_image": "original.jpeg",
+  "edited_image": "edited.jpeg"
+}

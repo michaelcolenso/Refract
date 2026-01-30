@@ -1,0 +1,586 @@
+{
+  "critiques": [
+    {
+      "genre": "portrait",
+      "subject": "White Samoyed dog sleeping on its back with a humorous expression",
+      "mood": "Relaxed, playful, humorous",
+      "score": 82.0,
+      "technical_assessment": {
+        "exposure": "good",
+        "white_balance": "neutral",
+        "focus": "sharp",
+        "noise": "low"
+      },
+      "improvements": [
+        "[MODERATE] Spot healing / Clone stamp",
+        "[SUBTLE] Crop",
+        "[SUBTLE] HSL / Saturation",
+        "[SUBTLE] Texture / Clarity"
+      ],
+      "preserve": [
+        "The exposure of the white fur (avoid blowing out highlights)",
+        "The sharp detail on the nose and mouth area"
+      ],
+      "notes": "A charming and technically solid capture with good focus on the face. The exposure is handled well for a white subject, maintaining detail in the highlights. Editing should focus on cleaning up minor distractions like debris and background clutter to elevate the presentation.",
+      "improvements_detailed": [
+        {
+          "action": "Spot healing / Clone stamp",
+          "intensity": "moderate",
+          "priority": 1,
+          "reason": "Remove small dark debris specks from the dog's white belly fur and the floor to clean up the image."
+        },
+        {
+          "action": "Crop",
+          "intensity": "subtle",
+          "priority": 2,
+          "reason": "Tighten the frame by cropping slightly from the left to remove the distracting door jamb and focus attention on the subject."
+        },
+        {
+          "action": "HSL / Saturation",
+          "intensity": "subtle",
+          "priority": 3,
+          "reason": "Slightly desaturate yellows and oranges in the background to reduce distraction from the warm hallway light."
+        },
+        {
+          "action": "Texture / Clarity",
+          "intensity": "subtle",
+          "priority": 4,
+          "reason": "Apply locally to the fur to enhance the fluffy texture without making the image look harsh."
+        }
+      ],
+      "context": {
+        "genre": "portrait",
+        "subject": "White Samoyed dog sleeping on its back with a humorous expression",
+        "mood": "Relaxed, playful, humorous",
+        "preserve": [
+          "The exposure of the white fur (avoid blowing out highlights)",
+          "The sharp detail on the nose and mouth area"
+        ],
+        "technical": {
+          "exposure": "good",
+          "white_balance": "neutral",
+          "focus": "sharp",
+          "noise": "low"
+        }
+      },
+      "llm": "gemini"
+    },
+    {
+      "genre": "other",
+      "subject": "A fluffy white dog sleeping on its back indoors, shot from a low angle",
+      "mood": "cozy, playful, relaxed",
+      "score": 78.0,
+      "technical_assessment": {
+        "exposure": "good",
+        "white_balance": "slightly_warm",
+        "focus": "acceptable",
+        "noise": "low"
+      },
+      "improvements": [
+        "[MODERATE] Crop tighter to reduce distracting background (left doorframe and upper doorway) and place the dog's face/nose closer to a rule-of-thirds point; consider a 4:5 or tighter landscape crop that keeps the paws while minimizing empty wall space",
+        "[SUBTLE] Cool white balance slightly (reduce Temp a bit) and add a touch of magenta if needed; then selectively warm the highlights on the fur only if it starts to look too clinical",
+        "[SUBTLE] Recover fur detail by lowering highlights/whites slightly (Highlights -10 to -25, Whites -5 to -15) and use a small local brush on the brightest fur patches; add mild texture/clarity on the fur (+10 to +20) while keeping overall clarity conservative",
+        "[SUBTLE] Apply a gentle background de-emphasis: reduce background saturation and clarity slightly, and/or add a subtle vignette centered on the dog's face",
+        "[SUBTLE] Spot-remove small visible specks/debris on the fur using Heal/Content-Aware (especially mid-body area)"
+      ],
+      "preserve": [
+        "The candid, low-angle perspective and playful upside-down pose",
+        "The natural, soft indoor lighting feel (avoid over-contrasty or overly cool styling)"
+      ],
+      "notes": "The image has a charming candid moment with pleasing exposure and low noise, but the busy background reduces subject impact. A tighter crop, slightly cooler WB, and selective highlight control on the white fur will improve separation and texture while keeping the cozy mood intact.",
+      "improvements_detailed": [
+        {
+          "action": "Crop tighter to reduce distracting background (left doorframe and upper doorway) and place the dog's face/nose closer to a rule-of-thirds point; consider a 4:5 or tighter landscape crop that keeps the paws while minimizing empty wall space",
+          "intensity": "moderate",
+          "priority": 1,
+          "reason": "Simplifies the frame and strengthens the subject emphasis, making the expression and fluffy texture the clear focal point."
+        },
+        {
+          "action": "Cool white balance slightly (reduce Temp a bit) and add a touch of magenta if needed; then selectively warm the highlights on the fur only if it starts to look too clinical",
+          "intensity": "subtle",
+          "priority": 2,
+          "reason": "The indoor lighting casts a warm/yellow tone on the whites, which can make the fur look dingy rather than clean and soft."
+        },
+        {
+          "action": "Recover fur detail by lowering highlights/whites slightly (Highlights -10 to -25, Whites -5 to -15) and use a small local brush on the brightest fur patches; add mild texture/clarity on the fur (+10 to +20) while keeping overall clarity conservative",
+          "intensity": "subtle",
+          "priority": 3,
+          "reason": "Improves perceived sharpness and preserves the plush fur texture without making the image crunchy or harsh."
+        },
+        {
+          "action": "Apply a gentle background de-emphasis: reduce background saturation and clarity slightly, and/or add a subtle vignette centered on the dog's face",
+          "intensity": "subtle",
+          "priority": 4,
+          "reason": "The cabinets and doorway lines compete for attention; soft separation helps the dog stand out while maintaining the homey context."
+        },
+        {
+          "action": "Spot-remove small visible specks/debris on the fur using Heal/Content-Aware (especially mid-body area)",
+          "intensity": "subtle",
+          "priority": 5,
+          "reason": "Cleans up minor distractions that draw the eye on an otherwise smooth, bright subject."
+        }
+      ],
+      "context": {
+        "genre": "other",
+        "subject": "A fluffy white dog sleeping on its back indoors, shot from a low angle",
+        "mood": "cozy, playful, relaxed",
+        "preserve": [
+          "The candid, low-angle perspective and playful upside-down pose",
+          "The natural, soft indoor lighting feel (avoid over-contrasty or overly cool styling)"
+        ],
+        "technical": {
+          "exposure": "good",
+          "white_balance": "slightly_warm",
+          "focus": "acceptable",
+          "noise": "low"
+        }
+      },
+      "llm": "openai"
+    },
+    {
+      "genre": "portrait",
+      "subject": "White fluffy dog (possibly Samoyed) lying on floor in relaxed pose",
+      "mood": "Playful, relaxed, and casual home environment",
+      "score": 72.0,
+      "technical_assessment": {
+        "exposure": "slightly_over",
+        "white_balance": "slightly_warm",
+        "focus": "acceptable",
+        "noise": "low"
+      },
+      "improvements": [
+        "[MODERATE] Reduce highlights by -15 to -20 in the white fur to recover texture detail, especially on the body and tail",
+        "[SUBTLE] Increase contrast in midtones using gentle S-curve to add depth and separation between the dog and background",
+        "[MODERATE] Apply selective sharpening to the dog's face, particularly the nose and eyes, while keeping fur soft",
+        "[SUBTLE] Cool down white balance slightly by adjusting temperature -200K to achieve more neutral whites in the fur",
+        "[SUBTLE] Darken background slightly using radial gradient to create subtle vignette effect and emphasize subject"
+      ],
+      "preserve": [
+        "The playful, candid pose and relaxed composition",
+        "The natural home environment context",
+        "The soft, fluffy texture quality of the fur"
+      ],
+      "notes": "This is a charming candid portrait with good composition, but the white fur is slightly overexposed, losing valuable texture detail. The main improvements focus on recovering highlight detail and adding dimensional depth while maintaining the casual, relaxed atmosphere. The soft focus is acceptable for this type of candid shot but could benefit from selective sharpening on key facial features.",
+      "improvements_detailed": [
+        {
+          "action": "Reduce highlights by -15 to -20 in the white fur to recover texture detail, especially on the body and tail",
+          "intensity": "moderate",
+          "priority": 1,
+          "reason": "The brightest areas of the fur are losing detail and texture due to overexposure, reducing the dimensional quality of the subject"
+        },
+        {
+          "action": "Increase contrast in midtones using gentle S-curve to add depth and separation between the dog and background",
+          "intensity": "subtle",
+          "priority": 2,
+          "reason": "The image feels slightly flat; adding tonal separation will make the subject pop more against the floor and kitchen background"
+        },
+        {
+          "action": "Apply selective sharpening to the dog's face, particularly the nose and eyes, while keeping fur soft",
+          "intensity": "moderate",
+          "priority": 3,
+          "reason": "The focus is slightly soft on the facial features; targeted sharpening will draw attention to the dog's expression without creating harsh edges"
+        },
+        {
+          "action": "Cool down white balance slightly by adjusting temperature -200K to achieve more neutral whites in the fur",
+          "intensity": "subtle",
+          "priority": 4,
+          "reason": "The warm cast is affecting the white fur appearance, making it appear slightly cream-colored rather than pure white"
+        },
+        {
+          "action": "Darken background slightly using radial gradient to create subtle vignette effect and emphasize subject",
+          "intensity": "subtle",
+          "priority": 5,
+          "reason": "The bright kitchen area in background competes for attention; subtle darkening will keep focus on the dog"
+        }
+      ],
+      "context": {
+        "genre": "portrait",
+        "subject": "White fluffy dog (possibly Samoyed) lying on floor in relaxed pose",
+        "mood": "Playful, relaxed, and casual home environment",
+        "preserve": [
+          "The playful, candid pose and relaxed composition",
+          "The natural home environment context",
+          "The soft, fluffy texture quality of the fur"
+        ],
+        "technical": {
+          "exposure": "slightly_over",
+          "white_balance": "slightly_warm",
+          "focus": "acceptable",
+          "noise": "low"
+        }
+      },
+      "llm": "anthropic"
+    }
+  ],
+  "consensus_score": 77.3,
+  "combined_improvements": [
+    "[MODERATE] Spot healing / Clone stamp",
+    "[SUBTLE] Crop",
+    "[SUBTLE] HSL / Saturation",
+    "[SUBTLE] Texture / Clarity",
+    "[MODERATE] Crop tighter to reduce distracting background (left doorframe and upper doorway) and place the dog's face/nose closer to a rule-of-thirds point; consider a 4:5 or tighter landscape crop that keeps the paws while minimizing empty wall space",
+    "[SUBTLE] Cool white balance slightly (reduce Temp a bit) and add a touch of magenta if needed; then selectively warm the highlights on the fur only if it starts to look too clinical",
+    "[SUBTLE] Recover fur detail by lowering highlights/whites slightly (Highlights -10 to -25, Whites -5 to -15) and use a small local brush on the brightest fur patches; add mild texture/clarity on the fur (+10 to +20) while keeping overall clarity conservative",
+    "[SUBTLE] Apply a gentle background de-emphasis: reduce background saturation and clarity slightly, and/or add a subtle vignette centered on the dog's face",
+    "[SUBTLE] Spot-remove small visible specks/debris on the fur using Heal/Content-Aware (especially mid-body area)",
+    "[MODERATE] Reduce highlights by -15 to -20 in the white fur to recover texture detail, especially on the body and tail",
+    "[SUBTLE] Increase contrast in midtones using gentle S-curve to add depth and separation between the dog and background",
+    "[MODERATE] Apply selective sharpening to the dog's face, particularly the nose and eyes, while keeping fur soft",
+    "[SUBTLE] Cool down white balance slightly by adjusting temperature -200K to achieve more neutral whites in the fur",
+    "[SUBTLE] Darken background slightly using radial gradient to create subtle vignette effect and emphasize subject"
+  ],
+  "improvements_detailed": [
+    {
+      "action": "Spot healing / Clone stamp",
+      "intensity": "moderate",
+      "priority": 1,
+      "reason": "Remove small dark debris specks from the dog's white belly fur and the floor to clean up the image."
+    },
+    {
+      "action": "Crop",
+      "intensity": "subtle",
+      "priority": 2,
+      "reason": "Tighten the frame by cropping slightly from the left to remove the distracting door jamb and focus attention on the subject."
+    },
+    {
+      "action": "HSL / Saturation",
+      "intensity": "subtle",
+      "priority": 3,
+      "reason": "Slightly desaturate yellows and oranges in the background to reduce distraction from the warm hallway light."
+    },
+    {
+      "action": "Texture / Clarity",
+      "intensity": "subtle",
+      "priority": 4,
+      "reason": "Apply locally to the fur to enhance the fluffy texture without making the image look harsh."
+    },
+    {
+      "action": "Crop tighter to reduce distracting background (left doorframe and upper doorway) and place the dog's face/nose closer to a rule-of-thirds point; consider a 4:5 or tighter landscape crop that keeps the paws while minimizing empty wall space",
+      "intensity": "moderate",
+      "priority": 1,
+      "reason": "Simplifies the frame and strengthens the subject emphasis, making the expression and fluffy texture the clear focal point."
+    },
+    {
+      "action": "Cool white balance slightly (reduce Temp a bit) and add a touch of magenta if needed; then selectively warm the highlights on the fur only if it starts to look too clinical",
+      "intensity": "subtle",
+      "priority": 2,
+      "reason": "The indoor lighting casts a warm/yellow tone on the whites, which can make the fur look dingy rather than clean and soft."
+    },
+    {
+      "action": "Recover fur detail by lowering highlights/whites slightly (Highlights -10 to -25, Whites -5 to -15) and use a small local brush on the brightest fur patches; add mild texture/clarity on the fur (+10 to +20) while keeping overall clarity conservative",
+      "intensity": "subtle",
+      "priority": 3,
+      "reason": "Improves perceived sharpness and preserves the plush fur texture without making the image crunchy or harsh."
+    },
+    {
+      "action": "Apply a gentle background de-emphasis: reduce background saturation and clarity slightly, and/or add a subtle vignette centered on the dog's face",
+      "intensity": "subtle",
+      "priority": 4,
+      "reason": "The cabinets and doorway lines compete for attention; soft separation helps the dog stand out while maintaining the homey context."
+    },
+    {
+      "action": "Spot-remove small visible specks/debris on the fur using Heal/Content-Aware (especially mid-body area)",
+      "intensity": "subtle",
+      "priority": 5,
+      "reason": "Cleans up minor distractions that draw the eye on an otherwise smooth, bright subject."
+    },
+    {
+      "action": "Reduce highlights by -15 to -20 in the white fur to recover texture detail, especially on the body and tail",
+      "intensity": "moderate",
+      "priority": 1,
+      "reason": "The brightest areas of the fur are losing detail and texture due to overexposure, reducing the dimensional quality of the subject"
+    },
+    {
+      "action": "Increase contrast in midtones using gentle S-curve to add depth and separation between the dog and background",
+      "intensity": "subtle",
+      "priority": 2,
+      "reason": "The image feels slightly flat; adding tonal separation will make the subject pop more against the floor and kitchen background"
+    },
+    {
+      "action": "Apply selective sharpening to the dog's face, particularly the nose and eyes, while keeping fur soft",
+      "intensity": "moderate",
+      "priority": 3,
+      "reason": "The focus is slightly soft on the facial features; targeted sharpening will draw attention to the dog's expression without creating harsh edges"
+    },
+    {
+      "action": "Cool down white balance slightly by adjusting temperature -200K to achieve more neutral whites in the fur",
+      "intensity": "subtle",
+      "priority": 4,
+      "reason": "The warm cast is affecting the white fur appearance, making it appear slightly cream-colored rather than pure white"
+    },
+    {
+      "action": "Darken background slightly using radial gradient to create subtle vignette effect and emphasize subject",
+      "intensity": "subtle",
+      "priority": 5,
+      "reason": "The bright kitchen area in background competes for attention; subtle darkening will keep focus on the dog"
+    }
+  ],
+  "context": {
+    "genre": "portrait",
+    "subject": "A fluffy white dog sleeping on its back indoors, shot from a low angle",
+    "mood": "Playful, relaxed, and casual home environment",
+    "preserve": [
+      "The exposure of the white fur (avoid blowing out highlights)",
+      "The sharp detail on the nose and mouth area",
+      "The candid, low-angle perspective and playful upside-down pose",
+      "The natural, soft indoor lighting feel (avoid over-contrasty or overly cool styling)",
+      "The playful, candid pose and relaxed composition",
+      "The natural home environment context",
+      "The soft, fluffy texture quality of the fur"
+    ],
+    "technical": {
+      "exposure": "good",
+      "white_balance": "slightly_warm",
+      "focus": "acceptable",
+      "noise": "low"
+    }
+  },
+  "summary": "[GEMINI] A charming and technically solid capture with good focus on the face. The exposure is handled well for a white subject, maintaining detail in the highlights. Editing should focus on cleaning up minor distractions like debris and background clutter to elevate the presentation. | [OPENAI] The image has a charming candid moment with pleasing exposure and low noise, but the busy background reduces subject impact. A tighter crop, slightly cooler WB, and selective highlight control on the white fur will improve separation and texture while keeping the cozy mood intact. | [ANTHROPIC] This is a charming candid portrait with good composition, but the white fur is slightly overexposed, losing valuable texture detail. The main improvements focus on recovering highlight detail and adding dimensional depth while maintaining the casual, relaxed atmosphere. The soft focus is acceptable for this type of candid shot but could benefit from selective sharpening on key facial features.",
+  "score": 77.3,
+  "improvements": [
+    "[MODERATE] Spot healing / Clone stamp",
+    "[SUBTLE] Crop",
+    "[SUBTLE] HSL / Saturation",
+    "[SUBTLE] Texture / Clarity",
+    "[MODERATE] Crop tighter to reduce distracting background (left doorframe and upper doorway) and place the dog's face/nose closer to a rule-of-thirds point; consider a 4:5 or tighter landscape crop that keeps the paws while minimizing empty wall space"
+  ],
+  "notes": "[GEMINI] A charming and technically solid capture with good focus on the face. The exposure is handled well for a white subject, maintaining detail in the highlights. Editing should focus on cleaning up minor distractions like debris and background clutter to elevate the presentation. | [OPENAI] The image has a charming candid moment with pleasing exposure and low noise, but the busy background reduces subject impact. A tighter crop, slightly cooler WB, and selective highlight control on the white fur will improve separation and texture while keeping the cozy mood intact. | [ANTHROPIC] This is a charming candid portrait with good composition, but the white fur is slightly overexposed, losing valuable texture detail. The main improvements focus on recovering highlight detail and adding dimensional depth while maintaining the casual, relaxed atmosphere. The soft focus is acceptable for this type of candid shot but could benefit from selective sharpening on key facial features.",
+  "re_review": {
+    "critiques": [
+      {
+        "genre": "portrait",
+        "subject": "Close-up of a white, fluffy Samoyed dog sleeping upside down on a tiled floor",
+        "mood": "playful, humorous, relaxed",
+        "score": 78.0,
+        "technical_assessment": {
+          "exposure": "good",
+          "white_balance": "neutral",
+          "focus": "sharp",
+          "noise": "moderate"
+        },
+        "improvements": [
+          "[MODERATE] Reduce highlights by -15 to -20",
+          "[SUBTLE] Increase texture/clarity locally on the nose and mouth",
+          "[MODERATE] Apply luminance noise reduction",
+          "[SUBTLE] Add a subtle post-crop vignette"
+        ],
+        "preserve": [
+          "The rich black levels of the nose and mouth",
+          "The clean white tone of the fur (avoid inducing color casts)"
+        ],
+        "notes": "This is a charming and sharp pet portrait that captures a great expression. The primary goal of editing should be texture management\u2014keeping the fur soft but detailed while ensuring the background noise and clutter do not distract from the subject.",
+        "improvements_detailed": [
+          {
+            "action": "Reduce highlights by -15 to -20",
+            "intensity": "moderate",
+            "priority": 1,
+            "reason": "Recover fine texture details in the bright white fur to prevent it from looking washed out"
+          },
+          {
+            "action": "Increase texture/clarity locally on the nose and mouth",
+            "intensity": "subtle",
+            "priority": 2,
+            "reason": "Emphasize the focal point of the face and the texture of the nose without making the soft fur look harsh"
+          },
+          {
+            "action": "Apply luminance noise reduction",
+            "intensity": "moderate",
+            "priority": 3,
+            "reason": "Smooth out the visible grain in the darker floor tiles and background areas"
+          },
+          {
+            "action": "Add a subtle post-crop vignette",
+            "intensity": "subtle",
+            "priority": 4,
+            "reason": "Draw attention away from the domestic background elements and towards the dog's face"
+          }
+        ],
+        "context": {
+          "genre": "portrait",
+          "subject": "Close-up of a white, fluffy Samoyed dog sleeping upside down on a tiled floor",
+          "mood": "playful, humorous, relaxed",
+          "preserve": [
+            "The rich black levels of the nose and mouth",
+            "The clean white tone of the fur (avoid inducing color casts)"
+          ],
+          "technical": {
+            "exposure": "good",
+            "white_balance": "neutral",
+            "focus": "sharp",
+            "noise": "moderate"
+          }
+        },
+        "llm": "gemini"
+      },
+      {
+        "genre": "wildlife",
+        "subject": "close-up of a fluffy white dog lying on the floor, sleeping with nose and muzzle prominent",
+        "mood": "cozy, calm, playful-candid",
+        "score": 78.0,
+        "technical_assessment": {
+          "exposure": "good",
+          "white_balance": "slightly_warm",
+          "focus": "acceptable",
+          "noise": "low"
+        },
+        "improvements": [
+          "[MODERATE] Crop tighter to reduce the distracting background (doorway/room) and place the dog's nose/muzzle closer to a rule-of-thirds point; optionally trim some from the top/left while keeping enough body for context",
+          "[MODERATE] Recover highlight detail in the white fur using Highlights -20 to -40 and Whites -5 to -15; add a small midtone contrast boost via a gentle S-curve",
+          "[SUBTLE] Apply local adjustments on the face: add Texture +10 to +20 and Clarity +5 to +10 around the nose/muzzle; lightly dodge the nose catchlights/exposed teeth area (+0.2 to +0.4 EV) and burn surrounding fur (-0.1 to -0.3 EV) for separation",
+          "[SUBTLE] Cool the overall white balance slightly (Temp -200 to -500K) and reduce yellow/orange saturation in the background (HSL: Orange/Yellow Sat -10 to -25); optionally add a subtle vignette (-8 to -15)",
+          "[SUBTLE] Apply mild noise reduction to smooth lifted fur tones if needed (Luminance NR 5-15) and add restrained sharpening with masking (Amount 40-70, Masking 70-90) to avoid sharpening the background"
+        ],
+        "preserve": [
+          "the candid, low-angle perspective that makes the moment feel intimate",
+          "the soft, relaxed tonality that matches the sleeping mood"
+        ],
+        "notes": "The image has a charming candid moment with solid exposure and low noise, but the busy background competes with the subject. A tighter crop plus controlled highlight recovery and targeted local contrast on the muzzle will make the dog\u2019s face pop while keeping the cozy, sleepy atmosphere intact.",
+        "improvements_detailed": [
+          {
+            "action": "Crop tighter to reduce the distracting background (doorway/room) and place the dog's nose/muzzle closer to a rule-of-thirds point; optionally trim some from the top/left while keeping enough body for context",
+            "intensity": "moderate",
+            "priority": 1,
+            "reason": "Strengthens composition and keeps attention on the dog's face, which is the emotional anchor of the image."
+          },
+          {
+            "action": "Recover highlight detail in the white fur using Highlights -20 to -40 and Whites -5 to -15; add a small midtone contrast boost via a gentle S-curve",
+            "intensity": "moderate",
+            "priority": 2,
+            "reason": "Prevents the fur from looking flat/over-bright and adds depth/texture without changing the soft, sleepy feel."
+          },
+          {
+            "action": "Apply local adjustments on the face: add Texture +10 to +20 and Clarity +5 to +10 around the nose/muzzle; lightly dodge the nose catchlights/exposed teeth area (+0.2 to +0.4 EV) and burn surrounding fur (-0.1 to -0.3 EV) for separation",
+            "intensity": "subtle",
+            "priority": 3,
+            "reason": "Improves subject separation and perceived sharpness where viewers naturally look, while keeping the rest soft."
+          },
+          {
+            "action": "Cool the overall white balance slightly (Temp -200 to -500K) and reduce yellow/orange saturation in the background (HSL: Orange/Yellow Sat -10 to -25); optionally add a subtle vignette (-8 to -15)",
+            "intensity": "subtle",
+            "priority": 4,
+            "reason": "Neutralizes warm indoor color cast on the white fur and pushes the background back so the subject feels cleaner and more prominent."
+          },
+          {
+            "action": "Apply mild noise reduction to smooth lifted fur tones if needed (Luminance NR 5-15) and add restrained sharpening with masking (Amount 40-70, Masking 70-90) to avoid sharpening the background",
+            "intensity": "subtle",
+            "priority": 5,
+            "reason": "Maintains a clean, soft look in the fur while improving definition in key edges without emphasizing background details."
+          }
+        ],
+        "context": {
+          "genre": "wildlife",
+          "subject": "close-up of a fluffy white dog lying on the floor, sleeping with nose and muzzle prominent",
+          "mood": "cozy, calm, playful-candid",
+          "preserve": [
+            "the candid, low-angle perspective that makes the moment feel intimate",
+            "the soft, relaxed tonality that matches the sleeping mood"
+          ],
+          "technical": {
+            "exposure": "good",
+            "white_balance": "slightly_warm",
+            "focus": "acceptable",
+            "noise": "low"
+          }
+        },
+        "llm": "openai"
+      },
+      {
+        "genre": "portrait",
+        "subject": "White fluffy dog (likely Samoyed) lying down on floor with head resting on paws",
+        "mood": "Relaxed, cozy, intimate",
+        "score": 72.0,
+        "technical_assessment": {
+          "exposure": "slightly_over",
+          "white_balance": "slightly_warm",
+          "focus": "acceptable",
+          "noise": "low"
+        },
+        "improvements": [
+          "[MODERATE] Recover highlights in white fur, particularly on head and body, by reducing highlights -15 to -25 to restore texture and dimension",
+          "[SUBTLE] Increase clarity/texture by +10-15 specifically on the dog's fur to enhance individual hair definition",
+          "[SUBTLE] Slightly cool white balance by adjusting temperature -200K to neutralize the yellow cast and achieve more accurate white tones",
+          "[SUBTLE] Darken background elements by -0.3 to -0.5 EV using graduated filter or local adjustment to reduce distraction"
+        ],
+        "preserve": [
+          "Soft, intimate lighting quality that creates the cozy mood",
+          "Natural pose and candid moment of the subject",
+          "Overall warm domestic atmosphere"
+        ],
+        "notes": "This is a charming candid portrait with good composition and mood. The main technical challenge is managing the white-on-white exposure where bright fur loses texture and detail. The slight overexposure and warm cast are the primary issues preventing this from being a stronger image. With highlight recovery and subtle texture enhancement, the fluffy character of the subject will be much more apparent while maintaining the relaxed, homey feeling.",
+        "improvements_detailed": [
+          {
+            "action": "Recover highlights in white fur, particularly on head and body, by reducing highlights -15 to -25 to restore texture and dimension",
+            "intensity": "moderate",
+            "priority": 1,
+            "reason": "White fur is blown out in several areas, losing detail and making the subject appear flat; recovering highlights will reveal fur texture and create depth"
+          },
+          {
+            "action": "Increase clarity/texture by +10-15 specifically on the dog's fur to enhance individual hair definition",
+            "intensity": "subtle",
+            "priority": 2,
+            "reason": "Soft focus combined with bright white fur creates loss of detail; selective texture enhancement will add visual interest while maintaining the gentle mood"
+          },
+          {
+            "action": "Slightly cool white balance by adjusting temperature -200K to neutralize the yellow cast and achieve more accurate white tones",
+            "intensity": "subtle",
+            "priority": 3,
+            "reason": "The warm yellow tone from ambient lighting affects the perception of the white fur; cooling slightly will make the whites appear cleaner while maintaining natural warmth"
+          },
+          {
+            "action": "Darken background elements by -0.3 to -0.5 EV using graduated filter or local adjustment to reduce distraction",
+            "intensity": "subtle",
+            "priority": 4,
+            "reason": "The bright doorway and background elements compete for attention; subtle darkening will keep focus on the subject"
+          }
+        ],
+        "context": {
+          "genre": "portrait",
+          "subject": "White fluffy dog (likely Samoyed) lying down on floor with head resting on paws",
+          "mood": "Relaxed, cozy, intimate",
+          "preserve": [
+            "Soft, intimate lighting quality that creates the cozy mood",
+            "Natural pose and candid moment of the subject",
+            "Overall warm domestic atmosphere"
+          ],
+          "technical": {
+            "exposure": "slightly_over",
+            "white_balance": "slightly_warm",
+            "focus": "acceptable",
+            "noise": "low"
+          }
+        },
+        "llm": "anthropic"
+      }
+    ],
+    "consensus_score": 76.0,
+    "score": 76.0,
+    "notes": "[GEMINI] This is a charming and sharp pet portrait that captures a great expression. The primary goal of editing should be texture management\u2014keeping the fur soft but detailed while ensuring the background noise and clutter do not distract from the subject. | [OPENAI] The image has a charming candid moment with solid exposure and low noise, but the busy background competes with the subject. A tighter crop plus controlled highlight recovery and targeted local contrast on the muzzle will make the dog\u2019s face pop while keeping the cozy, sleepy atmosphere intact. | [ANTHROPIC] This is a charming candid portrait with good composition and mood. The main technical challenge is managing the white-on-white exposure where bright fur loses texture and detail. The slight overexposure and warm cast are the primary issues preventing this from being a stronger image. With highlight recovery and subtle texture enhancement, the fluffy character of the subject will be much more apparent while maintaining the relaxed, homey feeling.",
+    "summary": "[GEMINI] This is a charming and sharp pet portrait that captures a great expression. The primary goal of editing should be texture management\u2014keeping the fur soft but detailed while ensuring the background noise and clutter do not distract from the subject. | [OPENAI] The image has a charming candid moment with solid exposure and low noise, but the busy background competes with the subject. A tighter crop plus controlled highlight recovery and targeted local contrast on the muzzle will make the dog\u2019s face pop while keeping the cozy, sleepy atmosphere intact. | [ANTHROPIC] This is a charming candid portrait with good composition and mood. The main technical challenge is managing the white-on-white exposure where bright fur loses texture and detail. The slight overexposure and warm cast are the primary issues preventing this from being a stronger image. With highlight recovery and subtle texture enhancement, the fluffy character of the subject will be much more apparent while maintaining the relaxed, homey feeling.",
+    "context": {
+      "genre": "portrait",
+      "subject": "close-up of a fluffy white dog lying on the floor, sleeping with nose and muzzle prominent",
+      "mood": "playful, humorous, relaxed",
+      "preserve": [
+        "The rich black levels of the nose and mouth",
+        "The clean white tone of the fur (avoid inducing color casts)",
+        "the candid, low-angle perspective that makes the moment feel intimate",
+        "the soft, relaxed tonality that matches the sleeping mood",
+        "Soft, intimate lighting quality that creates the cozy mood",
+        "Natural pose and candid moment of the subject",
+        "Overall warm domestic atmosphere"
+      ],
+      "technical": {
+        "exposure": "good",
+        "white_balance": "slightly_warm",
+        "focus": "acceptable",
+        "noise": "low"
+      }
+    },
+    "score_delta": -1.3
+  },
+  "timestamp": "20260130-212822",
+  "entry_id": "20260130-212822-42d6fcbe",
+  "original_filename": "IMG_1428_Original.jpeg",
+  "original_image": "original.jpeg",
+  "edited_image": "edited.jpeg"
+}
