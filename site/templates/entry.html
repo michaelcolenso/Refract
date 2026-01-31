@@ -122,7 +122,7 @@
                 <h3 class="comparison-title">Before & After Comparison</h3>
 
                 <!-- Interactive Before/After Slider -->
-                <div class="comparison-slider" id="comparison-slider">
+            <div class="comparison-slider" id="comparison-slider"{% if entry.comparison_max_width %} style="--comparison-max-width: {{ entry.comparison_max_width }}px;"{% endif %}>
                     <div class="comparison-wrapper">
                         <img src="{{ entry.web_edited }}" alt="Enhanced" class="comparison-img comparison-after">
                         <div class="comparison-overlay" id="comparison-overlay">

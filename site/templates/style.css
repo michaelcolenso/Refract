@@ -571,11 +571,13 @@ img {
   margin: 0 auto 20px;
   user-select: none;
   touch-action: none;
+  --comparison-max-width: 100%;
 }
 
 .comparison-wrapper {
   position: relative;
-  width: 100%;
+  width: min(100%, var(--comparison-max-width));
+  margin: 0 auto;
   overflow: hidden;
   border-radius: 12px;
   box-shadow: 0 14px 30px rgba(18, 24, 40, 0.15);
@@ -669,6 +671,8 @@ img {
 .comparison-labels {
   display: flex;
   justify-content: space-between;
+  width: min(100%, var(--comparison-max-width));
+  margin: 0 auto;
   padding: 10px 5px 0;
   font-size: 0.8rem;
   font-weight: 600;

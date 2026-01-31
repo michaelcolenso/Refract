@@ -213,6 +213,20 @@ class SiteGenerator:
             # Determine image paths
             original_src = entry_dir / entry['original_image']
             edited_src = entry_dir / entry['edited_image']
+            original_size = None
+            edited_size = None
+
+            try:
+                from PIL import Image as PILImage
+                if original_src.exists():
+                    with PILImage.open(original_src) as img:
+                        original_size = img.size
+                if edited_src.exists():
+                    with PILImage.open(edited_src) as img:
+                        edited_size = img.size
+            except Exception:
+                original_size = None
+                edited_size = None
 
             original_dest = images_dir / f"{entry_id}-original{original_src.suffix}"
             edited_dest = images_dir / f"{entry_id}-edited{edited_src.suffix}"
@@ -236,6 +250,8 @@ class SiteGenerator:
             entry['web_original'] = f"images/{original_dest.name}"
             entry['web_edited'] = f"images/{edited_dest.name}"
             entry['web_comparison'] = f"images/{comparison_dest.name}"
+            if original_size and edited_size:
+                entry['comparison_max_width'] = min(original_size[0], edited_size[0])
 
             # Generate entry page if new
             if is_new:
