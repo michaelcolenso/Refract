@@ -121,39 +121,16 @@
             <div class="comparison-container">
                 <h3 class="comparison-title">Before & After Comparison</h3>
 
-                <!-- Interactive Before/After Slider -->
-            <div class="comparison-slider" id="comparison-slider"{% if entry.comparison_max_width %} style="--comparison-max-width: {{ entry.comparison_max_width }}px;{% if entry.comparison_max_height %} --comparison-max-height: {{ entry.comparison_max_height }}px;{% endif %}"{% endif %}>
-                    <div class="comparison-wrapper">
-                        <img src="{{ entry.web_edited }}" alt="Enhanced" class="comparison-img comparison-after">
-                        <div class="comparison-overlay" id="comparison-overlay">
-                            <img src="{{ entry.web_original }}" alt="Original" class="comparison-img comparison-before">
-                        </div>
-                        <div class="slider-handle" id="slider-handle">
-                            <div class="slider-line"></div>
-                            <div class="slider-button">
-                                <span class="slider-arrows"></span>
-                            </div>
-                        </div>
+                <div class="comparison-simple">
+                    <div>
+                        <div class="comparison-label">Original</div>
+                        <img src="{{ entry.web_original }}" alt="Original">
                     </div>
-                    <div class="comparison-labels">
-                        <span class="label-before">Original</span>
-                        <span class="label-after">Enhanced</span>
+                    <div>
+                        <div class="comparison-label">Enhanced</div>
+                        <img src="{{ entry.web_edited }}" alt="Enhanced">
                     </div>
                 </div>
-
-                <!-- Fallback side-by-side (shown if JS disabled) -->
-                <noscript>
-                    <div class="comparison-simple">
-                        <div>
-                            <div class="comparison-label">Original</div>
-                            <img src="{{ entry.web_original }}" alt="Original">
-                        </div>
-                        <div>
-                            <div class="comparison-label">Enhanced</div>
-                            <img src="{{ entry.web_edited }}" alt="Enhanced">
-                        </div>
-                    </div>
-                </noscript>
 
                 <!-- Full comparison image -->
                 <div class="comparison-full">
@@ -169,61 +146,5 @@
         </footer>
     </div>
 
-    <script>
-        // Interactive Before/After Slider
-        (function() {
-            const slider = document.getElementById('comparison-slider');
-            const overlay = document.getElementById('comparison-overlay');
-            const handle = document.getElementById('slider-handle');
-
-            if (!slider || !overlay || !handle) return;
-
-            let isDragging = false;
-
-            function updateSlider(x) {
-                const rect = slider.getBoundingClientRect();
-                let percentage = ((x - rect.left) / rect.width) * 100;
-                percentage = Math.max(0, Math.min(100, percentage));
-
-                overlay.style.width = percentage + '%';
-                handle.style.left = percentage + '%';
-            }
-
-            function startDrag(e) {
-                isDragging = true;
-                e.preventDefault();
-            }
-
-            function endDrag() {
-                isDragging = false;
-            }
-
-            function drag(e) {
-                if (!isDragging) return;
-                e.preventDefault();
-                const x = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
-                updateSlider(x);
-            }
-
-            // Mouse events
-            handle.addEventListener('mousedown', startDrag);
-            document.addEventListener('mouseup', endDrag);
-            document.addEventListener('mousemove', drag);
-
-            // Touch events
-            handle.addEventListener('touchstart', startDrag);
-            document.addEventListener('touchend', endDrag);
-            document.addEventListener('touchmove', drag);
-
-            // Click to position
-            slider.addEventListener('click', function(e) {
-                if (e.target === handle || e.target.closest('.slider-handle')) return;
-                updateSlider(e.clientX);
-            });
-
-            // Initialize at 50%
-            updateSlider(slider.getBoundingClientRect().left + slider.offsetWidth / 2);
-        })();
-    </script>
 </body>
 </html>
