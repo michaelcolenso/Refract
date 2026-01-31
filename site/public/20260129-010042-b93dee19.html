@@ -4,18 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IMG_2008_Original.jpeg - REFRACT</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <header>
+        <header class="hero hero-compact">
             <h1>REFRACT</h1>
-            <p>Photography Analysis & Enhancement</p>
+            <p class="subtitle">Photography Analysis & Enhancement</p>
         </header>
 
         <a href="index.html" class="back-link">Back to Gallery</a>
 
         <div class="entry-detail">
+            <div class="entry-hero">
+                <img src="images/20260129-010042-b93dee19-edited.jpeg" alt="Edited IMG_2008_Original.jpeg" class="entry-hero-image">
+            </div>
             <h2>IMG_2008_Original.jpeg</h2>
 
             <div class="metadata">
@@ -25,71 +29,77 @@
 
             <div class="analysis">
                 <h3>Multi-LLM Analysis</h3>
-                <div class="score-display">80.0/100</div>
-                <p style="text-align: center; color: #666; margin-bottom: 20px;">Consensus Score</p>
 
                 
-                <div class="llm-critiques" style="display: grid; gap: 15px; margin-bottom: 25px;">
-                    
-                    <div class="llm-critique" style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #4285f4;">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                            <strong style="text-transform: uppercase;">gemini</strong>
+                <div class="score-display">80.0/100</div>
+                <p class="score-caption">Consensus Score</p>
+                
+
+                
+                <div class="review-phase">
+                    <h4 class="review-phase-label">Original Review</h4>
+                    <div class="llm-critiques">
+                        
+                        <div class="llm-critique llm-gemini">
+                            <div class="llm-critique-header">
+                                <strong class="llm-name">gemini</strong>
+                                
+                                <span class="score-pill score-good">82.0/100</span>
+                                
+                            </div>
                             
-                            <span style="background: #27ae60; color: white; padding: 4px 12px; border-radius: 15px; font-weight: bold;">82.0/100</span>
+                            <p class="llm-notes">A strong composition balancing the sun on the left with the vertical trees on the right. The unique cloud pattern is the hero of this shot and should be highlighted through texture adjustments, while keeping the color grading natural but vibrant.</p>
+                            
+                            
+                            <ul class="llm-improvements">
+                                
+                                <li>Increase local contrast (Clarity) on the cloud formations</li>
+                                
+                                <li>Deepen blacks/shadows</li>
+                                
+                                <li>Boost Vibrance and warm saturation</li>
+                                
+                            </ul>
                             
                         </div>
                         
-                        <p style="margin: 0; color: #555; font-size: 0.9em;">A strong composition balancing the sun on the left with the vertical trees on the right. The unique cloud pattern is the hero of this shot and should be highlighted through texture adjustments, while keeping the color grading natural but vibrant.</p>
-                        
-                        
-                        <ul style="margin: 10px 0 0 0; padding-left: 20px; font-size: 0.85em; color: #666;">
+                        <div class="llm-critique llm-openai">
+                            <div class="llm-critique-header">
+                                <strong class="llm-name">openai</strong>
+                                
+                                <span class="score-pill score-mid">78.0/100</span>
+                                
+                            </div>
                             
-                            <li>[MODERATE] Increase local contrast (Clarity) on the cloud formations</li>
+                            <p class="llm-notes">The image has a pleasing sunset gradient and strong silhouette composition, with attractive layered clouds. Minor highlight recovery, selective shadow control, and localized sky contrast will improve tonal balance and clarity while preserving the intended warm, tranquil mood.</p>
                             
-                            <li>[SUBTLE] Deepen blacks/shadows</li>
                             
-                            <li>[SUBTLE] Boost Vibrance and warm saturation</li>
-                            
-                        </ul>
-                        
-                    </div>
-                    
-                    <div class="llm-critique" style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #10a37f;">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                            <strong style="text-transform: uppercase;">openai</strong>
-                            
-                            <span style="background: #f39c12; color: white; padding: 4px 12px; border-radius: 15px; font-weight: bold;">78.0/100</span>
-                            
-                        </div>
-                        
-                        <p style="margin: 0; color: #555; font-size: 0.9em;">The image has a pleasing sunset gradient and strong silhouette composition, with attractive layered clouds. Minor highlight recovery, selective shadow control, and localized sky contrast will improve tonal balance and clarity while preserving the intended warm, tranquil mood.</p>
-                        
-                        
-                        <ul style="margin: 10px 0 0 0; padding-left: 20px; font-size: 0.85em; color: #666;">
-                            
-                            <li>[MODERATE] Recover highlight detail around the sun by lowering Highlights (~-40 to -70) and Whites slightly (~-10 to -25), then use a subtle radial mask to tame the brightest core while keeping it luminous</li>
-                            
-                            <li>[SUBTLE] Lift midtone shadows selectively in the tree line/foreground with a luminance-range mask (Shadows +15 to +30) while keeping true blacks anchored (Blacks -5 to -15)</li>
-                            
-                            <li>[SUBTLE] Add local contrast and structure to the cloud bands using a graduated mask (Texture +10 to +20, Clarity +8 to +15, Dehaze +5 to +10)</li>
-                            
-                        </ul>
-                        
-                    </div>
-                    
-                    <div class="llm-critique" style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #d97706;">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                            <strong style="text-transform: uppercase;">anthropic</strong>
-                            
-                            <span style="background: #e74c3c; color: white; padding: 4px 12px; border-radius: 15px;">Failed</span>
+                            <ul class="llm-improvements">
+                                
+                                <li>Recover highlight detail around the sun by lowering Highlights (~-40 to -70) and Whites slightly (~-10 to -25), then use a subtle radial mask to tame the brightest core while keeping it luminous</li>
+                                
+                                <li>Lift midtone shadows selectively in the tree line/foreground with a luminance-range mask (Shadows +15 to +30) while keeping true blacks anchored (Blacks -5 to -15)</li>
+                                
+                                <li>Add local contrast and structure to the cloud bands using a graduated mask (Texture +10 to +20, Clarity +8 to +15, Dehaze +5 to +10)</li>
+                                
+                            </ul>
                             
                         </div>
                         
-                        <p style="margin: 0; color: #555; font-size: 0.9em;">Analysis failed: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CXamK9utNrUTMC5PrvjoB'}</p>
-                        
+                        <div class="llm-critique llm-anthropic">
+                            <div class="llm-critique-header">
+                                <strong class="llm-name">anthropic</strong>
+                                
+                                <span class="score-pill score-fail">Failed</span>
+                                
+                            </div>
+                            
+                            <p class="llm-notes">Analysis failed: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CXamK9utNrUTMC5PrvjoB'}</p>
+                            
+                            
+                        </div>
                         
                     </div>
-                    
                 </div>
                 
 
@@ -97,30 +107,32 @@
                     <h4>Combined Improvements Applied:</h4>
                     <ul>
                         
-                        <li>[MODERATE] Increase local contrast (Clarity) on the cloud formations</li>
+                        <li>Increase local contrast (Clarity) on the cloud formations</li>
                         
-                        <li>[SUBTLE] Deepen blacks/shadows</li>
+                        <li>Deepen blacks/shadows</li>
                         
-                        <li>[SUBTLE] Boost Vibrance and warm saturation</li>
+                        <li>Boost Vibrance and warm saturation</li>
                         
-                        <li>[SUBTLE] Reduce highlights</li>
+                        <li>Reduce highlights</li>
                         
-                        <li>[MODERATE] Recover highlight detail around the sun by lowering Highlights (~-40 to -70) and Whites slightly (~-10 to -25), then use a subtle radial mask to tame the brightest core while keeping it luminous</li>
+                        <li>Recover highlight detail around the sun by lowering Highlights (~-40 to -70) and Whites slightly (~-10 to -25), then use a subtle radial mask to tame the brightest core while keeping it luminous</li>
                         
-                        <li>[SUBTLE] Lift midtone shadows selectively in the tree line/foreground with a luminance-range mask (Shadows +15 to +30) while keeping true blacks anchored (Blacks -5 to -15)</li>
+                        <li>Lift midtone shadows selectively in the tree line/foreground with a luminance-range mask (Shadows +15 to +30) while keeping true blacks anchored (Blacks -5 to -15)</li>
                         
-                        <li>[SUBTLE] Add local contrast and structure to the cloud bands using a graduated mask (Texture +10 to +20, Clarity +8 to +15, Dehaze +5 to +10)</li>
+                        <li>Add local contrast and structure to the cloud bands using a graduated mask (Texture +10 to +20, Clarity +8 to +15, Dehaze +5 to +10)</li>
                         
-                        <li>[MODERATE] Crop slightly from the left edge (and a touch from the bottom if needed) to remove the small dark intrusion and tighten composition around the sun and tall trees</li>
+                        <li>Crop slightly from the left edge (and a touch from the bottom if needed) to remove the small dark intrusion and tighten composition around the sun and tall trees</li>
                         
-                        <li>[SUBTLE] Apply mild output sharpening with masking (e.g., Amount 40–60, Radius 0.8–1.2, Masking 70–90) and slight noise reduction in the sky (Luminance NR 10–20)</li>
+                        <li>Apply mild output sharpening with masking (e.g., Amount 40–60, Radius 0.8–1.2, Masking 70–90) and slight noise reduction in the sky (Luminance NR 10–20)</li>
                         
                     </ul>
                 </div>
+
+                
             </div>
 
             <div class="comparison-container">
-                <h3 style="margin-bottom: 20px; text-align: center;">Before & After Comparison</h3>
+                <h3 class="comparison-title">Before & After Comparison</h3>
 
                 <!-- Interactive Before/After Slider -->
                 <div class="comparison-slider" id="comparison-slider">
@@ -157,9 +169,9 @@
                 </noscript>
 
                 <!-- Full comparison image -->
-                <div style="margin-top: 30px;">
+                <div class="comparison-full">
                     <div class="comparison-label">Side-by-Side</div>
-                    <img src="images/20260129-010042-b93dee19-comparison.jpg" alt="Comparison" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <img src="images/20260129-010042-b93dee19-comparison.jpg" alt="Comparison" class="comparison-full-image">
                 </div>
             </div>
         </div>

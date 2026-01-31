@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IMG_0592.jpeg - REFRACT</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,6 +17,9 @@
         <a href="index.html" class="back-link">Back to Gallery</a>
 
         <div class="entry-detail">
+            <div class="entry-hero">
+                <img src="images/20260129-033616-f69b899b-edited.jpeg" alt="Edited IMG_0592.jpeg" class="entry-hero-image">
+            </div>
             <h2>IMG_0592.jpeg</h2>
 
             <div class="metadata">
@@ -25,71 +29,77 @@
 
             <div class="analysis">
                 <h3>Multi-LLM Analysis</h3>
-                <div class="score-display">70.0/100</div>
-                <p class="score-caption">Consensus Score</p>
 
                 
-                <div class="llm-critiques">
-                    
-                    <div class="llm-critique llm-gemini">
-                        <div class="llm-critique-header">
-                            <strong class="llm-name">gemini</strong>
+                <div class="score-display">70.0/100</div>
+                <p class="score-caption">Consensus Score</p>
+                
+
+                
+                <div class="review-phase">
+                    <h4 class="review-phase-label">Original Review</h4>
+                    <div class="llm-critiques">
+                        
+                        <div class="llm-critique llm-gemini">
+                            <div class="llm-critique-header">
+                                <strong class="llm-name">gemini</strong>
+                                
+                                <span class="score-pill score-mid">62.0/100</span>
+                                
+                            </div>
                             
-                            <span class="score-pill score-mid">62.0/100</span>
+                            <p class="llm-notes">The photograph captures a lovely expression, but the technical execution is hampered by soft focus and a heavy post-processing style (haze/vignette). The goal is to modernize the edit by cleaning up the frame edges and creating the illusion of sharpness on the face.</p>
+                            
+                            
+                            <ul class="llm-improvements">
+                                
+                                <li>Selectively sharpen eyes, lips, and eyebrows using texture/clarity brushes</li>
+                                
+                                <li>Warm up skin tones and reduce magenta tint</li>
+                                
+                                <li>Reduce or feather the existing dark vignette</li>
+                                
+                            </ul>
                             
                         </div>
                         
-                        <p class="llm-notes">The photograph captures a lovely expression, but the technical execution is hampered by soft focus and a heavy post-processing style (haze/vignette). The goal is to modernize the edit by cleaning up the frame edges and creating the illusion of sharpness on the face.</p>
-                        
-                        
-                        <ul class="llm-improvements">
+                        <div class="llm-critique llm-openai">
+                            <div class="llm-critique-header">
+                                <strong class="llm-name">openai</strong>
+                                
+                                <span class="score-pill score-mid">78.0/100</span>
+                                
+                            </div>
                             
-                            <li>[MODERATE] Selectively sharpen eyes, lips, and eyebrows using texture/clarity brushes</li>
+                            <p class="llm-notes">This is a strong casual portrait with pleasing separation and a warm, inviting feel. The main opportunities are to tighten the framing and add targeted crispness to the eyes/face while slightly taming warmth and highlights for a cleaner, more polished look.</p>
                             
-                            <li>[SUBTLE] Warm up skin tones and reduce magenta tint</li>
                             
-                            <li>[MODERATE] Reduce or feather the existing dark vignette</li>
-                            
-                        </ul>
-                        
-                    </div>
-                    
-                    <div class="llm-critique llm-openai">
-                        <div class="llm-critique-header">
-                            <strong class="llm-name">openai</strong>
-                            
-                            <span class="score-pill score-mid">78.0/100</span>
-                            
-                        </div>
-                        
-                        <p class="llm-notes">This is a strong casual portrait with pleasing separation and a warm, inviting feel. The main opportunities are to tighten the framing and add targeted crispness to the eyes/face while slightly taming warmth and highlights for a cleaner, more polished look.</p>
-                        
-                        
-                        <ul class="llm-improvements">
-                            
-                            <li>[MODERATE] Apply a tighter crop to reduce empty space (especially top/left) and place the eyes near the upper third; keep some brick context but prioritize the face</li>
-                            
-                            <li>[MODERATE] Use a subject mask to add selective sharpening/texture to eyes, brows, and lips (e.g., Sharpen +20 to +35, Texture +5 to +10) while keeping skin texture natural; avoid sharpening the brick wall</li>
-                            
-                            <li>[SUBTLE] Reduce facial highlights and slightly lift midtone contrast: Highlights -10 to -25 on the face; add a gentle S-curve or Contrast +5 to +10; optionally Blacks -3 to -8</li>
-                            
-                        </ul>
-                        
-                    </div>
-                    
-                    <div class="llm-critique llm-anthropic">
-                        <div class="llm-critique-header">
-                            <strong class="llm-name">anthropic</strong>
-                            
-                            <span class="score-pill score-fail">Failed</span>
+                            <ul class="llm-improvements">
+                                
+                                <li>Apply a tighter crop to reduce empty space (especially top/left) and place the eyes near the upper third; keep some brick context but prioritize the face</li>
+                                
+                                <li>Use a subject mask to add selective sharpening/texture to eyes, brows, and lips (e.g., Sharpen +20 to +35, Texture +5 to +10) while keeping skin texture natural; avoid sharpening the brick wall</li>
+                                
+                                <li>Reduce facial highlights and slightly lift midtone contrast: Highlights -10 to -25 on the face; add a gentle S-curve or Contrast +5 to +10; optionally Blacks -3 to -8</li>
+                                
+                            </ul>
                             
                         </div>
                         
-                        <p class="llm-notes">Analysis failed: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.0.image.source.base64: image exceeds 5 MB maximum: 15154340 bytes > 5242880 bytes'}, 'request_id': 'req_011CXayBAyZcarDX5sxCM1Tu'}</p>
-                        
+                        <div class="llm-critique llm-anthropic">
+                            <div class="llm-critique-header">
+                                <strong class="llm-name">anthropic</strong>
+                                
+                                <span class="score-pill score-fail">Failed</span>
+                                
+                            </div>
+                            
+                            <p class="llm-notes">Analysis failed: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.0.image.source.base64: image exceeds 5 MB maximum: 15154340 bytes > 5242880 bytes'}, 'request_id': 'req_011CXayBAyZcarDX5sxCM1Tu'}</p>
+                            
+                            
+                        </div>
                         
                     </div>
-                    
                 </div>
                 
 
@@ -97,26 +107,28 @@
                     <h4>Combined Improvements Applied:</h4>
                     <ul>
                         
-                        <li>[MODERATE] Selectively sharpen eyes, lips, and eyebrows using texture/clarity brushes</li>
+                        <li>Selectively sharpen eyes, lips, and eyebrows using texture/clarity brushes</li>
                         
-                        <li>[SUBTLE] Warm up skin tones and reduce magenta tint</li>
+                        <li>Warm up skin tones and reduce magenta tint</li>
                         
-                        <li>[MODERATE] Reduce or feather the existing dark vignette</li>
+                        <li>Reduce or feather the existing dark vignette</li>
                         
-                        <li>[SUBTLE] Apply subtle S-curve to increase midtone contrast</li>
+                        <li>Apply subtle S-curve to increase midtone contrast</li>
                         
-                        <li>[MODERATE] Apply a tighter crop to reduce empty space (especially top/left) and place the eyes near the upper third; keep some brick context but prioritize the face</li>
+                        <li>Apply a tighter crop to reduce empty space (especially top/left) and place the eyes near the upper third; keep some brick context but prioritize the face</li>
                         
-                        <li>[MODERATE] Use a subject mask to add selective sharpening/texture to eyes, brows, and lips (e.g., Sharpen +20 to +35, Texture +5 to +10) while keeping skin texture natural; avoid sharpening the brick wall</li>
+                        <li>Use a subject mask to add selective sharpening/texture to eyes, brows, and lips (e.g., Sharpen +20 to +35, Texture +5 to +10) while keeping skin texture natural; avoid sharpening the brick wall</li>
                         
-                        <li>[SUBTLE] Reduce facial highlights and slightly lift midtone contrast: Highlights -10 to -25 on the face; add a gentle S-curve or Contrast +5 to +10; optionally Blacks -3 to -8</li>
+                        <li>Reduce facial highlights and slightly lift midtone contrast: Highlights -10 to -25 on the face; add a gentle S-curve or Contrast +5 to +10; optionally Blacks -3 to -8</li>
                         
-                        <li>[SUBTLE] Refine color: cool WB slightly (Temp -200 to -500K) and/or reduce orange/yellow saturation in skin and clothing (HSL Orange Sat -5 to -15, Yellow Sat -5 to -15) while keeping overall warmth</li>
+                        <li>Refine color: cool WB slightly (Temp -200 to -500K) and/or reduce orange/yellow saturation in skin and clothing (HSL Orange Sat -5 to -15, Yellow Sat -5 to -15) while keeping overall warmth</li>
                         
-                        <li>[MODERATE] Clean up small distractions: remove/clone the sunglasses hanging on the chest and any stray flyaway hairs if desired; optionally reduce the dark vignette at the bottom corners</li>
+                        <li>Clean up small distractions: remove/clone the sunglasses hanging on the chest and any stray flyaway hairs if desired; optionally reduce the dark vignette at the bottom corners</li>
                         
                     </ul>
                 </div>
+
+                
             </div>
 
             <div class="comparison-container">

@@ -17,6 +17,9 @@
         <a href="index.html" class="back-link">Back to Gallery</a>
 
         <div class="entry-detail">
+            <div class="entry-hero">
+                <img src="images/20260130-210039-14ad756e-edited.jpeg" alt="Edited IMG_1004.jpeg" class="entry-hero-image">
+            </div>
             <h2>IMG_1004.jpeg</h2>
 
             <div class="metadata">
@@ -26,81 +29,87 @@
 
             <div class="analysis">
                 <h3>Multi-LLM Analysis</h3>
-                <div class="score-display">65.0/100</div>
-                <p class="score-caption">Consensus Score</p>
 
                 
-                <div class="llm-critiques">
-                    
-                    <div class="llm-critique llm-gemini">
-                        <div class="llm-critique-header">
-                            <strong class="llm-name">gemini</strong>
+                <div class="score-display">65.0/100</div>
+                <p class="score-caption">Consensus Score</p>
+                
+
+                
+                <div class="review-phase">
+                    <h4 class="review-phase-label">Original Review</h4>
+                    <div class="llm-critiques">
+                        
+                        <div class="llm-critique llm-gemini">
+                            <div class="llm-critique-header">
+                                <strong class="llm-name">gemini</strong>
+                                
+                                <span class="score-pill score-mid">65.0/100</span>
+                                
+                            </div>
                             
-                            <span class="score-pill score-mid">65.0/100</span>
+                            <p class="llm-notes">A charming pet portrait that captures a great expression but suffers from missed focus (eyes are soft) and indoor lighting color casts. Editing should focus on cleaning up the white balance to make the fur look pristine while accepting the dreamier, soft-focus aesthetic.</p>
+                            
+                            
+                            <ul class="llm-improvements">
+                                
+                                <li>Correct White Balance and Tint</li>
+                                
+                                <li>Boost Exposure and Whites</li>
+                                
+                                <li>Selective Sharpening on Nose</li>
+                                
+                            </ul>
                             
                         </div>
                         
-                        <p class="llm-notes">A charming pet portrait that captures a great expression but suffers from missed focus (eyes are soft) and indoor lighting color casts. Editing should focus on cleaning up the white balance to make the fur look pristine while accepting the dreamier, soft-focus aesthetic.</p>
-                        
-                        
-                        <ul class="llm-improvements">
+                        <div class="llm-critique llm-openai">
+                            <div class="llm-critique-header">
+                                <strong class="llm-name">openai</strong>
+                                
+                                <span class="score-pill score-mid">68.0/100</span>
+                                
+                            </div>
                             
-                            <li>Correct White Balance and Tint</li>
+                            <p class="llm-notes">The image is a charming close-up with pleasing softness and a warm indoor feel, but it reads a bit dim and warm, and facial detail is slightly muted. A modest exposure/white balance correction plus targeted eye/nose enhancement and controlled noise reduction would noticeably improve clarity while keeping the gentle mood.</p>
                             
-                            <li>Boost Exposure and Whites</li>
                             
-                            <li>Selective Sharpening on Nose</li>
-                            
-                        </ul>
-                        
-                    </div>
-                    
-                    <div class="llm-critique llm-openai">
-                        <div class="llm-critique-header">
-                            <strong class="llm-name">openai</strong>
-                            
-                            <span class="score-pill score-mid">68.0/100</span>
-                            
-                        </div>
-                        
-                        <p class="llm-notes">The image is a charming close-up with pleasing softness and a warm indoor feel, but it reads a bit dim and warm, and facial detail is slightly muted. A modest exposure/white balance correction plus targeted eye/nose enhancement and controlled noise reduction would noticeably improve clarity while keeping the gentle mood.</p>
-                        
-                        
-                        <ul class="llm-improvements">
-                            
-                            <li>Crop slightly tighter and align the face centrally (trim some bottom/side fluff) to emphasize the eyes and nose; keep enough headroom so the ears don’t feel cramped</li>
-                            
-                            <li>Global tone adjustment: raise exposure about +0.3 to +0.6, reduce highlights (-10 to -25) to protect white fur, and lift shadows (+10 to +25) to open the eyes/muzzle while keeping blacks slightly anchored</li>
-                            
-                            <li>Correct white balance slightly cooler (reduce Temp a bit) and add a small Tint adjustment toward magenta if needed; then reduce yellow/orange saturation in the background via HSL to keep fur looking clean</li>
-                            
-                        </ul>
-                        
-                    </div>
-                    
-                    <div class="llm-critique llm-anthropic">
-                        <div class="llm-critique-header">
-                            <strong class="llm-name">anthropic</strong>
-                            
-                            <span class="score-pill score-mid">62.0/100</span>
+                            <ul class="llm-improvements">
+                                
+                                <li>Crop slightly tighter and align the face centrally (trim some bottom/side fluff) to emphasize the eyes and nose; keep enough headroom so the ears don’t feel cramped</li>
+                                
+                                <li>Global tone adjustment: raise exposure about +0.3 to +0.6, reduce highlights (-10 to -25) to protect white fur, and lift shadows (+10 to +25) to open the eyes/muzzle while keeping blacks slightly anchored</li>
+                                
+                                <li>Correct white balance slightly cooler (reduce Temp a bit) and add a small Tint adjustment toward magenta if needed; then reduce yellow/orange saturation in the background via HSL to keep fur looking clean</li>
+                                
+                            </ul>
                             
                         </div>
                         
-                        <p class="llm-notes">This is a charming pet portrait with great subject expression, but suffers from soft focus and slight underexposure that diminishes the impact. The priority should be selective sharpening of key features and brightening to showcase the beautiful white fur texture. The warm, inviting atmosphere should be preserved while correcting the slight yellow cast for more accurate color.</p>
-                        
-                        
-                        <ul class="llm-improvements">
+                        <div class="llm-critique llm-anthropic">
+                            <div class="llm-critique-header">
+                                <strong class="llm-name">anthropic</strong>
+                                
+                                <span class="score-pill score-mid">62.0/100</span>
+                                
+                            </div>
                             
-                            <li>Apply sharpening to eyes and nose area using unsharp mask (Amount: 80, Radius: 1.0, Threshold: 2)</li>
+                            <p class="llm-notes">This is a charming pet portrait with great subject expression, but suffers from soft focus and slight underexposure that diminishes the impact. The priority should be selective sharpening of key features and brightening to showcase the beautiful white fur texture. The warm, inviting atmosphere should be preserved while correcting the slight yellow cast for more accurate color.</p>
                             
-                            <li>Increase overall exposure by +0.4 to +0.6 stops, focusing on lifting midtones and shadows</li>
                             
-                            <li>Adjust white balance by reducing yellow/warm cast (Temperature: -200 to -300K) for more accurate white fur rendering</li>
+                            <ul class="llm-improvements">
+                                
+                                <li>Apply sharpening to eyes and nose area using unsharp mask (Amount: 80, Radius: 1.0, Threshold: 2)</li>
+                                
+                                <li>Increase overall exposure by +0.4 to +0.6 stops, focusing on lifting midtones and shadows</li>
+                                
+                                <li>Adjust white balance by reducing yellow/warm cast (Temperature: -200 to -300K) for more accurate white fur rendering</li>
+                                
+                            </ul>
                             
-                        </ul>
+                        </div>
                         
                     </div>
-                    
                 </div>
                 
 
@@ -138,6 +147,8 @@
                         
                     </ul>
                 </div>
+
+                
             </div>
 
             <div class="comparison-container">

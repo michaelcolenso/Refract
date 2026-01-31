@@ -4,18 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IMG_5316_Copy_Copy.JPG - REFRACT</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <header>
+        <header class="hero hero-compact">
             <h1>REFRACT</h1>
-            <p>Photography Analysis & Enhancement</p>
+            <p class="subtitle">Photography Analysis & Enhancement</p>
         </header>
 
-        <a href="index.html" class="back-link">← Back to Gallery</a>
+        <a href="index.html" class="back-link">Back to Gallery</a>
 
         <div class="entry-detail">
+            <div class="entry-hero">
+                <img src="images/20260104-071805-77f6781c-edited.JPG" alt="Edited IMG_5316_Copy_Copy.JPG" class="entry-hero-image">
+            </div>
             <h2>IMG_5316_Copy_Copy.JPG</h2>
 
             <div class="metadata">
@@ -25,71 +29,77 @@
 
             <div class="analysis">
                 <h3>Multi-LLM Analysis</h3>
-                <div class="score-display">65.0/100</div>
-                <p style="text-align: center; color: #666; margin-bottom: 20px;">Consensus Score</p>
 
                 
-                <div class="llm-critiques" style="display: grid; gap: 15px; margin-bottom: 25px;">
-                    
-                    <div class="llm-critique" style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #4285f4;">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                            <strong style="text-transform: uppercase;">gemini</strong>
+                <div class="score-display">65.0/100</div>
+                <p class="score-caption">Consensus Score</p>
+                
+
+                
+                <div class="review-phase">
+                    <h4 class="review-phase-label">Original Review</h4>
+                    <div class="llm-critiques">
+                        
+                        <div class="llm-critique llm-gemini">
+                            <div class="llm-critique-header">
+                                <strong class="llm-name">gemini</strong>
+                                
+                                <span class="score-pill score-mid">65.0/100</span>
+                                
+                            </div>
                             
-                            <span style="background: #f39c12; color: white; padding: 4px 12px; border-radius: 15px; font-weight: bold;">65.0/100</span>
+                            <p class="llm-notes">The silhouette effect is interesting, but the image is underexposed, obscuring potentially compelling details. Increasing brightness and reducing contrast will help reveal those details.</p>
+                            
+                            
+                            <ul class="llm-improvements">
+                                
+                                <li>Increase overall brightness by 15%</li>
+                                
+                                <li>Slightly reduce contrast to reveal details in shadows</li>
+                                
+                                <li>Apply a subtle vignette to emphasize the central subjects</li>
+                                
+                            </ul>
                             
                         </div>
                         
-                        <p style="margin: 0; color: #555; font-size: 0.9em;">The silhouette effect is interesting, but the image is underexposed, obscuring potentially compelling details. Increasing brightness and reducing contrast will help reveal those details.</p>
-                        
-                        
-                        <ul style="margin: 10px 0 0 0; padding-left: 20px; font-size: 0.85em; color: #666;">
+                        <div class="llm-critique llm-openai">
+                            <div class="llm-critique-header">
+                                <strong class="llm-name">openai</strong>
+                                
+                                <span class="score-pill score-mid">65.0/100</span>
+                                
+                            </div>
                             
-                            <li>Increase overall brightness by 15%</li>
+                            <p class="llm-notes">The silhouette and the flag create a dramatic image, but overall the photo is too dark. Improving brightness and contrast will enhance the visibility of key elements and add depth. Cropping will create a more balanced composition.</p>
                             
-                            <li>Slightly reduce contrast to reveal details in shadows</li>
                             
-                            <li>Apply a subtle vignette to emphasize the central subjects</li>
-                            
-                        </ul>
-                        
-                    </div>
-                    
-                    <div class="llm-critique" style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #10a37f;">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                            <strong style="text-transform: uppercase;">openai</strong>
-                            
-                            <span style="background: #f39c12; color: white; padding: 4px 12px; border-radius: 15px; font-weight: bold;">65.0/100</span>
-                            
-                        </div>
-                        
-                        <p style="margin: 0; color: #555; font-size: 0.9em;">The silhouette and the flag create a dramatic image, but overall the photo is too dark. Improving brightness and contrast will enhance the visibility of key elements and add depth. Cropping will create a more balanced composition.</p>
-                        
-                        
-                        <ul style="margin: 10px 0 0 0; padding-left: 20px; font-size: 0.85em; color: #666;">
-                            
-                            <li>increase brightness by 20%</li>
-                            
-                            <li>enhance contrast to bring out details in the sky</li>
-                            
-                            <li>crop to focus on the silhouette, placing it in the right third following the rule of thirds</li>
-                            
-                        </ul>
-                        
-                    </div>
-                    
-                    <div class="llm-critique" style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #d97706;">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                            <strong style="text-transform: uppercase;">anthropic</strong>
-                            
-                            <span style="background: #e74c3c; color: white; padding: 4px 12px; border-radius: 15px;">Failed</span>
+                            <ul class="llm-improvements">
+                                
+                                <li>increase brightness by 20%</li>
+                                
+                                <li>enhance contrast to bring out details in the sky</li>
+                                
+                                <li>crop to focus on the silhouette, placing it in the right third following the rule of thirds</li>
+                                
+                            </ul>
                             
                         </div>
                         
-                        <p style="margin: 0; color: #555; font-size: 0.9em;">Analysis failed: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.0.image.source.base64.data: Image does not match the provided media type image/jpeg'}, 'request_id': 'req_011CWmvtVWtpGY6JW5gK5pNV'}</p>
-                        
+                        <div class="llm-critique llm-anthropic">
+                            <div class="llm-critique-header">
+                                <strong class="llm-name">anthropic</strong>
+                                
+                                <span class="score-pill score-fail">Failed</span>
+                                
+                            </div>
+                            
+                            <p class="llm-notes">Analysis failed: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.0.image.source.base64.data: Image does not match the provided media type image/jpeg'}, 'request_id': 'req_011CWmvtVWtpGY6JW5gK5pNV'}</p>
+                            
+                            
+                        </div>
                         
                     </div>
-                    
                 </div>
                 
 
@@ -113,27 +123,51 @@
                         
                     </ul>
                 </div>
+
+                
             </div>
 
             <div class="comparison-container">
-                <h3 style="margin-bottom: 20px; text-align: center;">Before & After Comparison</h3>
+                <h3 class="comparison-title">Before & After Comparison</h3>
 
-                <!-- Side-by-side comparison -->
-                <div class="comparison-simple">
-                    <div>
-                        <div class="comparison-label">Original</div>
-                        <img src="images/20260104-071805-77f6781c-original.JPG" alt="Original">
+                <!-- Interactive Before/After Slider -->
+                <div class="comparison-slider" id="comparison-slider">
+                    <div class="comparison-wrapper">
+                        <img src="images/20260104-071805-77f6781c-edited.JPG" alt="Enhanced" class="comparison-img comparison-after">
+                        <div class="comparison-overlay" id="comparison-overlay">
+                            <img src="images/20260104-071805-77f6781c-original.JPG" alt="Original" class="comparison-img comparison-before">
+                        </div>
+                        <div class="slider-handle" id="slider-handle">
+                            <div class="slider-line"></div>
+                            <div class="slider-button">
+                                <span class="slider-arrows"></span>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <div class="comparison-label">Enhanced</div>
-                        <img src="images/20260104-071805-77f6781c-edited.JPG" alt="Enhanced">
+                    <div class="comparison-labels">
+                        <span class="label-before">Original</span>
+                        <span class="label-after">Enhanced</span>
                     </div>
                 </div>
 
+                <!-- Fallback side-by-side (shown if JS disabled) -->
+                <noscript>
+                    <div class="comparison-simple">
+                        <div>
+                            <div class="comparison-label">Original</div>
+                            <img src="images/20260104-071805-77f6781c-original.JPG" alt="Original">
+                        </div>
+                        <div>
+                            <div class="comparison-label">Enhanced</div>
+                            <img src="images/20260104-071805-77f6781c-edited.JPG" alt="Enhanced">
+                        </div>
+                    </div>
+                </noscript>
+
                 <!-- Full comparison image -->
-                <div style="margin-top: 30px;">
+                <div class="comparison-full">
                     <div class="comparison-label">Side-by-Side</div>
-                    <img src="images/20260104-071805-77f6781c-comparison.jpg" alt="Comparison" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <img src="images/20260104-071805-77f6781c-comparison.jpg" alt="Comparison" class="comparison-full-image">
                 </div>
             </div>
         </div>
@@ -145,12 +179,60 @@
     </div>
 
     <script>
-        // Optional: Add interactive slider functionality
-        // This is a progressive enhancement - the site works without it
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('Entry page loaded');
-            // Future enhancement: add drag slider for before/after comparison
-        });
+        // Interactive Before/After Slider
+        (function() {
+            const slider = document.getElementById('comparison-slider');
+            const overlay = document.getElementById('comparison-overlay');
+            const handle = document.getElementById('slider-handle');
+
+            if (!slider || !overlay || !handle) return;
+
+            let isDragging = false;
+
+            function updateSlider(x) {
+                const rect = slider.getBoundingClientRect();
+                let percentage = ((x - rect.left) / rect.width) * 100;
+                percentage = Math.max(0, Math.min(100, percentage));
+
+                overlay.style.width = percentage + '%';
+                handle.style.left = percentage + '%';
+            }
+
+            function startDrag(e) {
+                isDragging = true;
+                e.preventDefault();
+            }
+
+            function endDrag() {
+                isDragging = false;
+            }
+
+            function drag(e) {
+                if (!isDragging) return;
+                e.preventDefault();
+                const x = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+                updateSlider(x);
+            }
+
+            // Mouse events
+            handle.addEventListener('mousedown', startDrag);
+            document.addEventListener('mouseup', endDrag);
+            document.addEventListener('mousemove', drag);
+
+            // Touch events
+            handle.addEventListener('touchstart', startDrag);
+            document.addEventListener('touchend', endDrag);
+            document.addEventListener('touchmove', drag);
+
+            // Click to position
+            slider.addEventListener('click', function(e) {
+                if (e.target === handle || e.target.closest('.slider-handle')) return;
+                updateSlider(e.clientX);
+            });
+
+            // Initialize at 50%
+            updateSlider(slider.getBoundingClientRect().left + slider.offsetWidth / 2);
+        })();
     </script>
 </body>
 </html>

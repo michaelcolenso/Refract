@@ -17,6 +17,9 @@
         <a href="index.html" class="back-link">Back to Gallery</a>
 
         <div class="entry-detail">
+            <div class="entry-hero">
+                <img src="images/20260130-205939-c68a4a36-edited.jpeg" alt="Edited IMG_0977.jpeg" class="entry-hero-image">
+            </div>
             <h2>IMG_0977.jpeg</h2>
 
             <div class="metadata">
@@ -26,81 +29,87 @@
 
             <div class="analysis">
                 <h3>Multi-LLM Analysis</h3>
-                <div class="score-display">66.3/100</div>
-                <p class="score-caption">Consensus Score</p>
 
                 
-                <div class="llm-critiques">
-                    
-                    <div class="llm-critique llm-gemini">
-                        <div class="llm-critique-header">
-                            <strong class="llm-name">gemini</strong>
+                <div class="score-display">66.3/100</div>
+                <p class="score-caption">Consensus Score</p>
+                
+
+                
+                <div class="review-phase">
+                    <h4 class="review-phase-label">Original Review</h4>
+                    <div class="llm-critiques">
+                        
+                        <div class="llm-critique llm-gemini">
+                            <div class="llm-critique-header">
+                                <strong class="llm-name">gemini</strong>
+                                
+                                <span class="score-pill score-mid">65.0/100</span>
+                                
+                            </div>
                             
-                            <span class="score-pill score-mid">65.0/100</span>
+                            <p class="llm-notes">The image has a charming expression but is hindered by a strong indoor lighting color cast. The primary goal is to restore clean whites to the subject while managing the exposure to ensure the fur looks textured rather than a flat white mass.</p>
+                            
+                            
+                            <ul class="llm-improvements">
+                                
+                                <li>Cool White Balance temperature significantly (-15 to -20)</li>
+                                
+                                <li>Reduce Highlights and Whites</li>
+                                
+                                <li>Apply selective sharpening to eyes and nose</li>
+                                
+                            </ul>
                             
                         </div>
                         
-                        <p class="llm-notes">The image has a charming expression but is hindered by a strong indoor lighting color cast. The primary goal is to restore clean whites to the subject while managing the exposure to ensure the fur looks textured rather than a flat white mass.</p>
-                        
-                        
-                        <ul class="llm-improvements">
+                        <div class="llm-critique llm-openai">
+                            <div class="llm-critique-header">
+                                <strong class="llm-name">openai</strong>
+                                
+                                <span class="score-pill score-mid">72.0/100</span>
+                                
+                            </div>
                             
-                            <li>Cool White Balance temperature significantly (-15 to -20)</li>
+                            <p class="llm-notes">The photo has a pleasing, calm pet-portrait feel with a strong subject, but the white fur is a bit hot and loses texture in places. Slightly cooler color, recovered highlights, and targeted detail on the eyes/nose will improve clarity and presence while keeping the gentle mood.</p>
                             
-                            <li>Reduce Highlights and Whites</li>
                             
-                            <li>Apply selective sharpening to eyes and nose</li>
-                            
-                        </ul>
-                        
-                    </div>
-                    
-                    <div class="llm-critique llm-openai">
-                        <div class="llm-critique-header">
-                            <strong class="llm-name">openai</strong>
-                            
-                            <span class="score-pill score-mid">72.0/100</span>
-                            
-                        </div>
-                        
-                        <p class="llm-notes">The photo has a pleasing, calm pet-portrait feel with a strong subject, but the white fur is a bit hot and loses texture in places. Slightly cooler color, recovered highlights, and targeted detail on the eyes/nose will improve clarity and presence while keeping the gentle mood.</p>
-                        
-                        
-                        <ul class="llm-improvements">
-                            
-                            <li>Reduce highlights/whites (Highlights -20 to -35, Whites -10 to -20) to recover fur texture and prevent the coat from looking blown out</li>
-                            
-                            <li>Cool the white balance slightly (Temp -300 to -800K) and add a small magenta shift if needed (Tint +3 to +8) to neutralize yellow indoor cast in the fur</li>
-                            
-                            <li>Apply selective sharpening/texture on facial features: mask to eyes and nose (Texture +10 to +20, Clarity +5 to +10, Sharpening with Masking 70-90); avoid sharpening the fur broadly</li>
-                            
-                        </ul>
-                        
-                    </div>
-                    
-                    <div class="llm-critique llm-anthropic">
-                        <div class="llm-critique-header">
-                            <strong class="llm-name">anthropic</strong>
-                            
-                            <span class="score-pill score-mid">62.0/100</span>
+                            <ul class="llm-improvements">
+                                
+                                <li>Reduce highlights/whites (Highlights -20 to -35, Whites -10 to -20) to recover fur texture and prevent the coat from looking blown out</li>
+                                
+                                <li>Cool the white balance slightly (Temp -300 to -800K) and add a small magenta shift if needed (Tint +3 to +8) to neutralize yellow indoor cast in the fur</li>
+                                
+                                <li>Apply selective sharpening/texture on facial features: mask to eyes and nose (Texture +10 to +20, Clarity +5 to +10, Sharpening with Masking 70-90); avoid sharpening the fur broadly</li>
+                                
+                            </ul>
                             
                         </div>
                         
-                        <p class="llm-notes">This is a charming pet portrait with good composition and natural subject positioning. The primary issues are soft focus on key facial features and slightly overexposed white fur that loses texture. The image has strong potential and would benefit most from targeted sharpening and highlight recovery to bring out the dog's features while maintaining the gentle, cozy atmosphere.</p>
-                        
-                        
-                        <ul class="llm-improvements">
+                        <div class="llm-critique llm-anthropic">
+                            <div class="llm-critique-header">
+                                <strong class="llm-name">anthropic</strong>
+                                
+                                <span class="score-pill score-mid">62.0/100</span>
+                                
+                            </div>
                             
-                            <li>Apply selective sharpening to the dog's eyes and nose area using unsharp mask (Amount: 80, Radius: 1.0, Threshold: 2)</li>
+                            <p class="llm-notes">This is a charming pet portrait with good composition and natural subject positioning. The primary issues are soft focus on key facial features and slightly overexposed white fur that loses texture. The image has strong potential and would benefit most from targeted sharpening and highlight recovery to bring out the dog's features while maintaining the gentle, cozy atmosphere.</p>
                             
-                            <li>Reduce highlights by -15 to -20 and decrease whites by -10 to recover detail in the bright fur, especially around the head and body</li>
                             
-                            <li>Increase clarity by +10 to +15 globally to enhance midtone contrast and add definition to the fur texture</li>
+                            <ul class="llm-improvements">
+                                
+                                <li>Apply selective sharpening to the dog's eyes and nose area using unsharp mask (Amount: 80, Radius: 1.0, Threshold: 2)</li>
+                                
+                                <li>Reduce highlights by -15 to -20 and decrease whites by -10 to recover detail in the bright fur, especially around the head and body</li>
+                                
+                                <li>Increase clarity by +10 to +15 globally to enhance midtone contrast and add definition to the fur texture</li>
+                                
+                            </ul>
                             
-                        </ul>
+                        </div>
                         
                     </div>
-                    
                 </div>
                 
 
@@ -138,6 +147,8 @@
                         
                     </ul>
                 </div>
+
+                
             </div>
 
             <div class="comparison-container">

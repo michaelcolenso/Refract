@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IMG_0244 2.jpeg - REFRACT</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,6 +17,9 @@
         <a href="index.html" class="back-link">Back to Gallery</a>
 
         <div class="entry-detail">
+            <div class="entry-hero">
+                <img src="images/20260129-033510-04975472-edited.jpeg" alt="Edited IMG_0244 2.jpeg" class="entry-hero-image">
+            </div>
             <h2>IMG_0244 2.jpeg</h2>
 
             <div class="metadata">
@@ -25,71 +29,77 @@
 
             <div class="analysis">
                 <h3>Multi-LLM Analysis</h3>
-                <div class="score-display">63.5/100</div>
-                <p class="score-caption">Consensus Score</p>
 
                 
-                <div class="llm-critiques">
-                    
-                    <div class="llm-critique llm-gemini">
-                        <div class="llm-critique-header">
-                            <strong class="llm-name">gemini</strong>
+                <div class="score-display">63.5/100</div>
+                <p class="score-caption">Consensus Score</p>
+                
+
+                
+                <div class="review-phase">
+                    <h4 class="review-phase-label">Original Review</h4>
+                    <div class="llm-critiques">
+                        
+                        <div class="llm-critique llm-gemini">
+                            <div class="llm-critique-header">
+                                <strong class="llm-name">gemini</strong>
+                                
+                                <span class="score-pill score-mid">65.0/100</span>
+                                
+                            </div>
                             
-                            <span class="score-pill score-mid">65.0/100</span>
+                            <p class="llm-notes">The image has a solid foundation with nice color coordination, but suffers from flat lighting and a warm color cast. A tighter crop and white balance correction will significantly professionalize the result without altering the casual mood.</p>
+                            
+                            
+                            <ul class="llm-improvements">
+                                
+                                <li>Crop inward from the left</li>
+                                
+                                <li>Correct White Balance (reduce Temp)</li>
+                                
+                                <li>Increase Contrast and Clarity</li>
+                                
+                            </ul>
                             
                         </div>
                         
-                        <p class="llm-notes">The image has a solid foundation with nice color coordination, but suffers from flat lighting and a warm color cast. A tighter crop and white balance correction will significantly professionalize the result without altering the casual mood.</p>
-                        
-                        
-                        <ul class="llm-improvements">
+                        <div class="llm-critique llm-openai">
+                            <div class="llm-critique-header">
+                                <strong class="llm-name">openai</strong>
+                                
+                                <span class="score-pill score-mid">62.0/100</span>
+                                
+                            </div>
                             
-                            <li>[MODERATE] Crop inward from the left</li>
+                            <p class="llm-notes">The portrait has a relaxed, street-style vibe with pleasing exposure and low noise, but the subject’s face reads a bit soft and the brick wall is visually dominant. A tighter crop, targeted sharpening, and background toning will improve subject separation and make the face the clear focal point while maintaining the candid mood.</p>
                             
-                            <li>[MODERATE] Correct White Balance (reduce Temp)</li>
                             
-                            <li>[MODERATE] Increase Contrast and Clarity</li>
-                            
-                        </ul>
-                        
-                    </div>
-                    
-                    <div class="llm-critique llm-openai">
-                        <div class="llm-critique-header">
-                            <strong class="llm-name">openai</strong>
-                            
-                            <span class="score-pill score-mid">62.0/100</span>
-                            
-                        </div>
-                        
-                        <p class="llm-notes">The portrait has a relaxed, street-style vibe with pleasing exposure and low noise, but the subject’s face reads a bit soft and the brick wall is visually dominant. A tighter crop, targeted sharpening, and background toning will improve subject separation and make the face the clear focal point while maintaining the candid mood.</p>
-                        
-                        
-                        <ul class="llm-improvements">
-                            
-                            <li>[MODERATE] Improve composition with a tighter crop (reduce excess space on the left/top), keeping the subject on the right third and maintaining comfortable headroom</li>
-                            
-                            <li>[MODERATE] Apply selective sharpening/texture to the face and eyes (masking to skin/eyes only; avoid sharpening the brick), and add mild clarity to facial features</li>
-                            
-                            <li>[SUBTLE] Reduce warm/orange saturation and luminance in the brick wall using HSL (or a background mask), and slightly darken the background with a subject mask inversion</li>
-                            
-                        </ul>
-                        
-                    </div>
-                    
-                    <div class="llm-critique llm-anthropic">
-                        <div class="llm-critique-header">
-                            <strong class="llm-name">anthropic</strong>
-                            
-                            <span class="score-pill score-fail">Failed</span>
+                            <ul class="llm-improvements">
+                                
+                                <li>Improve composition with a tighter crop (reduce excess space on the left/top), keeping the subject on the right third and maintaining comfortable headroom</li>
+                                
+                                <li>Apply selective sharpening/texture to the face and eyes (masking to skin/eyes only; avoid sharpening the brick), and add mild clarity to facial features</li>
+                                
+                                <li>Reduce warm/orange saturation and luminance in the brick wall using HSL (or a background mask), and slightly darken the background with a subject mask inversion</li>
+                                
+                            </ul>
                             
                         </div>
                         
-                        <p class="llm-notes">Analysis failed: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.0.image.source.base64: image exceeds 5 MB maximum: 17219344 bytes > 5242880 bytes'}, 'request_id': 'req_011CXay6EVFjox39kqNSrf6N'}</p>
-                        
+                        <div class="llm-critique llm-anthropic">
+                            <div class="llm-critique-header">
+                                <strong class="llm-name">anthropic</strong>
+                                
+                                <span class="score-pill score-fail">Failed</span>
+                                
+                            </div>
+                            
+                            <p class="llm-notes">Analysis failed: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.0.image.source.base64: image exceeds 5 MB maximum: 17219344 bytes > 5242880 bytes'}, 'request_id': 'req_011CXay6EVFjox39kqNSrf6N'}</p>
+                            
+                            
+                        </div>
                         
                     </div>
-                    
                 </div>
                 
 
@@ -97,28 +107,30 @@
                     <h4>Combined Improvements Applied:</h4>
                     <ul>
                         
-                        <li>[MODERATE] Crop inward from the left</li>
+                        <li>Crop inward from the left</li>
                         
-                        <li>[MODERATE] Correct White Balance (reduce Temp)</li>
+                        <li>Correct White Balance (reduce Temp)</li>
                         
-                        <li>[MODERATE] Increase Contrast and Clarity</li>
+                        <li>Increase Contrast and Clarity</li>
                         
-                        <li>[SUBTLE] Radial gradient exposure boost on face</li>
+                        <li>Radial gradient exposure boost on face</li>
                         
-                        <li>[SUBTLE] Spot removal / Healing</li>
+                        <li>Spot removal / Healing</li>
                         
-                        <li>[MODERATE] Improve composition with a tighter crop (reduce excess space on the left/top), keeping the subject on the right third and maintaining comfortable headroom</li>
+                        <li>Improve composition with a tighter crop (reduce excess space on the left/top), keeping the subject on the right third and maintaining comfortable headroom</li>
                         
-                        <li>[MODERATE] Apply selective sharpening/texture to the face and eyes (masking to skin/eyes only; avoid sharpening the brick), and add mild clarity to facial features</li>
+                        <li>Apply selective sharpening/texture to the face and eyes (masking to skin/eyes only; avoid sharpening the brick), and add mild clarity to facial features</li>
                         
-                        <li>[SUBTLE] Reduce warm/orange saturation and luminance in the brick wall using HSL (or a background mask), and slightly darken the background with a subject mask inversion</li>
+                        <li>Reduce warm/orange saturation and luminance in the brick wall using HSL (or a background mask), and slightly darken the background with a subject mask inversion</li>
                         
-                        <li>[SUBTLE] Retouch distractions: remove/clone small wall blemishes and consider removing or toning down the sunglasses hanging at the chest; optionally tidy a few stray hairs crossing the mouth/cheek (light touch)</li>
+                        <li>Retouch distractions: remove/clone small wall blemishes and consider removing or toning down the sunglasses hanging at the chest; optionally tidy a few stray hairs crossing the mouth/cheek (light touch)</li>
                         
-                        <li>[SUBTLE] Refine tonal contrast with a gentle S-curve and lift shadows slightly on the face (local adjustment), while protecting highlights on the forehead/cheeks</li>
+                        <li>Refine tonal contrast with a gentle S-curve and lift shadows slightly on the face (local adjustment), while protecting highlights on the forehead/cheeks</li>
                         
                     </ul>
                 </div>
+
+                
             </div>
 
             <div class="comparison-container">

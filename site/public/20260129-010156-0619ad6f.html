@@ -4,18 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IMG_9456_Original.jpeg - REFRACT</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <header>
+        <header class="hero hero-compact">
             <h1>REFRACT</h1>
-            <p>Photography Analysis & Enhancement</p>
+            <p class="subtitle">Photography Analysis & Enhancement</p>
         </header>
 
         <a href="index.html" class="back-link">Back to Gallery</a>
 
         <div class="entry-detail">
+            <div class="entry-hero">
+                <img src="images/20260129-010156-0619ad6f-edited.jpeg" alt="Edited IMG_9456_Original.jpeg" class="entry-hero-image">
+            </div>
             <h2>IMG_9456_Original.jpeg</h2>
 
             <div class="metadata">
@@ -25,71 +29,77 @@
 
             <div class="analysis">
                 <h3>Multi-LLM Analysis</h3>
-                <div class="score-display">75.0/100</div>
-                <p style="text-align: center; color: #666; margin-bottom: 20px;">Consensus Score</p>
 
                 
-                <div class="llm-critiques" style="display: grid; gap: 15px; margin-bottom: 25px;">
-                    
-                    <div class="llm-critique" style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #4285f4;">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                            <strong style="text-transform: uppercase;">gemini</strong>
+                <div class="score-display">75.0/100</div>
+                <p class="score-caption">Consensus Score</p>
+                
+
+                
+                <div class="review-phase">
+                    <h4 class="review-phase-label">Original Review</h4>
+                    <div class="llm-critiques">
+                        
+                        <div class="llm-critique llm-gemini">
+                            <div class="llm-critique-header">
+                                <strong class="llm-name">gemini</strong>
+                                
+                                <span class="score-pill score-mid">72.0/100</span>
+                                
+                            </div>
                             
-                            <span style="background: #f39c12; color: white; padding: 4px 12px; border-radius: 15px; font-weight: bold;">72.0/100</span>
+                            <p class="llm-notes">This is a well-composed interior shot that suffers primarily from dynamic range limitations common in mixed lighting. The main goal of editing should be to balance the bright window light with the dark recessed shelving while ensuring vertical lines are mathematically straight.</p>
+                            
+                            
+                            <ul class="llm-improvements">
+                                
+                                <li>Lift shadows in the background bookshelf area</li>
+                                
+                                <li>Reduce highlights in the window view</li>
+                                
+                                <li>Correct vertical perspective distortion</li>
+                                
+                            </ul>
                             
                         </div>
                         
-                        <p style="margin: 0; color: #555; font-size: 0.9em;">This is a well-composed interior shot that suffers primarily from dynamic range limitations common in mixed lighting. The main goal of editing should be to balance the bright window light with the dark recessed shelving while ensuring vertical lines are mathematically straight.</p>
-                        
-                        
-                        <ul style="margin: 10px 0 0 0; padding-left: 20px; font-size: 0.85em; color: #666;">
+                        <div class="llm-critique llm-openai">
+                            <div class="llm-critique-header">
+                                <strong class="llm-name">openai</strong>
+                                
+                                <span class="score-pill score-mid">78.0/100</span>
+                                
+                            </div>
                             
-                            <li>[MODERATE] Lift shadows in the background bookshelf area</li>
+                            <p class="llm-notes">The image is strong: sharp, well-styled, and naturally inviting with pleasing symmetry. The main opportunities are balancing the bright window area, tightening architectural lines, and making whites slightly cleaner while keeping the warm design intent intact.</p>
                             
-                            <li>[MODERATE] Reduce highlights in the window view</li>
                             
-                            <li>[SUBTLE] Correct vertical perspective distortion</li>
-                            
-                        </ul>
-                        
-                    </div>
-                    
-                    <div class="llm-critique" style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #10a37f;">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                            <strong style="text-transform: uppercase;">openai</strong>
-                            
-                            <span style="background: #f39c12; color: white; padding: 4px 12px; border-radius: 15px; font-weight: bold;">78.0/100</span>
-                            
-                        </div>
-                        
-                        <p style="margin: 0; color: #555; font-size: 0.9em;">The image is strong: sharp, well-styled, and naturally inviting with pleasing symmetry. The main opportunities are balancing the bright window area, tightening architectural lines, and making whites slightly cleaner while keeping the warm design intent intact.</p>
-                        
-                        
-                        <ul style="margin: 10px 0 0 0; padding-left: 20px; font-size: 0.85em; color: #666;">
-                            
-                            <li>[MODERATE] Reduce window highlights (Highlights -40 to -70) and, if needed, use a linear gradient on the window to pull Exposure down ~-0.3 to -0.7 while lifting Shadows slightly (+10 to +25) to retain view detail without flattening the room</li>
-                            
-                            <li>[MODERATE] Correct verticals and overall perspective (Transform/Guided Upright) to straighten window frame and walls; then fine-tune crop to maintain symmetry</li>
-                            
-                            <li>[SUBTLE] Neutralize the warm cast slightly (Temp -200 to -500K, Tint as needed) and selectively cool whites on lampshades/walls using a luminance mask to avoid shifting the orange textiles too much</li>
-                            
-                        </ul>
-                        
-                    </div>
-                    
-                    <div class="llm-critique" style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #d97706;">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                            <strong style="text-transform: uppercase;">anthropic</strong>
-                            
-                            <span style="background: #e74c3c; color: white; padding: 4px 12px; border-radius: 15px;">Failed</span>
+                            <ul class="llm-improvements">
+                                
+                                <li>Reduce window highlights (Highlights -40 to -70) and, if needed, use a linear gradient on the window to pull Exposure down ~-0.3 to -0.7 while lifting Shadows slightly (+10 to +25) to retain view detail without flattening the room</li>
+                                
+                                <li>Correct verticals and overall perspective (Transform/Guided Upright) to straighten window frame and walls; then fine-tune crop to maintain symmetry</li>
+                                
+                                <li>Neutralize the warm cast slightly (Temp -200 to -500K, Tint as needed) and selectively cool whites on lampshades/walls using a luminance mask to avoid shifting the orange textiles too much</li>
+                                
+                            </ul>
                             
                         </div>
                         
-                        <p style="margin: 0; color: #555; font-size: 0.9em;">Analysis failed: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CXamQ5gY4D6nx6ibjyfe7'}</p>
-                        
+                        <div class="llm-critique llm-anthropic">
+                            <div class="llm-critique-header">
+                                <strong class="llm-name">anthropic</strong>
+                                
+                                <span class="score-pill score-fail">Failed</span>
+                                
+                            </div>
+                            
+                            <p class="llm-notes">Analysis failed: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CXamQ5gY4D6nx6ibjyfe7'}</p>
+                            
+                            
+                        </div>
                         
                     </div>
-                    
                 </div>
                 
 
@@ -97,32 +107,34 @@
                     <h4>Combined Improvements Applied:</h4>
                     <ul>
                         
-                        <li>[MODERATE] Lift shadows in the background bookshelf area</li>
+                        <li>Lift shadows in the background bookshelf area</li>
                         
-                        <li>[MODERATE] Reduce highlights in the window view</li>
+                        <li>Reduce highlights in the window view</li>
                         
-                        <li>[SUBTLE] Correct vertical perspective distortion</li>
+                        <li>Correct vertical perspective distortion</li>
                         
-                        <li>[SUBTLE] Desaturate yellows slightly in the neutrals</li>
+                        <li>Desaturate yellows slightly in the neutrals</li>
                         
-                        <li>[SUBTLE] Increase local contrast (clarity) on textile textures</li>
+                        <li>Increase local contrast (clarity) on textile textures</li>
                         
-                        <li>[MODERATE] Reduce window highlights (Highlights -40 to -70) and, if needed, use a linear gradient on the window to pull Exposure down ~-0.3 to -0.7 while lifting Shadows slightly (+10 to +25) to retain view detail without flattening the room</li>
+                        <li>Reduce window highlights (Highlights -40 to -70) and, if needed, use a linear gradient on the window to pull Exposure down ~-0.3 to -0.7 while lifting Shadows slightly (+10 to +25) to retain view detail without flattening the room</li>
                         
-                        <li>[MODERATE] Correct verticals and overall perspective (Transform/Guided Upright) to straighten window frame and walls; then fine-tune crop to maintain symmetry</li>
+                        <li>Correct verticals and overall perspective (Transform/Guided Upright) to straighten window frame and walls; then fine-tune crop to maintain symmetry</li>
                         
-                        <li>[SUBTLE] Neutralize the warm cast slightly (Temp -200 to -500K, Tint as needed) and selectively cool whites on lampshades/walls using a luminance mask to avoid shifting the orange textiles too much</li>
+                        <li>Neutralize the warm cast slightly (Temp -200 to -500K, Tint as needed) and selectively cool whites on lampshades/walls using a luminance mask to avoid shifting the orange textiles too much</li>
                         
-                        <li>[SUBTLE] Add targeted midtone contrast/texture: apply a gentle S-curve or Contrast +10 to +20, plus Clarity/Texture +5 to +15 mainly on upholstery and curtains; keep walls smooth by masking</li>
+                        <li>Add targeted midtone contrast/texture: apply a gentle S-curve or Contrast +10 to +20, plus Clarity/Texture +5 to +15 mainly on upholstery and curtains; keep walls smooth by masking</li>
                         
-                        <li>[SUBTLE] Subtle cleanup of distractions: remove/clone small bright reflections on the coffee table glass and any minor edge distractions; optionally reduce lamp hotspot brightness with a brush (Exposure -0.2 to -0.4)</li>
+                        <li>Subtle cleanup of distractions: remove/clone small bright reflections on the coffee table glass and any minor edge distractions; optionally reduce lamp hotspot brightness with a brush (Exposure -0.2 to -0.4)</li>
                         
                     </ul>
                 </div>
+
+                
             </div>
 
             <div class="comparison-container">
-                <h3 style="margin-bottom: 20px; text-align: center;">Before & After Comparison</h3>
+                <h3 class="comparison-title">Before & After Comparison</h3>
 
                 <!-- Interactive Before/After Slider -->
                 <div class="comparison-slider" id="comparison-slider">
@@ -159,9 +171,9 @@
                 </noscript>
 
                 <!-- Full comparison image -->
-                <div style="margin-top: 30px;">
+                <div class="comparison-full">
                     <div class="comparison-label">Side-by-Side</div>
-                    <img src="images/20260129-010156-0619ad6f-comparison.jpg" alt="Comparison" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <img src="images/20260129-010156-0619ad6f-comparison.jpg" alt="Comparison" class="comparison-full-image">
                 </div>
             </div>
         </div>

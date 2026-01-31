@@ -4,18 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IMG_0221.jpeg - REFRACT</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <header>
+        <header class="hero hero-compact">
             <h1>REFRACT</h1>
-            <p>Photography Analysis & Enhancement</p>
+            <p class="subtitle">Photography Analysis & Enhancement</p>
         </header>
 
-        <a href="index.html" class="back-link">← Back to Gallery</a>
+        <a href="index.html" class="back-link">Back to Gallery</a>
 
         <div class="entry-detail">
+            <div class="entry-hero">
+                <img src="images/20260105-215613-1f6eb1c8-edited.jpeg" alt="Edited IMG_0221.jpeg" class="entry-hero-image">
+            </div>
             <h2>IMG_0221.jpeg</h2>
 
             <div class="metadata">
@@ -25,71 +29,77 @@
 
             <div class="analysis">
                 <h3>Multi-LLM Analysis</h3>
-                <div class="score-display">75.0/100</div>
-                <p style="text-align: center; color: #666; margin-bottom: 20px;">Consensus Score</p>
 
                 
-                <div class="llm-critiques" style="display: grid; gap: 15px; margin-bottom: 25px;">
-                    
-                    <div class="llm-critique" style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #4285f4;">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                            <strong style="text-transform: uppercase;">gemini</strong>
+                <div class="score-display">75.0/100</div>
+                <p class="score-caption">Consensus Score</p>
+                
+
+                
+                <div class="review-phase">
+                    <h4 class="review-phase-label">Original Review</h4>
+                    <div class="llm-critiques">
+                        
+                        <div class="llm-critique llm-gemini">
+                            <div class="llm-critique-header">
+                                <strong class="llm-name">gemini</strong>
+                                
+                                <span class="score-pill score-mid">78.0/100</span>
+                                
+                            </div>
                             
-                            <span style="background: #f39c12; color: white; padding: 4px 12px; border-radius: 15px; font-weight: bold;">78.0/100</span>
+                            <p class="llm-notes">The photo captures a wonderful, emotive moment with good sharpness, but the flat lighting of the overcast day washes out the image. Brightening the dog's coat and correcting the color temperature will transform the image from a gray snapshot into a vibrant pet portrait.</p>
+                            
+                            
+                            <ul class="llm-improvements">
+                                
+                                <li>Increase exposure by +0.40 and boost whites by +25 to brighten the greyish fur and make the subject pop</li>
+                                
+                                <li>Rotate image counter-clockwise by approximately 1 degree to straighten the tilted horizon line</li>
+                                
+                                <li>Increase contrast by +15 and clarity by +10 to add definition to the fur texture and background layers</li>
+                                
+                            </ul>
                             
                         </div>
                         
-                        <p style="margin: 0; color: #555; font-size: 0.9em;">The photo captures a wonderful, emotive moment with good sharpness, but the flat lighting of the overcast day washes out the image. Brightening the dog's coat and correcting the color temperature will transform the image from a gray snapshot into a vibrant pet portrait.</p>
-                        
-                        
-                        <ul style="margin: 10px 0 0 0; padding-left: 20px; font-size: 0.85em; color: #666;">
+                        <div class="llm-critique llm-openai">
+                            <div class="llm-critique-header">
+                                <strong class="llm-name">openai</strong>
+                                
+                                <span class="score-pill score-fail">Failed</span>
+                                
+                            </div>
                             
-                            <li>Increase exposure by +0.40 and boost whites by +25 to brighten the greyish fur and make the subject pop</li>
+                            <p class="llm-notes">Analysis failed: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************98YA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}</p>
                             
-                            <li>Rotate image counter-clockwise by approximately 1 degree to straighten the tilted horizon line</li>
-                            
-                            <li>Increase contrast by +15 and clarity by +10 to add definition to the fur texture and background layers</li>
-                            
-                        </ul>
-                        
-                    </div>
-                    
-                    <div class="llm-critique" style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #10a37f;">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                            <strong style="text-transform: uppercase;">openai</strong>
-                            
-                            <span style="background: #e74c3c; color: white; padding: 4px 12px; border-radius: 15px;">Failed</span>
                             
                         </div>
                         
-                        <p style="margin: 0; color: #555; font-size: 0.9em;">Analysis failed: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************98YA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}</p>
-                        
-                        
-                    </div>
-                    
-                    <div class="llm-critique" style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #d97706;">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                            <strong style="text-transform: uppercase;">anthropic</strong>
+                        <div class="llm-critique llm-anthropic">
+                            <div class="llm-critique-header">
+                                <strong class="llm-name">anthropic</strong>
+                                
+                                <span class="score-pill score-mid">72.0/100</span>
+                                
+                            </div>
                             
-                            <span style="background: #f39c12; color: white; padding: 4px 12px; border-radius: 15px; font-weight: bold;">72.0/100</span>
+                            <p class="llm-notes">The image captures a joyful moment with good centering and beach context, but suffers from flat, overcast lighting that reduces contrast and vibrancy. The white dog blends too much with the pale sky, diminishing visual impact. These targeted adjustments would enhance separation, add dimension to the fur texture, and create a more dynamic, engaging portrait.</p>
+                            
+                            
+                            <ul class="llm-improvements">
+                                
+                                <li>Increase overall exposure by 0.5-0.7 stops to brighten the subject and reduce the flat, overcast appearance</li>
+                                
+                                <li>Boost contrast by 15-20% to add depth and definition to the white fur against the gray background</li>
+                                
+                                <li>Enhance saturation selectively in the background blues and greens by 10-15% to create better color separation</li>
+                                
+                            </ul>
                             
                         </div>
                         
-                        <p style="margin: 0; color: #555; font-size: 0.9em;">The image captures a joyful moment with good centering and beach context, but suffers from flat, overcast lighting that reduces contrast and vibrancy. The white dog blends too much with the pale sky, diminishing visual impact. These targeted adjustments would enhance separation, add dimension to the fur texture, and create a more dynamic, engaging portrait.</p>
-                        
-                        
-                        <ul style="margin: 10px 0 0 0; padding-left: 20px; font-size: 0.85em; color: #666;">
-                            
-                            <li>Increase overall exposure by 0.5-0.7 stops to brighten the subject and reduce the flat, overcast appearance</li>
-                            
-                            <li>Boost contrast by 15-20% to add depth and definition to the white fur against the gray background</li>
-                            
-                            <li>Enhance saturation selectively in the background blues and greens by 10-15% to create better color separation</li>
-                            
-                        </ul>
-                        
                     </div>
-                    
                 </div>
                 
 
@@ -119,27 +129,51 @@
                         
                     </ul>
                 </div>
+
+                
             </div>
 
             <div class="comparison-container">
-                <h3 style="margin-bottom: 20px; text-align: center;">Before & After Comparison</h3>
+                <h3 class="comparison-title">Before & After Comparison</h3>
 
-                <!-- Side-by-side comparison -->
-                <div class="comparison-simple">
-                    <div>
-                        <div class="comparison-label">Original</div>
-                        <img src="images/20260105-215613-1f6eb1c8-original.jpeg" alt="Original">
+                <!-- Interactive Before/After Slider -->
+                <div class="comparison-slider" id="comparison-slider">
+                    <div class="comparison-wrapper">
+                        <img src="images/20260105-215613-1f6eb1c8-edited.jpeg" alt="Enhanced" class="comparison-img comparison-after">
+                        <div class="comparison-overlay" id="comparison-overlay">
+                            <img src="images/20260105-215613-1f6eb1c8-original.jpeg" alt="Original" class="comparison-img comparison-before">
+                        </div>
+                        <div class="slider-handle" id="slider-handle">
+                            <div class="slider-line"></div>
+                            <div class="slider-button">
+                                <span class="slider-arrows"></span>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <div class="comparison-label">Enhanced</div>
-                        <img src="images/20260105-215613-1f6eb1c8-edited.jpeg" alt="Enhanced">
+                    <div class="comparison-labels">
+                        <span class="label-before">Original</span>
+                        <span class="label-after">Enhanced</span>
                     </div>
                 </div>
 
+                <!-- Fallback side-by-side (shown if JS disabled) -->
+                <noscript>
+                    <div class="comparison-simple">
+                        <div>
+                            <div class="comparison-label">Original</div>
+                            <img src="images/20260105-215613-1f6eb1c8-original.jpeg" alt="Original">
+                        </div>
+                        <div>
+                            <div class="comparison-label">Enhanced</div>
+                            <img src="images/20260105-215613-1f6eb1c8-edited.jpeg" alt="Enhanced">
+                        </div>
+                    </div>
+                </noscript>
+
                 <!-- Full comparison image -->
-                <div style="margin-top: 30px;">
+                <div class="comparison-full">
                     <div class="comparison-label">Side-by-Side</div>
-                    <img src="images/20260105-215613-1f6eb1c8-comparison.jpg" alt="Comparison" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <img src="images/20260105-215613-1f6eb1c8-comparison.jpg" alt="Comparison" class="comparison-full-image">
                 </div>
             </div>
         </div>
@@ -151,12 +185,60 @@
     </div>
 
     <script>
-        // Optional: Add interactive slider functionality
-        // This is a progressive enhancement - the site works without it
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('Entry page loaded');
-            // Future enhancement: add drag slider for before/after comparison
-        });
+        // Interactive Before/After Slider
+        (function() {
+            const slider = document.getElementById('comparison-slider');
+            const overlay = document.getElementById('comparison-overlay');
+            const handle = document.getElementById('slider-handle');
+
+            if (!slider || !overlay || !handle) return;
+
+            let isDragging = false;
+
+            function updateSlider(x) {
+                const rect = slider.getBoundingClientRect();
+                let percentage = ((x - rect.left) / rect.width) * 100;
+                percentage = Math.max(0, Math.min(100, percentage));
+
+                overlay.style.width = percentage + '%';
+                handle.style.left = percentage + '%';
+            }
+
+            function startDrag(e) {
+                isDragging = true;
+                e.preventDefault();
+            }
+
+            function endDrag() {
+                isDragging = false;
+            }
+
+            function drag(e) {
+                if (!isDragging) return;
+                e.preventDefault();
+                const x = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+                updateSlider(x);
+            }
+
+            // Mouse events
+            handle.addEventListener('mousedown', startDrag);
+            document.addEventListener('mouseup', endDrag);
+            document.addEventListener('mousemove', drag);
+
+            // Touch events
+            handle.addEventListener('touchstart', startDrag);
+            document.addEventListener('touchend', endDrag);
+            document.addEventListener('touchmove', drag);
+
+            // Click to position
+            slider.addEventListener('click', function(e) {
+                if (e.target === handle || e.target.closest('.slider-handle')) return;
+                updateSlider(e.clientX);
+            });
+
+            // Initialize at 50%
+            updateSlider(slider.getBoundingClientRect().left + slider.offsetWidth / 2);
+        })();
     </script>
 </body>
 </html>

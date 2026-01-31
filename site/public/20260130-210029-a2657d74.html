@@ -17,6 +17,9 @@
         <a href="index.html" class="back-link">Back to Gallery</a>
 
         <div class="entry-detail">
+            <div class="entry-hero">
+                <img src="images/20260130-210029-a2657d74-edited.jpeg" alt="Edited IMG_1002.jpeg" class="entry-hero-image">
+            </div>
             <h2>IMG_1002.jpeg</h2>
 
             <div class="metadata">
@@ -26,71 +29,77 @@
 
             <div class="analysis">
                 <h3>Multi-LLM Analysis</h3>
-                <div class="score-display">75.0/100</div>
-                <p class="score-caption">Consensus Score</p>
 
                 
-                <div class="llm-critiques">
-                    
-                    <div class="llm-critique llm-gemini">
-                        <div class="llm-critique-header">
-                            <strong class="llm-name">gemini</strong>
+                <div class="score-display">75.0/100</div>
+                <p class="score-caption">Consensus Score</p>
+                
+
+                
+                <div class="review-phase">
+                    <h4 class="review-phase-label">Original Review</h4>
+                    <div class="llm-critiques">
+                        
+                        <div class="llm-critique llm-gemini">
+                            <div class="llm-critique-header">
+                                <strong class="llm-name">gemini</strong>
+                                
+                                <span class="score-pill score-mid">72.0/100</span>
+                                
+                            </div>
                             
-                            <span class="score-pill score-mid">72.0/100</span>
+                            <p class="llm-notes">A charming pet portrait with a nice composition. The primary work required is corrective: fixing the indoor lighting color cast and reducing noise, which will reveal the beautiful texture of the dog's coat.</p>
+                            
+                            
+                            <ul class="llm-improvements">
+                                
+                                <li>Correct White Balance</li>
+                                
+                                <li>Luminance Noise Reduction</li>
+                                
+                                <li>Radial Dodge on Eye</li>
+                                
+                            </ul>
                             
                         </div>
                         
-                        <p class="llm-notes">A charming pet portrait with a nice composition. The primary work required is corrective: fixing the indoor lighting color cast and reducing noise, which will reveal the beautiful texture of the dog's coat.</p>
-                        
-                        
-                        <ul class="llm-improvements">
+                        <div class="llm-critique llm-openai">
+                            <div class="llm-critique-header">
+                                <strong class="llm-name">openai</strong>
+                                
+                                <span class="score-pill score-mid">78.0/100</span>
+                                
+                            </div>
                             
-                            <li>Correct White Balance</li>
+                            <p class="llm-notes">The image has a strong, intimate moment with pleasing bokeh and a flattering side profile. Minor exposure lift and targeted detail on the eye will improve subject presence, while cropping and background noise reduction will remove distractions and polish the low-light look.</p>
                             
-                            <li>Luminance Noise Reduction</li>
                             
-                            <li>Radial Dodge on Eye</li>
-                            
-                        </ul>
-                        
-                    </div>
-                    
-                    <div class="llm-critique llm-openai">
-                        <div class="llm-critique-header">
-                            <strong class="llm-name">openai</strong>
-                            
-                            <span class="score-pill score-mid">78.0/100</span>
-                            
-                        </div>
-                        
-                        <p class="llm-notes">The image has a strong, intimate moment with pleasing bokeh and a flattering side profile. Minor exposure lift and targeted detail on the eye will improve subject presence, while cropping and background noise reduction will remove distractions and polish the low-light look.</p>
-                        
-                        
-                        <ul class="llm-improvements">
-                            
-                            <li>Crop slightly from the left and bottom to remove the partial face/hand distractions and place the dog's eye nearer the upper-left third while keeping space in front of the nose</li>
-                            
-                            <li>Apply a subject mask and lift midtones on the face/fur slightly (+0.2 to +0.4 EV), then reduce highlights on the brightest fur areas (Highlights -10 to -25) to keep texture</li>
-                            
-                            <li>Enhance the eye with a small radial mask: add a touch of exposure/whites (+0.1 to +0.25), clarity/texture (+5 to +10), and mild sharpening; avoid overbrightening the catchlight</li>
-                            
-                        </ul>
-                        
-                    </div>
-                    
-                    <div class="llm-critique llm-anthropic">
-                        <div class="llm-critique-header">
-                            <strong class="llm-name">anthropic</strong>
-                            
-                            <span class="score-pill score-fail">Failed</span>
+                            <ul class="llm-improvements">
+                                
+                                <li>Crop slightly from the left and bottom to remove the partial face/hand distractions and place the dog's eye nearer the upper-left third while keeping space in front of the nose</li>
+                                
+                                <li>Apply a subject mask and lift midtones on the face/fur slightly (+0.2 to +0.4 EV), then reduce highlights on the brightest fur areas (Highlights -10 to -25) to keep texture</li>
+                                
+                                <li>Enhance the eye with a small radial mask: add a touch of exposure/whites (+0.1 to +0.25), clarity/texture (+5 to +10), and mild sharpening; avoid overbrightening the catchlight</li>
+                                
+                            </ul>
                             
                         </div>
                         
-                        <p class="llm-notes">Analysis failed: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.0.image.source.base64: image exceeds 5 MB maximum: 9729024 bytes > 5242880 bytes'}, 'request_id': 'req_011CXeEcUG5f4Wu8cwZQWM3x'}</p>
-                        
+                        <div class="llm-critique llm-anthropic">
+                            <div class="llm-critique-header">
+                                <strong class="llm-name">anthropic</strong>
+                                
+                                <span class="score-pill score-fail">Failed</span>
+                                
+                            </div>
+                            
+                            <p class="llm-notes">Analysis failed: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.0.image.source.base64: image exceeds 5 MB maximum: 9729024 bytes > 5242880 bytes'}, 'request_id': 'req_011CXeEcUG5f4Wu8cwZQWM3x'}</p>
+                            
+                            
+                        </div>
                         
                     </div>
-                    
                 </div>
                 
 
@@ -118,6 +127,8 @@
                         
                     </ul>
                 </div>
+
+                
             </div>
 
             <div class="comparison-container">

@@ -258,6 +258,23 @@ img {
   overflow-wrap: anywhere;
 }
 
+.entry-hero {
+  margin-bottom: clamp(18px, 3vw, 28px);
+  border-radius: 18px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(23, 26, 34, 0.08);
+  box-shadow: 0 12px 26px rgba(18, 24, 40, 0.12);
+}
+
+.entry-hero-image {
+  width: 100%;
+  height: auto;
+  max-height: 70vh;
+  object-fit: contain;
+  background: #0f172a;
+}
+
 .entry-detail h2 {
   font-family: var(--font-display);
   font-size: clamp(1.8rem, 3.2vw, 2.6rem);

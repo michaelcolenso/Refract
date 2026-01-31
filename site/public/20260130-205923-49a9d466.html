@@ -17,6 +17,9 @@
         <a href="index.html" class="back-link">Back to Gallery</a>
 
         <div class="entry-detail">
+            <div class="entry-hero">
+                <img src="images/20260130-205923-49a9d466-edited.jpeg" alt="Edited IMG_0985.jpeg" class="entry-hero-image">
+            </div>
             <h2>IMG_0985.jpeg</h2>
 
             <div class="metadata">
@@ -26,81 +29,87 @@
 
             <div class="analysis">
                 <h3>Multi-LLM Analysis</h3>
-                <div class="score-display">65.0/100</div>
-                <p class="score-caption">Consensus Score</p>
 
                 
-                <div class="llm-critiques">
-                    
-                    <div class="llm-critique llm-gemini">
-                        <div class="llm-critique-header">
-                            <strong class="llm-name">gemini</strong>
+                <div class="score-display">65.0/100</div>
+                <p class="score-caption">Consensus Score</p>
+                
+
+                
+                <div class="review-phase">
+                    <h4 class="review-phase-label">Original Review</h4>
+                    <div class="llm-critiques">
+                        
+                        <div class="llm-critique llm-gemini">
+                            <div class="llm-critique-header">
+                                <strong class="llm-name">gemini</strong>
+                                
+                                <span class="score-pill score-mid">65.0/100</span>
+                                
+                            </div>
                             
-                            <span class="score-pill score-mid">65.0/100</span>
+                            <p class="llm-notes">This is a charming candid moment with strong emotional appeal, though it suffers technically from soft focus and low-light noise. The editing strategy should focus on 'cleaning' the image by fixing the color cast and noise, rather than trying to force sharpness that isn't there.</p>
+                            
+                            
+                            <ul class="llm-improvements">
+                                
+                                <li>Correct White Balance</li>
+                                
+                                <li>Selective Sharpening</li>
+                                
+                                <li>Set White Point and Lift Exposure</li>
+                                
+                            </ul>
                             
                         </div>
                         
-                        <p class="llm-notes">This is a charming candid moment with strong emotional appeal, though it suffers technically from soft focus and low-light noise. The editing strategy should focus on 'cleaning' the image by fixing the color cast and noise, rather than trying to force sharpness that isn't there.</p>
-                        
-                        
-                        <ul class="llm-improvements">
+                        <div class="llm-critique llm-openai">
+                            <div class="llm-critique-header">
+                                <strong class="llm-name">openai</strong>
+                                
+                                <span class="score-pill score-mid">68.0/100</span>
+                                
+                            </div>
                             
-                            <li>Correct White Balance</li>
+                            <p class="llm-notes">The image has a charming candid moment and pleasing background blur, but it looks a bit dim with a warm indoor color cast. Modest tonal lift, slight WB correction, targeted sharpening, and noise reduction will make the dog’s face feel clearer and more vibrant while keeping the cozy mood.</p>
                             
-                            <li>Selective Sharpening</li>
                             
-                            <li>Set White Point and Lift Exposure</li>
-                            
-                        </ul>
-                        
-                    </div>
-                    
-                    <div class="llm-critique llm-openai">
-                        <div class="llm-critique-header">
-                            <strong class="llm-name">openai</strong>
-                            
-                            <span class="score-pill score-mid">68.0/100</span>
-                            
-                        </div>
-                        
-                        <p class="llm-notes">The image has a charming candid moment and pleasing background blur, but it looks a bit dim with a warm indoor color cast. Modest tonal lift, slight WB correction, targeted sharpening, and noise reduction will make the dog’s face feel clearer and more vibrant while keeping the cozy mood.</p>
-                        
-                        
-                        <ul class="llm-improvements">
-                            
-                            <li>Lift exposure slightly (+0.2 to +0.4) and raise shadows on the dog’s face (+15 to +25) while pulling highlights down a touch (-10) to keep fur detail</li>
-                            
-                            <li>Adjust white balance slightly cooler (reduce Temp a bit) and add a small magenta tint (+3 to +8) to counter warm/yellow indoor cast in the fur</li>
-                            
-                            <li>Apply selective sharpening/texture on eyes and nose (Texture +10 to +20, Sharpening masked to edges) and add a small clarity boost on the muzzle; avoid sharpening the background</li>
-                            
-                        </ul>
-                        
-                    </div>
-                    
-                    <div class="llm-critique llm-anthropic">
-                        <div class="llm-critique-header">
-                            <strong class="llm-name">anthropic</strong>
-                            
-                            <span class="score-pill score-mid">62.0/100</span>
+                            <ul class="llm-improvements">
+                                
+                                <li>Lift exposure slightly (+0.2 to +0.4) and raise shadows on the dog’s face (+15 to +25) while pulling highlights down a touch (-10) to keep fur detail</li>
+                                
+                                <li>Adjust white balance slightly cooler (reduce Temp a bit) and add a small magenta tint (+3 to +8) to counter warm/yellow indoor cast in the fur</li>
+                                
+                                <li>Apply selective sharpening/texture on eyes and nose (Texture +10 to +20, Sharpening masked to edges) and add a small clarity boost on the muzzle; avoid sharpening the background</li>
+                                
+                            </ul>
                             
                         </div>
                         
-                        <p class="llm-notes">This is a charming pet portrait with excellent subject expression and composition. The main technical limitation is the soft focus, which reduces sharpness in critical areas like the eyes. Strategic sharpening and highlight recovery will significantly improve image quality while maintaining the warm, playful character that makes this photo appealing.</p>
-                        
-                        
-                        <ul class="llm-improvements">
+                        <div class="llm-critique llm-anthropic">
+                            <div class="llm-critique-header">
+                                <strong class="llm-name">anthropic</strong>
+                                
+                                <span class="score-pill score-mid">62.0/100</span>
+                                
+                            </div>
                             
-                            <li>Apply sharpening to eyes and nose using selective masking, increase clarity by 15-20</li>
+                            <p class="llm-notes">This is a charming pet portrait with excellent subject expression and composition. The main technical limitation is the soft focus, which reduces sharpness in critical areas like the eyes. Strategic sharpening and highlight recovery will significantly improve image quality while maintaining the warm, playful character that makes this photo appealing.</p>
                             
-                            <li>Reduce highlights by -15 to -20, especially on the white fur to recover texture and detail</li>
                             
-                            <li>Increase contrast in the eyes by darkening the pupils and adding local contrast to create more depth</li>
+                            <ul class="llm-improvements">
+                                
+                                <li>Apply sharpening to eyes and nose using selective masking, increase clarity by 15-20</li>
+                                
+                                <li>Reduce highlights by -15 to -20, especially on the white fur to recover texture and detail</li>
+                                
+                                <li>Increase contrast in the eyes by darkening the pupils and adding local contrast to create more depth</li>
+                                
+                            </ul>
                             
-                        </ul>
+                        </div>
                         
                     </div>
-                    
                 </div>
                 
 
@@ -140,6 +149,8 @@
                         
                     </ul>
                 </div>
+
+                
             </div>
 
             <div class="comparison-container">

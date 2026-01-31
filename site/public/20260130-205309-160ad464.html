@@ -17,6 +17,9 @@
         <a href="index.html" class="back-link">Back to Gallery</a>
 
         <div class="entry-detail">
+            <div class="entry-hero">
+                <img src="images/20260130-205309-160ad464-edited.jpeg" alt="Edited IMG_1001.jpeg" class="entry-hero-image">
+            </div>
             <h2>IMG_1001.jpeg</h2>
 
             <div class="metadata">
@@ -26,81 +29,87 @@
 
             <div class="analysis">
                 <h3>Multi-LLM Analysis</h3>
-                <div class="score-display">68.3/100</div>
-                <p class="score-caption">Consensus Score</p>
 
                 
-                <div class="llm-critiques">
-                    
-                    <div class="llm-critique llm-gemini">
-                        <div class="llm-critique-header">
-                            <strong class="llm-name">gemini</strong>
+                <div class="score-display">68.3/100</div>
+                <p class="score-caption">Consensus Score</p>
+                
+
+                
+                <div class="review-phase">
+                    <h4 class="review-phase-label">Original Review</h4>
+                    <div class="llm-critiques">
+                        
+                        <div class="llm-critique llm-gemini">
+                            <div class="llm-critique-header">
+                                <strong class="llm-name">gemini</strong>
+                                
+                                <span class="score-pill score-mid">65.0/100</span>
+                                
+                            </div>
                             
-                            <span class="score-pill score-mid">65.0/100</span>
+                            <p class="llm-notes">A charming pet portrait hampered slightly by low-light conditions. The editing focus should be on separating the subject from the dim environment by brightening the fur and correcting the color cast without destroying the cozy atmosphere.</p>
+                            
+                            
+                            <ul class="llm-improvements">
+                                
+                                <li>Increase overall exposure and lift shadows</li>
+                                
+                                <li>Cool down white balance slightly</li>
+                                
+                                <li>Apply targeted sharpening to the eye and snout</li>
+                                
+                            </ul>
                             
                         </div>
                         
-                        <p class="llm-notes">A charming pet portrait hampered slightly by low-light conditions. The editing focus should be on separating the subject from the dim environment by brightening the fur and correcting the color cast without destroying the cozy atmosphere.</p>
-                        
-                        
-                        <ul class="llm-improvements">
+                        <div class="llm-critique llm-openai">
+                            <div class="llm-critique-header">
+                                <strong class="llm-name">openai</strong>
+                                
+                                <span class="score-pill score-mid">72.0/100</span>
+                                
+                            </div>
                             
-                            <li>Increase overall exposure and lift shadows</li>
+                            <p class="llm-notes">The image has a pleasing intimate mood with attractive bokeh and a strong canine profile. It’s a touch underexposed with moderate low-light noise, and a small crop plus selective face/eye enhancement would significantly improve subject emphasis while retaining the intended ambiance.</p>
                             
-                            <li>Cool down white balance slightly</li>
                             
-                            <li>Apply targeted sharpening to the eye and snout</li>
-                            
-                        </ul>
-                        
-                    </div>
-                    
-                    <div class="llm-critique llm-openai">
-                        <div class="llm-critique-header">
-                            <strong class="llm-name">openai</strong>
-                            
-                            <span class="score-pill score-mid">72.0/100</span>
-                            
-                        </div>
-                        
-                        <p class="llm-notes">The image has a pleasing intimate mood with attractive bokeh and a strong canine profile. It’s a touch underexposed with moderate low-light noise, and a small crop plus selective face/eye enhancement would significantly improve subject emphasis while retaining the intended ambiance.</p>
-                        
-                        
-                        <ul class="llm-improvements">
-                            
-                            <li>Raise overall exposure slightly (+0.2 to +0.5 EV) and lift shadows selectively on the dog’s face/neck (+15 to +30) while keeping the background subdued</li>
-                            
-                            <li>Reduce luminance noise (approx. 15–30) and add mild color noise reduction (approx. 20–30), masking sharpening so it targets the eye and muzzle edges</li>
-                            
-                            <li>Local adjustment on the eye: small exposure lift (+0.1 to +0.3), add clarity/texture (+5 to +15), and subtle sharpening to enhance the catchlight</li>
-                            
-                        </ul>
-                        
-                    </div>
-                    
-                    <div class="llm-critique llm-anthropic">
-                        <div class="llm-critique-header">
-                            <strong class="llm-name">anthropic</strong>
-                            
-                            <span class="score-pill score-mid">68.0/100</span>
+                            <ul class="llm-improvements">
+                                
+                                <li>Raise overall exposure slightly (+0.2 to +0.5 EV) and lift shadows selectively on the dog’s face/neck (+15 to +30) while keeping the background subdued</li>
+                                
+                                <li>Reduce luminance noise (approx. 15–30) and add mild color noise reduction (approx. 20–30), masking sharpening so it targets the eye and muzzle edges</li>
+                                
+                                <li>Local adjustment on the eye: small exposure lift (+0.1 to +0.3), add clarity/texture (+5 to +15), and subtle sharpening to enhance the catchlight</li>
+                                
+                            </ul>
                             
                         </div>
                         
-                        <p class="llm-notes">This is a charming candid portrait with good composition and pleasant bokeh, but it suffers from slight underexposure and soft focus on the subject. The white fur appears dull and lacks definition. Priority edits should focus on lifting exposure, sharpening the facial features, and improving tonal separation to make the fluffy coat texture more prominent while preserving the warm, intimate mood created by the ambient lighting.</p>
-                        
-                        
-                        <ul class="llm-improvements">
+                        <div class="llm-critique llm-anthropic">
+                            <div class="llm-critique-header">
+                                <strong class="llm-name">anthropic</strong>
+                                
+                                <span class="score-pill score-mid">68.0/100</span>
+                                
+                            </div>
                             
-                            <li>Increase overall exposure by +0.5 to +0.7 stops, focusing on lifting midtones and shadows to brighten the dog's white fur while maintaining highlight detail</li>
+                            <p class="llm-notes">This is a charming candid portrait with good composition and pleasant bokeh, but it suffers from slight underexposure and soft focus on the subject. The white fur appears dull and lacks definition. Priority edits should focus on lifting exposure, sharpening the facial features, and improving tonal separation to make the fluffy coat texture more prominent while preserving the warm, intimate mood created by the ambient lighting.</p>
                             
-                            <li>Apply selective sharpening to the dog's face, particularly the eye, nose, and whiskers, using an unsharp mask (Amount: 60-80, Radius: 1.0) or clarity adjustment</li>
                             
-                            <li>Adjust white balance by reducing yellow tones slightly (-5 to -10 in temperature) to achieve more neutral white fur while preserving the warm ambient lighting from the ceiling lights</li>
+                            <ul class="llm-improvements">
+                                
+                                <li>Increase overall exposure by +0.5 to +0.7 stops, focusing on lifting midtones and shadows to brighten the dog's white fur while maintaining highlight detail</li>
+                                
+                                <li>Apply selective sharpening to the dog's face, particularly the eye, nose, and whiskers, using an unsharp mask (Amount: 60-80, Radius: 1.0) or clarity adjustment</li>
+                                
+                                <li>Adjust white balance by reducing yellow tones slightly (-5 to -10 in temperature) to achieve more neutral white fur while preserving the warm ambient lighting from the ceiling lights</li>
+                                
+                            </ul>
                             
-                        </ul>
+                        </div>
                         
                     </div>
-                    
                 </div>
                 
 
@@ -136,6 +145,8 @@
                         
                     </ul>
                 </div>
+
+                
             </div>
 
             <div class="comparison-container">

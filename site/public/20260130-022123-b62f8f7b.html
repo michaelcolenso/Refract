@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>image.webp - REFRACT</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,6 +17,9 @@
         <a href="index.html" class="back-link">Back to Gallery</a>
 
         <div class="entry-detail">
+            <div class="entry-hero">
+                <img src="images/20260130-022123-b62f8f7b-edited.webp" alt="Edited image.webp" class="entry-hero-image">
+            </div>
             <h2>image.webp</h2>
 
             <div class="metadata">
@@ -25,35 +29,41 @@
 
             <div class="analysis">
                 <h3>Multi-LLM Analysis</h3>
-                <div class="score-display">52.0/100</div>
-                <p class="score-caption">Consensus Score</p>
 
                 
-                <div class="llm-critiques">
-                    
-                    <div class="llm-critique llm-openai">
-                        <div class="llm-critique-header">
-                            <strong class="llm-name">openai</strong>
+                <div class="score-display">52.0/100</div>
+                <p class="score-caption">Consensus Score</p>
+                
+
+                
+                <div class="review-phase">
+                    <h4 class="review-phase-label">Original Review</h4>
+                    <div class="llm-critiques">
+                        
+                        <div class="llm-critique llm-openai">
+                            <div class="llm-critique-header">
+                                <strong class="llm-name">openai</strong>
+                                
+                                <span class="score-pill score-low">52.0/100</span>
+                                
+                            </div>
                             
-                            <span class="score-pill score-low">52.0/100</span>
+                            <p class="llm-notes">The scene has strong narrative content and a compelling juxtaposition of workers against dense urban architecture. The main limitation is severe compression/pixelation that obscures detail; after addressing that, modest tonal and color balancing plus a tighter crop will better emphasize the subjects.</p>
+                            
+                            
+                            <ul class="llm-improvements">
+                                
+                                <li>Reduce heavy compression artifacts/pixelation by exporting from a higher-quality source if available; if not, apply targeted noise reduction plus mild JPEG artifact reduction (e.g., Lightroom Denoise/Detail smoothing) and avoid aggressive sharpening</li>
+                                
+                                <li>Rebalance tonality: lower highlights (~-20 to -35) on the bright building, lift shadows slightly on the workers/platform (+10 to +25), and add a gentle midtone contrast S-curve</li>
+                                
+                                <li>Warm the white balance slightly (increase Temp a bit and reduce cyan/blue in shadows with Color Grading or HSL) while keeping neutrals neutral</li>
+                                
+                            </ul>
                             
                         </div>
                         
-                        <p class="llm-notes">The scene has strong narrative content and a compelling juxtaposition of workers against dense urban architecture. The main limitation is severe compression/pixelation that obscures detail; after addressing that, modest tonal and color balancing plus a tighter crop will better emphasize the subjects.</p>
-                        
-                        
-                        <ul class="llm-improvements">
-                            
-                            <li>[SIGNIFICANT] Reduce heavy compression artifacts/pixelation by exporting from a higher-quality source if available; if not, apply targeted noise reduction plus mild JPEG artifact reduction (e.g., Lightroom Denoise/Detail smoothing) and avoid aggressive sharpening</li>
-                            
-                            <li>[MODERATE] Rebalance tonality: lower highlights (~-20 to -35) on the bright building, lift shadows slightly on the workers/platform (+10 to +25), and add a gentle midtone contrast S-curve</li>
-                            
-                            <li>[SUBTLE] Warm the white balance slightly (increase Temp a bit and reduce cyan/blue in shadows with Color Grading or HSL) while keeping neutrals neutral</li>
-                            
-                        </ul>
-                        
                     </div>
-                    
                 </div>
                 
 
@@ -61,18 +71,20 @@
                     <h4>Combined Improvements Applied:</h4>
                     <ul>
                         
-                        <li>[SIGNIFICANT] Reduce heavy compression artifacts/pixelation by exporting from a higher-quality source if available; if not, apply targeted noise reduction plus mild JPEG artifact reduction (e.g., Lightroom Denoise/Detail smoothing) and avoid aggressive sharpening</li>
+                        <li>Reduce heavy compression artifacts/pixelation by exporting from a higher-quality source if available; if not, apply targeted noise reduction plus mild JPEG artifact reduction (e.g., Lightroom Denoise/Detail smoothing) and avoid aggressive sharpening</li>
                         
-                        <li>[MODERATE] Rebalance tonality: lower highlights (~-20 to -35) on the bright building, lift shadows slightly on the workers/platform (+10 to +25), and add a gentle midtone contrast S-curve</li>
+                        <li>Rebalance tonality: lower highlights (~-20 to -35) on the bright building, lift shadows slightly on the workers/platform (+10 to +25), and add a gentle midtone contrast S-curve</li>
                         
-                        <li>[SUBTLE] Warm the white balance slightly (increase Temp a bit and reduce cyan/blue in shadows with Color Grading or HSL) while keeping neutrals neutral</li>
+                        <li>Warm the white balance slightly (increase Temp a bit and reduce cyan/blue in shadows with Color Grading or HSL) while keeping neutrals neutral</li>
                         
-                        <li>[MODERATE] Crop/straighten to strengthen composition: trim some top background and right edge to reduce distraction, keep the flag and workers as the primary visual anchors, and ensure verticals feel intentional</li>
+                        <li>Crop/straighten to strengthen composition: trim some top background and right edge to reduce distraction, keep the flag and workers as the primary visual anchors, and ensure verticals feel intentional</li>
                         
-                        <li>[SUBTLE] Apply selective sharpening/texture on the workers only (masking): add slight Texture/Clarity (+5 to +15) and sharpening with masking, while keeping the background smoother</li>
+                        <li>Apply selective sharpening/texture on the workers only (masking): add slight Texture/Clarity (+5 to +15) and sharpening with masking, while keeping the background smoother</li>
                         
                     </ul>
                 </div>
+
+                
             </div>
 
             <div class="comparison-container">
