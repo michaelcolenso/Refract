@@ -572,7 +572,7 @@ img {
   user-select: none;
   touch-action: none;
   --comparison-max-width: 100%;
-  --comparison-max-height: 80vh;
+  --comparison-max-height: 60vh;
 }
 
 .comparison-wrapper {
@@ -582,7 +582,7 @@ img {
   overflow: hidden;
   border-radius: 12px;
   box-shadow: 0 14px 30px rgba(18, 24, 40, 0.15);
-  max-height: min(80vh, var(--comparison-max-height));
+  max-height: min(60vh, var(--comparison-max-height));
 }
 
 .comparison-img {
@@ -590,7 +590,7 @@ img {
   width: 100%;
   height: auto;
   max-width: 100%;
-  max-height: min(80vh, var(--comparison-max-height));
+  max-height: min(60vh, var(--comparison-max-height));
 }
 
 .comparison-overlay {
@@ -694,7 +694,7 @@ img {
   width: 100%;
   border-radius: 12px;
   box-shadow: 0 10px 24px rgba(18, 24, 40, 0.12);
-  max-height: min(80vh, var(--comparison-max-height));
+  max-height: min(60vh, var(--comparison-max-height));
   object-fit: contain;
 }
 
@@ -716,7 +716,7 @@ img {
   width: 100%;
   border-radius: 12px;
   box-shadow: 0 12px 28px rgba(18, 24, 40, 0.14);
-  max-height: min(80vh, var(--comparison-max-height));
+  max-height: min(60vh, var(--comparison-max-height));
   object-fit: contain;
 }
 
