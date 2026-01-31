@@ -252,6 +252,7 @@ class SiteGenerator:
             entry['web_comparison'] = f"images/{comparison_dest.name}"
             if original_size and edited_size:
                 entry['comparison_max_width'] = min(original_size[0], edited_size[0])
+                entry['comparison_max_height'] = min(original_size[1], edited_size[1])
 
             # Generate entry page if new
             if is_new:
