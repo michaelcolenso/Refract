@@ -584,7 +584,6 @@ img {
   box-shadow: 0 14px 30px rgba(18, 24, 40, 0.15);
   height: min(60vh, var(--comparison-max-height));
   max-height: min(60vh, var(--comparison-max-height));
-  background: #0f172a;
 }
 
 .comparison-img {
@@ -593,7 +592,7 @@ img {
   height: 100%;
   max-width: 100%;
   max-height: min(60vh, var(--comparison-max-height));
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .comparison-overlay {
