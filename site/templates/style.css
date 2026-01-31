@@ -564,21 +564,6 @@ img {
   font-family: var(--font-display);
 }
 
-.comparison-simple {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  margin-bottom: 24px;
-}
-
-.comparison-simple img {
-  width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 10px 24px rgba(18, 24, 40, 0.12);
-  max-height: min(60vh, var(--comparison-max-height));
-  object-fit: contain;
-}
-
 .comparison-label {
   text-align: center;
   font-weight: 600;
