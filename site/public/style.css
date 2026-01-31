@@ -32,8 +32,9 @@ body {
   line-height: 1.6;
   color: var(--text);
   background: linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 100%);
-  padding: 24px;
+  padding: clamp(14px, 2.5vw, 28px);
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 body::before {
@@ -50,8 +51,14 @@ body::before {
 }
 
 .container {
-  max-width: 1200px;
+  width: min(1200px, 100%);
   margin: 0 auto;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 .hero {
@@ -107,7 +114,7 @@ body::before {
 
 .stats {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(160px, 100%), 1fr));
   gap: 14px;
   margin-top: 24px;
 }
@@ -129,7 +136,7 @@ body::before {
 
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
   gap: 26px;
   margin: 40px 0 60px;
 }
@@ -164,7 +171,8 @@ body::before {
 
 .entry-thumbnail {
   width: 100%;
-  height: 220px;
+  height: auto;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
 }
 
@@ -178,10 +186,12 @@ body::before {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 12px;
+  flex-wrap: wrap;
+  gap: 8px 12px;
 }
 
 .entry-score {
-  font-size: 0.95rem;
+  font-size: clamp(0.85rem, 2vw, 0.95rem);
   font-weight: 700;
   color: #fff;
   background: linear-gradient(120deg, var(--secondary), var(--accent-2));
@@ -191,7 +201,7 @@ body::before {
 }
 
 .entry-date {
-  font-size: 0.78rem;
+  font-size: clamp(0.72rem, 1.8vw, 0.8rem);
   color: var(--text-muted);
   padding: 4px 10px;
   border-radius: 999px;
@@ -218,6 +228,7 @@ body::before {
   padding: 6px 0 6px 18px;
   position: relative;
   font-size: 0.95rem;
+  overflow-wrap: anywhere;
 }
 
 .entry-improvements li::before {
@@ -235,14 +246,16 @@ body::before {
   font-size: 0.95rem;
   color: var(--text-muted);
   font-style: italic;
+  overflow-wrap: anywhere;
 }
 
 .entry-detail {
   background: var(--card-bg);
   border-radius: 22px;
-  padding: 36px;
+  padding: clamp(20px, 3vw, 36px);
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
+  overflow-wrap: anywhere;
 }
 
 .entry-detail h2 {
@@ -254,11 +267,12 @@ body::before {
 
 .metadata {
   margin: 24px 0;
-  padding: 18px;
+  padding: clamp(14px, 2.5vw, 18px);
   background: rgba(23, 26, 34, 0.04);
   border-radius: 12px;
   font-size: 0.95rem;
   color: var(--text-muted);
+  overflow-wrap: anywhere;
 }
 
 .metadata strong {
@@ -267,7 +281,7 @@ body::before {
 
 .analysis {
   margin: 30px 0;
-  padding: 28px;
+  padding: clamp(18px, 3vw, 28px);
   background: linear-gradient(135deg, rgba(241, 143, 59, 0.12), rgba(31, 111, 235, 0.08));
   border-radius: 16px;
   border: 1px solid rgba(23, 26, 34, 0.12);
@@ -285,7 +299,7 @@ body::before {
   font-weight: 700;
   color: var(--primary);
   margin: 8px 0 4px;
-  padding: 14px 28px;
+  padding: clamp(10px, 2.5vw, 14px) clamp(18px, 4vw, 28px);
   background: #fff;
   border-radius: 16px;
   border: 1px solid rgba(23, 26, 34, 0.1);
@@ -381,7 +395,7 @@ body::before {
 
 .llm-critiques {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
   gap: 14px;
   margin-bottom: 22px;
 }
@@ -445,6 +459,7 @@ body::before {
   margin: 0;
   color: var(--text-muted);
   font-size: 0.9rem;
+  overflow-wrap: anywhere;
 }
 
 .llm-improvements {
@@ -473,6 +488,7 @@ body::before {
   position: relative;
   font-size: 1rem;
   border-bottom: 1px solid rgba(23, 26, 34, 0.08);
+  overflow-wrap: anywhere;
 }
 
 .improvements-list li:last-child {
@@ -518,7 +534,7 @@ body::before {
 
 .comparison-container {
   margin: 30px 0;
-  padding: 24px;
+  padding: clamp(16px, 3vw, 24px);
   background: rgba(255, 255, 255, 0.92);
   border-radius: 18px;
   border: 1px solid rgba(23, 26, 34, 0.12);
@@ -537,6 +553,7 @@ body::before {
   max-width: 100%;
   margin: 0 auto 20px;
   user-select: none;
+  touch-action: none;
 }
 
 .comparison-wrapper {
@@ -599,8 +616,8 @@ body::before {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 46px;
-  height: 46px;
+  width: clamp(36px, 8vw, 46px);
+  height: clamp(36px, 8vw, 46px);
   background: #fff;
   border-radius: 50%;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
@@ -639,6 +656,8 @@ body::before {
   text-transform: uppercase;
   color: var(--text-muted);
   letter-spacing: 0.08em;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
 .comparison-simple {
@@ -692,6 +711,7 @@ footer p {
   border-radius: 20px;
   border: 1px solid rgba(23, 26, 34, 0.12);
   box-shadow: var(--shadow);
+  overflow-wrap: anywhere;
 }
 
 .empty-state h2 {
@@ -736,12 +756,8 @@ footer p {
 }
 
 @media (max-width: 900px) {
-  body {
-    padding: 16px;
-  }
-
   .entry-detail {
-    padding: 24px;
+    padding: clamp(18px, 4vw, 24px);
   }
 
   .comparison-simple {
@@ -751,7 +767,7 @@ footer p {
 
 @media (max-width: 768px) {
   .hero {
-    padding: 44px 20px 36px;
+    padding: 38px 18px 32px;
   }
 
   .gallery {
@@ -763,7 +779,29 @@ footer p {
   }
 
   .entry-thumbnail {
-    height: 200px;
+    aspect-ratio: 5 / 4;
+  }
+}
+
+@media (max-width: 560px) {
+  .hero h1 {
+    font-size: clamp(2rem, 8vw, 2.6rem);
+  }
+
+  .subtitle {
+    font-size: 0.98rem;
+  }
+
+  .entry-content {
+    padding: 18px;
+  }
+
+  .analysis h3 {
+    font-size: 1.2rem;
+  }
+
+  .comparison-labels {
+    justify-content: center;
   }
 }
 

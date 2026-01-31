@@ -45,10 +45,12 @@ inbox/ --> Multi-LLM Critique --> Editor --> Generator --> GitHub Pages
 ## Local Development
 
 ```bash
-pip install -r requirements.txt
+uv venv .venv
+uv pip install -r requirements.txt
 cp .env.example .env  # Add your API keys
-python scripts/pipeline.py
-python scripts/serve.py  # Preview at http://localhost:8000
+uv run python scripts/dev.py          # Watch inbox/ + rebuild + serve at http://localhost:8000
+uv run python scripts/pipeline.py
+uv run python scripts/serve.py  # Preview at http://localhost:8000
 ```
 
 ### CLI Options
