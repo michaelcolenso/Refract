@@ -10,7 +10,7 @@ import pytest
 # Add scripts to path
 sys.path.insert(0, str(Path(__file__).parent.parent / 'scripts'))
 
-from utils import retry_with_backoff
+from utils import retry_with_backoff, image_hash, downscale_for_api
 
 
 class TestRetryWithBackoff:
