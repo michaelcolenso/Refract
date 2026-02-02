@@ -273,47 +273,127 @@ Return only the edited image."""
                 print(f"Fallback also failed: {e2}", file=sys.stderr)
                 return False
 
+    def _parse_intensity(self, improvement: str) -> float:
+        """Extract intensity multiplier from an improvement string."""
+        imp_lower = improvement.lower()
+        match = self._IMPROVEMENT_TAG_RE.match(imp_lower)
+        if match:
+            tag = match.group(1)
+            if tag in ('subtle', 'light', 'minor'):
+                return 0.5
+            elif tag in ('significant', 'strong', 'major', 'heavy', 'severe'):
+                return 1.5
+        return 1.0  # moderate/default
+
     def _apply_basic_enhancements(self, img: Image.Image, improvements: List[str]) -> Image.Image:
         """
-        Apply basic enhancements using PIL as a fallback.
-        This is a simplified implementation that applies common improvements.
+        Apply enhancements using PIL as a fallback.
+        Maps LLM improvement suggestions to concrete PIL operations.
         """
-        from PIL import ImageEnhance
+        from PIL import ImageEnhance, ImageFilter
+        import numpy as np
 
         enhanced = img.copy()
+        if enhanced.mode != 'RGB':
+            enhanced = enhanced.convert('RGB')
 
-        # Parse improvements and apply relevant PIL enhancements
-        improvements_lower = [imp.lower() for imp in improvements]
+        for imp in improvements:
+            imp_lower = imp.lower()
+            intensity = self._parse_intensity(imp)
 
-        # Brightness adjustments
-        if any('brightness' in imp or 'exposure' in imp or 'lighter' in imp or 'darker' in imp for imp in improvements_lower):
-            enhancer = ImageEnhance.Brightness(enhanced)
-            if any('increase' in imp or 'boost' in imp or 'lighter' in imp for imp in improvements_lower):
-                enhanced = enhancer.enhance(1.15)
-            elif any('decrease' in imp or 'reduce' in imp or 'darker' in imp for imp in improvements_lower):
-                enhanced = enhancer.enhance(0.85)
+            # Brightness / exposure
+            if any(kw in imp_lower for kw in ('brightness', 'exposure', 'lighter', 'lift shadow', 'raise shadow', 'raise black')):
+                factor = 1.0 + (0.15 * intensity)
+                if any(kw in imp_lower for kw in ('decrease', 'reduce', 'darker', 'lower', 'down')):
+                    factor = 1.0 - (0.12 * intensity)
+                enhanced = ImageEnhance.Brightness(enhanced).enhance(factor)
 
-        # Contrast adjustments
-        if any('contrast' in imp for imp in improvements_lower):
-            enhancer = ImageEnhance.Contrast(enhanced)
-            if any('increase' in imp or 'boost' in imp for imp in improvements_lower):
-                enhanced = enhancer.enhance(1.2)
-            elif any('decrease' in imp or 'reduce' in imp or 'soften' in imp for imp in improvements_lower):
-                enhanced = enhancer.enhance(0.8)
+            # Contrast / S-curve / tonal range
+            elif any(kw in imp_lower for kw in ('contrast', 's-curve', 'tonal', 'midtone')):
+                factor = 1.0 + (0.18 * intensity)
+                if any(kw in imp_lower for kw in ('decrease', 'reduce', 'soften', 'flatten')):
+                    factor = 1.0 - (0.15 * intensity)
+                enhanced = ImageEnhance.Contrast(enhanced).enhance(factor)
 
-        # Color/saturation adjustments
-        if any('saturation' in imp or 'vibrance' in imp or 'color' in imp for imp in improvements_lower):
-            enhancer = ImageEnhance.Color(enhanced)
-            if any('increase' in imp or 'boost' in imp or 'vibrant' in imp for imp in improvements_lower):
-                enhanced = enhancer.enhance(1.2)
-            elif any('decrease' in imp or 'reduce' in imp or 'muted' in imp for imp in improvements_lower):
-                enhanced = enhancer.enhance(0.8)
+            # Saturation / vibrance / color boost
+            elif any(kw in imp_lower for kw in ('saturation', 'vibrance', 'vibrant', 'desaturate', 'color')):
+                factor = 1.0 + (0.18 * intensity)
+                if any(kw in imp_lower for kw in ('desaturate', 'decrease', 'reduce', 'muted', 'mute')):
+                    factor = 1.0 - (0.15 * intensity)
+                enhanced = ImageEnhance.Color(enhanced).enhance(factor)
 
-        # Sharpness adjustments
-        if any('sharp' in imp or 'clarity' in imp or 'detail' in imp for imp in improvements_lower):
-            enhancer = ImageEnhance.Sharpness(enhanced)
-            if any('increase' in imp or 'boost' in imp for imp in improvements_lower):
-                enhanced = enhancer.enhance(1.3)
+            # Sharpness / clarity / detail
+            elif any(kw in imp_lower for kw in ('sharp', 'clarity', 'detail', 'crisp')):
+                factor = 1.0 + (0.25 * intensity)
+                enhanced = ImageEnhance.Sharpness(enhanced).enhance(factor)
+
+            # White balance / color temperature
+            elif any(kw in imp_lower for kw in ('white balance', 'temperature', 'warm', 'cool', 'tint')):
+                try:
+                    arr = np.array(enhanced, dtype=np.float32)
+                    shift = 8.0 * intensity
+                    if any(kw in imp_lower for kw in ('warm', 'warmer')):
+                        arr[:, :, 0] = np.clip(arr[:, :, 0] + shift, 0, 255)      # red up
+                        arr[:, :, 2] = np.clip(arr[:, :, 2] - shift * 0.6, 0, 255) # blue down
+                    elif any(kw in imp_lower for kw in ('cool', 'cooler')):
+                        arr[:, :, 2] = np.clip(arr[:, :, 2] + shift, 0, 255)      # blue up
+                        arr[:, :, 0] = np.clip(arr[:, :, 0] - shift * 0.6, 0, 255) # red down
+                    enhanced = Image.fromarray(arr.astype(np.uint8))
+                except ImportError:
+                    pass  # numpy not available, skip
+
+            # Highlight recovery
+            elif any(kw in imp_lower for kw in ('highlight', 'recover highlight', 'reduce highlight')):
+                try:
+                    arr = np.array(enhanced, dtype=np.float32)
+                    mask = arr.max(axis=2) > 200
+                    reduction = 0.08 * intensity
+                    arr[mask] = arr[mask] * (1.0 - reduction)
+                    enhanced = Image.fromarray(np.clip(arr, 0, 255).astype(np.uint8))
+                except ImportError:
+                    pass
+
+            # Shadow recovery / lift shadows
+            elif any(kw in imp_lower for kw in ('shadow', 'dark area', 'black point')):
+                try:
+                    arr = np.array(enhanced, dtype=np.float32)
+                    luminance = arr.mean(axis=2)
+                    mask = luminance < 60
+                    boost = 12.0 * intensity
+                    for c in range(3):
+                        arr[:, :, c][mask] = np.clip(arr[:, :, c][mask] + boost, 0, 255)
+                    enhanced = Image.fromarray(arr.astype(np.uint8))
+                except ImportError:
+                    # Fall back to simple brightness boost
+                    enhanced = ImageEnhance.Brightness(enhanced).enhance(1.0 + 0.08 * intensity)
+
+            # Noise reduction (approximate with gentle blur)
+            elif any(kw in imp_lower for kw in ('noise', 'grain', 'denoise')):
+                if intensity > 1.0:
+                    enhanced = enhanced.filter(ImageFilter.GaussianBlur(radius=1.0))
+                else:
+                    enhanced = enhanced.filter(ImageFilter.GaussianBlur(radius=0.5))
+
+            # Vignette
+            elif 'vignette' in imp_lower:
+                try:
+                    arr = np.array(enhanced, dtype=np.float32)
+                    h, w = arr.shape[:2]
+                    Y, X = np.ogrid[:h, :w]
+                    cx, cy = w / 2, h / 2
+                    dist = np.sqrt((X - cx) ** 2 + (Y - cy) ** 2)
+                    max_dist = np.sqrt(cx ** 2 + cy ** 2)
+                    vignette = 1.0 - (0.3 * intensity * (dist / max_dist) ** 2)
+                    for c in range(3):
+                        arr[:, :, c] = np.clip(arr[:, :, c] * vignette, 0, 255)
+                    enhanced = Image.fromarray(arr.astype(np.uint8))
+                except ImportError:
+                    pass
+
+            # Dehaze
+            elif any(kw in imp_lower for kw in ('dehaze', 'haze', 'clarity')):
+                enhanced = ImageEnhance.Contrast(enhanced).enhance(1.0 + 0.12 * intensity)
+                enhanced = ImageEnhance.Color(enhanced).enhance(1.0 + 0.08 * intensity)
 
         return enhanced
 

@@ -18,13 +18,16 @@
 
         <div class="entry-detail">
             <div class="entry-hero">
-                <img src="{{ entry.web_edited }}" alt="Edited {{ entry.original_filename }}" class="entry-hero-image">
+                <img src="{{ entry.web_edited }}" alt="Edited {{ entry.original_filename }}" class="entry-hero-image zoomable" data-full="{{ entry.web_edited }}">
             </div>
             <h2>{{ entry.original_filename }}</h2>
 
             <div class="metadata">
                 <p><strong>Entry ID:</strong> {{ entry.entry_id }}</p>
                 <p><strong>Processed:</strong> {{ entry.timestamp }}</p>
+                {% if entry.genre and entry.genre != 'unknown' %}
+                <p><strong>Genre:</strong> <span class="genre-badge genre-{{ entry.genre }}">{{ entry.genre }}</span></p>
+                {% endif %}
             </div>
 
             <div class="analysis">
@@ -119,12 +122,28 @@
             </div>
 
             <div class="comparison-container">
-                <h3 class="comparison-title">Before & After Comparison</h3>
+                <h3 class="comparison-title">Before & After</h3>
 
-                <!-- Full comparison image -->
-                <div class="comparison-full">
-                    <div class="comparison-label">Side-by-Side</div>
-                    <img src="{{ entry.web_comparison }}" alt="Comparison" class="comparison-full-image">
+                <!-- Interactive before/after slider -->
+                <div class="ba-slider" id="ba-slider">
+                    <div class="ba-image ba-after">
+                        <img src="{{ entry.web_edited }}" alt="After editing" draggable="false">
+                    </div>
+                    <div class="ba-image ba-before">
+                        <img src="{{ entry.web_original }}" alt="Before editing" draggable="false">
+                    </div>
+                    <div class="ba-handle" id="ba-handle">
+                        <div class="ba-handle-line"></div>
+                        <div class="ba-handle-circle">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M6 10L2 10M2 10L5 7M2 10L5 13" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M14 10L18 10M18 10L15 7M18 10L15 13" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="ba-handle-line"></div>
+                    </div>
+                    <div class="ba-label ba-label-before">Original</div>
+                    <div class="ba-label ba-label-after">Edited</div>
                 </div>
             </div>
         </div>
@@ -135,5 +154,76 @@
         </footer>
     </div>
 
+    <!-- Zoom overlay -->
+    <div class="zoom-overlay" id="zoom-overlay">
+        <div class="zoom-close" id="zoom-close">&times;</div>
+        <img class="zoom-image" id="zoom-image" src="" alt="Zoomed view">
+    </div>
+
+    <script>
+    /* Before/After Slider */
+    (function() {
+        var slider = document.getElementById('ba-slider');
+        var handle = document.getElementById('ba-handle');
+        var before = slider.querySelector('.ba-before');
+        if (!slider || !handle || !before) return;
+
+        var dragging = false;
+
+        function setPosition(x) {
+            var rect = slider.getBoundingClientRect();
+            var pct = Math.max(0, Math.min(1, (x - rect.left) / rect.width));
+            before.style.clipPath = 'inset(0 ' + ((1 - pct) * 100) + '% 0 0)';
+            handle.style.left = (pct * 100) + '%';
+        }
+
+        /* Initialize at 50% */
+        before.style.clipPath = 'inset(0 50% 0 0)';
+        handle.style.left = '50%';
+
+        handle.addEventListener('mousedown', function(e) { dragging = true; e.preventDefault(); });
+        document.addEventListener('mousemove', function(e) { if (dragging) setPosition(e.clientX); });
+        document.addEventListener('mouseup', function() { dragging = false; });
+
+        handle.addEventListener('touchstart', function(e) { dragging = true; e.preventDefault(); }, {passive: false});
+        document.addEventListener('touchmove', function(e) { if (dragging) setPosition(e.touches[0].clientX); }, {passive: true});
+        document.addEventListener('touchend', function() { dragging = false; });
+
+        /* Click anywhere on slider to jump */
+        slider.addEventListener('click', function(e) {
+            if (e.target === handle || handle.contains(e.target)) return;
+            setPosition(e.clientX);
+        });
+    })();
+
+    /* Image Zoom */
+    (function() {
+        var overlay = document.getElementById('zoom-overlay');
+        var zoomImg = document.getElementById('zoom-image');
+        var closeBtn = document.getElementById('zoom-close');
+        if (!overlay) return;
+
+        document.querySelectorAll('.zoomable').forEach(function(img) {
+            img.addEventListener('click', function() {
+                zoomImg.src = this.dataset.full || this.src;
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        function closeZoom() {
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        closeBtn.addEventListener('click', closeZoom);
+        overlay.addEventListener('click', function(e) {
+            if (e.target === overlay) closeZoom();
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeZoom();
+        });
+    })();
+    </script>
 </body>
 </html>

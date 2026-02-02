@@ -21,11 +21,43 @@
         </header>
 
         {% if entries %}
-        <div class="gallery">
+        <!-- Filter/sort controls -->
+        <div class="gallery-controls">
+            <div class="filter-group">
+                <label for="filter-genre">Genre</label>
+                <select id="filter-genre">
+                    <option value="all">All Genres</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="filter-score">Min Score</label>
+                <input type="range" id="filter-score" min="0" max="100" value="0" step="5">
+                <span id="filter-score-val">0</span>
+            </div>
+            <div class="filter-group">
+                <label for="sort-by">Sort</label>
+                <select id="sort-by">
+                    <option value="date-desc">Newest First</option>
+                    <option value="date-asc">Oldest First</option>
+                    <option value="score-desc">Highest Score</option>
+                    <option value="score-asc">Lowest Score</option>
+                    <option value="delta-desc">Best Improvement</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <span class="filter-count" id="filter-count">{{ entries|length }} entries</span>
+            </div>
+        </div>
+
+        <div class="gallery" id="gallery">
             {% for entry in entries %}
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="{{ entry.genre or 'unknown' }}"
+                 data-score="{{ entry.re_review.consensus_score if entry.re_review else (entry.consensus_score or entry.score) }}"
+                 data-delta="{{ entry.re_review.score_delta if entry.re_review else 0 }}"
+                 data-date="{{ entry.timestamp }}">
                 <a href="{{ entry.entry_id }}.html">
-                    <img src="{{ entry.web_edited }}" alt="Enhanced {{ entry.original_filename }}" class="entry-thumbnail">
+                    <img src="{{ entry.web_edited }}" alt="Enhanced {{ entry.original_filename }}" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
@@ -34,6 +66,9 @@
                                 <span class="entry-score-delta">+{{ entry.re_review.score_delta }}</span>
                                 {% endif %}
                             </div>
+                            {% if entry.genre and entry.genre != 'unknown' %}
+                            <span class="genre-badge genre-{{ entry.genre }}">{{ entry.genre }}</span>
+                            {% endif %}
                             <div class="entry-date">{{ entry.timestamp[:8] }}</div>
                         </div>
                         {% if entry.critiques %}
@@ -75,5 +110,75 @@
             <p>Powered by Multi-LLM Analysis (Gemini, OpenAI, Anthropic)</p>
         </footer>
     </div>
+
+    {% if entries %}
+    <script>
+    (function() {
+        var gallery = document.getElementById('gallery');
+        var cards = Array.from(gallery.querySelectorAll('.entry-card'));
+        var genreSelect = document.getElementById('filter-genre');
+        var scoreSlider = document.getElementById('filter-score');
+        var scoreVal = document.getElementById('filter-score-val');
+        var sortSelect = document.getElementById('sort-by');
+        var countEl = document.getElementById('filter-count');
+
+        /* Populate genre dropdown from data */
+        var genres = new Set();
+        cards.forEach(function(c) {
+            var g = c.dataset.genre;
+            if (g && g !== 'unknown') genres.add(g);
+        });
+        Array.from(genres).sort().forEach(function(g) {
+            var opt = document.createElement('option');
+            opt.value = g;
+            opt.textContent = g.charAt(0).toUpperCase() + g.slice(1);
+            genreSelect.appendChild(opt);
+        });
+
+        function applyFilters() {
+            var genre = genreSelect.value;
+            var minScore = parseFloat(scoreSlider.value);
+            scoreVal.textContent = minScore;
+            var visible = 0;
+
+            cards.forEach(function(card) {
+                var cardGenre = card.dataset.genre;
+                var cardScore = parseFloat(card.dataset.score) || 0;
+                var show = true;
+
+                if (genre !== 'all' && cardGenre !== genre) show = false;
+                if (cardScore < minScore) show = false;
+
+                card.style.display = show ? '' : 'none';
+                if (show) visible++;
+            });
+
+            countEl.textContent = visible + ' entr' + (visible === 1 ? 'y' : 'ies');
+        }
+
+        function applySort() {
+            var sort = sortSelect.value;
+            var sorted = cards.slice();
+
+            sorted.sort(function(a, b) {
+                switch(sort) {
+                    case 'date-desc': return b.dataset.date.localeCompare(a.dataset.date);
+                    case 'date-asc': return a.dataset.date.localeCompare(b.dataset.date);
+                    case 'score-desc': return (parseFloat(b.dataset.score)||0) - (parseFloat(a.dataset.score)||0);
+                    case 'score-asc': return (parseFloat(a.dataset.score)||0) - (parseFloat(b.dataset.score)||0);
+                    case 'delta-desc': return (parseFloat(b.dataset.delta)||0) - (parseFloat(a.dataset.delta)||0);
+                    default: return 0;
+                }
+            });
+
+            sorted.forEach(function(card) { gallery.appendChild(card); });
+        }
+
+        genreSelect.addEventListener('change', applyFilters);
+        scoreSlider.addEventListener('input', applyFilters);
+        sortSelect.addEventListener('change', function() { applySort(); applyFilters(); });
+    })();
+    </script>
+    {% endif %}
 </body>
 </html>

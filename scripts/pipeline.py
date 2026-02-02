@@ -18,6 +18,7 @@ import threading
 from multi_critic import MultiCritic
 from editor import PhotoEditor
 from generator import SiteGenerator
+from utils import image_hash, downscale_for_api
 
 # Register HEIC/HEIF support if available
 try:
@@ -92,6 +93,31 @@ class RefractPipeline:
         # Thread safety lock for generator operations
         self._lock = threading.Lock()
 
+        # Build hash index of already-processed images for dedup
+        self._processed_hashes = self._load_processed_hashes()
+
+    def _load_processed_hashes(self) -> set:
+        """Load image hashes from existing processed entries."""
+        hashes = set()
+        processed_dir = self.repo_root / 'processed'
+        if not processed_dir.exists():
+            return hashes
+        for entry_dir in processed_dir.iterdir():
+            if not entry_dir.is_dir() or entry_dir.name.startswith('.'):
+                continue
+            meta_path = entry_dir / 'metadata.json'
+            if meta_path.exists():
+                try:
+                    import json
+                    with open(meta_path) as f:
+                        meta = json.load(f)
+                    h = meta.get('image_hash')
+                    if h:
+                        hashes.add(h)
+                except Exception:
+                    pass
+        return hashes
+
     def get_new_images(self) -> List[Path]:
         """Find all images in the inbox."""
         if not self.inbox_dir.exists():
@@ -154,9 +180,18 @@ class RefractPipeline:
         print(f"{'='*60}\n")
 
         try:
+            # DEDUP CHECK - Skip if we've already processed this exact image
+            img_hash = image_hash(image_path)
+            if img_hash in self._processed_hashes:
+                print(f"  Skipping duplicate image (already processed): {image_path.name}")
+                return True
+
+            # Downscale large images for API calls
+            api_image = downscale_for_api(image_path) or image_path
+
             # STEP 1: CRITIC - Analyze the photograph with multiple LLMs
             print("STEP 1: Analyzing photograph with multiple LLMs...")
-            critique = self.critic.analyze(image_path)
+            critique = self.critic.analyze(api_image)
 
             # Display individual LLM scores
             print("\n  Individual LLM Scores:")
@@ -222,7 +257,11 @@ class RefractPipeline:
             # STEP 3: RE-REVIEW - Score the edited photograph
             print("STEP 3: Re-reviewing edited photograph...")
             try:
-                re_review = self.critic.analyze(edited_path)
+                api_edited = downscale_for_api(edited_path) or edited_path
+                re_review = self.critic.analyze(api_edited)
+                # Clean up temp downscaled edited image
+                if api_edited != edited_path and api_edited.exists():
+                    api_edited.unlink()
 
                 # Display re-review scores
                 print("\n  Re-review Scores:")
@@ -253,12 +292,20 @@ class RefractPipeline:
                 print(f"  Warning: Re-review failed: {e}")
                 print("  Continuing without re-review data.\n")
 
+            # Clean up temp downscaled image from critique step
+            if api_image != image_path and api_image.exists():
+                api_image.unlink()
+
+            # Store image hash in metadata for future dedup
+            critique['image_hash'] = img_hash
+
             # STEP 4: GENERATOR - Create entry and update site
             print("STEP 4: Creating documentation...")
 
             # Thread-safe entry creation
             with self._lock:
                 entry_dir = self.generator.create_entry(image_path, edited_path, critique)
+                self._processed_hashes.add(img_hash)
                 print(f"  Entry created: {entry_dir.name}\n")
 
             # Clean up temporary edited image

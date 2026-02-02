@@ -204,6 +204,22 @@ class SiteGenerator:
                 for critique in entry['critiques']:
                     critique['improvements_display'] = self._clean_improvement_list(critique.get('improvements'))
 
+            # Extract genre from context or critiques for template use
+            genre = 'unknown'
+            context = entry.get('context', {})
+            if context and context.get('genre'):
+                genre = context['genre']
+            elif entry.get('critiques'):
+                # Fall back to most common genre from critiques
+                critique_genres = [
+                    c.get('genre') or c.get('context', {}).get('genre', '')
+                    for c in entry['critiques']
+                    if c.get('genre') or c.get('context', {}).get('genre')
+                ]
+                if critique_genres:
+                    genre = max(set(critique_genres), key=critique_genres.count)
+            entry['genre'] = genre
+
             # Clean re-review critique improvements for display
             re_review = entry.get('re_review')
             if re_review and re_review.get('critiques'):
