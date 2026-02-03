@@ -13,25 +13,156 @@
             <h1>REFRACT</h1>
             <p class="subtitle">Automated Photography Improvement Pipeline</p>
             <div class="stats">
-                <div class="stat-item">Total Entries: <span>84</span></div>
+                <div class="stat-item">Total Entries: <span>86</span></div>
                 
-                <div class="stat-item">Average Score: <span>73.4</span></div>
+                <div class="stat-item">Average Score: <span>73.3</span></div>
                 
             </div>
         </header>
 
         
-        <div class="gallery">
+        <!-- Filter/sort controls -->
+        <div class="gallery-controls">
+            <div class="filter-group">
+                <label for="filter-genre">Genre</label>
+                <select id="filter-genre">
+                    <option value="all">All Genres</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="filter-score">Min Score</label>
+                <input type="range" id="filter-score" min="0" max="100" value="0" step="5">
+                <span id="filter-score-val">0</span>
+            </div>
+            <div class="filter-group">
+                <label for="sort-by">Sort</label>
+                <select id="sort-by">
+                    <option value="date-desc">Newest First</option>
+                    <option value="date-asc">Oldest First</option>
+                    <option value="score-desc">Highest Score</option>
+                    <option value="score-asc">Lowest Score</option>
+                    <option value="delta-desc">Best Improvement</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <span class="filter-count" id="filter-count">86 entries</span>
+            </div>
+        </div>
+
+        <div class="gallery" id="gallery">
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="architecture"
+                 data-score="72.7"
+                 data-delta="-0.3"
+                 data-date="20260203-113251">
+                <a href="20260203-113251-b26d674c.html">
+                    <img src="images/20260203-113251-b26d674c-edited.jpg" alt="Enhanced IMG_5029-EFFECTS__1_.jpg" class="entry-thumbnail" loading="lazy">
+                    <div class="entry-content">
+                        <div class="entry-header">
+                            <div class="entry-score">
+                                72.7
+                                
+                            </div>
+                            
+                            <span class="genre-badge genre-architecture">architecture</span>
+                            
+                            <div class="entry-date">20260203</div>
+                        </div>
+                        
+                        <div style="font-size: 0.75em; color: #666; margin-bottom: 8px;">
+                            2 LLMs analyzed
+                        </div>
+                        
+
+                        <div class="entry-improvements">
+                            <h3>Improvements Applied</h3>
+                            <ul>
+                                
+                                <li>Apply luminance noise reduction to the sky area</li>
+                                
+                                <li>Selectively lift shadows on the water tanks only</li>
+                                
+                                <li>Boost vibrance and warm tones in the horizon gradient</li>
+                                
+                                
+                                <li>+ 2 more...</li>
+                                
+                            </ul>
+                        </div>
+
+                        <div class="entry-notes">
+                            [GEMINI] A well-framed blue hour composition with pleasing symmetry. The edit should focus on cleani...
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="entry-card"
+                 data-genre="architecture"
+                 data-score="75.0"
+                 data-delta="2.0"
+                 data-date="20260203-113220">
+                <a href="20260203-113220-e5889353.html">
+                    <img src="images/20260203-113220-e5889353-edited.png" alt="Enhanced improved-photo (20).png" class="entry-thumbnail" loading="lazy">
+                    <div class="entry-content">
+                        <div class="entry-header">
+                            <div class="entry-score">
+                                75.0
+                                
+                                <span class="entry-score-delta">+2.0</span>
+                                
+                            </div>
+                            
+                            <span class="genre-badge genre-architecture">architecture</span>
+                            
+                            <div class="entry-date">20260203</div>
+                        </div>
+                        
+                        <div style="font-size: 0.75em; color: #666; margin-bottom: 8px;">
+                            2 LLMs analyzed
+                        </div>
+                        
+
+                        <div class="entry-improvements">
+                            <h3>Improvements Applied</h3>
+                            <ul>
+                                
+                                <li>Apply vertical perspective correction (Transform/Upright)</li>
+                                
+                                <li>Reduce highlights in background windows and reflections</li>
+                                
+                                <li>Local adjustment to center table (Warmth + Clarity)</li>
+                                
+                                
+                                <li>+ 2 more...</li>
+                                
+                            </ul>
+                        </div>
+
+                        <div class="entry-notes">
+                            [GEMINI] A well-composed interior shot with great depth, but heavily impacted by lens distortion. St...
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="entry-card"
+                 data-genre="landscape"
+                 data-score="69.7"
+                 data-delta="-0.3"
+                 data-date="20260130-221645">
                 <a href="20260130-221645-7fdbacf2.html">
-                    <img src="images/20260130-221645-7fdbacf2-edited.JPG" alt="Enhanced IMG_2201_Copy.JPG" class="entry-thumbnail">
+                    <img src="images/20260130-221645-7fdbacf2-edited.JPG" alt="Enhanced IMG_2201_Copy.JPG" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 69.7
                                 
                             </div>
+                            
+                            <span class="genre-badge genre-landscape">landscape</span>
+                            
                             <div class="entry-date">20260130</div>
                         </div>
                         
@@ -63,15 +194,22 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="portrait"
+                 data-score="80.7"
+                 data-delta="0.0"
+                 data-date="20260130-212954">
                 <a href="20260130-212954-d9f97fdf.html">
-                    <img src="images/20260130-212954-d9f97fdf-edited.jpeg" alt="Enhanced IMG_8547 Copy.jpeg" class="entry-thumbnail">
+                    <img src="images/20260130-212954-d9f97fdf-edited.jpeg" alt="Enhanced IMG_8547 Copy.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 80.7
                                 
                             </div>
+                            
+                            <span class="genre-badge genre-portrait">portrait</span>
+                            
                             <div class="entry-date">20260130</div>
                         </div>
                         
@@ -103,15 +241,22 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="portrait"
+                 data-score="76.0"
+                 data-delta="-1.3"
+                 data-date="20260130-212822">
                 <a href="20260130-212822-42d6fcbe.html">
-                    <img src="images/20260130-212822-42d6fcbe-edited.jpeg" alt="Enhanced IMG_1428_Original.jpeg" class="entry-thumbnail">
+                    <img src="images/20260130-212822-42d6fcbe-edited.jpeg" alt="Enhanced IMG_1428_Original.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 76.0
                                 
                             </div>
+                            
+                            <span class="genre-badge genre-portrait">portrait</span>
+                            
                             <div class="entry-date">20260130</div>
                         </div>
                         
@@ -143,15 +288,22 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="portrait"
+                 data-score="77.3"
+                 data-delta="0.0"
+                 data-date="20260130-212820">
                 <a href="20260130-212820-c7c463a1.html">
-                    <img src="images/20260130-212820-c7c463a1-edited.jpeg" alt="Enhanced IMG_7578_Original.jpeg" class="entry-thumbnail">
+                    <img src="images/20260130-212820-c7c463a1-edited.jpeg" alt="Enhanced IMG_7578_Original.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 77.3
                                 
                             </div>
+                            
+                            <span class="genre-badge genre-portrait">portrait</span>
+                            
                             <div class="entry-date">20260130</div>
                         </div>
                         
@@ -183,9 +335,13 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="portrait"
+                 data-score="74.0"
+                 data-delta="1.3"
+                 data-date="20260130-212747">
                 <a href="20260130-212747-1e1a96da.html">
-                    <img src="images/20260130-212747-1e1a96da-edited.jpeg" alt="Enhanced IMG_2423_Original_Original.jpeg" class="entry-thumbnail">
+                    <img src="images/20260130-212747-1e1a96da-edited.jpeg" alt="Enhanced IMG_2423_Original_Original.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
@@ -194,6 +350,9 @@
                                 <span class="entry-score-delta">+1.3</span>
                                 
                             </div>
+                            
+                            <span class="genre-badge genre-portrait">portrait</span>
+                            
                             <div class="entry-date">20260130</div>
                         </div>
                         
@@ -225,9 +384,13 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="portrait"
+                 data-score="76.0"
+                 data-delta="2.0"
+                 data-date="20260130-212559">
                 <a href="20260130-212559-856b5e91.html">
-                    <img src="images/20260130-212559-856b5e91-edited.jpeg" alt="Enhanced IMG_1361_Original.jpeg" class="entry-thumbnail">
+                    <img src="images/20260130-212559-856b5e91-edited.jpeg" alt="Enhanced IMG_1361_Original.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
@@ -236,6 +399,9 @@
                                 <span class="entry-score-delta">+2.0</span>
                                 
                             </div>
+                            
+                            <span class="genre-badge genre-portrait">portrait</span>
+                            
                             <div class="entry-date">20260130</div>
                         </div>
                         
@@ -267,15 +433,22 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="portrait"
+                 data-score="77.0"
+                 data-delta="0.0"
+                 data-date="20260130-212549">
                 <a href="20260130-212549-9b044ce6.html">
-                    <img src="images/20260130-212549-9b044ce6-edited.jpeg" alt="Enhanced IMG_0644_Original.jpeg" class="entry-thumbnail">
+                    <img src="images/20260130-212549-9b044ce6-edited.jpeg" alt="Enhanced IMG_0644_Original.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 77.0
                                 
                             </div>
+                            
+                            <span class="genre-badge genre-portrait">portrait</span>
+                            
                             <div class="entry-date">20260130</div>
                         </div>
                         
@@ -307,9 +480,13 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="portrait"
+                 data-score="76.0"
+                 data-delta="1.3"
+                 data-date="20260130-212543">
                 <a href="20260130-212543-6135c3de.html">
-                    <img src="images/20260130-212543-6135c3de-edited.jpeg" alt="Enhanced IMG_0629 Copy.jpeg" class="entry-thumbnail">
+                    <img src="images/20260130-212543-6135c3de-edited.jpeg" alt="Enhanced IMG_0629 Copy.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
@@ -318,6 +495,9 @@
                                 <span class="entry-score-delta">+1.3</span>
                                 
                             </div>
+                            
+                            <span class="genre-badge genre-portrait">portrait</span>
+                            
                             <div class="entry-date">20260130</div>
                         </div>
                         
@@ -349,9 +529,13 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="landscape"
+                 data-score="81.7"
+                 data-delta="4.4"
+                 data-date="20260130-211751">
                 <a href="20260130-211751-36f47661.html">
-                    <img src="images/20260130-211751-36f47661-edited.jpeg" alt="Enhanced IMG_2008_Original.jpeg" class="entry-thumbnail">
+                    <img src="images/20260130-211751-36f47661-edited.jpeg" alt="Enhanced IMG_2008_Original.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
@@ -360,6 +544,9 @@
                                 <span class="entry-score-delta">+4.4</span>
                                 
                             </div>
+                            
+                            <span class="genre-badge genre-landscape">landscape</span>
+                            
                             <div class="entry-date">20260130</div>
                         </div>
                         
@@ -391,15 +578,22 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="portrait"
+                 data-score="65.0"
+                 data-delta="0"
+                 data-date="20260130-210039">
                 <a href="20260130-210039-14ad756e.html">
-                    <img src="images/20260130-210039-14ad756e-edited.jpeg" alt="Enhanced IMG_1004.jpeg" class="entry-thumbnail">
+                    <img src="images/20260130-210039-14ad756e-edited.jpeg" alt="Enhanced IMG_1004.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 65.0
                                 
                             </div>
+                            
+                            <span class="genre-badge genre-portrait">portrait</span>
+                            
                             <div class="entry-date">20260130</div>
                         </div>
                         
@@ -431,15 +625,22 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="portrait"
+                 data-score="75.0"
+                 data-delta="0"
+                 data-date="20260130-210029">
                 <a href="20260130-210029-a2657d74.html">
-                    <img src="images/20260130-210029-a2657d74-edited.jpeg" alt="Enhanced IMG_1002.jpeg" class="entry-thumbnail">
+                    <img src="images/20260130-210029-a2657d74-edited.jpeg" alt="Enhanced IMG_1002.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 75.0
                                 
                             </div>
+                            
+                            <span class="genre-badge genre-portrait">portrait</span>
+                            
                             <div class="entry-date">20260130</div>
                         </div>
                         
@@ -471,15 +672,22 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="portrait"
+                 data-score="66.3"
+                 data-delta="0"
+                 data-date="20260130-205939">
                 <a href="20260130-205939-c68a4a36.html">
-                    <img src="images/20260130-205939-c68a4a36-edited.jpeg" alt="Enhanced IMG_0977.jpeg" class="entry-thumbnail">
+                    <img src="images/20260130-205939-c68a4a36-edited.jpeg" alt="Enhanced IMG_0977.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 66.3
                                 
                             </div>
+                            
+                            <span class="genre-badge genre-portrait">portrait</span>
+                            
                             <div class="entry-date">20260130</div>
                         </div>
                         
@@ -511,15 +719,22 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="portrait"
+                 data-score="65.0"
+                 data-delta="0"
+                 data-date="20260130-205923">
                 <a href="20260130-205923-49a9d466.html">
-                    <img src="images/20260130-205923-49a9d466-edited.jpeg" alt="Enhanced IMG_0985.jpeg" class="entry-thumbnail">
+                    <img src="images/20260130-205923-49a9d466-edited.jpeg" alt="Enhanced IMG_0985.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 65.0
                                 
                             </div>
+                            
+                            <span class="genre-badge genre-portrait">portrait</span>
+                            
                             <div class="entry-date">20260130</div>
                         </div>
                         
@@ -551,15 +766,22 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="portrait"
+                 data-score="66.3"
+                 data-delta="0"
+                 data-date="20260130-205920">
                 <a href="20260130-205920-72ef982a.html">
-                    <img src="images/20260130-205920-72ef982a-edited.jpeg" alt="Enhanced IMG_0984.jpeg" class="entry-thumbnail">
+                    <img src="images/20260130-205920-72ef982a-edited.jpeg" alt="Enhanced IMG_0984.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 66.3
                                 
                             </div>
+                            
+                            <span class="genre-badge genre-portrait">portrait</span>
+                            
                             <div class="entry-date">20260130</div>
                         </div>
                         
@@ -591,15 +813,22 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="street"
+                 data-score="50.0"
+                 data-delta="0"
+                 data-date="20260130-205348">
                 <a href="20260130-205348-c839fed6.html">
-                    <img src="images/20260130-205348-c839fed6-edited.webp" alt="Enhanced image.webp" class="entry-thumbnail">
+                    <img src="images/20260130-205348-c839fed6-edited.webp" alt="Enhanced image.webp" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 50.0
                                 
                             </div>
+                            
+                            <span class="genre-badge genre-street">street</span>
+                            
                             <div class="entry-date">20260130</div>
                         </div>
                         
@@ -631,15 +860,22 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="portrait"
+                 data-score="68.3"
+                 data-delta="0"
+                 data-date="20260130-205309">
                 <a href="20260130-205309-160ad464.html">
-                    <img src="images/20260130-205309-160ad464-edited.jpeg" alt="Enhanced IMG_1001.jpeg" class="entry-thumbnail">
+                    <img src="images/20260130-205309-160ad464-edited.jpeg" alt="Enhanced IMG_1001.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 68.3
                                 
                             </div>
+                            
+                            <span class="genre-badge genre-portrait">portrait</span>
+                            
                             <div class="entry-date">20260130</div>
                         </div>
                         
@@ -671,15 +907,22 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="portrait"
+                 data-score="68.3"
+                 data-delta="0"
+                 data-date="20260130-205254">
                 <a href="20260130-205254-ec005068.html">
-                    <img src="images/20260130-205254-ec005068-edited.jpeg" alt="Enhanced IMG_0992.jpeg" class="entry-thumbnail">
+                    <img src="images/20260130-205254-ec005068-edited.jpeg" alt="Enhanced IMG_0992.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 68.3
                                 
                             </div>
+                            
+                            <span class="genre-badge genre-portrait">portrait</span>
+                            
                             <div class="entry-date">20260130</div>
                         </div>
                         
@@ -711,15 +954,22 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="portrait"
+                 data-score="77.0"
+                 data-delta="0"
+                 data-date="20260130-205234">
                 <a href="20260130-205234-8ff58e65.html">
-                    <img src="images/20260130-205234-8ff58e65-edited.jpeg" alt="Enhanced IMG_1003.jpeg" class="entry-thumbnail">
+                    <img src="images/20260130-205234-8ff58e65-edited.jpeg" alt="Enhanced IMG_1003.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 77.0
                                 
                             </div>
+                            
+                            <span class="genre-badge genre-portrait">portrait</span>
+                            
                             <div class="entry-date">20260130</div>
                         </div>
                         
@@ -751,15 +1001,22 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="portrait"
+                 data-score="78.0"
+                 data-delta="0"
+                 data-date="20260130-051130">
                 <a href="20260130-051130-571495e4.html">
-                    <img src="images/20260130-051130-571495e4-edited.png" alt="Enhanced improved-photo.png" class="entry-thumbnail">
+                    <img src="images/20260130-051130-571495e4-edited.png" alt="Enhanced improved-photo.png" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 78.0
                                 
                             </div>
+                            
+                            <span class="genre-badge genre-portrait">portrait</span>
+                            
                             <div class="entry-date">20260130</div>
                         </div>
                         
@@ -791,15 +1048,22 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="street"
+                 data-score="52.0"
+                 data-delta="0"
+                 data-date="20260130-022123">
                 <a href="20260130-022123-b62f8f7b.html">
-                    <img src="images/20260130-022123-b62f8f7b-edited.webp" alt="Enhanced image.webp" class="entry-thumbnail">
+                    <img src="images/20260130-022123-b62f8f7b-edited.webp" alt="Enhanced image.webp" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 52.0
                                 
                             </div>
+                            
+                            <span class="genre-badge genre-street">street</span>
+                            
                             <div class="entry-date">20260130</div>
                         </div>
                         
@@ -831,15 +1095,22 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="portrait"
+                 data-score="78.0"
+                 data-delta="0"
+                 data-date="20260129-033645">
                 <a href="20260129-033645-21beb151.html">
-                    <img src="images/20260129-033645-21beb151-edited.jpeg" alt="Enhanced IMG_2567_Original.jpeg" class="entry-thumbnail">
+                    <img src="images/20260129-033645-21beb151-edited.jpeg" alt="Enhanced IMG_2567_Original.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 78.0
                                 
                             </div>
+                            
+                            <span class="genre-badge genre-portrait">portrait</span>
+                            
                             <div class="entry-date">20260129</div>
                         </div>
                         
@@ -871,15 +1142,22 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="portrait"
+                 data-score="70.0"
+                 data-delta="0"
+                 data-date="20260129-033616">
                 <a href="20260129-033616-f69b899b.html">
-                    <img src="images/20260129-033616-f69b899b-edited.jpeg" alt="Enhanced IMG_0592.jpeg" class="entry-thumbnail">
+                    <img src="images/20260129-033616-f69b899b-edited.jpeg" alt="Enhanced IMG_0592.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 70.0
                                 
                             </div>
+                            
+                            <span class="genre-badge genre-portrait">portrait</span>
+                            
                             <div class="entry-date">20260129</div>
                         </div>
                         
@@ -911,15 +1189,22 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="portrait"
+                 data-score="72.7"
+                 data-delta="0"
+                 data-date="20260129-033527">
                 <a href="20260129-033527-6511e6d9.html">
-                    <img src="images/20260129-033527-6511e6d9-edited.jpeg" alt="Enhanced 52D3B0A7-B81C-48B4-BFD1-0582B4E315E7_Original.jpeg" class="entry-thumbnail">
+                    <img src="images/20260129-033527-6511e6d9-edited.jpeg" alt="Enhanced 52D3B0A7-B81C-48B4-BFD1-0582B4E315E7_Original.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 72.7
                                 
                             </div>
+                            
+                            <span class="genre-badge genre-portrait">portrait</span>
+                            
                             <div class="entry-date">20260129</div>
                         </div>
                         
@@ -951,15 +1236,22 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="architecture"
+                 data-score="72.7"
+                 data-delta="0"
+                 data-date="20260129-033521">
                 <a href="20260129-033521-9d2e4dc9.html">
-                    <img src="images/20260129-033521-9d2e4dc9-edited.jpeg" alt="Enhanced 2389CB31-E453-4B94-8A98-765EE6D44637_Original.jpeg" class="entry-thumbnail">
+                    <img src="images/20260129-033521-9d2e4dc9-edited.jpeg" alt="Enhanced 2389CB31-E453-4B94-8A98-765EE6D44637_Original.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 72.7
                                 
                             </div>
+                            
+                            <span class="genre-badge genre-architecture">architecture</span>
+                            
                             <div class="entry-date">20260129</div>
                         </div>
                         
@@ -991,15 +1283,22 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="portrait"
+                 data-score="63.5"
+                 data-delta="0"
+                 data-date="20260129-033510">
                 <a href="20260129-033510-04975472.html">
-                    <img src="images/20260129-033510-04975472-edited.jpeg" alt="Enhanced IMG_0244 2.jpeg" class="entry-thumbnail">
+                    <img src="images/20260129-033510-04975472-edited.jpeg" alt="Enhanced IMG_0244 2.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 63.5
                                 
                             </div>
+                            
+                            <span class="genre-badge genre-portrait">portrait</span>
+                            
                             <div class="entry-date">20260129</div>
                         </div>
                         
@@ -1031,15 +1330,22 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="landscape"
+                 data-score="70.0"
+                 data-delta="0"
+                 data-date="20260129-010233">
                 <a href="20260129-010233-5441ce61.html">
-                    <img src="images/20260129-010233-5441ce61-edited.jpeg" alt="Enhanced _MG_5575_Original_Original Copy.jpeg" class="entry-thumbnail">
+                    <img src="images/20260129-010233-5441ce61-edited.jpeg" alt="Enhanced _MG_5575_Original_Original Copy.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 70.0
                                 
                             </div>
+                            
+                            <span class="genre-badge genre-landscape">landscape</span>
+                            
                             <div class="entry-date">20260129</div>
                         </div>
                         
@@ -1071,15 +1377,22 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="architecture"
+                 data-score="75.0"
+                 data-delta="0"
+                 data-date="20260129-010156">
                 <a href="20260129-010156-0619ad6f.html">
-                    <img src="images/20260129-010156-0619ad6f-edited.jpeg" alt="Enhanced IMG_9456_Original.jpeg" class="entry-thumbnail">
+                    <img src="images/20260129-010156-0619ad6f-edited.jpeg" alt="Enhanced IMG_9456_Original.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 75.0
                                 
                             </div>
+                            
+                            <span class="genre-badge genre-architecture">architecture</span>
+                            
                             <div class="entry-date">20260129</div>
                         </div>
                         
@@ -1111,15 +1424,22 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="landscape"
+                 data-score="68.5"
+                 data-delta="0"
+                 data-date="20260129-010145">
                 <a href="20260129-010145-a69c98f0.html">
-                    <img src="images/20260129-010145-a69c98f0-edited.jpeg" alt="Enhanced _MG_5575-EDIT-EDIT_Original.jpeg" class="entry-thumbnail">
+                    <img src="images/20260129-010145-a69c98f0-edited.jpeg" alt="Enhanced _MG_5575-EDIT-EDIT_Original.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 68.5
                                 
                             </div>
+                            
+                            <span class="genre-badge genre-landscape">landscape</span>
+                            
                             <div class="entry-date">20260129</div>
                         </div>
                         
@@ -1151,15 +1471,22 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="landscape"
+                 data-score="73.5"
+                 data-delta="0"
+                 data-date="20260129-010137">
                 <a href="20260129-010137-bba29ba5.html">
-                    <img src="images/20260129-010137-bba29ba5-edited.jpeg" alt="Enhanced P1030379-Edit Copy_Original.jpeg" class="entry-thumbnail">
+                    <img src="images/20260129-010137-bba29ba5-edited.jpeg" alt="Enhanced P1030379-Edit Copy_Original.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 73.5
                                 
                             </div>
+                            
+                            <span class="genre-badge genre-landscape">landscape</span>
+                            
                             <div class="entry-date">20260129</div>
                         </div>
                         
@@ -1191,15 +1518,22 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="landscape"
+                 data-score="72.0"
+                 data-delta="0"
+                 data-date="20260129-010044">
                 <a href="20260129-010044-aff9c1eb.html">
-                    <img src="images/20260129-010044-aff9c1eb-edited.jpeg" alt="Enhanced IMG_0205_Original.jpeg" class="entry-thumbnail">
+                    <img src="images/20260129-010044-aff9c1eb-edited.jpeg" alt="Enhanced IMG_0205_Original.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 72.0
                                 
                             </div>
+                            
+                            <span class="genre-badge genre-landscape">landscape</span>
+                            
                             <div class="entry-date">20260129</div>
                         </div>
                         
@@ -1231,15 +1565,22 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="landscape"
+                 data-score="80.0"
+                 data-delta="0"
+                 data-date="20260129-010042">
                 <a href="20260129-010042-b93dee19.html">
-                    <img src="images/20260129-010042-b93dee19-edited.jpeg" alt="Enhanced IMG_2008_Original.jpeg" class="entry-thumbnail">
+                    <img src="images/20260129-010042-b93dee19-edited.jpeg" alt="Enhanced IMG_2008_Original.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 80.0
                                 
                             </div>
+                            
+                            <span class="genre-badge genre-landscape">landscape</span>
+                            
                             <div class="entry-date">20260129</div>
                         </div>
                         
@@ -1271,15 +1612,22 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="landscape"
+                 data-score="75.0"
+                 data-delta="0"
+                 data-date="20260129-010042">
                 <a href="20260129-010042-a711a5a5.html">
-                    <img src="images/20260129-010042-a711a5a5-edited.jpeg" alt="Enhanced IMG_1311_Original.jpeg" class="entry-thumbnail">
+                    <img src="images/20260129-010042-a711a5a5-edited.jpeg" alt="Enhanced IMG_1311_Original.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 75.0
                                 
                             </div>
+                            
+                            <span class="genre-badge genre-landscape">landscape</span>
+                            
                             <div class="entry-date">20260129</div>
                         </div>
                         
@@ -1311,15 +1659,20 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="unknown"
+                 data-score="76.7"
+                 data-delta="0"
+                 data-date="20260105-230120">
                 <a href="20260105-230120-33bf4937.html">
-                    <img src="images/20260105-230120-33bf4937-edited.jpg" alt="Enhanced IMG_1885.jpg" class="entry-thumbnail">
+                    <img src="images/20260105-230120-33bf4937-edited.jpg" alt="Enhanced IMG_1885.jpg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 76.7
                                 
                             </div>
+                            
                             <div class="entry-date">20260105</div>
                         </div>
                         
@@ -1351,15 +1704,20 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="unknown"
+                 data-score="80.0"
+                 data-delta="0"
+                 data-date="20260105-230118">
                 <a href="20260105-230118-1e46e98e.html">
-                    <img src="images/20260105-230118-1e46e98e-edited.jpeg" alt="Enhanced IMG_1529.jpeg" class="entry-thumbnail">
+                    <img src="images/20260105-230118-1e46e98e-edited.jpeg" alt="Enhanced IMG_1529.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 80.0
                                 
                             </div>
+                            
                             <div class="entry-date">20260105</div>
                         </div>
                         
@@ -1391,15 +1749,20 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="unknown"
+                 data-score="78.0"
+                 data-delta="0"
+                 data-date="20260105-230039">
                 <a href="20260105-230039-bb9315d1.html">
-                    <img src="images/20260105-230039-bb9315d1-edited.JPG" alt="Enhanced IMG_1149_Copy.JPG" class="entry-thumbnail">
+                    <img src="images/20260105-230039-bb9315d1-edited.JPG" alt="Enhanced IMG_1149_Copy.JPG" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 78.0
                                 
                             </div>
+                            
                             <div class="entry-date">20260105</div>
                         </div>
                         
@@ -1431,15 +1794,20 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="unknown"
+                 data-score="78.0"
+                 data-delta="0"
+                 data-date="20260105-230032">
                 <a href="20260105-230032-f6af6428.html">
-                    <img src="images/20260105-230032-f6af6428-edited.jpeg" alt="Enhanced IMG_1190.jpeg" class="entry-thumbnail">
+                    <img src="images/20260105-230032-f6af6428-edited.jpeg" alt="Enhanced IMG_1190.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 78.0
                                 
                             </div>
+                            
                             <div class="entry-date">20260105</div>
                         </div>
                         
@@ -1471,15 +1839,20 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="unknown"
+                 data-score="78.5"
+                 data-delta="0"
+                 data-date="20260105-230032">
                 <a href="20260105-230032-11245e22.html">
-                    <img src="images/20260105-230032-11245e22-edited.jpg" alt="Enhanced IMG_1262-EDIT.jpg" class="entry-thumbnail">
+                    <img src="images/20260105-230032-11245e22-edited.jpg" alt="Enhanced IMG_1262-EDIT.jpg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 78.5
                                 
                             </div>
+                            
                             <div class="entry-date">20260105</div>
                         </div>
                         
@@ -1511,15 +1884,20 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="unknown"
+                 data-score="72.0"
+                 data-delta="0"
+                 data-date="20260105-224828">
                 <a href="20260105-224828-8a84bcdd.html">
-                    <img src="images/20260105-224828-8a84bcdd-edited.jpeg" alt="Enhanced IMG_2596_Original.jpeg" class="entry-thumbnail">
+                    <img src="images/20260105-224828-8a84bcdd-edited.jpeg" alt="Enhanced IMG_2596_Original.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 72.0
                                 
                             </div>
+                            
                             <div class="entry-date">20260105</div>
                         </div>
                         
@@ -1551,15 +1929,20 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="unknown"
+                 data-score="72.0"
+                 data-delta="0"
+                 data-date="20260105-224825">
                 <a href="20260105-224825-8d453f66.html">
-                    <img src="images/20260105-224825-8d453f66-edited.jpeg" alt="Enhanced IMG_2197_Original.jpeg" class="entry-thumbnail">
+                    <img src="images/20260105-224825-8d453f66-edited.jpeg" alt="Enhanced IMG_2197_Original.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 72.0
                                 
                             </div>
+                            
                             <div class="entry-date">20260105</div>
                         </div>
                         
@@ -1591,15 +1974,20 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="unknown"
+                 data-score="72.0"
+                 data-delta="0"
+                 data-date="20260105-224745">
                 <a href="20260105-224745-9e8db3e5.html">
-                    <img src="images/20260105-224745-9e8db3e5-edited.jpeg" alt="Enhanced IMG_0629 Copy.jpeg" class="entry-thumbnail">
+                    <img src="images/20260105-224745-9e8db3e5-edited.jpeg" alt="Enhanced IMG_0629 Copy.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 72.0
                                 
                             </div>
+                            
                             <div class="entry-date">20260105</div>
                         </div>
                         
@@ -1631,15 +2019,20 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="unknown"
+                 data-score="73.5"
+                 data-delta="0"
+                 data-date="20260105-224742">
                 <a href="20260105-224742-272d9a92.html">
-                    <img src="images/20260105-224742-272d9a92-edited.jpeg" alt="Enhanced IMG_0223_Original.jpeg" class="entry-thumbnail">
+                    <img src="images/20260105-224742-272d9a92-edited.jpeg" alt="Enhanced IMG_0223_Original.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 73.5
                                 
                             </div>
+                            
                             <div class="entry-date">20260105</div>
                         </div>
                         
@@ -1671,15 +2064,20 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="unknown"
+                 data-score="78.5"
+                 data-delta="0"
+                 data-date="20260105-224741">
                 <a href="20260105-224741-67055d7c.html">
-                    <img src="images/20260105-224741-67055d7c-edited.jpeg" alt="Enhanced IMG_0452_Original.jpeg" class="entry-thumbnail">
+                    <img src="images/20260105-224741-67055d7c-edited.jpeg" alt="Enhanced IMG_0452_Original.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 78.5
                                 
                             </div>
+                            
                             <div class="entry-date">20260105</div>
                         </div>
                         
@@ -1711,15 +2109,20 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="unknown"
+                 data-score="68.5"
+                 data-delta="0"
+                 data-date="20260105-220143">
                 <a href="20260105-220143-beec3cde.html">
-                    <img src="images/20260105-220143-beec3cde-edited.jpeg" alt="Enhanced 2B518C0C-1396-487E-9D73-A736C68F9958.jpeg" class="entry-thumbnail">
+                    <img src="images/20260105-220143-beec3cde-edited.jpeg" alt="Enhanced 2B518C0C-1396-487E-9D73-A736C68F9958.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 68.5
                                 
                             </div>
+                            
                             <div class="entry-date">20260105</div>
                         </div>
                         
@@ -1751,15 +2154,20 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="unknown"
+                 data-score="77.0"
+                 data-delta="0"
+                 data-date="20260105-215655">
                 <a href="20260105-215655-b573dcfb.html">
-                    <img src="images/20260105-215655-b573dcfb-edited.jpeg" alt="Enhanced IMG_7578_Original.jpeg" class="entry-thumbnail">
+                    <img src="images/20260105-215655-b573dcfb-edited.jpeg" alt="Enhanced IMG_7578_Original.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 77.0
                                 
                             </div>
+                            
                             <div class="entry-date">20260105</div>
                         </div>
                         
@@ -1791,15 +2199,20 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="unknown"
+                 data-score="75.0"
+                 data-delta="0"
+                 data-date="20260105-215624">
                 <a href="20260105-215624-af149a3e.html">
-                    <img src="images/20260105-215624-af149a3e-edited.jpeg" alt="Enhanced 608343EF-A980-4BF1-987B-980901733E5F.jpeg" class="entry-thumbnail">
+                    <img src="images/20260105-215624-af149a3e-edited.jpeg" alt="Enhanced 608343EF-A980-4BF1-987B-980901733E5F.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 75.0
                                 
                             </div>
+                            
                             <div class="entry-date">20260105</div>
                         </div>
                         
@@ -1831,15 +2244,20 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="unknown"
+                 data-score="72.0"
+                 data-delta="0"
+                 data-date="20260105-215613">
                 <a href="20260105-215613-a4a0183f.html">
-                    <img src="images/20260105-215613-a4a0183f-edited.jpeg" alt="Enhanced IMG_0261.jpeg" class="entry-thumbnail">
+                    <img src="images/20260105-215613-a4a0183f-edited.jpeg" alt="Enhanced IMG_0261.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 72.0
                                 
                             </div>
+                            
                             <div class="entry-date">20260105</div>
                         </div>
                         
@@ -1871,15 +2289,20 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="unknown"
+                 data-score="75.0"
+                 data-delta="0"
+                 data-date="20260105-215613">
                 <a href="20260105-215613-1f6eb1c8.html">
-                    <img src="images/20260105-215613-1f6eb1c8-edited.jpeg" alt="Enhanced IMG_0221.jpeg" class="entry-thumbnail">
+                    <img src="images/20260105-215613-1f6eb1c8-edited.jpeg" alt="Enhanced IMG_0221.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 75.0
                                 
                             </div>
+                            
                             <div class="entry-date">20260105</div>
                         </div>
                         
@@ -1911,15 +2334,20 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="unknown"
+                 data-score="68.5"
+                 data-delta="0"
+                 data-date="20260105-045851">
                 <a href="20260105-045851-e301e030.html">
-                    <img src="images/20260105-045851-e301e030-edited.jpeg" alt="Enhanced _MG_5575-EDIT-EDIT Copy.jpeg" class="entry-thumbnail">
+                    <img src="images/20260105-045851-e301e030-edited.jpeg" alt="Enhanced _MG_5575-EDIT-EDIT Copy.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 68.5
                                 
                             </div>
+                            
                             <div class="entry-date">20260105</div>
                         </div>
                         
@@ -1951,15 +2379,20 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="unknown"
+                 data-score="71.5"
+                 data-delta="0"
+                 data-date="20260105-014354">
                 <a href="20260105-014354-c09d42b7.html">
-                    <img src="images/20260105-014354-c09d42b7-edited.jpeg" alt="Enhanced _MG_5575_Original_Original.jpeg" class="entry-thumbnail">
+                    <img src="images/20260105-014354-c09d42b7-edited.jpeg" alt="Enhanced _MG_5575_Original_Original.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 71.5
                                 
                             </div>
+                            
                             <div class="entry-date">20260105</div>
                         </div>
                         
@@ -1991,15 +2424,20 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="unknown"
+                 data-score="68.5"
+                 data-delta="0"
+                 data-date="20260105-014348">
                 <a href="20260105-014348-b51d3891.html">
-                    <img src="images/20260105-014348-b51d3891-edited.jpeg" alt="Enhanced _MG_5575_Original_Original Copy.jpeg" class="entry-thumbnail">
+                    <img src="images/20260105-014348-b51d3891-edited.jpeg" alt="Enhanced _MG_5575_Original_Original Copy.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 68.5
                                 
                             </div>
+                            
                             <div class="entry-date">20260105</div>
                         </div>
                         
@@ -2031,15 +2469,20 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="unknown"
+                 data-score="75.0"
+                 data-delta="0"
+                 data-date="20260105-014348">
                 <a href="20260105-014348-11499937.html">
-                    <img src="images/20260105-014348-11499937-edited.jpeg" alt="Enhanced _MG_5575-EDIT-EDIT_Original.jpeg" class="entry-thumbnail">
+                    <img src="images/20260105-014348-11499937-edited.jpeg" alt="Enhanced _MG_5575-EDIT-EDIT_Original.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 75.0
                                 
                             </div>
+                            
                             <div class="entry-date">20260105</div>
                         </div>
                         
@@ -2071,15 +2514,20 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="unknown"
+                 data-score="76.5"
+                 data-delta="0"
+                 data-date="20260105-014342">
                 <a href="20260105-014342-a249a677.html">
-                    <img src="images/20260105-014342-a249a677-edited.jpeg" alt="Enhanced P1030379-Edit Copy_Original.jpeg" class="entry-thumbnail">
+                    <img src="images/20260105-014342-a249a677-edited.jpeg" alt="Enhanced P1030379-Edit Copy_Original.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 76.5
                                 
                             </div>
+                            
                             <div class="entry-date">20260105</div>
                         </div>
                         
@@ -2111,15 +2559,20 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="unknown"
+                 data-score="71.5"
+                 data-delta="0"
+                 data-date="20260105-014341">
                 <a href="20260105-014341-40354618.html">
-                    <img src="images/20260105-014341-40354618-edited.jpeg" alt="Enhanced P1030345 Copy.jpeg" class="entry-thumbnail">
+                    <img src="images/20260105-014341-40354618-edited.jpeg" alt="Enhanced P1030345 Copy.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 71.5
                                 
                             </div>
+                            
                             <div class="entry-date">20260105</div>
                         </div>
                         
@@ -2151,15 +2604,20 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="unknown"
+                 data-score="85.0"
+                 data-delta="0"
+                 data-date="20260105-014336">
                 <a href="20260105-014336-a2045026.html">
-                    <img src="images/20260105-014336-a2045026-edited.jpeg" alt="Enhanced IMG_6897_Original.jpeg" class="entry-thumbnail">
+                    <img src="images/20260105-014336-a2045026-edited.jpeg" alt="Enhanced IMG_6897_Original.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 85.0
                                 
                             </div>
+                            
                             <div class="entry-date">20260105</div>
                         </div>
                         
@@ -2191,15 +2649,20 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="unknown"
+                 data-score="76.5"
+                 data-delta="0"
+                 data-date="20260105-014335">
                 <a href="20260105-014335-18776412.html">
-                    <img src="images/20260105-014335-18776412-edited.jpeg" alt="Enhanced IMG_6746_Original.jpeg" class="entry-thumbnail">
+                    <img src="images/20260105-014335-18776412-edited.jpeg" alt="Enhanced IMG_6746_Original.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 76.5
                                 
                             </div>
+                            
                             <div class="entry-date">20260105</div>
                         </div>
                         
@@ -2231,15 +2694,20 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="unknown"
+                 data-score="70.0"
+                 data-delta="0"
+                 data-date="20260105-014329">
                 <a href="20260105-014329-8cbd50dc.html">
-                    <img src="images/20260105-014329-8cbd50dc-edited.jpeg" alt="Enhanced IMG_5354 Copy.jpeg" class="entry-thumbnail">
+                    <img src="images/20260105-014329-8cbd50dc-edited.jpeg" alt="Enhanced IMG_5354 Copy.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 70.0
                                 
                             </div>
+                            
                             <div class="entry-date">20260105</div>
                         </div>
                         
@@ -2271,15 +2739,20 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="unknown"
+                 data-score="68.5"
+                 data-delta="0"
+                 data-date="20260105-014328">
                 <a href="20260105-014328-f4f447d2.html">
-                    <img src="images/20260105-014328-f4f447d2-edited.jpeg" alt="Enhanced IMG_5348 Copy.jpeg" class="entry-thumbnail">
+                    <img src="images/20260105-014328-f4f447d2-edited.jpeg" alt="Enhanced IMG_5348 Copy.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 68.5
                                 
                             </div>
+                            
                             <div class="entry-date">20260105</div>
                         </div>
                         
@@ -2311,15 +2784,20 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="unknown"
+                 data-score="76.5"
+                 data-delta="0"
+                 data-date="20260105-014323">
                 <a href="20260105-014323-f4620d3e.html">
-                    <img src="images/20260105-014323-f4620d3e-edited.jpeg" alt="Enhanced IMG_5329 Copy Copy.jpeg" class="entry-thumbnail">
+                    <img src="images/20260105-014323-f4620d3e-edited.jpeg" alt="Enhanced IMG_5329 Copy Copy.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 76.5
                                 
                             </div>
+                            
                             <div class="entry-date">20260105</div>
                         </div>
                         
@@ -2351,15 +2829,20 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="unknown"
+                 data-score="76.5"
+                 data-delta="0"
+                 data-date="20260105-014322">
                 <a href="20260105-014322-07181c66.html">
-                    <img src="images/20260105-014322-07181c66-edited.jpeg" alt="Enhanced IMG_5308_Original.jpeg" class="entry-thumbnail">
+                    <img src="images/20260105-014322-07181c66-edited.jpeg" alt="Enhanced IMG_5308_Original.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 76.5
                                 
                             </div>
+                            
                             <div class="entry-date">20260105</div>
                         </div>
                         
@@ -2391,15 +2874,20 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="unknown"
+                 data-score="70.0"
+                 data-delta="0"
+                 data-date="20260105-014317">
                 <a href="20260105-014317-e639496b.html">
-                    <img src="images/20260105-014317-e639496b-edited.jpeg" alt="Enhanced IMG_5287-EDIT Copy.jpeg" class="entry-thumbnail">
+                    <img src="images/20260105-014317-e639496b-edited.jpeg" alt="Enhanced IMG_5287-EDIT Copy.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 70.0
                                 
                             </div>
+                            
                             <div class="entry-date">20260105</div>
                         </div>
                         
@@ -2431,15 +2919,20 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="unknown"
+                 data-score="83.0"
+                 data-delta="0"
+                 data-date="20260105-014316">
                 <a href="20260105-014316-5fc8aa78.html">
-                    <img src="images/20260105-014316-5fc8aa78-edited.jpeg" alt="Enhanced IMG_4952_Original.jpeg" class="entry-thumbnail">
+                    <img src="images/20260105-014316-5fc8aa78-edited.jpeg" alt="Enhanced IMG_4952_Original.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 83.0
                                 
                             </div>
+                            
                             <div class="entry-date">20260105</div>
                         </div>
                         
@@ -2471,15 +2964,20 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="unknown"
+                 data-score="76.5"
+                 data-delta="0"
+                 data-date="20260105-014310">
                 <a href="20260105-014310-9405a3db.html">
-                    <img src="images/20260105-014310-9405a3db-edited.jpeg" alt="Enhanced IMG_1069-EDIT_Original.jpeg" class="entry-thumbnail">
+                    <img src="images/20260105-014310-9405a3db-edited.jpeg" alt="Enhanced IMG_1069-EDIT_Original.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 76.5
                                 
                             </div>
+                            
                             <div class="entry-date">20260105</div>
                         </div>
                         
@@ -2511,15 +3009,20 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="unknown"
+                 data-score="71.5"
+                 data-delta="0"
+                 data-date="20260105-014310">
                 <a href="20260105-014310-43033e09.html">
-                    <img src="images/20260105-014310-43033e09-edited.jpeg" alt="Enhanced IMG_3121_Original Copy.jpeg" class="entry-thumbnail">
+                    <img src="images/20260105-014310-43033e09-edited.jpeg" alt="Enhanced IMG_3121_Original Copy.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 71.5
                                 
                             </div>
+                            
                             <div class="entry-date">20260105</div>
                         </div>
                         
@@ -2551,15 +3054,20 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="unknown"
+                 data-score="75.0"
+                 data-delta="0"
+                 data-date="20260105-014305">
                 <a href="20260105-014305-a0361aa6.html">
-                    <img src="images/20260105-014305-a0361aa6-edited.jpeg" alt="Enhanced IMG_2202 Copy.jpeg" class="entry-thumbnail">
+                    <img src="images/20260105-014305-a0361aa6-edited.jpeg" alt="Enhanced IMG_2202 Copy.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 75.0
                                 
                             </div>
+                            
                             <div class="entry-date">20260105</div>
                         </div>
                         
@@ -2591,15 +3099,20 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="unknown"
+                 data-score="75.0"
+                 data-delta="0"
+                 data-date="20260105-014305">
                 <a href="20260105-014305-1a9e2e74.html">
-                    <img src="images/20260105-014305-1a9e2e74-edited.jpeg" alt="Enhanced IMG_1149 Copy_Original.jpeg" class="entry-thumbnail">
+                    <img src="images/20260105-014305-1a9e2e74-edited.jpeg" alt="Enhanced IMG_1149 Copy_Original.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 75.0
                                 
                             </div>
+                            
                             <div class="entry-date">20260105</div>
                         </div>
                         
@@ -2631,15 +3144,20 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="unknown"
+                 data-score="70.0"
+                 data-delta="0"
+                 data-date="20260104-201805">
                 <a href="20260104-201805-387d4d30.html">
-                    <img src="images/20260104-201805-387d4d30-edited.jpeg" alt="Enhanced IMG_9212 Copy.jpeg" class="entry-thumbnail">
+                    <img src="images/20260104-201805-387d4d30-edited.jpeg" alt="Enhanced IMG_9212 Copy.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 70.0
                                 
                             </div>
+                            
                             <div class="entry-date">20260104</div>
                         </div>
                         
@@ -2671,15 +3189,20 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="unknown"
+                 data-score="75.0"
+                 data-delta="0"
+                 data-date="20260104-201752">
                 <a href="20260104-201752-800d72af.html">
-                    <img src="images/20260104-201752-800d72af-edited.jpeg" alt="Enhanced IMG_8090 Copy.jpeg" class="entry-thumbnail">
+                    <img src="images/20260104-201752-800d72af-edited.jpeg" alt="Enhanced IMG_8090 Copy.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 75.0
                                 
                             </div>
+                            
                             <div class="entry-date">20260104</div>
                         </div>
                         
@@ -2711,15 +3234,20 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="unknown"
+                 data-score="78.5"
+                 data-delta="0"
+                 data-date="20260104-201744">
                 <a href="20260104-201744-01894a6b.html">
-                    <img src="images/20260104-201744-01894a6b-edited.jpeg" alt="Enhanced IMG_7709_Original.jpeg" class="entry-thumbnail">
+                    <img src="images/20260104-201744-01894a6b-edited.jpeg" alt="Enhanced IMG_7709_Original.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 78.5
                                 
                             </div>
+                            
                             <div class="entry-date">20260104</div>
                         </div>
                         
@@ -2751,15 +3279,20 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="unknown"
+                 data-score="71.5"
+                 data-delta="0"
+                 data-date="20260104-201743">
                 <a href="20260104-201743-d753046b.html">
-                    <img src="images/20260104-201743-d753046b-edited.jpeg" alt="Enhanced IMG_7007_Original.jpeg" class="entry-thumbnail">
+                    <img src="images/20260104-201743-d753046b-edited.jpeg" alt="Enhanced IMG_7007_Original.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 71.5
                                 
                             </div>
+                            
                             <div class="entry-date">20260104</div>
                         </div>
                         
@@ -2791,15 +3324,20 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="unknown"
+                 data-score="78.0"
+                 data-delta="0"
+                 data-date="20260104-201739">
                 <a href="20260104-201739-5dd9ac96.html">
-                    <img src="images/20260104-201739-5dd9ac96-edited.jpeg" alt="Enhanced IMG_6897_Original.jpeg" class="entry-thumbnail">
+                    <img src="images/20260104-201739-5dd9ac96-edited.jpeg" alt="Enhanced IMG_6897_Original.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 78.0
                                 
                             </div>
+                            
                             <div class="entry-date">20260104</div>
                         </div>
                         
@@ -2831,15 +3369,20 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="unknown"
+                 data-score="73.5"
+                 data-delta="0"
+                 data-date="20260104-201730">
                 <a href="20260104-201730-36aeb17d.html">
-                    <img src="images/20260104-201730-36aeb17d-edited.jpeg" alt="Enhanced IMG_6001_Original.jpeg" class="entry-thumbnail">
+                    <img src="images/20260104-201730-36aeb17d-edited.jpeg" alt="Enhanced IMG_6001_Original.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 73.5
                                 
                             </div>
+                            
                             <div class="entry-date">20260104</div>
                         </div>
                         
@@ -2871,15 +3414,20 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="unknown"
+                 data-score="68.5"
+                 data-delta="0"
+                 data-date="20260104-201727">
                 <a href="20260104-201727-763aa9d3.html">
-                    <img src="images/20260104-201727-763aa9d3-edited.jpeg" alt="Enhanced IMG_5189_Original.jpeg" class="entry-thumbnail">
+                    <img src="images/20260104-201727-763aa9d3-edited.jpeg" alt="Enhanced IMG_5189_Original.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 68.5
                                 
                             </div>
+                            
                             <div class="entry-date">20260104</div>
                         </div>
                         
@@ -2911,15 +3459,20 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="unknown"
+                 data-score="78.0"
+                 data-delta="0"
+                 data-date="20260104-201723">
                 <a href="20260104-201723-93a17080.html">
-                    <img src="images/20260104-201723-93a17080-edited.jpeg" alt="Enhanced IMG_4952_Original.jpeg" class="entry-thumbnail">
+                    <img src="images/20260104-201723-93a17080-edited.jpeg" alt="Enhanced IMG_4952_Original.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 78.0
                                 
                             </div>
+                            
                             <div class="entry-date">20260104</div>
                         </div>
                         
@@ -2951,15 +3504,20 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="unknown"
+                 data-score="78.0"
+                 data-delta="0"
+                 data-date="20260104-201717">
                 <a href="20260104-201717-c47623a3.html">
-                    <img src="images/20260104-201717-c47623a3-edited.jpeg" alt="Enhanced IMG_1069-EDIT_Original.jpeg" class="entry-thumbnail">
+                    <img src="images/20260104-201717-c47623a3-edited.jpeg" alt="Enhanced IMG_1069-EDIT_Original.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 78.0
                                 
                             </div>
+                            
                             <div class="entry-date">20260104</div>
                         </div>
                         
@@ -2991,15 +3549,20 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="unknown"
+                 data-score="78.0"
+                 data-delta="0"
+                 data-date="20260104-201711">
                 <a href="20260104-201711-a981c6bb.html">
-                    <img src="images/20260104-201711-a981c6bb-edited.jpeg" alt="Enhanced IMG_0562.jpeg" class="entry-thumbnail">
+                    <img src="images/20260104-201711-a981c6bb-edited.jpeg" alt="Enhanced IMG_0562.jpeg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 78.0
                                 
                             </div>
+                            
                             <div class="entry-date">20260104</div>
                         </div>
                         
@@ -3031,15 +3594,20 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="unknown"
+                 data-score="75.0"
+                 data-delta="0"
+                 data-date="20260104-071831">
                 <a href="20260104-071831-341cded1.html">
-                    <img src="images/20260104-071831-341cded1-edited.JPG" alt="Enhanced P1030379-Edit.JPG" class="entry-thumbnail">
+                    <img src="images/20260104-071831-341cded1-edited.JPG" alt="Enhanced P1030379-Edit.JPG" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 75.0
                                 
                             </div>
+                            
                             <div class="entry-date">20260104</div>
                         </div>
                         
@@ -3071,15 +3639,20 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="unknown"
+                 data-score="75.0"
+                 data-delta="0"
+                 data-date="20260104-071824">
                 <a href="20260104-071824-5e506647.html">
-                    <img src="images/20260104-071824-5e506647-edited.jpg" alt="Enhanced IMG_9739-EFFECTS.jpg" class="entry-thumbnail">
+                    <img src="images/20260104-071824-5e506647-edited.jpg" alt="Enhanced IMG_9739-EFFECTS.jpg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 75.0
                                 
                             </div>
+                            
                             <div class="entry-date">20260104</div>
                         </div>
                         
@@ -3109,15 +3682,20 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="unknown"
+                 data-score="71.5"
+                 data-delta="0"
+                 data-date="20260104-071809">
                 <a href="20260104-071809-446b7b2f.html">
-                    <img src="images/20260104-071809-446b7b2f-edited.jpg" alt="Enhanced IMG_6001.jpg" class="entry-thumbnail">
+                    <img src="images/20260104-071809-446b7b2f-edited.jpg" alt="Enhanced IMG_6001.jpg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 71.5
                                 
                             </div>
+                            
                             <div class="entry-date">20260104</div>
                         </div>
                         
@@ -3149,15 +3727,20 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="unknown"
+                 data-score="72.7"
+                 data-delta="0"
+                 data-date="20260104-071808">
                 <a href="20260104-071808-6ea731d3.html">
-                    <img src="images/20260104-071808-6ea731d3-edited.JPG" alt="Enhanced IMG_3101.JPG" class="entry-thumbnail">
+                    <img src="images/20260104-071808-6ea731d3-edited.JPG" alt="Enhanced IMG_3101.JPG" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 72.7
                                 
                             </div>
+                            
                             <div class="entry-date">20260104</div>
                         </div>
                         
@@ -3189,15 +3772,20 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="unknown"
+                 data-score="65.0"
+                 data-delta="0"
+                 data-date="20260104-071805">
                 <a href="20260104-071805-77f6781c.html">
-                    <img src="images/20260104-071805-77f6781c-edited.JPG" alt="Enhanced IMG_5316_Copy_Copy.JPG" class="entry-thumbnail">
+                    <img src="images/20260104-071805-77f6781c-edited.JPG" alt="Enhanced IMG_5316_Copy_Copy.JPG" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 65.0
                                 
                             </div>
+                            
                             <div class="entry-date">20260104</div>
                         </div>
                         
@@ -3229,15 +3817,20 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="unknown"
+                 data-score="80.0"
+                 data-delta="0"
+                 data-date="20260104-071804">
                 <a href="20260104-071804-b596870a.html">
-                    <img src="images/20260104-071804-b596870a-edited.jpg" alt="Enhanced IMG_2703_CR2.jpg" class="entry-thumbnail">
+                    <img src="images/20260104-071804-b596870a-edited.jpg" alt="Enhanced IMG_2703_CR2.jpg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 80.0
                                 
                             </div>
+                            
                             <div class="entry-date">20260104</div>
                         </div>
                         
@@ -3269,15 +3862,20 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="unknown"
+                 data-score="80.0"
+                 data-delta="0"
+                 data-date="20260104-071800">
                 <a href="20260104-071800-adaffe68.html">
-                    <img src="images/20260104-071800-adaffe68-edited.JPG" alt="Enhanced IMG_0295.JPG" class="entry-thumbnail">
+                    <img src="images/20260104-071800-adaffe68-edited.JPG" alt="Enhanced IMG_0295.JPG" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 80.0
                                 
                             </div>
+                            
                             <div class="entry-date">20260104</div>
                         </div>
                         
@@ -3309,15 +3907,20 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="unknown"
+                 data-score="75.0"
+                 data-delta="0"
+                 data-date="20260104-071759">
                 <a href="20260104-071759-e57bdfac.html">
-                    <img src="images/20260104-071759-e57bdfac-edited.jpg" alt="Enhanced IMG_1262-EDIT.jpg" class="entry-thumbnail">
+                    <img src="images/20260104-071759-e57bdfac-edited.jpg" alt="Enhanced IMG_1262-EDIT.jpg" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 75.0
                                 
                             </div>
+                            
                             <div class="entry-date">20260104</div>
                         </div>
                         
@@ -3349,15 +3952,20 @@
                 </a>
             </div>
             
-            <div class="entry-card">
+            <div class="entry-card"
+                 data-genre="unknown"
+                 data-score="73.5"
+                 data-delta="0"
+                 data-date="20260104-071758">
                 <a href="20260104-071758-f566b7de.html">
-                    <img src="images/20260104-071758-f566b7de-edited.JPG" alt="Enhanced IMG_2201_Copy.JPG" class="entry-thumbnail">
+                    <img src="images/20260104-071758-f566b7de-edited.JPG" alt="Enhanced IMG_2201_Copy.JPG" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
                         <div class="entry-header">
                             <div class="entry-score">
                                 73.5
                                 
                             </div>
+                            
                             <div class="entry-date">20260104</div>
                         </div>
                         
@@ -3397,5 +4005,75 @@
             <p>Powered by Multi-LLM Analysis (Gemini, OpenAI, Anthropic)</p>
         </footer>
     </div>
+
+    
+    <script>
+    (function() {
+        var gallery = document.getElementById('gallery');
+        var cards = Array.from(gallery.querySelectorAll('.entry-card'));
+        var genreSelect = document.getElementById('filter-genre');
+        var scoreSlider = document.getElementById('filter-score');
+        var scoreVal = document.getElementById('filter-score-val');
+        var sortSelect = document.getElementById('sort-by');
+        var countEl = document.getElementById('filter-count');
+
+        /* Populate genre dropdown from data */
+        var genres = new Set();
+        cards.forEach(function(c) {
+            var g = c.dataset.genre;
+            if (g && g !== 'unknown') genres.add(g);
+        });
+        Array.from(genres).sort().forEach(function(g) {
+            var opt = document.createElement('option');
+            opt.value = g;
+            opt.textContent = g.charAt(0).toUpperCase() + g.slice(1);
+            genreSelect.appendChild(opt);
+        });
+
+        function applyFilters() {
+            var genre = genreSelect.value;
+            var minScore = parseFloat(scoreSlider.value);
+            scoreVal.textContent = minScore;
+            var visible = 0;
+
+            cards.forEach(function(card) {
+                var cardGenre = card.dataset.genre;
+                var cardScore = parseFloat(card.dataset.score) || 0;
+                var show = true;
+
+                if (genre !== 'all' && cardGenre !== genre) show = false;
+                if (cardScore < minScore) show = false;
+
+                card.style.display = show ? '' : 'none';
+                if (show) visible++;
+            });
+
+            countEl.textContent = visible + ' entr' + (visible === 1 ? 'y' : 'ies');
+        }
+
+        function applySort() {
+            var sort = sortSelect.value;
+            var sorted = cards.slice();
+
+            sorted.sort(function(a, b) {
+                switch(sort) {
+                    case 'date-desc': return b.dataset.date.localeCompare(a.dataset.date);
+                    case 'date-asc': return a.dataset.date.localeCompare(b.dataset.date);
+                    case 'score-desc': return (parseFloat(b.dataset.score)||0) - (parseFloat(a.dataset.score)||0);
+                    case 'score-asc': return (parseFloat(a.dataset.score)||0) - (parseFloat(b.dataset.score)||0);
+                    case 'delta-desc': return (parseFloat(b.dataset.delta)||0) - (parseFloat(a.dataset.delta)||0);
+                    default: return 0;
+                }
+            });
+
+            sorted.forEach(function(card) { gallery.appendChild(card); });
+        }
+
+        genreSelect.addEventListener('change', applyFilters);
+        scoreSlider.addEventListener('input', applyFilters);
+        sortSelect.addEventListener('change', function() { applySort(); applyFilters(); });
+    })();
+    </script>
+    
 </body>
 </html>

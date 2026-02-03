@@ -1,0 +1,419 @@
+{
+  "critiques": [
+    {
+      "genre": "architecture",
+      "subject": "Formal dining room featuring black paneled walls, a long mahogany table, and a modern gold chandelier",
+      "mood": "Elegant, dramatic, and sophisticated",
+      "score": 68.0,
+      "technical_assessment": {
+        "exposure": "good",
+        "white_balance": "neutral",
+        "focus": "sharp",
+        "noise": "low"
+      },
+      "improvements": [
+        "[SIGNIFICANT] Apply vertical perspective correction (Transform/Upright)",
+        "[MODERATE] Reduce highlights in background windows and reflections",
+        "[SUBTLE] Local adjustment to center table (Warmth + Clarity)",
+        "[SUBTLE] Lift shadows in black paneling"
+      ],
+      "preserve": [
+        "The deep, rich saturation of the black walls",
+        "The metallic gold tones of the chandelier"
+      ],
+      "notes": "A well-composed interior shot with great depth, but heavily impacted by lens distortion. Straightening the vertical lines is the critical step to transforming this from a casual wide-angle shot into a polished real estate or architectural image.",
+      "improvements_detailed": [
+        {
+          "action": "Apply vertical perspective correction (Transform/Upright)",
+          "intensity": "significant",
+          "priority": 1,
+          "reason": "The wide-angle lens has caused significant keystoning; vertical lines (walls, curtains) are leaning outward and need to be straightened for professional architectural standards."
+        },
+        {
+          "action": "Reduce highlights in background windows and reflections",
+          "intensity": "moderate",
+          "priority": 2,
+          "reason": "The bright light sources in the adjacent room and mirror are blown out; reducing highlights will help recover detail and balance the dynamic range."
+        },
+        {
+          "action": "Local adjustment to center table (Warmth + Clarity)",
+          "intensity": "subtle",
+          "priority": 3,
+          "reason": "Enhancing the wood tones will create better separation from the dark walls and anchor the composition."
+        },
+        {
+          "action": "Lift shadows in black paneling",
+          "intensity": "subtle",
+          "priority": 4,
+          "reason": "Slightly lifting the darkest shadows will reveal the texture of the paneling joinery without turning the black paint grey."
+        }
+      ],
+      "context": {
+        "genre": "architecture",
+        "subject": "Formal dining room featuring black paneled walls, a long mahogany table, and a modern gold chandelier",
+        "mood": "Elegant, dramatic, and sophisticated",
+        "preserve": [
+          "The deep, rich saturation of the black walls",
+          "The metallic gold tones of the chandelier"
+        ],
+        "technical": {
+          "exposure": "good",
+          "white_balance": "neutral",
+          "focus": "sharp",
+          "noise": "low"
+        }
+      },
+      "llm": "gemini"
+    },
+    {
+      "genre": "architecture",
+      "subject": "A moody dining room interior with a long wooden table, dark paneled walls, chandelier, and fireplace",
+      "mood": "Elegant, dramatic, and slightly warm",
+      "score": 78.0,
+      "technical_assessment": {
+        "exposure": "good",
+        "white_balance": "slightly_warm",
+        "focus": "acceptable",
+        "noise": "low"
+      },
+      "improvements": [
+        "[MODERATE] Enable lens profile corrections and apply Transform (guided/upright) to straighten verticals and reduce wide-angle distortion; fine-tune with a slight rotate if needed",
+        "[MODERATE] Recover highlights on the ceiling/chandelier area (Highlights -30 to -60) and add a gentle top gradient to reduce brightness; optionally lower Whites slightly (-10 to -20)",
+        "[SUBTLE] Open shadows selectively on the dark wall paneling and corners (Shadows +15 to +30) while holding blacks with a mild Blacks -5 to -15; use local masks to avoid flattening the scene",
+        "[SUBTLE] Refine white balance slightly cooler overall (Temp -200 to -500K) and reduce orange saturation in wood tones via HSL (Orange Sat -5 to -15, Orange Lum +5 to +10)",
+        "[SUBTLE] Add localized clarity/texture to the table centerpiece and fireplace wall (+10 to +20) and apply mild sharpening with masking (Amount ~40\u201360, Masking ~70+)"
+      ],
+      "preserve": [
+        "The strong leading lines created by the long table and chairs",
+        "The dark, high-contrast paneling that gives the room its dramatic character"
+      ],
+      "notes": "This is a strong interior composition with great symmetry and a clear focal path down the table toward the fireplace. The main gains will come from perspective correction and better highlight control near the ceiling/chandelier, plus subtle shadow recovery to reveal panel detail without losing the moody look.",
+      "improvements_detailed": [
+        {
+          "action": "Enable lens profile corrections and apply Transform (guided/upright) to straighten verticals and reduce wide-angle distortion; fine-tune with a slight rotate if needed",
+          "intensity": "moderate",
+          "priority": 1,
+          "reason": "The room lines (paneling, doorway, mirror) feel a bit stretched/tilted, and correcting perspective will make the interior look more natural and professional."
+        },
+        {
+          "action": "Recover highlights on the ceiling/chandelier area (Highlights -30 to -60) and add a gentle top gradient to reduce brightness; optionally lower Whites slightly (-10 to -20)",
+          "intensity": "moderate",
+          "priority": 2,
+          "reason": "The ceiling and chandelier draw attention away from the table; pulling them back improves balance while keeping the room\u2019s drama."
+        },
+        {
+          "action": "Open shadows selectively on the dark wall paneling and corners (Shadows +15 to +30) while holding blacks with a mild Blacks -5 to -15; use local masks to avoid flattening the scene",
+          "intensity": "subtle",
+          "priority": 3,
+          "reason": "Reveals detail/texture in the dark walls without losing the intended moody contrast."
+        },
+        {
+          "action": "Refine white balance slightly cooler overall (Temp -200 to -500K) and reduce orange saturation in wood tones via HSL (Orange Sat -5 to -15, Orange Lum +5 to +10)",
+          "intensity": "subtle",
+          "priority": 4,
+          "reason": "Keeps the wood rich but prevents the image from feeling overly warm compared to the darker, cooler walls."
+        },
+        {
+          "action": "Add localized clarity/texture to the table centerpiece and fireplace wall (+10 to +20) and apply mild sharpening with masking (Amount ~40\u201360, Masking ~70+)",
+          "intensity": "subtle",
+          "priority": 5,
+          "reason": "Improves perceived crispness where the eye should land, while avoiding sharpening noise in flatter areas."
+        }
+      ],
+      "context": {
+        "genre": "architecture",
+        "subject": "A moody dining room interior with a long wooden table, dark paneled walls, chandelier, and fireplace",
+        "mood": "Elegant, dramatic, and slightly warm",
+        "preserve": [
+          "The strong leading lines created by the long table and chairs",
+          "The dark, high-contrast paneling that gives the room its dramatic character"
+        ],
+        "technical": {
+          "exposure": "good",
+          "white_balance": "slightly_warm",
+          "focus": "acceptable",
+          "noise": "low"
+        }
+      },
+      "llm": "openai"
+    },
+    {
+      "llm": "anthropic",
+      "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.0.image.source.base64.data: Image does not match the provided media type image/png'}, 'request_id': 'req_011CXm4UPSFUSqA1EzMPCGGA'}",
+      "score": null,
+      "improvements": [],
+      "notes": "Analysis failed: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.0.image.source.base64.data: Image does not match the provided media type image/png'}, 'request_id': 'req_011CXm4UPSFUSqA1EzMPCGGA'}"
+    }
+  ],
+  "consensus_score": 73.0,
+  "combined_improvements": [
+    "[SIGNIFICANT] Apply vertical perspective correction (Transform/Upright)",
+    "[MODERATE] Reduce highlights in background windows and reflections",
+    "[SUBTLE] Local adjustment to center table (Warmth + Clarity)",
+    "[SUBTLE] Lift shadows in black paneling",
+    "[MODERATE] Enable lens profile corrections and apply Transform (guided/upright) to straighten verticals and reduce wide-angle distortion; fine-tune with a slight rotate if needed",
+    "[MODERATE] Recover highlights on the ceiling/chandelier area (Highlights -30 to -60) and add a gentle top gradient to reduce brightness; optionally lower Whites slightly (-10 to -20)",
+    "[SUBTLE] Open shadows selectively on the dark wall paneling and corners (Shadows +15 to +30) while holding blacks with a mild Blacks -5 to -15; use local masks to avoid flattening the scene",
+    "[SUBTLE] Refine white balance slightly cooler overall (Temp -200 to -500K) and reduce orange saturation in wood tones via HSL (Orange Sat -5 to -15, Orange Lum +5 to +10)",
+    "[SUBTLE] Add localized clarity/texture to the table centerpiece and fireplace wall (+10 to +20) and apply mild sharpening with masking (Amount ~40\u201360, Masking ~70+)"
+  ],
+  "improvements_detailed": [
+    {
+      "action": "Apply vertical perspective correction (Transform/Upright)",
+      "intensity": "significant",
+      "priority": 1,
+      "reason": "The wide-angle lens has caused significant keystoning; vertical lines (walls, curtains) are leaning outward and need to be straightened for professional architectural standards."
+    },
+    {
+      "action": "Reduce highlights in background windows and reflections",
+      "intensity": "moderate",
+      "priority": 2,
+      "reason": "The bright light sources in the adjacent room and mirror are blown out; reducing highlights will help recover detail and balance the dynamic range."
+    },
+    {
+      "action": "Local adjustment to center table (Warmth + Clarity)",
+      "intensity": "subtle",
+      "priority": 3,
+      "reason": "Enhancing the wood tones will create better separation from the dark walls and anchor the composition."
+    },
+    {
+      "action": "Lift shadows in black paneling",
+      "intensity": "subtle",
+      "priority": 4,
+      "reason": "Slightly lifting the darkest shadows will reveal the texture of the paneling joinery without turning the black paint grey."
+    },
+    {
+      "action": "Enable lens profile corrections and apply Transform (guided/upright) to straighten verticals and reduce wide-angle distortion; fine-tune with a slight rotate if needed",
+      "intensity": "moderate",
+      "priority": 1,
+      "reason": "The room lines (paneling, doorway, mirror) feel a bit stretched/tilted, and correcting perspective will make the interior look more natural and professional."
+    },
+    {
+      "action": "Recover highlights on the ceiling/chandelier area (Highlights -30 to -60) and add a gentle top gradient to reduce brightness; optionally lower Whites slightly (-10 to -20)",
+      "intensity": "moderate",
+      "priority": 2,
+      "reason": "The ceiling and chandelier draw attention away from the table; pulling them back improves balance while keeping the room\u2019s drama."
+    },
+    {
+      "action": "Open shadows selectively on the dark wall paneling and corners (Shadows +15 to +30) while holding blacks with a mild Blacks -5 to -15; use local masks to avoid flattening the scene",
+      "intensity": "subtle",
+      "priority": 3,
+      "reason": "Reveals detail/texture in the dark walls without losing the intended moody contrast."
+    },
+    {
+      "action": "Refine white balance slightly cooler overall (Temp -200 to -500K) and reduce orange saturation in wood tones via HSL (Orange Sat -5 to -15, Orange Lum +5 to +10)",
+      "intensity": "subtle",
+      "priority": 4,
+      "reason": "Keeps the wood rich but prevents the image from feeling overly warm compared to the darker, cooler walls."
+    },
+    {
+      "action": "Add localized clarity/texture to the table centerpiece and fireplace wall (+10 to +20) and apply mild sharpening with masking (Amount ~40\u201360, Masking ~70+)",
+      "intensity": "subtle",
+      "priority": 5,
+      "reason": "Improves perceived crispness where the eye should land, while avoiding sharpening noise in flatter areas."
+    }
+  ],
+  "context": {
+    "genre": "architecture",
+    "subject": "Formal dining room featuring black paneled walls, a long mahogany table, and a modern gold chandelier",
+    "mood": "Elegant, dramatic, and sophisticated",
+    "preserve": [
+      "The deep, rich saturation of the black walls",
+      "The metallic gold tones of the chandelier",
+      "The strong leading lines created by the long table and chairs",
+      "The dark, high-contrast paneling that gives the room its dramatic character"
+    ],
+    "technical": {
+      "exposure": "good",
+      "white_balance": "slightly_warm",
+      "focus": "acceptable",
+      "noise": "low"
+    }
+  },
+  "summary": "[GEMINI] A well-composed interior shot with great depth, but heavily impacted by lens distortion. Straightening the vertical lines is the critical step to transforming this from a casual wide-angle shot into a polished real estate or architectural image. | [OPENAI] This is a strong interior composition with great symmetry and a clear focal path down the table toward the fireplace. The main gains will come from perspective correction and better highlight control near the ceiling/chandelier, plus subtle shadow recovery to reveal panel detail without losing the moody look.",
+  "score": 73.0,
+  "improvements": [
+    "[SIGNIFICANT] Apply vertical perspective correction (Transform/Upright)",
+    "[MODERATE] Reduce highlights in background windows and reflections",
+    "[SUBTLE] Local adjustment to center table (Warmth + Clarity)",
+    "[SUBTLE] Lift shadows in black paneling",
+    "[MODERATE] Enable lens profile corrections and apply Transform (guided/upright) to straighten verticals and reduce wide-angle distortion; fine-tune with a slight rotate if needed"
+  ],
+  "notes": "[GEMINI] A well-composed interior shot with great depth, but heavily impacted by lens distortion. Straightening the vertical lines is the critical step to transforming this from a casual wide-angle shot into a polished real estate or architectural image. | [OPENAI] This is a strong interior composition with great symmetry and a clear focal path down the table toward the fireplace. The main gains will come from perspective correction and better highlight control near the ceiling/chandelier, plus subtle shadow recovery to reveal panel detail without losing the moody look.",
+  "re_review": {
+    "critiques": [
+      {
+        "genre": "architecture",
+        "subject": "Formal dining room featuring dark paneled walls, a long wooden table, and a statement gold chandelier",
+        "mood": "Elegant, formal, and slightly moody",
+        "score": 72.0,
+        "technical_assessment": {
+          "exposure": "good",
+          "white_balance": "slightly_warm",
+          "focus": "sharp",
+          "noise": "low"
+        },
+        "improvements": [
+          "[MODERATE] Apply vertical perspective correction (Transform/Upright)",
+          "[MODERATE] Desaturate Orange and Red HSL channels",
+          "[SUBTLE] Lift Shadows and increase Texture on walls",
+          "[SUBTLE] Apply radial gradient to chandelier with increased Clarity"
+        ],
+        "preserve": [
+          "The deep, rich contrast of the black walls",
+          "The geometric symmetry of the composition"
+        ],
+        "notes": "This is a strong interior shot that suffers mainly from wide-angle distortion and slightly oversaturated warm tones. Fixing the vertical geometry and neutralizing the wood tones will immediately elevate it to a professional standard.",
+        "improvements_detailed": [
+          {
+            "action": "Apply vertical perspective correction (Transform/Upright)",
+            "intensity": "moderate",
+            "priority": 1,
+            "reason": "Correct wide-angle lens distortion where vertical lines (walls/frames) are leaning outward, essential for professional architectural photography."
+          },
+          {
+            "action": "Desaturate Orange and Red HSL channels",
+            "intensity": "moderate",
+            "priority": 2,
+            "reason": "The dining table appears overly saturated and orange; reducing this creates a more natural, sophisticated wood tone that balances with the dark walls."
+          },
+          {
+            "action": "Lift Shadows and increase Texture on walls",
+            "intensity": "subtle",
+            "priority": 3,
+            "reason": "Recover detail in the dark paneling to highlight the molding work without washing out the deep black aesthetic."
+          },
+          {
+            "action": "Apply radial gradient to chandelier with increased Clarity",
+            "intensity": "subtle",
+            "priority": 4,
+            "reason": "Sharpen the metallic details of the central fixture to establish it clearly as the focal point."
+          }
+        ],
+        "context": {
+          "genre": "architecture",
+          "subject": "Formal dining room featuring dark paneled walls, a long wooden table, and a statement gold chandelier",
+          "mood": "Elegant, formal, and slightly moody",
+          "preserve": [
+            "The deep, rich contrast of the black walls",
+            "The geometric symmetry of the composition"
+          ],
+          "technical": {
+            "exposure": "good",
+            "white_balance": "slightly_warm",
+            "focus": "sharp",
+            "noise": "low"
+          }
+        },
+        "llm": "gemini"
+      },
+      {
+        "genre": "architecture",
+        "subject": "A formal dining room with a long wooden table, dark paneled walls, and a large chandelier",
+        "mood": "Elegant, moody, upscale interior with warm accents",
+        "score": 78.0,
+        "technical_assessment": {
+          "exposure": "slightly_under",
+          "white_balance": "slightly_warm",
+          "focus": "sharp",
+          "noise": "low"
+        },
+        "improvements": [
+          "[MODERATE] Apply lens corrections and vertical/horizontal perspective transform to straighten converging lines (walls, window frames) and level the room",
+          "[MODERATE] Lift midtones/shadows selectively on the dark wall paneling (+15 to +30 shadows) while keeping blacks anchored (slight black point) to maintain the moody look",
+          "[SUBTLE] Reduce highlights/whites on the chandelier and ceiling (Highlights -20 to -40, Whites -5 to -15) and add a subtle local burn to the ceiling hotspot",
+          "[SUBTLE] Neutralize mixed lighting with a small WB tweak cooler (Temp slightly down) and use local color correction: reduce yellow/orange saturation on the chandelier/ceiling and slightly raise blue/cyan in shadows",
+          "[SUBTLE] Tighten composition with a slight crop from the left edge (reduce dominance of the large framed artwork) and/or bottom edge to emphasize the table-to-fireplace axis"
+        ],
+        "preserve": [
+          "The strong central leading line created by the long table toward the fireplace",
+          "The rich contrast between the warm wood table and the dark paneled walls"
+        ],
+        "notes": "The image is sharp with a pleasing, upscale mood and strong leading lines. Minor perspective correction and targeted tonal balancing (lifting dark panel detail while taming ceiling/chandelier highlights) would make it feel more polished and true to an interior/architectural standard.",
+        "improvements_detailed": [
+          {
+            "action": "Apply lens corrections and vertical/horizontal perspective transform to straighten converging lines (walls, window frames) and level the room",
+            "intensity": "moderate",
+            "priority": 1,
+            "reason": "Architectural/interior images read as higher quality when geometry is clean and level; it reduces the wide-angle distortion feel."
+          },
+          {
+            "action": "Lift midtones/shadows selectively on the dark wall paneling (+15 to +30 shadows) while keeping blacks anchored (slight black point) to maintain the moody look",
+            "intensity": "moderate",
+            "priority": 2,
+            "reason": "Recovers texture and detail in the paneling and corners without flattening the intended dark, elegant atmosphere."
+          },
+          {
+            "action": "Reduce highlights/whites on the chandelier and ceiling (Highlights -20 to -40, Whites -5 to -15) and add a subtle local burn to the ceiling hotspot",
+            "intensity": "subtle",
+            "priority": 3,
+            "reason": "Controls the brightest area so it doesn\u2019t dominate attention and improves perceived dynamic range."
+          },
+          {
+            "action": "Neutralize mixed lighting with a small WB tweak cooler (Temp slightly down) and use local color correction: reduce yellow/orange saturation on the chandelier/ceiling and slightly raise blue/cyan in shadows",
+            "intensity": "subtle",
+            "priority": 4,
+            "reason": "Balances warm chandelier light against cooler window light, keeping the wood warm while preventing the ceiling from looking overly yellow."
+          },
+          {
+            "action": "Tighten composition with a slight crop from the left edge (reduce dominance of the large framed artwork) and/or bottom edge to emphasize the table-to-fireplace axis",
+            "intensity": "subtle",
+            "priority": 5,
+            "reason": "Strengthens the central symmetry and directs attention to the room\u2019s primary features (table, chandelier, fireplace)."
+          }
+        ],
+        "context": {
+          "genre": "architecture",
+          "subject": "A formal dining room with a long wooden table, dark paneled walls, and a large chandelier",
+          "mood": "Elegant, moody, upscale interior with warm accents",
+          "preserve": [
+            "The strong central leading line created by the long table toward the fireplace",
+            "The rich contrast between the warm wood table and the dark paneled walls"
+          ],
+          "technical": {
+            "exposure": "slightly_under",
+            "white_balance": "slightly_warm",
+            "focus": "sharp",
+            "noise": "low"
+          }
+        },
+        "llm": "openai"
+      },
+      {
+        "llm": "anthropic",
+        "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.0.image.source.base64.data: Image does not match the provided media type image/png'}, 'request_id': 'req_011CXm4YUEqUzCCnRdL7mdQX'}",
+        "score": null,
+        "improvements": [],
+        "notes": "Analysis failed: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.0.image.source.base64.data: Image does not match the provided media type image/png'}, 'request_id': 'req_011CXm4YUEqUzCCnRdL7mdQX'}"
+      }
+    ],
+    "consensus_score": 75.0,
+    "score": 75.0,
+    "notes": "[GEMINI] This is a strong interior shot that suffers mainly from wide-angle distortion and slightly oversaturated warm tones. Fixing the vertical geometry and neutralizing the wood tones will immediately elevate it to a professional standard. | [OPENAI] The image is sharp with a pleasing, upscale mood and strong leading lines. Minor perspective correction and targeted tonal balancing (lifting dark panel detail while taming ceiling/chandelier highlights) would make it feel more polished and true to an interior/architectural standard.",
+    "summary": "[GEMINI] This is a strong interior shot that suffers mainly from wide-angle distortion and slightly oversaturated warm tones. Fixing the vertical geometry and neutralizing the wood tones will immediately elevate it to a professional standard. | [OPENAI] The image is sharp with a pleasing, upscale mood and strong leading lines. Minor perspective correction and targeted tonal balancing (lifting dark panel detail while taming ceiling/chandelier highlights) would make it feel more polished and true to an interior/architectural standard.",
+    "context": {
+      "genre": "architecture",
+      "subject": "Formal dining room featuring dark paneled walls, a long wooden table, and a statement gold chandelier",
+      "mood": "Elegant, moody, upscale interior with warm accents",
+      "preserve": [
+        "The deep, rich contrast of the black walls",
+        "The geometric symmetry of the composition",
+        "The strong central leading line created by the long table toward the fireplace",
+        "The rich contrast between the warm wood table and the dark paneled walls"
+      ],
+      "technical": {
+        "exposure": "good",
+        "white_balance": "slightly_warm",
+        "focus": "sharp",
+        "noise": "low"
+      }
+    },
+    "score_delta": 2.0
+  },
+  "image_hash": "5e44340facebc6c87679f650e5d987a901cd9e8770a558ae0aa076b756c8d84f",
+  "timestamp": "20260203-113220",
+  "entry_id": "20260203-113220-e5889353",
+  "original_filename": "improved-photo (20).png",
+  "original_image": "original.png",
+  "edited_image": "edited.png"
+}
