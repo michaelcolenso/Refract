@@ -8,13 +8,14 @@ import os
 import json
 import sys
 import base64
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from typing import Dict, Any, List, Optional
 from abc import ABC, abstractmethod
 from PIL import Image
 import io
 
-from utils import retry_with_backoff
+from utils import retry_with_backoff, detect_media_type
 
 
 class BaseCritic(ABC):
@@ -152,17 +153,8 @@ Output ONLY the JSON object."""
             return base64.standard_b64encode(f.read()).decode("utf-8")
 
     def _get_image_media_type(self, image_path: Path) -> str:
-        """Get the media type for an image."""
-        suffix = image_path.suffix.lower()
-        if suffix in ['.jpg', '.jpeg']:
-            return "image/jpeg"
-        elif suffix == '.png':
-            return "image/png"
-        elif suffix == '.gif':
-            return "image/gif"
-        elif suffix == '.webp':
-            return "image/webp"
-        return "image/jpeg"  # default
+        """Get the actual media type for an image by inspecting its content."""
+        return detect_media_type(image_path)
 
 
 class GeminiCritic(BaseCritic):
@@ -173,7 +165,7 @@ class GeminiCritic(BaseCritic):
     def __init__(self, api_key: str):
         from google import genai
         self.client = genai.Client(api_key=api_key)
-        self.model_name = 'gemini-3-pro-preview'
+        self.model_name = os.getenv('GEMINI_CRITIC_MODEL', 'gemini-3-pro-preview')
 
     @retry_with_backoff(max_retries=3, initial_delay=2.0)
     def analyze(self, image_path: Path) -> Dict[str, Any]:
@@ -199,8 +191,9 @@ class OpenAICritic(BaseCritic):
         base64_image = self._image_to_base64(image_path)
         media_type = self._get_image_media_type(image_path)
 
+        model = os.getenv('OPENAI_CRITIC_MODEL', 'gpt-5.2')
         response = self.client.chat.completions.create(
-            model="gpt-5.2",
+            model=model,
             messages=[
                 {
                     "role": "user",
@@ -234,8 +227,9 @@ class AnthropicCritic(BaseCritic):
         base64_image = self._image_to_base64(image_path)
         media_type = self._get_image_media_type(image_path)
 
+        model = os.getenv('ANTHROPIC_CRITIC_MODEL', 'claude-sonnet-4-5')
         response = self.client.messages.create(
-            model="claude-sonnet-4-5",
+            model=model,
             max_tokens=1000,
             messages=[
                 {
@@ -306,9 +300,17 @@ class MultiCritic:
         if not self.critics:
             raise ValueError("At least one API key must be provided and valid")
 
+    def _run_critic(self, critic: BaseCritic, image_path: Path) -> Dict[str, Any]:
+        """Run a single critic and return its result (used for parallel execution)."""
+        print(f"    Getting critique from {critic.name}...")
+        result = critic.analyze(image_path)
+        result['llm'] = critic.name
+        print(f"      {critic.name} score: {result['score']}/100")
+        return result
+
     def analyze(self, image_path: Path) -> Dict[str, Any]:
         """
-        Analyze a photograph using all configured LLM critics.
+        Analyze a photograph using all configured LLM critics in parallel.
 
         Returns:
             Dictionary with:
@@ -316,6 +318,7 @@ class MultiCritic:
             - consensus_score: Average score across all LLMs
             - combined_improvements: All unique improvements
             - summary: Aggregated notes
+            - critics_disagree: True when scores diverge by 20+ points
             - score: Consensus score (for backward compatibility)
             - improvements: Combined improvements (for backward compatibility)
             - notes: Summary (for backward compatibility)
@@ -327,11 +330,39 @@ class MultiCritic:
         all_notes = []
         contexts = []
 
-        for critic in self.critics:
+        # Run all critics in parallel for faster analysis
+        if len(self.critics) > 1:
+            with ThreadPoolExecutor(max_workers=len(self.critics)) as executor:
+                future_to_critic = {
+                    executor.submit(self._run_critic, critic, image_path): critic
+                    for critic in self.critics
+                }
+                for future in as_completed(future_to_critic):
+                    critic = future_to_critic[future]
+                    try:
+                        result = future.result()
+                        critiques.append(result)
+                        scores.append(result['score'])
+                        all_improvements.extend(result['improvements'])
+                        if 'improvements_detailed' in result:
+                            all_improvements_detailed.extend(result['improvements_detailed'])
+                        if 'context' in result:
+                            contexts.append(result['context'])
+                        all_notes.append(f"[{critic.name.upper()}] {result['notes']}")
+                    except Exception as e:
+                        print(f"    Warning: {critic.name} critique failed: {e}")
+                        critiques.append({
+                            'llm': critic.name,
+                            'error': str(e),
+                            'score': None,
+                            'improvements': [],
+                            'notes': f"Analysis failed: {e}"
+                        })
+        else:
+            # Single critic -- no need for thread pool
+            critic = self.critics[0]
             try:
-                print(f"    Getting critique from {critic.name}...")
-                result = critic.analyze(image_path)
-                result['llm'] = critic.name
+                result = self._run_critic(critic, image_path)
                 critiques.append(result)
                 scores.append(result['score'])
                 all_improvements.extend(result['improvements'])
@@ -340,7 +371,6 @@ class MultiCritic:
                 if 'context' in result:
                     contexts.append(result['context'])
                 all_notes.append(f"[{critic.name.upper()}] {result['notes']}")
-                print(f"      Score: {result['score']}/100")
             except Exception as e:
                 print(f"    Warning: {critic.name} critique failed: {e}")
                 critiques.append({
@@ -354,6 +384,11 @@ class MultiCritic:
         # Calculate consensus
         valid_scores = [s for s in scores if s is not None]
         consensus_score = sum(valid_scores) / len(valid_scores) if valid_scores else 0
+
+        # Detect critic disagreement (scores diverge by 20+ points)
+        critics_disagree = False
+        if len(valid_scores) >= 2:
+            critics_disagree = (max(valid_scores) - min(valid_scores)) >= 20
 
         # Deduplicate improvements (simple approach - keep unique ones)
         seen = set()
@@ -370,6 +405,9 @@ class MultiCritic:
         # Merge contexts from all critics (use most common values)
         merged_context = self._merge_contexts(contexts) if contexts else {}
 
+        if critics_disagree:
+            print(f"    Note: Critics disagree (spread: {max(valid_scores) - min(valid_scores):.0f} points)")
+
         return {
             'critiques': critiques,
             'consensus_score': round(consensus_score, 1),
@@ -377,6 +415,7 @@ class MultiCritic:
             'improvements_detailed': all_improvements_detailed,
             'context': merged_context,
             'summary': summary,
+            'critics_disagree': critics_disagree,
             # Backward compatibility fields
             'score': round(consensus_score, 1),
             'improvements': unique_improvements[:5],  # Limit for editor

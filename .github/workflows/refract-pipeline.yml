@@ -12,13 +12,37 @@ on:
       - 'site/public/**'
   workflow_dispatch:  # Allow manual triggering
 
+concurrency:
+  group: refract-pipeline
+  cancel-in-progress: false
+
 permissions:
   contents: write  # Required to commit processed results back to repo
   pages: write     # Required to deploy to GitHub Pages
   id-token: write  # Required for GitHub Pages deployment
+  issues: write    # Required to create/update failure issues
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run tests
+        run: pytest tests/ -v
+
   process-photos:
+    needs: test
     runs-on: ubuntu-latest
 
     steps:
@@ -40,7 +64,7 @@ jobs:
       - name: Check for new images
         id: check_images
         run: |
-          if [ -d "inbox" ] && [ "$(ls -A inbox/*.{jpg,jpeg,png,JPG,JPEG,PNG} 2>/dev/null)" ]; then
+          if [ -d "inbox" ] && [ "$(ls -A inbox/*.{jpg,jpeg,png,webp,heic,heif,JPG,JPEG,PNG,WEBP,HEIC,HEIF} 2>/dev/null)" ]; then
             echo "has_images=true" >> $GITHUB_OUTPUT
             echo "Found images to process"
           else
@@ -76,7 +100,7 @@ jobs:
             echo "No changes to commit"
           else
             git commit -m "$(cat <<'EOF'
-          🎨 REFRACT: Process new photographs
+          Process new photographs
 
           Automated processing complete:
           - Multi-LLM analysis (Gemini, OpenAI, Anthropic)
@@ -90,19 +114,38 @@ jobs:
             git push
           fi
 
-      - name: Create issue on failure
+      - name: Create or update failure issue
         if: failure()
         uses: actions/github-script@v7
         with:
           script: |
             const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
-            await github.rest.issues.create({
+            // Check for an existing open failure issue to avoid spam
+            const { data: issues } = await github.rest.issues.listForRepo({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              title: `🔴 REFRACT Pipeline Failed - ${new Date().toISOString().split('T')[0]}`,
-              body: `## Pipeline Failure Report\n\n**Workflow Run:** ${runUrl}\n**Branch:** ${context.ref}\n**Commit:** ${context.sha.substring(0, 7)}\n**Triggered by:** ${context.actor}\n\nThe REFRACT pipeline encountered an error during photo processing. Please check the workflow logs for details.`,
-              labels: ['bug', 'automated']
+              labels: 'automated',
+              state: 'open',
+              per_page: 1
             });
+            const body = `## Pipeline Failure Report\n\n**Workflow Run:** ${runUrl}\n**Branch:** ${context.ref}\n**Commit:** ${context.sha.substring(0, 7)}\n**Triggered by:** ${context.actor}\n**Time:** ${new Date().toISOString()}\n\nThe REFRACT pipeline encountered an error during photo processing. Please check the workflow logs for details.`;
+            if (issues.length > 0) {
+              // Comment on the existing issue instead of creating a new one
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issues[0].number,
+                body: body
+              });
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: `REFRACT Pipeline Failed - ${new Date().toISOString().split('T')[0]}`,
+                body: body,
+                labels: ['bug', 'automated']
+              });
+            }
 
   deploy-site:
     needs: process-photos
@@ -135,7 +178,7 @@ jobs:
             echo "Error: index.html not found in site/public/"
             exit 1
           fi
-          echo "✓ Site validation passed - index.html exists"
+          echo "Site validation passed - index.html exists"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

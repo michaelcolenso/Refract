@@ -2,6 +2,7 @@
 
 import sys
 import json
+import time
 import tempfile
 import shutil
 from pathlib import Path
@@ -47,8 +48,18 @@ def temp_repo():
 </body>
 </html>"""
 
+    stats_template = """<!DOCTYPE html>
+<html><body><h1>Stats</h1><p>{{ total }}</p></body></html>"""
+
+    feed_template = """<?xml version="1.0"?>
+<rss><channel>
+{% for entry in entries %}<item>{{ entry.entry_id }}</item>{% endfor %}
+</channel></rss>"""
+
     (temp_dir / 'site' / 'templates' / 'index.html').write_text(index_template)
     (temp_dir / 'site' / 'templates' / 'entry.html').write_text(entry_template)
+    (temp_dir / 'site' / 'templates' / 'stats.html').write_text(stats_template)
+    (temp_dir / 'site' / 'templates' / 'feed.xml').write_text(feed_template)
     (temp_dir / 'site' / 'templates' / 'style.css').write_text("/* test */")
 
     yield temp_dir
@@ -156,6 +167,8 @@ class TestSiteGenerator:
         metadata = {"score": 80, "improvements": [], "notes": ""}
 
         entry1 = generator.create_entry(test_image, edited_image, metadata)
+        # Ensure different timestamp second to avoid sort ambiguity
+        time.sleep(1.1)
         entry2 = generator.create_entry(test_image, edited_image, metadata)
 
         entries = generator.get_all_entries()

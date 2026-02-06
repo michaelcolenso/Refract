@@ -7,6 +7,7 @@ Coordinates the Critic, Editor, and Generator to process photographs.
 import os
 import sys
 import json
+import shutil
 import argparse
 from pathlib import Path
 from typing import List, Tuple
@@ -55,11 +56,12 @@ def validate_image(image_path: Path) -> Tuple[bool, str]:
 class RefractPipeline:
     """Main pipeline orchestrator."""
 
-    def __init__(self, repo_root: Path, dry_run: bool = False):
+    def __init__(self, repo_root: Path, dry_run: bool = False, no_re_review: bool = False):
         """Initialize the pipeline."""
         self.repo_root = repo_root
         self.inbox_dir = repo_root / 'inbox'
         self.dry_run = dry_run
+        self.no_re_review = no_re_review
 
         # Get API keys from environment
         self.gemini_key = os.getenv('GEMINI_API_KEY')
@@ -108,7 +110,6 @@ class RefractPipeline:
             meta_path = entry_dir / 'metadata.json'
             if meta_path.exists():
                 try:
-                    import json
                     with open(meta_path) as f:
                         meta = json.load(f)
                     h = meta.get('image_hash')
@@ -179,6 +180,7 @@ class RefractPipeline:
         print(f"Processing: {image_path.name}")
         print(f"{'='*60}\n")
 
+        api_image = None
         try:
             # DEDUP CHECK - Skip if we've already processed this exact image
             img_hash = image_hash(image_path)
@@ -200,6 +202,9 @@ class RefractPipeline:
                     print(f"    {c['llm'].upper()}: {c['score']}/100")
                 else:
                     print(f"    {c['llm'].upper()}: Failed - {c.get('error', 'Unknown error')}")
+
+            if critique.get('critics_disagree'):
+                print("    ** Critics Disagree (20+ point spread) **")
 
             print(f"\n  Consensus Score: {critique['consensus_score']}/100")
             print(f"  Combined Improvements: {len(critique['combined_improvements'])}")
@@ -225,15 +230,12 @@ class RefractPipeline:
 
                 if not success:
                     print("  Warning: Failed to edit image, using original")
-                    # Copy original as edited for fallback
-                    import shutil
                     shutil.copy(image_path, edited_path)
                 else:
                     print(f"  Image edited successfully\n")
             else:
                 # No editor available, use original image
                 print("  Skipping edits (no GEMINI_API_KEY for editor)")
-                import shutil
                 shutil.copy(image_path, edited_path)
 
             # Validate the edited image is a valid image file
@@ -246,7 +248,6 @@ class RefractPipeline:
                     test_img.load()
             except Exception as validate_err:
                 print(f"  Warning: Edited image validation failed ({validate_err}), using original")
-                import shutil
                 shutil.copy(image_path, edited_path)
                 # Convert to ensure proper format
                 with PILImage.open(edited_path) as img:
@@ -255,46 +256,45 @@ class RefractPipeline:
                     img.save(edited_path, quality=95)
 
             # STEP 3: RE-REVIEW - Score the edited photograph
-            print("STEP 3: Re-reviewing edited photograph...")
-            try:
-                api_edited = downscale_for_api(edited_path) or edited_path
-                re_review = self.critic.analyze(api_edited)
-                # Clean up temp downscaled edited image
-                if api_edited != edited_path and api_edited.exists():
-                    api_edited.unlink()
+            if not self.no_re_review:
+                print("STEP 3: Re-reviewing edited photograph...")
+                try:
+                    api_edited = downscale_for_api(edited_path) or edited_path
+                    re_review = self.critic.analyze(api_edited)
+                    # Clean up temp downscaled edited image
+                    if api_edited != edited_path and api_edited.exists():
+                        api_edited.unlink()
 
-                # Display re-review scores
-                print("\n  Re-review Scores:")
-                for c in re_review.get('critiques', []):
-                    if c.get('score') is not None:
-                        print(f"    {c['llm'].upper()}: {c['score']}/100")
-                    else:
-                        print(f"    {c['llm'].upper()}: Failed - {c.get('error', 'Unknown error')}")
+                    # Display re-review scores
+                    print("\n  Re-review Scores:")
+                    for c in re_review.get('critiques', []):
+                        if c.get('score') is not None:
+                            print(f"    {c['llm'].upper()}: {c['score']}/100")
+                        else:
+                            print(f"    {c['llm'].upper()}: Failed - {c.get('error', 'Unknown error')}")
 
-                original_score = critique['consensus_score']
-                new_score = re_review['consensus_score']
-                delta = round(new_score - original_score, 1)
-                sign = "+" if delta > 0 else ""
-                print(f"\n  Original Score: {original_score}/100")
-                print(f"  Re-review Score: {new_score}/100")
-                print(f"  Improvement: {sign}{delta} points\n")
+                    original_score = critique['consensus_score']
+                    new_score = re_review['consensus_score']
+                    delta = round(new_score - original_score, 1)
+                    sign = "+" if delta > 0 else ""
+                    print(f"\n  Original Score: {original_score}/100")
+                    print(f"  Re-review Score: {new_score}/100")
+                    print(f"  Improvement: {sign}{delta} points\n")
 
-                critique['re_review'] = {
-                    'critiques': re_review.get('critiques', []),
-                    'consensus_score': re_review['consensus_score'],
-                    'score': re_review['score'],
-                    'notes': re_review.get('notes', ''),
-                    'summary': re_review.get('summary', ''),
-                    'context': re_review.get('context', {}),
-                    'score_delta': delta,
-                }
-            except Exception as e:
-                print(f"  Warning: Re-review failed: {e}")
-                print("  Continuing without re-review data.\n")
-
-            # Clean up temp downscaled image from critique step
-            if api_image != image_path and api_image.exists():
-                api_image.unlink()
+                    critique['re_review'] = {
+                        'critiques': re_review.get('critiques', []),
+                        'consensus_score': re_review['consensus_score'],
+                        'score': re_review['score'],
+                        'notes': re_review.get('notes', ''),
+                        'summary': re_review.get('summary', ''),
+                        'context': re_review.get('context', {}),
+                        'score_delta': delta,
+                    }
+                except Exception as e:
+                    print(f"  Warning: Re-review failed: {e}")
+                    print("  Continuing without re-review data.\n")
+            else:
+                print("STEP 3: Skipping re-review (--no-re-review)\n")
 
             # Store image hash in metadata for future dedup
             critique['image_hash'] = img_hash
@@ -324,6 +324,10 @@ class RefractPipeline:
             print(f"Error processing {image_path.name}: {e}", file=sys.stderr)
             traceback.print_exc()
             return False
+        finally:
+            # Always clean up temp downscaled image
+            if api_image is not None and api_image != image_path and api_image.exists():
+                api_image.unlink()
 
     def run(self):
         """Run the complete pipeline."""
@@ -423,12 +427,17 @@ def main():
         action='store_true',
         help='Analyze images only, without editing, archiving, or rebuilding the site'
     )
+    parser.add_argument(
+        '--no-re-review',
+        action='store_true',
+        help='Skip the re-review step after editing (saves API calls)'
+    )
     args = parser.parse_args()
 
     repo_root = Path(__file__).parent.parent
 
     try:
-        pipeline = RefractPipeline(repo_root, dry_run=args.dry_run)
+        pipeline = RefractPipeline(repo_root, dry_run=args.dry_run, no_re_review=args.no_re_review)
         pipeline.run()
     except Exception as e:
         print(f"Fatal error: {e}", file=sys.stderr)

@@ -4,22 +4,95 @@ REFRACT Generator - Documentation and Site Builder
 Creates permanent records and regenerates the static website.
 """
 
+import hashlib
 import os
 import sys
 import json
 import shutil
-import re
 from pathlib import Path
 from datetime import datetime
 from typing import Dict, Any, List, Set
 from jinja2 import Environment, FileSystemLoader
 from PIL import Image
+from PIL.ExifTags import TAGS
+
+from utils import IMPROVEMENT_TAG_RE
+
+
+def _extract_exif(image_path: Path) -> Dict[str, Any]:
+    """Extract useful EXIF data from an image file."""
+    exif = {}
+    try:
+        with Image.open(image_path) as img:
+            raw = img.getexif()
+            if not raw:
+                return exif
+            decoded = {TAGS.get(k, k): v for k, v in raw.items()}
+
+            # Camera
+            make = str(decoded.get('Make', '')).strip()
+            model = str(decoded.get('Model', '')).strip()
+            if model and make and model.startswith(make):
+                exif['camera'] = model
+            elif model and make:
+                exif['camera'] = f"{make} {model}"
+            elif model:
+                exif['camera'] = model
+
+            # Lens
+            lens = decoded.get('LensModel') or decoded.get('LensInfo')
+            if lens:
+                exif['lens'] = str(lens).strip()
+
+            # Focal length
+            fl = decoded.get('FocalLength')
+            if fl:
+                val = float(fl) if not hasattr(fl, 'numerator') else fl.numerator / fl.denominator
+                exif['focal_length'] = f"{val:.0f}mm"
+
+            # Aperture
+            fnum = decoded.get('FNumber')
+            if fnum:
+                val = float(fnum) if not hasattr(fnum, 'numerator') else fnum.numerator / fnum.denominator
+                exif['aperture'] = f"f/{val:.1f}"
+
+            # Shutter speed
+            exp = decoded.get('ExposureTime')
+            if exp:
+                if hasattr(exp, 'numerator'):
+                    if exp.numerator == 0:
+                        pass
+                    elif exp.denominator / exp.numerator >= 2:
+                        exif['shutter_speed'] = f"1/{int(exp.denominator / exp.numerator)}s"
+                    else:
+                        exif['shutter_speed'] = f"{exp.numerator / exp.denominator:.1f}s"
+                else:
+                    val = float(exp)
+                    if val > 0:
+                        if val < 0.5:
+                            exif['shutter_speed'] = f"1/{int(1/val)}s"
+                        else:
+                            exif['shutter_speed'] = f"{val:.1f}s"
+
+            # ISO
+            iso = decoded.get('ISOSpeedRatings') or decoded.get('PhotographicSensitivity')
+            if iso:
+                exif['iso'] = f"ISO {iso}"
+
+            # Date taken
+            date = decoded.get('DateTimeOriginal') or decoded.get('DateTime')
+            if date:
+                exif['date_taken'] = str(date)
+
+    except Exception:
+        pass
+    return exif
 
 
 class SiteGenerator:
     """Generates documentation and rebuilds the static website."""
 
-    _IMPROVEMENT_TAG_RE = re.compile(r"^\s*\[(subtle|moderate|significant|strong|major|minor|severe|light|heavy)\]\s*", re.IGNORECASE)
+    _IMPROVEMENT_TAG_RE = IMPROVEMENT_TAG_RE
 
     def __init__(self, repo_root: Path):
         """Initialize the generator."""
@@ -59,6 +132,9 @@ class SiteGenerator:
         shutil.copy2(original_path, original_dest)
         shutil.copy2(edited_path, edited_dest)
 
+        # Extract EXIF from original
+        exif_data = _extract_exif(original_path)
+
         # Add metadata
         metadata_with_timestamp = {
             **metadata,
@@ -66,8 +142,10 @@ class SiteGenerator:
             'entry_id': entry_id,
             'original_filename': original_path.name,
             'original_image': original_dest.name,
-            'edited_image': edited_dest.name
+            'edited_image': edited_dest.name,
         }
+        if exif_data:
+            metadata_with_timestamp['exif'] = exif_data
 
         # Save metadata
         metadata_path = entry_dir / 'metadata.json'
@@ -145,10 +223,8 @@ class SiteGenerator:
             return existing
 
         for html_file in self.public_dir.glob('*.html'):
-            # Skip index.html
-            if html_file.name == 'index.html':
+            if html_file.name in ('index.html', 'stats.html'):
                 continue
-            # Extract entry ID from filename (e.g., "20240115-143022-abc12345.html")
             entry_id = html_file.stem
             existing.add(entry_id)
 
@@ -166,6 +242,15 @@ class SiteGenerator:
                 existing.add(img_file.name)
 
         return existing
+
+    @staticmethod
+    def _file_hash(path: Path) -> str:
+        """Quick hash of a file for change detection."""
+        h = hashlib.md5()
+        with open(path, 'rb') as f:
+            for chunk in iter(lambda: f.read(8192), b''):
+                h.update(chunk)
+        return h.hexdigest()
 
     def build_site(self, force_full: bool = False):
         """
@@ -191,7 +276,7 @@ class SiteGenerator:
         new_entries = 0
         skipped_entries = 0
 
-        for entry in entries:
+        for idx, entry in enumerate(entries):
             entry_dir = entry['path']
             entry_id = entry['entry_id']
 
@@ -225,6 +310,10 @@ class SiteGenerator:
             if re_review and re_review.get('critiques'):
                 for critique in re_review['critiques']:
                     critique['improvements_display'] = self._clean_improvement_list(critique.get('improvements'))
+
+            # Prev/next navigation (entries are sorted newest-first)
+            entry['prev_entry_id'] = entries[idx - 1]['entry_id'] if idx > 0 else None
+            entry['next_entry_id'] = entries[idx + 1]['entry_id'] if idx < len(entries) - 1 else None
 
             # Determine image paths
             original_src = entry_dir / entry['original_image']
@@ -272,11 +361,18 @@ class SiteGenerator:
         with open(self.public_dir / 'index.html', 'w') as f:
             f.write(index_html)
 
-        # Copy CSS
+        # Generate stats page
+        self._build_stats_page(entries)
+
+        # Generate RSS feed
+        self._build_rss_feed(entries)
+
+        # Copy CSS only if changed
         css_src = self.templates_dir / 'style.css'
         css_dest = self.public_dir / 'style.css'
         if css_src.exists():
-            shutil.copy2(css_src, css_dest)
+            if not css_dest.exists() or self._file_hash(css_src) != self._file_hash(css_dest):
+                shutil.copy2(css_src, css_dest)
 
         # Copy favicon assets if present
         for favicon_name in ("favicon.ico", "favicon.png", "apple-touch-icon.png"):
@@ -288,6 +384,80 @@ class SiteGenerator:
             print(f"Site built: {new_entries} new entries, {skipped_entries} unchanged")
         else:
             print(f"Site built successfully: {len(entries)} entries (all unchanged)")
+
+    def _build_stats_page(self, entries: List[Dict[str, Any]]):
+        """Build the photography journey stats page."""
+        if not entries or not (self.templates_dir / 'stats.html').exists():
+            return
+
+        # Compute stats
+        scores = []
+        genres = {}
+        timeline = []
+        deltas = []
+
+        for entry in entries:
+            score = entry.get('consensus_score') or entry.get('score') or 0
+            scores.append(score)
+
+            genre = entry.get('genre', 'unknown')
+            genres[genre] = genres.get(genre, 0) + 1
+
+            ts = entry.get('timestamp', '')
+            date_str = ts[:8] if len(ts) >= 8 else ts
+
+            delta = 0
+            re_review = entry.get('re_review')
+            if re_review and re_review.get('score_delta') is not None:
+                delta = re_review['score_delta']
+                deltas.append(delta)
+
+            # Critic disagreement
+            disagree = entry.get('critics_disagree', False)
+
+            timeline.append({
+                'date': date_str,
+                'score': score,
+                'delta': delta,
+                'genre': genre,
+                'entry_id': entry.get('entry_id', ''),
+                'filename': entry.get('original_filename', ''),
+                'disagree': disagree,
+            })
+
+        avg_score = sum(scores) / len(scores) if scores else 0
+        avg_delta = sum(deltas) / len(deltas) if deltas else 0
+        best_entry = max(entries, key=lambda e: e.get('consensus_score') or e.get('score') or 0)
+        best_score = best_entry.get('consensus_score') or best_entry.get('score') or 0
+
+        # Sort genres by count
+        sorted_genres = sorted(genres.items(), key=lambda x: x[1], reverse=True)
+
+        stats_template = self.jinja_env.get_template('stats.html')
+        stats_html = stats_template.render(
+            total=len(entries),
+            avg_score=round(avg_score, 1),
+            avg_delta=round(avg_delta, 1),
+            best_score=round(best_score, 1),
+            best_entry_id=best_entry.get('entry_id', ''),
+            genres=sorted_genres,
+            timeline=json.dumps(timeline),
+        )
+
+        with open(self.public_dir / 'stats.html', 'w') as f:
+            f.write(stats_html)
+
+    def _build_rss_feed(self, entries: List[Dict[str, Any]]):
+        """Generate an RSS feed for the site."""
+        if not (self.templates_dir / 'feed.xml').exists():
+            return
+        rss_template = self.jinja_env.get_template('feed.xml')
+        rss_xml = rss_template.render(
+            entries=entries[:20],
+            build_date=datetime.now().strftime('%a, %d %b %Y %H:%M:%S +0000'),
+        )
+        with open(self.public_dir / 'feed.xml', 'w') as f:
+            f.write(rss_xml)
 
 
 def main():

@@ -9,17 +9,16 @@ import sys
 import json
 from pathlib import Path
 from typing import List, Dict, Any, Optional
-import re
 from google import genai
 from PIL import Image
 
-from utils import retry_with_backoff
+from utils import retry_with_backoff, IMPROVEMENT_TAG_RE
 
 
 class PhotoEditor:
     """Applies improvements to photographs using Gemini's image editing capabilities."""
 
-    _IMPROVEMENT_TAG_RE = re.compile(r"^\s*\[(subtle|moderate|significant|strong|major|minor|severe|light|heavy)\]\s*", re.IGNORECASE)
+    _IMPROVEMENT_TAG_RE = IMPROVEMENT_TAG_RE
 
     def __init__(self, api_key: str):
         """Initialize the Editor with Gemini API credentials."""

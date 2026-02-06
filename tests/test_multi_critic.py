@@ -2,9 +2,11 @@
 
 import sys
 import json
+import tempfile
 from pathlib import Path
 
 import pytest
+from PIL import Image
 
 # Add scripts to path
 sys.path.insert(0, str(Path(__file__).parent.parent / 'scripts'))
@@ -315,31 +317,43 @@ class TestBaseCriticGetPrompt:
 
 
 class TestBaseCriticImageHelpers:
-    """Tests for image helper methods."""
+    """Tests for image helper methods (now detects format from actual file content)."""
+
+    def _make_image(self, tmpdir, name, fmt):
+        """Create a small test image in the given format."""
+        path = Path(tmpdir) / name
+        img = Image.new('RGB', (10, 10), color='red')
+        img.save(path, format=fmt)
+        return path
 
     def test_get_image_media_type_jpeg(self):
         """JPEG files should return correct media type."""
         critic = MockCritic()
+        with tempfile.TemporaryDirectory() as tmpdir:
+            jpg_path = self._make_image(tmpdir, "test.jpg", "JPEG")
+            assert critic._get_image_media_type(jpg_path) == "image/jpeg"
 
-        assert critic._get_image_media_type(Path("test.jpg")) == "image/jpeg"
-        assert critic._get_image_media_type(Path("test.jpeg")) == "image/jpeg"
-        assert critic._get_image_media_type(Path("TEST.JPG")) == "image/jpeg"
+            jpeg_path = self._make_image(tmpdir, "test.jpeg", "JPEG")
+            assert critic._get_image_media_type(jpeg_path) == "image/jpeg"
 
     def test_get_image_media_type_png(self):
         """PNG files should return correct media type."""
         critic = MockCritic()
-
-        assert critic._get_image_media_type(Path("test.png")) == "image/png"
-        assert critic._get_image_media_type(Path("TEST.PNG")) == "image/png"
+        with tempfile.TemporaryDirectory() as tmpdir:
+            png_path = self._make_image(tmpdir, "test.png", "PNG")
+            assert critic._get_image_media_type(png_path) == "image/png"
 
     def test_get_image_media_type_webp(self):
         """WebP files should return correct media type."""
         critic = MockCritic()
-
-        assert critic._get_image_media_type(Path("test.webp")) == "image/webp"
+        with tempfile.TemporaryDirectory() as tmpdir:
+            webp_path = self._make_image(tmpdir, "test.webp", "WEBP")
+            assert critic._get_image_media_type(webp_path) == "image/webp"
 
     def test_get_image_media_type_unknown_defaults_to_jpeg(self):
-        """Unknown file types should default to JPEG."""
+        """Non-image file types should default to JPEG."""
         critic = MockCritic()
-
-        assert critic._get_image_media_type(Path("test.unknown")) == "image/jpeg"
+        with tempfile.TemporaryDirectory() as tmpdir:
+            bad_path = Path(tmpdir) / "test.unknown"
+            bad_path.write_text("not an image")
+            assert critic._get_image_media_type(bad_path) == "image/jpeg"

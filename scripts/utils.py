@@ -4,10 +4,43 @@ REFRACT Utilities - Shared helper functions and decorators.
 """
 
 import hashlib
+import re
 import time
 from functools import wraps
 from pathlib import Path
 from typing import Optional
+
+# Shared regex for stripping improvement severity tags like [SUBTLE], [MODERATE], etc.
+IMPROVEMENT_TAG_RE = re.compile(
+    r"^\s*\[(subtle|moderate|significant|strong|major|minor|severe|light|heavy)\]\s*",
+    re.IGNORECASE,
+)
+
+
+def detect_media_type(image_path: Path) -> str:
+    """Detect the actual media type of an image by reading its header bytes.
+
+    This avoids mismatches between file extension and actual format
+    (e.g. a .JPG file that is actually WebP, or a HEIC converted to JPEG).
+    """
+    from PIL import Image
+
+    try:
+        with Image.open(image_path) as img:
+            fmt = (img.format or "").upper()
+    except Exception:
+        fmt = ""
+
+    mapping = {
+        "JPEG": "image/jpeg",
+        "JPG": "image/jpeg",
+        "PNG": "image/png",
+        "GIF": "image/gif",
+        "WEBP": "image/webp",
+        "HEIF": "image/heif",
+        "HEIC": "image/heif",
+    }
+    return mapping.get(fmt, "image/jpeg")
 
 
 def retry_with_backoff(max_retries=3, initial_delay=2.0, backoff_factor=2.0):
