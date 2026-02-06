@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ entry.original_filename }} - REFRACT</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="alternate" type="application/rss+xml" title="REFRACT Feed" href="feed.xml">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,7 +15,17 @@
             <p class="subtitle">Photography Analysis & Enhancement</p>
         </header>
 
-        <a href="index.html" class="back-link">Back to Gallery</a>
+        <div class="entry-nav">
+            <a href="index.html" class="back-link">Back to Gallery</a>
+            <div class="entry-nav-arrows">
+                {% if entry.next_entry_id %}
+                <a href="{{ entry.next_entry_id }}.html" class="nav-arrow" title="Older entry">&larr; Older</a>
+                {% endif %}
+                {% if entry.prev_entry_id %}
+                <a href="{{ entry.prev_entry_id }}.html" class="nav-arrow" title="Newer entry">Newer &rarr;</a>
+                {% endif %}
+            </div>
+        </div>
 
         <div class="entry-detail">
             <div class="entry-hero">
@@ -28,10 +39,29 @@
                 {% if entry.genre and entry.genre != 'unknown' %}
                 <p><strong>Genre:</strong> <span class="genre-badge genre-{{ entry.genre }}">{{ entry.genre }}</span></p>
                 {% endif %}
+                {% if entry.exif %}
+                <div class="exif-data">
+                    <strong>Camera Info:</strong>
+                    <span class="exif-tags">
+                        {% if entry.exif.camera %}<span class="exif-tag">{{ entry.exif.camera }}</span>{% endif %}
+                        {% if entry.exif.lens %}<span class="exif-tag">{{ entry.exif.lens }}</span>{% endif %}
+                        {% if entry.exif.focal_length %}<span class="exif-tag">{{ entry.exif.focal_length }}</span>{% endif %}
+                        {% if entry.exif.aperture %}<span class="exif-tag">{{ entry.exif.aperture }}</span>{% endif %}
+                        {% if entry.exif.shutter_speed %}<span class="exif-tag">{{ entry.exif.shutter_speed }}</span>{% endif %}
+                        {% if entry.exif.iso %}<span class="exif-tag">{{ entry.exif.iso }}</span>{% endif %}
+                    </span>
+                </div>
+                {% endif %}
             </div>
 
             <div class="analysis">
                 <h3>Multi-LLM Analysis</h3>
+
+                {% if entry.critics_disagree %}
+                <div class="disagree-banner">
+                    Critics Disagree &mdash; LLM scores diverged by 20+ points on this image.
+                </div>
+                {% endif %}
 
                 {% if entry.re_review %}
                 <div class="score-comparison">
@@ -125,7 +155,7 @@
                 <h3 class="comparison-title">Before & After</h3>
 
                 <!-- Interactive before/after slider -->
-                <div class="ba-slider" id="ba-slider">
+                <div class="ba-slider" id="ba-slider" tabindex="0" role="slider" aria-label="Before and after comparison" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
                     <div class="ba-image ba-after">
                         <img src="{{ entry.web_edited }}" alt="After editing" draggable="false">
                     </div>
@@ -150,7 +180,7 @@
 
         <footer>
             <p>REFRACT - Self-Correcting Photography Log</p>
-            <p>Powered by Multi-LLM Analysis (Gemini, OpenAI, Anthropic)</p>
+            <p>Powered by Multi-LLM Analysis (Gemini, OpenAI, Anthropic) &middot; <a href="feed.xml" class="footer-link">RSS</a></p>
         </footer>
     </div>
 
@@ -161,7 +191,7 @@
     </div>
 
     <script>
-    /* Before/After Slider */
+    /* Before/After Slider with keyboard support */
     (function() {
         var slider = document.getElementById('ba-slider');
         var handle = document.getElementById('ba-handle');
@@ -169,17 +199,27 @@
         if (!slider || !handle || !before) return;
 
         var dragging = false;
+        var currentPct = 0.5;
 
         function setPosition(x) {
             var rect = slider.getBoundingClientRect();
-            var pct = Math.max(0, Math.min(1, (x - rect.left) / rect.width));
-            before.style.clipPath = 'inset(0 ' + ((1 - pct) * 100) + '% 0 0)';
-            handle.style.left = (pct * 100) + '%';
+            currentPct = Math.max(0, Math.min(1, (x - rect.left) / rect.width));
+            applyPct();
+        }
+
+        function setPct(pct) {
+            currentPct = Math.max(0, Math.min(1, pct));
+            applyPct();
+        }
+
+        function applyPct() {
+            before.style.clipPath = 'inset(0 ' + ((1 - currentPct) * 100) + '% 0 0)';
+            handle.style.left = (currentPct * 100) + '%';
+            slider.setAttribute('aria-valuenow', Math.round(currentPct * 100));
         }
 
         /* Initialize at 50% */
-        before.style.clipPath = 'inset(0 50% 0 0)';
-        handle.style.left = '50%';
+        applyPct();
 
         handle.addEventListener('mousedown', function(e) { dragging = true; e.preventDefault(); });
         document.addEventListener('mousemove', function(e) { if (dragging) setPosition(e.clientX); });
@@ -193,6 +233,17 @@
         slider.addEventListener('click', function(e) {
             if (e.target === handle || handle.contains(e.target)) return;
             setPosition(e.clientX);
+        });
+
+        /* Keyboard: arrow keys to move 5%, Home/End for 0%/100% */
+        slider.addEventListener('keydown', function(e) {
+            var step = 0.05;
+            switch(e.key) {
+                case 'ArrowLeft': case 'ArrowDown': setPct(currentPct - step); e.preventDefault(); break;
+                case 'ArrowRight': case 'ArrowUp': setPct(currentPct + step); e.preventDefault(); break;
+                case 'Home': setPct(0); e.preventDefault(); break;
+                case 'End': setPct(1); e.preventDefault(); break;
+            }
         });
     })();
 

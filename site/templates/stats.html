@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stats - REFRACT</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="hero hero-compact">
+            <h1>REFRACT</h1>
+            <p class="subtitle">Photography Journey</p>
+        </header>
+
+        <a href="index.html" class="back-link">Back to Gallery</a>
+
+        <div class="stats-page">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">{{ total }}</div>
+                    <div class="stat-label">Photos Processed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">{{ avg_score }}</div>
+                    <div class="stat-label">Average Score</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number {% if avg_delta > 0 %}stat-positive{% elif avg_delta < 0 %}stat-negative{% endif %}">
+                        {% if avg_delta > 0 %}+{% endif %}{{ avg_delta }}
+                    </div>
+                    <div class="stat-label">Avg Improvement</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">{{ best_score }}</div>
+                    <div class="stat-label">
+                        Best Score
+                        {% if best_entry_id %}<a href="{{ best_entry_id }}.html" class="stat-link">View</a>{% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-section">
+                <h3>Genre Breakdown</h3>
+                <div class="genre-bars">
+                    {% for genre, count in genres %}
+                    <div class="genre-bar-row">
+                        <span class="genre-badge genre-{{ genre }}">{{ genre }}</span>
+                        <div class="genre-bar-track">
+                            <div class="genre-bar-fill" style="width: {{ (count / total * 100)|round(1) }}%"></div>
+                        </div>
+                        <span class="genre-bar-count">{{ count }}</span>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="stats-section">
+                <h3>Score Timeline</h3>
+                <div class="chart-container">
+                    <canvas id="timeline-chart" width="800" height="300"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>REFRACT - Self-Correcting Photography Log</p>
+            <p>Powered by Multi-LLM Analysis (Gemini, OpenAI, Anthropic)</p>
+        </footer>
+    </div>
+
+    <script>
+    (function() {
+        var data = {{ timeline }};
+        /* Reverse so oldest is first (data comes newest-first) */
+        data.reverse();
+
+        var canvas = document.getElementById('timeline-chart');
+        if (!canvas || !data.length) return;
+        var ctx = canvas.getContext('2d');
+
+        /* High-DPI support */
+        var dpr = window.devicePixelRatio || 1;
+        var rect = canvas.parentElement.getBoundingClientRect();
+        canvas.width = rect.width * dpr;
+        canvas.height = 300 * dpr;
+        canvas.style.width = rect.width + 'px';
+        canvas.style.height = '300px';
+        ctx.scale(dpr, dpr);
+
+        var W = rect.width, H = 300;
+        var pad = {top: 20, right: 20, bottom: 40, left: 45};
+        var plotW = W - pad.left - pad.right;
+        var plotH = H - pad.top - pad.bottom;
+
+        /* Compute bounds */
+        var scores = data.map(function(d) { return d.score; });
+        var minS = Math.max(0, Math.min.apply(null, scores) - 10);
+        var maxS = Math.min(100, Math.max.apply(null, scores) + 10);
+        if (maxS - minS < 20) { minS = Math.max(0, maxS - 30); }
+
+        function x(i) { return pad.left + (i / Math.max(1, data.length - 1)) * plotW; }
+        function y(s) { return pad.top + plotH - ((s - minS) / (maxS - minS)) * plotH; }
+
+        /* Grid lines */
+        ctx.strokeStyle = 'rgba(0,0,0,0.08)';
+        ctx.lineWidth = 1;
+        for (var s = Math.ceil(minS / 10) * 10; s <= maxS; s += 10) {
+            ctx.beginPath();
+            ctx.moveTo(pad.left, y(s));
+            ctx.lineTo(W - pad.right, y(s));
+            ctx.stroke();
+            ctx.fillStyle = '#888';
+            ctx.font = '11px sans-serif';
+            ctx.textAlign = 'right';
+            ctx.fillText(s, pad.left - 6, y(s) + 4);
+        }
+
+        /* Score line */
+        ctx.beginPath();
+        ctx.strokeStyle = '#2a9d8f';
+        ctx.lineWidth = 2.5;
+        ctx.lineJoin = 'round';
+        data.forEach(function(d, i) {
+            if (i === 0) ctx.moveTo(x(i), y(d.score));
+            else ctx.lineTo(x(i), y(d.score));
+        });
+        ctx.stroke();
+
+        /* Gradient fill under line */
+        var grad = ctx.createLinearGradient(0, pad.top, 0, H - pad.bottom);
+        grad.addColorStop(0, 'rgba(42, 157, 143, 0.18)');
+        grad.addColorStop(1, 'rgba(42, 157, 143, 0.02)');
+        ctx.lineTo(x(data.length - 1), H - pad.bottom);
+        ctx.lineTo(x(0), H - pad.bottom);
+        ctx.closePath();
+        ctx.fillStyle = grad;
+        ctx.fill();
+
+        /* Data points */
+        data.forEach(function(d, i) {
+            ctx.beginPath();
+            var radius = d.disagree ? 5 : 3.5;
+            ctx.arc(x(i), y(d.score), radius, 0, Math.PI * 2);
+            if (d.disagree) {
+                ctx.fillStyle = '#ef4444';
+            } else {
+                ctx.fillStyle = '#2a9d8f';
+            }
+            ctx.fill();
+            ctx.strokeStyle = '#fff';
+            ctx.lineWidth = 1.5;
+            ctx.stroke();
+        });
+
+        /* X-axis labels (show ~8 evenly spaced dates) */
+        ctx.fillStyle = '#888';
+        ctx.font = '10px sans-serif';
+        ctx.textAlign = 'center';
+        var step = Math.max(1, Math.floor(data.length / 8));
+        for (var i = 0; i < data.length; i += step) {
+            var d = data[i].date;
+            var label = d.substring(4, 6) + '/' + d.substring(6, 8);
+            ctx.fillText(label, x(i), H - pad.bottom + 18);
+        }
+
+        /* Legend */
+        ctx.font = '11px sans-serif';
+        ctx.textAlign = 'left';
+        ctx.fillStyle = '#2a9d8f';
+        ctx.beginPath();
+        ctx.arc(W - pad.right - 120, pad.top + 8, 4, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = '#666';
+        ctx.fillText('Score', W - pad.right - 112, pad.top + 12);
+
+        ctx.fillStyle = '#ef4444';
+        ctx.beginPath();
+        ctx.arc(W - pad.right - 60, pad.top + 8, 4, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = '#666';
+        ctx.fillText('Disagreed', W - pad.right - 52, pad.top + 12);
+
+        /* Tooltip on hover */
+        canvas.addEventListener('mousemove', function(e) {
+            var br = canvas.getBoundingClientRect();
+            var mx = e.clientX - br.left;
+            var closestIdx = -1, closestDist = Infinity;
+            data.forEach(function(d, i) {
+                var dist = Math.abs(x(i) - mx);
+                if (dist < closestDist) { closestDist = dist; closestIdx = i; }
+            });
+            if (closestIdx >= 0 && closestDist < 20) {
+                canvas.style.cursor = 'pointer';
+                canvas.title = data[closestIdx].filename + ' - Score: ' + data[closestIdx].score;
+            } else {
+                canvas.style.cursor = 'default';
+                canvas.title = '';
+            }
+        });
+
+        canvas.addEventListener('click', function(e) {
+            var br = canvas.getBoundingClientRect();
+            var mx = e.clientX - br.left;
+            var closestIdx = -1, closestDist = Infinity;
+            data.forEach(function(d, i) {
+                var dist = Math.abs(x(i) - mx);
+                if (dist < closestDist) { closestDist = dist; closestIdx = i; }
+            });
+            if (closestIdx >= 0 && closestDist < 20 && data[closestIdx].entry_id) {
+                window.location.href = data[closestIdx].entry_id + '.html';
+            }
+        });
+    })();
+    </script>
+</body>
+</html>

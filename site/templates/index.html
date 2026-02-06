@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>REFRACT - Photography Improvement Log</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="alternate" type="application/rss+xml" title="REFRACT Feed" href="feed.xml">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -17,6 +18,7 @@
                 {% if entries and total > 0 %}
                 <div class="stat-item">Average Score: <span>{{ "%.1f"|format(entries|sum(attribute='score') / total) }}</span></div>
                 {% endif %}
+                <div class="stat-item"><a href="stats.html" class="stat-link">View Stats</a></div>
             </div>
         </header>
 
@@ -55,7 +57,9 @@
                  data-genre="{{ entry.genre or 'unknown' }}"
                  data-score="{{ entry.re_review.consensus_score if entry.re_review else (entry.consensus_score or entry.score) }}"
                  data-delta="{{ entry.re_review.score_delta if entry.re_review else 0 }}"
-                 data-date="{{ entry.timestamp }}">
+                 data-date="{{ entry.timestamp }}"
+                 data-filename="{{ entry.original_filename }}"
+                 title="{{ entry.original_filename }}">
                 <a href="{{ entry.entry_id }}.html">
                     <img src="{{ entry.web_edited }}" alt="Enhanced {{ entry.original_filename }}" class="entry-thumbnail" loading="lazy">
                     <div class="entry-content">
@@ -66,6 +70,9 @@
                                 <span class="entry-score-delta">+{{ entry.re_review.score_delta }}</span>
                                 {% endif %}
                             </div>
+                            {% if entry.critics_disagree %}
+                            <span class="disagree-badge" title="LLM critics scored this 20+ points apart">Disputed</span>
+                            {% endif %}
                             {% if entry.genre and entry.genre != 'unknown' %}
                             <span class="genre-badge genre-{{ entry.genre }}">{{ entry.genre }}</span>
                             {% endif %}
@@ -107,7 +114,7 @@
 
         <footer>
             <p>REFRACT - Self-Correcting Photography Log</p>
-            <p>Powered by Multi-LLM Analysis (Gemini, OpenAI, Anthropic)</p>
+            <p>Powered by Multi-LLM Analysis (Gemini, OpenAI, Anthropic) &middot; <a href="feed.xml" class="footer-link">RSS</a></p>
         </footer>
     </div>
 
@@ -135,6 +142,22 @@
             genreSelect.appendChild(opt);
         });
 
+        /* Restore filter state from URL */
+        var params = new URLSearchParams(window.location.search);
+        if (params.get('genre')) genreSelect.value = params.get('genre');
+        if (params.get('min')) { scoreSlider.value = params.get('min'); scoreVal.textContent = params.get('min'); }
+        if (params.get('sort')) sortSelect.value = params.get('sort');
+
+        function syncURL() {
+            var p = new URLSearchParams();
+            if (genreSelect.value !== 'all') p.set('genre', genreSelect.value);
+            if (parseInt(scoreSlider.value) > 0) p.set('min', scoreSlider.value);
+            if (sortSelect.value !== 'date-desc') p.set('sort', sortSelect.value);
+            var qs = p.toString();
+            var url = window.location.pathname + (qs ? '?' + qs : '');
+            window.history.replaceState(null, '', url);
+        }
+
         function applyFilters() {
             var genre = genreSelect.value;
             var minScore = parseFloat(scoreSlider.value);
@@ -154,6 +177,7 @@
             });
 
             countEl.textContent = visible + ' entr' + (visible === 1 ? 'y' : 'ies');
+            syncURL();
         }
 
         function applySort() {
@@ -174,9 +198,13 @@
             sorted.forEach(function(card) { gallery.appendChild(card); });
         }
 
-        genreSelect.addEventListener('change', applyFilters);
+        genreSelect.addEventListener('change', function() { applySort(); applyFilters(); });
         scoreSlider.addEventListener('input', applyFilters);
         sortSelect.addEventListener('change', function() { applySort(); applyFilters(); });
+
+        /* Apply initial state from URL params */
+        if (params.get('sort')) applySort();
+        applyFilters();
     })();
     </script>
     {% endif %}
