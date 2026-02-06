@@ -3,7 +3,24 @@
   <channel>
     <title>REFRACT - Photography Improvement Log</title>
     <description>Automated photography analysis and enhancement powered by multi-LLM critique.</description>
-    <lastBuildDate>Fri, 06 Feb 2026 06:26:49 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 06 Feb 2026 07:53:21 +0000</lastBuildDate>
+    
+    <item>
+      <title>IMG_1003.jpeg - Score 72.7/100</title>
+      <link>20260206-075321-2fefcd2f.html</link>
+      <guid isPermaLink="false">20260206-075321-2fefcd2f</guid>
+      <pubDate>20260206-075321</pubDate>
+      <description>
+        Genre: portrait. 
+        Score: 72.7/100.
+        
+        After editing: 76.0/100 (+3.3).
+        
+        
+        Improvements: Increase clarity and sharpening on the dog's eyes and nose to create a clear focal point; Reduce highlights by -15 to -20, particularly on the dog's white fur and the overexposed background areas; Apply subtle vignette (darken edges by 10-15) to draw focus toward the dog's face; Increase texture slider by +10 to +15 on the dog's fur to enhance tactile quality; Add slight contrast through gentle S-curve in midtones to increase depth.
+        
+      </description>
+    </item>
     
     <item>
       <title>B5B24D75-DE0E-4406-9B2B-DD16871DDCB2.jpg - Score 74.7/100</title>
@@ -310,21 +327,6 @@
         
         
         Improvements: Increase overall exposure and lift shadows; Cool down white balance slightly; Apply targeted sharpening to the eye and snout; Apply luminance noise reduction; Raise overall exposure slightly (+0.2 to +0.5 EV) and lift shadows selectively on the dog’s face/neck (+15 to +30) while keeping the background subdued.
-        
-      </description>
-    </item>
-    
-    <item>
-      <title>IMG_0992.jpeg - Score 68.3/100</title>
-      <link>20260130-205254-ec005068.html</link>
-      <guid isPermaLink="false">20260130-205254-ec005068</guid>
-      <pubDate>20260130-205254</pubDate>
-      <description>
-        Genre: portrait. 
-        Score: 68.3/100.
-        
-        
-        Improvements: Selective Sharpening and Structure; Lift Whites and Highlights; Luminance Noise Reduction; White Balance / Tint Correction; Mask the dog (or face) and add texture/clarity (+10 to +20) with mild sharpening; apply a small radial mask on the eyes to increase exposure (+0.2), contrast (+10), and catchlight clarity.
         
       </description>
     </item>
