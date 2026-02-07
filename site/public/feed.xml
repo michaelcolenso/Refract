@@ -3,7 +3,41 @@
   <channel>
     <title>REFRACT - Photography Improvement Log</title>
     <description>Automated photography analysis and enhancement powered by multi-LLM critique.</description>
-    <lastBuildDate>Sat, 07 Feb 2026 01:50:33 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 07 Feb 2026 01:59:07 +0000</lastBuildDate>
+    
+    <item>
+      <title>IMG_0938.jpg - Score 47.3/100</title>
+      <link>20260207-015906-dc0ca93d.html</link>
+      <guid isPermaLink="false">20260207-015906-dc0ca93d</guid>
+      <pubDate>20260207-015906</pubDate>
+      <description>
+        Genre: product. 
+        Score: 47.3/100.
+        
+        After editing: 87.0/100 (+39.7).
+        
+        
+        Improvements: Replace/remove the checkerboard transparency background and set a clean solid background (white or a deliberate brand color); alternatively export as true PNG with transparency preserved for placement; Increase separation between the camera silhouette and background by deepening blacks with a gentle curve and setting black point (e.g., Blacks -15 to -30; add a mild S-curve); Refine edges and remove jaggies/aliasing: upscale 2x with high-quality resampling, apply slight Gaussian blur (0.3–0.6px) then threshold/levels to re-crisp, or use vectorization/pen tool cleanup where needed; Crop and straighten for balanced composition, centering the camera and reducing excess empty space while keeping consistent margins; Replace transparent checkered background with solid white or neutral gray background.
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>IMG_2274 Large.jpeg - Score 76.0/100</title>
+      <link>20260207-015902-06428ec5.html</link>
+      <guid isPermaLink="false">20260207-015902-06428ec5</guid>
+      <pubDate>20260207-015902</pubDate>
+      <description>
+        Genre: architecture. 
+        Score: 76.0/100.
+        
+        After editing: 78.7/100 (+2.7).
+        
+        
+        Improvements: Recover highlight detail in the brightest brick areas using Highlights (-25 to -45) and a slight Whites reduction (-5 to -15), while protecting the window glow with a selective mask if needed; Lift deep shadows slightly (Shadows +10 to +25) and set black point carefully (Blacks -5 to -15) to maintain contrast; consider a subtle curve to keep midtone punch; Cool the overall color temperature slightly (Temp -300 to -700K) and reduce orange saturation in HSL (Orange Sat -5 to -15) while preserving warm sun directionality; Apply perspective/transform correction: reduce vertical convergence slightly and ensure the main wall edge feels intentional; crop a bit from the right to minimize the heavy black mass if it’s not a deliberate framing element; Add targeted micro-contrast on the brick (Texture +10 to +20, Clarity +5 to +10) with a mask limited to the lit wall; avoid boosting the sky/shadows.
+        
+      </description>
+    </item>
     
     <item>
       <title>IMG_1251 copy.jpg - Score 72.7/100</title>
@@ -299,36 +333,6 @@
         
         
         Improvements: Correct White Balance; Selective Sharpening; Set White Point and Lift Exposure; Noise Reduction; Vibrance Adjustment.
-        
-      </description>
-    </item>
-    
-    <item>
-      <title>IMG_0984.jpeg - Score 66.3/100</title>
-      <link>20260130-205920-72ef982a.html</link>
-      <guid isPermaLink="false">20260130-205920-72ef982a</guid>
-      <pubDate>20260130-205920</pubDate>
-      <description>
-        Genre: portrait. 
-        Score: 66.3/100.
-        
-        
-        Improvements: Correct White Balance (reduce Temp); Smart Sharpening / Texture; Increase Exposure and Whites; HSL Adjustment (Blue Channel); Increase overall exposure slightly (+0.2 to +0.4 EV) while pulling highlights down (-10 to -25) to keep the white fur from looking flat or clipping.
-        
-      </description>
-    </item>
-    
-    <item>
-      <title>image.webp - Score 50.0/100</title>
-      <link>20260130-205348-c839fed6.html</link>
-      <guid isPermaLink="false">20260130-205348-c839fed6</guid>
-      <pubDate>20260130-205348</pubDate>
-      <description>
-        Genre: street. 
-        Score: 50.0/100.
-        
-        
-        Improvements: Apply AI restoration or aggressive artifact removal; Mask subject and increase Clarity and Dehaze; Warm White Balance locally on the workers and rusty beam; Selectively saturate the red and blue channels on the flag; Address severe compression/mosaic artifacts: if possible, re-export from the original file at higher quality (JPEG quality 90–100) or use an AI artifact reduction tool; avoid heavy clarity/texture/sharpening which will amplify blockiness.
         
       </description>
     </item>
