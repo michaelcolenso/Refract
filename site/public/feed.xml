@@ -3,7 +3,24 @@
   <channel>
     <title>REFRACT - Photography Improvement Log</title>
     <description>Automated photography analysis and enhancement powered by multi-LLM critique.</description>
-    <lastBuildDate>Sat, 07 Feb 2026 01:59:07 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 07 Feb 2026 02:09:02 +0000</lastBuildDate>
+    
+    <item>
+      <title>me.png - Score 55.0/100</title>
+      <link>20260207-020902-ec416f6b.html</link>
+      <guid isPermaLink="false">20260207-020902-ec416f6b</guid>
+      <pubDate>20260207-020902</pubDate>
+      <description>
+        Genre: portrait. 
+        Score: 55.0/100.
+        
+        After editing: 72.7/100 (+17.7).
+        
+        
+        Improvements: Correct white balance to reduce the blue/magenta cast: warm Temp slightly (+800 to +1500K) and shift Tint a bit toward green (-5 to -15), then fine-tune skin tones with HSL (reduce purple/blue saturation slightly); Increase subject exposure with a mask: lift midtones on face/neck (+0.3 to +0.6 Exposure) while keeping background near current level; recover highlights if needed (Highlights -10 to -25) and add gentle contrast (small S-curve or Contrast +10); Improve perceived sharpness selectively: apply Texture +10 to +20 and Clarity +5 to +10 on the face, plus sharpening with masking (Amount 40–70, Radius ~1.0, Masking 70–90) to avoid sharpening the wall; avoid heavy global sharpening; Reduce noise, especially in shadows and on the wall: Luminance NR 15–30 and Color NR 20–30; apply stronger NR to the background via masking if necessary; Refine composition with a tighter crop and slight re-centering: reduce excess empty space on the left/top while keeping cap and shoulders comfortably framed; consider a 4:5 or 1:1 crop.
+        
+      </description>
+    </item>
     
     <item>
       <title>IMG_0938.jpg - Score 47.3/100</title>
@@ -318,21 +335,6 @@
         
         
         Improvements: Cool White Balance temperature significantly (-15 to -20); Reduce Highlights and Whites; Apply selective sharpening to eyes and nose; Apply masked Luminance Noise Reduction; Reduce highlights/whites (Highlights -20 to -35, Whites -10 to -20) to recover fur texture and prevent the coat from looking blown out.
-        
-      </description>
-    </item>
-    
-    <item>
-      <title>IMG_0985.jpeg - Score 65.0/100</title>
-      <link>20260130-205923-49a9d466.html</link>
-      <guid isPermaLink="false">20260130-205923-49a9d466</guid>
-      <pubDate>20260130-205923</pubDate>
-      <description>
-        Genre: portrait. 
-        Score: 65.0/100.
-        
-        
-        Improvements: Correct White Balance; Selective Sharpening; Set White Point and Lift Exposure; Noise Reduction; Vibrance Adjustment.
         
       </description>
     </item>

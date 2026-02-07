@@ -1,0 +1,493 @@
+{
+  "critiques": [
+    {
+      "llm": "anthropic",
+      "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.0.image.source.base64: image exceeds 5 MB maximum: 9390924 bytes > 5242880 bytes'}, 'request_id': 'req_011CXstkSvANemGT5duUDYbN'}",
+      "score": null,
+      "improvements": [],
+      "notes": "Analysis failed: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.0.image.source.base64: image exceeds 5 MB maximum: 9390924 bytes > 5242880 bytes'}, 'request_id': 'req_011CXstkSvANemGT5duUDYbN'}"
+    },
+    {
+      "genre": "portrait",
+      "subject": "Close-up portrait of a man wearing a red baseball cap (backwards) against a plain wall",
+      "mood": "serious, straightforward, slightly moody",
+      "score": 62.0,
+      "technical_assessment": {
+        "exposure": "slightly_under",
+        "white_balance": "too_cool",
+        "focus": "soft",
+        "noise": "moderate"
+      },
+      "improvements": [
+        "[MODERATE] Correct white balance to reduce the blue/magenta cast: warm Temp slightly (+800 to +1500K) and shift Tint a bit toward green (-5 to -15), then fine-tune skin tones with HSL (reduce purple/blue saturation slightly)",
+        "[MODERATE] Increase subject exposure with a mask: lift midtones on face/neck (+0.3 to +0.6 Exposure) while keeping background near current level; recover highlights if needed (Highlights -10 to -25) and add gentle contrast (small S-curve or Contrast +10)",
+        "[MODERATE] Improve perceived sharpness selectively: apply Texture +10 to +20 and Clarity +5 to +10 on the face, plus sharpening with masking (Amount 40\u201370, Radius ~1.0, Masking 70\u201390) to avoid sharpening the wall; avoid heavy global sharpening",
+        "[SUBTLE] Reduce noise, especially in shadows and on the wall: Luminance NR 15\u201330 and Color NR 20\u201330; apply stronger NR to the background via masking if necessary",
+        "[SUBTLE] Refine composition with a tighter crop and slight re-centering: reduce excess empty space on the left/top while keeping cap and shoulders comfortably framed; consider a 4:5 or 1:1 crop"
+      ],
+      "preserve": [
+        "The simple, uncluttered background",
+        "The strong red cap as a color accent and identity element"
+      ],
+      "notes": "The portrait has a strong, direct presence and clean background, but it suffers from a noticeable cool/magenta color cast and slightly low exposure on the face. With corrected white balance, a subtle lift to facial brightness, and selective sharpening/noise reduction, the image will look clearer and more natural while keeping its serious mood.",
+      "improvements_detailed": [
+        {
+          "action": "Correct white balance to reduce the blue/magenta cast: warm Temp slightly (+800 to +1500K) and shift Tint a bit toward green (-5 to -15), then fine-tune skin tones with HSL (reduce purple/blue saturation slightly)",
+          "intensity": "moderate",
+          "priority": 1,
+          "reason": "The current cool/purplish cast makes skin look unnatural and reduces perceived clarity; neutralizing WB will immediately improve realism and overall color harmony."
+        },
+        {
+          "action": "Increase subject exposure with a mask: lift midtones on face/neck (+0.3 to +0.6 Exposure) while keeping background near current level; recover highlights if needed (Highlights -10 to -25) and add gentle contrast (small S-curve or Contrast +10)",
+          "intensity": "moderate",
+          "priority": 2,
+          "reason": "Brightening the face improves separation from the wall and draws attention to the eyes without flattening the image."
+        },
+        {
+          "action": "Improve perceived sharpness selectively: apply Texture +10 to +20 and Clarity +5 to +10 on the face, plus sharpening with masking (Amount 40\u201370, Radius ~1.0, Masking 70\u201390) to avoid sharpening the wall; avoid heavy global sharpening",
+          "intensity": "moderate",
+          "priority": 3,
+          "reason": "Focus is slightly soft; targeted micro-contrast and masked sharpening can add definition to facial features while keeping the background clean."
+        },
+        {
+          "action": "Reduce noise, especially in shadows and on the wall: Luminance NR 15\u201330 and Color NR 20\u201330; apply stronger NR to the background via masking if necessary",
+          "intensity": "subtle",
+          "priority": 4,
+          "reason": "Moderate noise and color speckling reduce image quality; selective noise reduction preserves facial detail."
+        },
+        {
+          "action": "Refine composition with a tighter crop and slight re-centering: reduce excess empty space on the left/top while keeping cap and shoulders comfortably framed; consider a 4:5 or 1:1 crop",
+          "intensity": "subtle",
+          "priority": 5,
+          "reason": "The large blank wall area competes with the subject; a tighter crop increases impact and emphasizes expression."
+        }
+      ],
+      "context": {
+        "genre": "portrait",
+        "subject": "Close-up portrait of a man wearing a red baseball cap (backwards) against a plain wall",
+        "mood": "serious, straightforward, slightly moody",
+        "preserve": [
+          "The simple, uncluttered background",
+          "The strong red cap as a color accent and identity element"
+        ],
+        "technical": {
+          "exposure": "slightly_under",
+          "white_balance": "too_cool",
+          "focus": "soft",
+          "noise": "moderate"
+        }
+      },
+      "llm": "openai"
+    },
+    {
+      "genre": "portrait",
+      "subject": "Close-up of a middle-aged man wearing a backwards red cap",
+      "mood": "Serious and intense",
+      "score": 48.0,
+      "technical_assessment": {
+        "exposure": "underexposed",
+        "white_balance": "too_cool",
+        "focus": "acceptable",
+        "noise": "moderate"
+      },
+      "improvements": [
+        "[SIGNIFICANT] Correct White Balance (Tint/Temp)",
+        "[SIGNIFICANT] Increase Exposure",
+        "[MODERATE] Apply Noise Reduction",
+        "[MODERATE] Adjust Contrast and Whites"
+      ],
+      "preserve": [
+        "The direct, intense eye contact",
+        "The vibrant red color of the cap (once color corrected)"
+      ],
+      "notes": "The primary issue is the extreme color cast which obscures the subject's features. Once white balance and exposure are corrected, the image will serve as a standard, direct portrait.",
+      "improvements_detailed": [
+        {
+          "action": "Correct White Balance (Tint/Temp)",
+          "intensity": "significant",
+          "priority": 1,
+          "reason": "The image has a severe magenta/purple cast; shift tint toward green and temp toward yellow to restore natural skin tones."
+        },
+        {
+          "action": "Increase Exposure",
+          "intensity": "significant",
+          "priority": 2,
+          "reason": "Lift exposure by approximately +1.0 to +1.5 stops to properly illuminate the subject's face and eyes."
+        },
+        {
+          "action": "Apply Noise Reduction",
+          "intensity": "moderate",
+          "priority": 3,
+          "reason": "Smooth out grain visible in the darker areas and skin texture due to low light capture."
+        },
+        {
+          "action": "Adjust Contrast and Whites",
+          "intensity": "moderate",
+          "priority": 4,
+          "reason": "Add depth to the flat image profile ensuring the subject pops against the background."
+        }
+      ],
+      "context": {
+        "genre": "portrait",
+        "subject": "Close-up of a middle-aged man wearing a backwards red cap",
+        "mood": "Serious and intense",
+        "preserve": [
+          "The direct, intense eye contact",
+          "The vibrant red color of the cap (once color corrected)"
+        ],
+        "technical": {
+          "exposure": "underexposed",
+          "white_balance": "too_cool",
+          "focus": "acceptable",
+          "noise": "moderate"
+        }
+      },
+      "llm": "gemini"
+    }
+  ],
+  "consensus_score": 55.0,
+  "combined_improvements": [
+    "[MODERATE] Correct white balance to reduce the blue/magenta cast: warm Temp slightly (+800 to +1500K) and shift Tint a bit toward green (-5 to -15), then fine-tune skin tones with HSL (reduce purple/blue saturation slightly)",
+    "[MODERATE] Increase subject exposure with a mask: lift midtones on face/neck (+0.3 to +0.6 Exposure) while keeping background near current level; recover highlights if needed (Highlights -10 to -25) and add gentle contrast (small S-curve or Contrast +10)",
+    "[MODERATE] Improve perceived sharpness selectively: apply Texture +10 to +20 and Clarity +5 to +10 on the face, plus sharpening with masking (Amount 40\u201370, Radius ~1.0, Masking 70\u201390) to avoid sharpening the wall; avoid heavy global sharpening",
+    "[SUBTLE] Reduce noise, especially in shadows and on the wall: Luminance NR 15\u201330 and Color NR 20\u201330; apply stronger NR to the background via masking if necessary",
+    "[SUBTLE] Refine composition with a tighter crop and slight re-centering: reduce excess empty space on the left/top while keeping cap and shoulders comfortably framed; consider a 4:5 or 1:1 crop",
+    "[SIGNIFICANT] Correct White Balance (Tint/Temp)",
+    "[SIGNIFICANT] Increase Exposure",
+    "[MODERATE] Apply Noise Reduction",
+    "[MODERATE] Adjust Contrast and Whites"
+  ],
+  "improvements_detailed": [
+    {
+      "action": "Correct white balance to reduce the blue/magenta cast: warm Temp slightly (+800 to +1500K) and shift Tint a bit toward green (-5 to -15), then fine-tune skin tones with HSL (reduce purple/blue saturation slightly)",
+      "intensity": "moderate",
+      "priority": 1,
+      "reason": "The current cool/purplish cast makes skin look unnatural and reduces perceived clarity; neutralizing WB will immediately improve realism and overall color harmony."
+    },
+    {
+      "action": "Increase subject exposure with a mask: lift midtones on face/neck (+0.3 to +0.6 Exposure) while keeping background near current level; recover highlights if needed (Highlights -10 to -25) and add gentle contrast (small S-curve or Contrast +10)",
+      "intensity": "moderate",
+      "priority": 2,
+      "reason": "Brightening the face improves separation from the wall and draws attention to the eyes without flattening the image."
+    },
+    {
+      "action": "Improve perceived sharpness selectively: apply Texture +10 to +20 and Clarity +5 to +10 on the face, plus sharpening with masking (Amount 40\u201370, Radius ~1.0, Masking 70\u201390) to avoid sharpening the wall; avoid heavy global sharpening",
+      "intensity": "moderate",
+      "priority": 3,
+      "reason": "Focus is slightly soft; targeted micro-contrast and masked sharpening can add definition to facial features while keeping the background clean."
+    },
+    {
+      "action": "Reduce noise, especially in shadows and on the wall: Luminance NR 15\u201330 and Color NR 20\u201330; apply stronger NR to the background via masking if necessary",
+      "intensity": "subtle",
+      "priority": 4,
+      "reason": "Moderate noise and color speckling reduce image quality; selective noise reduction preserves facial detail."
+    },
+    {
+      "action": "Refine composition with a tighter crop and slight re-centering: reduce excess empty space on the left/top while keeping cap and shoulders comfortably framed; consider a 4:5 or 1:1 crop",
+      "intensity": "subtle",
+      "priority": 5,
+      "reason": "The large blank wall area competes with the subject; a tighter crop increases impact and emphasizes expression."
+    },
+    {
+      "action": "Correct White Balance (Tint/Temp)",
+      "intensity": "significant",
+      "priority": 1,
+      "reason": "The image has a severe magenta/purple cast; shift tint toward green and temp toward yellow to restore natural skin tones."
+    },
+    {
+      "action": "Increase Exposure",
+      "intensity": "significant",
+      "priority": 2,
+      "reason": "Lift exposure by approximately +1.0 to +1.5 stops to properly illuminate the subject's face and eyes."
+    },
+    {
+      "action": "Apply Noise Reduction",
+      "intensity": "moderate",
+      "priority": 3,
+      "reason": "Smooth out grain visible in the darker areas and skin texture due to low light capture."
+    },
+    {
+      "action": "Adjust Contrast and Whites",
+      "intensity": "moderate",
+      "priority": 4,
+      "reason": "Add depth to the flat image profile ensuring the subject pops against the background."
+    }
+  ],
+  "context": {
+    "genre": "portrait",
+    "subject": "Close-up portrait of a man wearing a red baseball cap (backwards) against a plain wall",
+    "mood": "serious, straightforward, slightly moody",
+    "preserve": [
+      "The simple, uncluttered background",
+      "The strong red cap as a color accent and identity element",
+      "The direct, intense eye contact",
+      "The vibrant red color of the cap (once color corrected)"
+    ],
+    "technical": {
+      "exposure": "slightly_under",
+      "white_balance": "too_cool",
+      "focus": "soft",
+      "noise": "moderate"
+    }
+  },
+  "summary": "[OPENAI] The portrait has a strong, direct presence and clean background, but it suffers from a noticeable cool/magenta color cast and slightly low exposure on the face. With corrected white balance, a subtle lift to facial brightness, and selective sharpening/noise reduction, the image will look clearer and more natural while keeping its serious mood. | [GEMINI] The primary issue is the extreme color cast which obscures the subject's features. Once white balance and exposure are corrected, the image will serve as a standard, direct portrait.",
+  "critics_disagree": false,
+  "score": 55.0,
+  "improvements": [
+    "[MODERATE] Correct white balance to reduce the blue/magenta cast: warm Temp slightly (+800 to +1500K) and shift Tint a bit toward green (-5 to -15), then fine-tune skin tones with HSL (reduce purple/blue saturation slightly)",
+    "[MODERATE] Increase subject exposure with a mask: lift midtones on face/neck (+0.3 to +0.6 Exposure) while keeping background near current level; recover highlights if needed (Highlights -10 to -25) and add gentle contrast (small S-curve or Contrast +10)",
+    "[MODERATE] Improve perceived sharpness selectively: apply Texture +10 to +20 and Clarity +5 to +10 on the face, plus sharpening with masking (Amount 40\u201370, Radius ~1.0, Masking 70\u201390) to avoid sharpening the wall; avoid heavy global sharpening",
+    "[SUBTLE] Reduce noise, especially in shadows and on the wall: Luminance NR 15\u201330 and Color NR 20\u201330; apply stronger NR to the background via masking if necessary",
+    "[SUBTLE] Refine composition with a tighter crop and slight re-centering: reduce excess empty space on the left/top while keeping cap and shoulders comfortably framed; consider a 4:5 or 1:1 crop"
+  ],
+  "notes": "[OPENAI] The portrait has a strong, direct presence and clean background, but it suffers from a noticeable cool/magenta color cast and slightly low exposure on the face. With corrected white balance, a subtle lift to facial brightness, and selective sharpening/noise reduction, the image will look clearer and more natural while keeping its serious mood. | [GEMINI] The primary issue is the extreme color cast which obscures the subject's features. Once white balance and exposure are corrected, the image will serve as a standard, direct portrait.",
+  "re_review": {
+    "critiques": [
+      {
+        "genre": "portrait",
+        "subject": "Close-up portrait of a man wearing a red baseball cap backward against a plain wall",
+        "mood": "serious and direct",
+        "score": 72.0,
+        "technical_assessment": {
+          "exposure": "good",
+          "white_balance": "slightly_warm",
+          "focus": "sharp",
+          "noise": "moderate"
+        },
+        "improvements": [
+          "[MODERATE] Apply noise reduction (Luminance ~25-35, Color ~20-25) and then add selective sharpening to the eyes/eyelashes with masking (Amount ~40-60, Masking ~70-90)",
+          "[SUBTLE] Refine white balance slightly cooler and reduce red/orange saturation in skin via HSL (Orange Sat -5 to -12, Red Sat -5 to -10; fine-tune Temp -200 to -500K as needed)",
+          "[SUBTLE] Use a local adjustment on the face to lift shadows gently and tame highlights (Shadows +10 to +20, Highlights -5 to -15) while maintaining overall contrast",
+          "[MODERATE] Clean up small distractions: heal/clone lint/specks on the cap and background and reduce stray bright skin/hair specks; optionally soften under-eye darkness slightly with low-opacity dodge",
+          "[SUBTLE] Tighten composition with a slight crop from the top/left and add a subtle vignette (Post-crop vignette -8 to -15, wide feather) centered on the eyes"
+        ],
+        "preserve": [
+          "The direct eye contact and serious expression",
+          "The clean, simple background that isolates the subject"
+        ],
+        "notes": "The portrait is well-exposed with strong, sharp eye detail and a straightforward, impactful expression. The main opportunities are reducing moderate noise/grain, slightly neutralizing warmth in skin tones, and cleaning minor distractions on the cap/background for a more polished result.",
+        "improvements_detailed": [
+          {
+            "action": "Apply noise reduction (Luminance ~25-35, Color ~20-25) and then add selective sharpening to the eyes/eyelashes with masking (Amount ~40-60, Masking ~70-90)",
+            "intensity": "moderate",
+            "priority": 1,
+            "reason": "Reduces visible grain in skin and background while keeping the eyes crisp and avoiding crunchy skin texture."
+          },
+          {
+            "action": "Refine white balance slightly cooler and reduce red/orange saturation in skin via HSL (Orange Sat -5 to -12, Red Sat -5 to -10; fine-tune Temp -200 to -500K as needed)",
+            "intensity": "subtle",
+            "priority": 2,
+            "reason": "Improves skin tone neutrality and prevents the face from feeling overly warm compared to the neutral wall."
+          },
+          {
+            "action": "Use a local adjustment on the face to lift shadows gently and tame highlights (Shadows +10 to +20, Highlights -5 to -15) while maintaining overall contrast",
+            "intensity": "subtle",
+            "priority": 3,
+            "reason": "Recovers detail under the eyes and in midface without flattening the serious, dramatic expression."
+          },
+          {
+            "action": "Clean up small distractions: heal/clone lint/specks on the cap and background and reduce stray bright skin/hair specks; optionally soften under-eye darkness slightly with low-opacity dodge",
+            "intensity": "moderate",
+            "priority": 4,
+            "reason": "Removes attention-grabbing artifacts that pull focus away from the eyes and expression."
+          },
+          {
+            "action": "Tighten composition with a slight crop from the top/left and add a subtle vignette (Post-crop vignette -8 to -15, wide feather) centered on the eyes",
+            "intensity": "subtle",
+            "priority": 5,
+            "reason": "Strengthens framing and directs attention toward the subject\u2019s gaze without making the edit feel obvious."
+          }
+        ],
+        "context": {
+          "genre": "portrait",
+          "subject": "Close-up portrait of a man wearing a red baseball cap backward against a plain wall",
+          "mood": "serious and direct",
+          "preserve": [
+            "The direct eye contact and serious expression",
+            "The clean, simple background that isolates the subject"
+          ],
+          "technical": {
+            "exposure": "good",
+            "white_balance": "slightly_warm",
+            "focus": "sharp",
+            "noise": "moderate"
+          }
+        },
+        "llm": "openai"
+      },
+      {
+        "genre": "portrait",
+        "subject": "Close-up of a middle-aged man wearing a backward red mesh cap",
+        "mood": "Serious, intense, direct",
+        "score": 78.0,
+        "technical_assessment": {
+          "exposure": "good",
+          "white_balance": "slightly_warm",
+          "focus": "very_sharp",
+          "noise": "low"
+        },
+        "improvements": [
+          "[MODERATE] Correct white balance by shifting temperature slightly cooler and tint towards magenta",
+          "[SUBTLE] Apply radial gradients to the irises to slightly lift exposure (+0.25) and saturation",
+          "[SUBTLE] Increase Texture and Clarity globally or on the face/hat mask",
+          "[SIGNIFICANT] Spot removal on the grey t-shirt"
+        ],
+        "preserve": [
+          "The sharp detail in the beard and hat mesh",
+          "The natural shadows around the eyes that provide depth"
+        ],
+        "notes": "A technically sharp image with excellent focus on the eyes. The primary area for improvement is color correction to remove the warm color cast, followed by minor local adjustments to accentuate the rugged texture of the subject.",
+        "improvements_detailed": [
+          {
+            "action": "Correct white balance by shifting temperature slightly cooler and tint towards magenta",
+            "intensity": "moderate",
+            "priority": 1,
+            "reason": "The current image has a yellow/green cast that makes the skin tone look slightly sallow; neutralising this will make the subject look healthier."
+          },
+          {
+            "action": "Apply radial gradients to the irises to slightly lift exposure (+0.25) and saturation",
+            "intensity": "subtle",
+            "priority": 2,
+            "reason": "The eyes are the focal point; brightening them slightly will enhance the intensity of the stare without looking unnatural."
+          },
+          {
+            "action": "Increase Texture and Clarity globally or on the face/hat mask",
+            "intensity": "subtle",
+            "priority": 3,
+            "reason": "Enhances the gritty details of the stubble, skin pores, and the mesh of the hat, which suits the masculine aesthetic."
+          },
+          {
+            "action": "Spot removal on the grey t-shirt",
+            "intensity": "significant",
+            "priority": 4,
+            "reason": "There are visible white lint specks on the shoulders that are distracting."
+          }
+        ],
+        "context": {
+          "genre": "portrait",
+          "subject": "Close-up of a middle-aged man wearing a backward red mesh cap",
+          "mood": "Serious, intense, direct",
+          "preserve": [
+            "The sharp detail in the beard and hat mesh",
+            "The natural shadows around the eyes that provide depth"
+          ],
+          "technical": {
+            "exposure": "good",
+            "white_balance": "slightly_warm",
+            "focus": "very_sharp",
+            "noise": "low"
+          }
+        },
+        "llm": "gemini"
+      },
+      {
+        "genre": "portrait",
+        "subject": "Middle-aged man in red backwards cap and gray t-shirt, direct frontal portrait",
+        "mood": "Serious, direct, somewhat confrontational",
+        "score": 68.0,
+        "technical_assessment": {
+          "exposure": "slightly_over",
+          "white_balance": "slightly_warm",
+          "focus": "very_sharp",
+          "noise": "low"
+        },
+        "improvements": [
+          "[MODERATE] Reduce highlights on forehead, nose bridge, and under-eye areas by -25 to -35 to recover skin texture and reduce shine",
+          "[SUBTLE] Apply subtle dodging to iris areas and add clarity +10 to eyes only to enhance eye contact and engagement",
+          "[SUBTLE] Cool white balance by -200K and adjust tint slightly toward magenta to neutralize yellow cast in skin tones",
+          "[SUBTLE] Apply gentle frequency separation to smooth skin texture on forehead and cheeks while preserving pores and beard detail",
+          "[SUBTLE] Darken background by -0.3 stops using radial gradient to create subtle vignette and draw focus to subject"
+        ],
+        "preserve": [
+          "Sharp focus and facial detail",
+          "Natural beard texture and gray tones",
+          "Eye color and clarity",
+          "Direct, serious expression"
+        ],
+        "notes": "This is a technically proficient straight-on portrait with excellent sharpness and detail. The main issues are overexposed highlights creating hot spots on the forehead and nose, and a slightly warm color cast affecting skin tones. The lighting appears to be direct frontal, which has created the highlight issues but also provides even illumination. Minor adjustments to exposure, color balance, and selective skin retouching will significantly enhance the image while maintaining its direct, documentary style.",
+        "improvements_detailed": [
+          {
+            "action": "Reduce highlights on forehead, nose bridge, and under-eye areas by -25 to -35 to recover skin texture and reduce shine",
+            "intensity": "moderate",
+            "priority": 1,
+            "reason": "Hot spots on forehead and facial highlights are distracting and flatten the facial structure"
+          },
+          {
+            "action": "Apply subtle dodging to iris areas and add clarity +10 to eyes only to enhance eye contact and engagement",
+            "intensity": "subtle",
+            "priority": 2,
+            "reason": "Eyes are the connection point in portraits; enhancing them increases viewer engagement without looking artificial"
+          },
+          {
+            "action": "Cool white balance by -200K and adjust tint slightly toward magenta to neutralize yellow cast in skin tones",
+            "intensity": "subtle",
+            "priority": 3,
+            "reason": "Current warm cast makes skin appear slightly jaundiced; neutral tones will look more natural and healthy"
+          },
+          {
+            "action": "Apply gentle frequency separation to smooth skin texture on forehead and cheeks while preserving pores and beard detail",
+            "intensity": "subtle",
+            "priority": 4,
+            "reason": "Reduces minor skin texture inconsistencies while maintaining realistic appearance and masculine character"
+          },
+          {
+            "action": "Darken background by -0.3 stops using radial gradient to create subtle vignette and draw focus to subject",
+            "intensity": "subtle",
+            "priority": 5,
+            "reason": "Creates better subject-background separation and guides viewer's eye to the face"
+          }
+        ],
+        "context": {
+          "genre": "portrait",
+          "subject": "Middle-aged man in red backwards cap and gray t-shirt, direct frontal portrait",
+          "mood": "Serious, direct, somewhat confrontational",
+          "preserve": [
+            "Sharp focus and facial detail",
+            "Natural beard texture and gray tones",
+            "Eye color and clarity",
+            "Direct, serious expression"
+          ],
+          "technical": {
+            "exposure": "slightly_over",
+            "white_balance": "slightly_warm",
+            "focus": "very_sharp",
+            "noise": "low"
+          }
+        },
+        "llm": "anthropic"
+      }
+    ],
+    "consensus_score": 72.7,
+    "score": 72.7,
+    "notes": "[OPENAI] The portrait is well-exposed with strong, sharp eye detail and a straightforward, impactful expression. The main opportunities are reducing moderate noise/grain, slightly neutralizing warmth in skin tones, and cleaning minor distractions on the cap/background for a more polished result. | [GEMINI] A technically sharp image with excellent focus on the eyes. The primary area for improvement is color correction to remove the warm color cast, followed by minor local adjustments to accentuate the rugged texture of the subject. | [ANTHROPIC] This is a technically proficient straight-on portrait with excellent sharpness and detail. The main issues are overexposed highlights creating hot spots on the forehead and nose, and a slightly warm color cast affecting skin tones. The lighting appears to be direct frontal, which has created the highlight issues but also provides even illumination. Minor adjustments to exposure, color balance, and selective skin retouching will significantly enhance the image while maintaining its direct, documentary style.",
+    "summary": "[OPENAI] The portrait is well-exposed with strong, sharp eye detail and a straightforward, impactful expression. The main opportunities are reducing moderate noise/grain, slightly neutralizing warmth in skin tones, and cleaning minor distractions on the cap/background for a more polished result. | [GEMINI] A technically sharp image with excellent focus on the eyes. The primary area for improvement is color correction to remove the warm color cast, followed by minor local adjustments to accentuate the rugged texture of the subject. | [ANTHROPIC] This is a technically proficient straight-on portrait with excellent sharpness and detail. The main issues are overexposed highlights creating hot spots on the forehead and nose, and a slightly warm color cast affecting skin tones. The lighting appears to be direct frontal, which has created the highlight issues but also provides even illumination. Minor adjustments to exposure, color balance, and selective skin retouching will significantly enhance the image while maintaining its direct, documentary style.",
+    "context": {
+      "genre": "portrait",
+      "subject": "Close-up portrait of a man wearing a red baseball cap backward against a plain wall",
+      "mood": "Serious, direct, somewhat confrontational",
+      "preserve": [
+        "The direct eye contact and serious expression",
+        "The clean, simple background that isolates the subject",
+        "The sharp detail in the beard and hat mesh",
+        "The natural shadows around the eyes that provide depth",
+        "Sharp focus and facial detail",
+        "Natural beard texture and gray tones",
+        "Eye color and clarity",
+        "Direct, serious expression"
+      ],
+      "technical": {
+        "exposure": "good",
+        "white_balance": "slightly_warm",
+        "focus": "very_sharp",
+        "noise": "low"
+      }
+    },
+    "score_delta": 17.7
+  },
+  "image_hash": "724114f5d1946371601883df6b8701e3a74f75bd477b89ebf5fa3989c6be1d1e",
+  "timestamp": "20260207-020902",
+  "entry_id": "20260207-020902-ec416f6b",
+  "original_filename": "me.png",
+  "original_image": "original.png",
+  "edited_image": "edited.png"
+}

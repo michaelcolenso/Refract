@@ -14,9 +14,9 @@
             <h1>REFRACT</h1>
             <p class="subtitle">Automated Photography Improvement Pipeline</p>
             <div class="stats">
-                <div class="stat-item">Total Entries: <span>91</span></div>
+                <div class="stat-item">Total Entries: <span>92</span></div>
                 
-                <div class="stat-item">Average Score: <span>73.1</span></div>
+                <div class="stat-item">Average Score: <span>72.9</span></div>
                 
                 <div class="stat-item"><a href="stats.html" class="stat-link">View Stats</a></div>
             </div>
@@ -47,11 +47,63 @@
                 </select>
             </div>
             <div class="filter-group">
-                <span class="filter-count" id="filter-count">91 entries</span>
+                <span class="filter-count" id="filter-count">92 entries</span>
             </div>
         </div>
 
         <div class="gallery" id="gallery">
+            
+            <div class="entry-card"
+                 data-genre="portrait"
+                 data-score="72.7"
+                 data-delta="17.7"
+                 data-date="20260207-020902"
+                 data-filename="me.png"
+                 title="me.png">
+                <a href="20260207-020902-ec416f6b.html">
+                    <img src="images/20260207-020902-ec416f6b-edited.png" alt="Enhanced me.png" class="entry-thumbnail" loading="lazy">
+                    <div class="entry-content">
+                        <div class="entry-header">
+                            <div class="entry-score">
+                                72.7
+                                
+                                <span class="entry-score-delta">+17.7</span>
+                                
+                            </div>
+                            
+                            
+                            <span class="genre-badge genre-portrait">portrait</span>
+                            
+                            <div class="entry-date">20260207</div>
+                        </div>
+                        
+                        <div style="font-size: 0.75em; color: #666; margin-bottom: 8px;">
+                            2 LLMs analyzed
+                        </div>
+                        
+
+                        <div class="entry-improvements">
+                            <h3>Improvements Applied</h3>
+                            <ul>
+                                
+                                <li>Correct white balance to reduce the blue/magenta cast: warm Temp slightly (+800 to +1500K) and shift Tint a bit toward green (-5 to -15), then fine-tune skin tones with HSL (reduce purple/blue saturation slightly)</li>
+                                
+                                <li>Increase subject exposure with a mask: lift midtones on face/neck (+0.3 to +0.6 Exposure) while keeping background near current level; recover highlights if needed (Highlights -10 to -25) and add gentle contrast (small S-curve or Contrast +10)</li>
+                                
+                                <li>Improve perceived sharpness selectively: apply Texture +10 to +20 and Clarity +5 to +10 on the face, plus sharpening with masking (Amount 40–70, Radius ~1.0, Masking 70–90) to avoid sharpening the wall; avoid heavy global sharpening</li>
+                                
+                                
+                                <li>+ 2 more...</li>
+                                
+                            </ul>
+                        </div>
+
+                        <div class="entry-notes">
+                            [OPENAI] The portrait has a strong, direct presence and clean background, but it suffers from a noti...
+                        </div>
+                    </div>
+                </a>
+            </div>
             
             <div class="entry-card"
                  data-genre="product"
