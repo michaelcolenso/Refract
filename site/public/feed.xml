@@ -3,7 +3,24 @@
   <channel>
     <title>REFRACT - Photography Improvement Log</title>
     <description>Automated photography analysis and enhancement powered by multi-LLM critique.</description>
-    <lastBuildDate>Fri, 06 Feb 2026 07:53:21 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 07 Feb 2026 01:50:33 +0000</lastBuildDate>
+    
+    <item>
+      <title>IMG_1251 copy.jpg - Score 72.7/100</title>
+      <link>20260207-015032-f3f822d7.html</link>
+      <guid isPermaLink="false">20260207-015032-f3f822d7</guid>
+      <pubDate>20260207-015032</pubDate>
+      <description>
+        Genre: street. 
+        Score: 72.7/100.
+        
+        After editing: 72.7/100 (0.0).
+        
+        
+        Improvements: Recover bright areas by pulling Highlights down (~-30 to -60) and Whites slightly down (~-10 to -25), then add a gentle S-curve to restore midtone contrast without clipping; Cool white balance slightly (Temp -300 to -800K) and reduce magenta/purple cast with Tint toward green (-5 to -15); optionally use HSL to tame overly strong reds/magentas in the building/signage; Apply moderate noise reduction (Luminance ~20-35, Color ~20-30) and then add restrained sharpening with masking (Amount ~40-70, Masking ~70-90) to protect smooth areas; Use local adjustments to lift the subjects slightly (Exposure +0.2 to +0.5, Shadows +15 to +30) and add subtle texture/clarity on their silhouettes; add a light vignette (-10 to -20) centered on the walkers; Crop slightly from the top (and a touch from the left if needed) to reduce empty bright signage/windows and keep the trio closer to the upper third, maintaining leading lines from the wet pavement.
+        
+      </description>
+    </item>
     
     <item>
       <title>IMG_1003.jpeg - Score 72.7/100</title>
@@ -312,21 +329,6 @@
         
         
         Improvements: Apply AI restoration or aggressive artifact removal; Mask subject and increase Clarity and Dehaze; Warm White Balance locally on the workers and rusty beam; Selectively saturate the red and blue channels on the flag; Address severe compression/mosaic artifacts: if possible, re-export from the original file at higher quality (JPEG quality 90–100) or use an AI artifact reduction tool; avoid heavy clarity/texture/sharpening which will amplify blockiness.
-        
-      </description>
-    </item>
-    
-    <item>
-      <title>IMG_1001.jpeg - Score 68.3/100</title>
-      <link>20260130-205309-160ad464.html</link>
-      <guid isPermaLink="false">20260130-205309-160ad464</guid>
-      <pubDate>20260130-205309</pubDate>
-      <description>
-        Genre: portrait. 
-        Score: 68.3/100.
-        
-        
-        Improvements: Increase overall exposure and lift shadows; Cool down white balance slightly; Apply targeted sharpening to the eye and snout; Apply luminance noise reduction; Raise overall exposure slightly (+0.2 to +0.5 EV) and lift shadows selectively on the dog’s face/neck (+15 to +30) while keeping the background subdued.
         
       </description>
     </item>
