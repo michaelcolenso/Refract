@@ -3,7 +3,58 @@
   <channel>
     <title>REFRACT - Photography Improvement Log</title>
     <description>Automated photography analysis and enhancement powered by multi-LLM critique.</description>
-    <lastBuildDate>Sat, 07 Feb 2026 02:09:02 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 24 Feb 2026 14:26:34 +0000</lastBuildDate>
+    
+    <item>
+      <title>IMG_0987.jpeg - Score 57.3/100</title>
+      <link>20260224-142634-ea60e1af.html</link>
+      <guid isPermaLink="false">20260224-142634-ea60e1af</guid>
+      <pubDate>20260224-142634</pubDate>
+      <description>
+        Genre: portrait. 
+        Score: 57.3/100.
+        
+        After editing: 71.3/100 (+14.0).
+        
+        
+        Improvements: Increase overall exposure slightly (+0.3 to +0.6) and lift shadows (+15 to +30) while pulling highlights down slightly (-10 to -20) to keep the white fur from washing out; Apply selective sharpening to the dog’s eyes and nose (masking heavily; small radius) and add subtle texture/clarity to fur (+5 to +15), avoiding the background and hands; Use local adjustments to brighten the eyes (small brush: +0.2 exposure, +10 shadows) and add subtle catchlight/contrast with a gentle curves tweak on the face; Reduce noise in midtones/shadows (luminance NR ~15–30) and apply color noise reduction (~20–30), then reintroduce fine detail only on the dog with masking; Crop slightly tighter and/or straighten to center attention on the dog’s face; consider trimming some empty background at top/left while keeping tongue and ears within frame.
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>IMG_1004.jpeg - Score 64.0/100</title>
+      <link>20260224-142600-4759c2f5.html</link>
+      <guid isPermaLink="false">20260224-142600-4759c2f5</guid>
+      <pubDate>20260224-142600</pubDate>
+      <description>
+        Genre: portrait. 
+        Score: 64.0/100.
+        
+        After editing: 72.0/100 (+8.0).
+        
+        
+        Improvements: Correct white balance slightly cooler and reduce yellow/green cast (Temp -300 to -700K, Tint +5 to +15); optionally reduce Yellow saturation in HSL by ~-10 to -25; Lift exposure and midtones slightly while protecting fur highlights (Exposure +0.2 to +0.4, Shadows +10 to +25, Highlights -10 to -25, Whites +5 to +15); Apply targeted sharpening to eyes/nose (masking or local brush: Texture +10 to +20, Clarity +5 to +10, Sharpening +20 to +40; avoid fur-heavy areas); Reduce noise in shadows and background (Luminance NR 20–40, Color NR 20–30) and add a light mask to keep facial details intact; Crop slightly tighter and level for stronger composition (trim some bottom/right space; keep eyes near upper third) and add a subtle vignette (-5 to -15).
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>IMG_0988.jpeg - Score 65.0/100</title>
+      <link>20260224-142558-fa829f80.html</link>
+      <guid isPermaLink="false">20260224-142558-fa829f80</guid>
+      <pubDate>20260224-142558</pubDate>
+      <description>
+        Genre: portrait. 
+        Score: 65.0/100.
+        
+        After editing: 68.0/100 (+3.0).
+        
+        
+        Improvements: Raise overall exposure slightly (+0.3 to +0.6 EV) and lift shadows on the dog’s face/neck (Shadows +15 to +30) while keeping blacks anchored (Blacks -5 to -15) to retain depth; Cool the white balance a touch (Temp -300 to -700K) and reduce yellow/orange saturation slightly (HSL: Yellow -10 to -25, Orange -5 to -15) to neutralize the fur; Apply selective sharpening/texture to the dog’s eyes and nose only (masking in Lightroom or High Pass in Photoshop), and add mild clarity/texture to fur (Texture +10 to +20) while avoiding the background; Noise reduction with masking: Luminance NR ~20–35, Color NR ~20–30, then add a small amount of grain if needed to keep a natural look; Crop slightly tighter and reframe to center the dog’s eyes/nose while trimming some of the lower torso and left-side dead space; add a subtle vignette (-5 to -15) centered on the face.
+        
+      </description>
+    </item>
     
     <item>
       <title>me.png - Score 55.0/100</title>
@@ -290,51 +341,6 @@
         
         
         Improvements: Increase Dehaze (+15) and Texture (+10) specifically on the clouds; Lower the Black point (-10) to crush deep shadows; Boost Vibrance (+15) and slightly shift Orange hue toward Red; Apply a linear gradient to the top sky with reduced Exposure (-0.3) and increased Saturation; Recover bright areas around the sun by lowering Highlights (~-30 to -60) and Whites (~-10 to -25), then add a gentle midtone S-curve for contrast without crushing silhouettes.
-        
-      </description>
-    </item>
-    
-    <item>
-      <title>IMG_1004.jpeg - Score 65.0/100</title>
-      <link>20260130-210039-14ad756e.html</link>
-      <guid isPermaLink="false">20260130-210039-14ad756e</guid>
-      <pubDate>20260130-210039</pubDate>
-      <description>
-        Genre: portrait. 
-        Score: 65.0/100.
-        
-        
-        Improvements: Correct White Balance and Tint; Boost Exposure and Whites; Selective Sharpening on Nose; Apply Noise Reduction; Crop slightly tighter and align the face centrally (trim some bottom/side fluff) to emphasize the eyes and nose; keep enough headroom so the ears don’t feel cramped.
-        
-      </description>
-    </item>
-    
-    <item>
-      <title>IMG_1002.jpeg - Score 75.0/100</title>
-      <link>20260130-210029-a2657d74.html</link>
-      <guid isPermaLink="false">20260130-210029-a2657d74</guid>
-      <pubDate>20260130-210029</pubDate>
-      <description>
-        Genre: portrait. 
-        Score: 75.0/100.
-        
-        
-        Improvements: Correct White Balance; Luminance Noise Reduction; Radial Dodge on Eye; Enhance Texture on Fur; Crop slightly from the left and bottom to remove the partial face/hand distractions and place the dog's eye nearer the upper-left third while keeping space in front of the nose.
-        
-      </description>
-    </item>
-    
-    <item>
-      <title>IMG_0977.jpeg - Score 66.3/100</title>
-      <link>20260130-205939-c68a4a36.html</link>
-      <guid isPermaLink="false">20260130-205939-c68a4a36</guid>
-      <pubDate>20260130-205939</pubDate>
-      <description>
-        Genre: portrait. 
-        Score: 66.3/100.
-        
-        
-        Improvements: Cool White Balance temperature significantly (-15 to -20); Reduce Highlights and Whites; Apply selective sharpening to eyes and nose; Apply masked Luminance Noise Reduction; Reduce highlights/whites (Highlights -20 to -35, Whites -10 to -20) to recover fur texture and prevent the coat from looking blown out.
         
       </description>
     </item>
