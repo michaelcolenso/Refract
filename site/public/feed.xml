@@ -3,7 +3,92 @@
   <channel>
     <title>REFRACT - Photography Improvement Log</title>
     <description>Automated photography analysis and enhancement powered by multi-LLM critique.</description>
-    <lastBuildDate>Tue, 24 Feb 2026 14:26:34 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 19 Aug 2026 23:54:58 +0000</lastBuildDate>
+    
+    <item>
+      <title>seattle_skyline_11_10_11-9_Original.jpeg - Score 72.0/100</title>
+      <link>20260819-235458-2b43a571.html</link>
+      <guid isPermaLink="false">20260819-235458-2b43a571</guid>
+      <pubDate>20260819-235458</pubDate>
+      <description>
+        Genre: landscape. 
+        Score: 72.0/100.
+        
+        After editing: 78.0/100 (+6.0).
+        
+        
+        Improvements: Reduce highlights by -15 to -20 and recover detail in the brightest building windows and moon glow; Increase clarity or texture by +10 to +15 on the skyline buildings to enhance architectural definition; Apply graduated filter to upper sky, reducing exposure by -0.3 stops and increasing blue saturation by +10; Selectively desaturate the orange/yellow city lights by -10 to -15 for more natural warmth; Boost shadow detail in the boat and foreground tree by +15 while maintaining blacks.
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>_MG_5575-EDIT-EDIT Copy_Original.jpeg - Score 72.0/100</title>
+      <link>20260819-235448-51c6f8e8.html</link>
+      <guid isPermaLink="false">20260819-235448-51c6f8e8</guid>
+      <pubDate>20260819-235448</pubDate>
+      <description>
+        Genre: landscape. 
+        Score: 72.0/100.
+        
+        After editing: 72.0/100 (0.0).
+        
+        
+        Improvements: Reduce highlights by -15 to -20 on building lights and street reflections to prevent blown details and add definition; Lift shadows in the sky and water by +10 to +15 to reveal subtle detail while maintaining the dark, moody atmosphere; Apply selective sharpening to the skyline buildings using masking to enhance architectural detail and building edges; Add +5 to +8 vibrance to enhance the warm orange street lights and cool building lights without oversaturating; Apply graduated filter to darken the top third of sky by -0.3 to -0.5 stops to create natural vignetting and draw eye to skyline.
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>IMG_0600 1-Enhanced-NR_Original.jpeg - Score 82.0/100</title>
+      <link>20260819-235405-cfa78451.html</link>
+      <guid isPermaLink="false">20260819-235405-cfa78451</guid>
+      <pubDate>20260819-235405</pubDate>
+      <description>
+        Genre: landscape. 
+        Score: 82.0/100.
+        
+        After editing: 78.0/100 (-4.0).
+        
+        
+        Improvements: Warm white balance by +200-300K to add golden hour warmth to city lights while maintaining blue hour sky; Apply graduated filter to upper sky, reducing exposure by -0.3 and increasing saturation by +10 to deepen blue tones; Selective luminosity masking on moon to reduce glow radius while maintaining brightness, creating crisper moon definition; Lift shadows in foreground harbor area by +15-20 to reveal more detail in boats and docks; Apply subtle clarity boost (+10-15) to midtones on downtown buildings to enhance architectural detail.
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>P1030379-Edit_Original Copy.jpeg - Score 68.0/100</title>
+      <link>20260819-235352-322595d4.html</link>
+      <guid isPermaLink="false">20260819-235352-322595d4</guid>
+      <pubDate>20260819-235352</pubDate>
+      <description>
+        Genre: landscape. 
+        Score: 68.0/100.
+        
+        After editing: 72.0/100 (+4.0).
+        
+        
+        Improvements: Reduce highlights in the brightest orange and yellow lights by -15 to -20 to prevent blown areas and recover detail; Increase clarity selectively on the building structures by +10 to +15 while avoiding halos around lights; Apply luminance noise reduction of 25-35 in the dark sky and water areas to reduce visible grain while preserving reflection details; Lift shadows in the mid-ground buildings by +10 to +15 to reveal architectural detail while maintaining the night atmosphere; Apply slight vibrance increase of +8 to +12 to enhance the colorful reflections without oversaturating the warm lights.
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>C34B3A98-839D-4B95-BE68-7E501BA586B1 Copy.jpeg - Score 72.0/100</title>
+      <link>20260819-235352-027998d1.html</link>
+      <guid isPermaLink="false">20260819-235352-027998d1</guid>
+      <pubDate>20260819-235352</pubDate>
+      <description>
+        Genre: landscape. 
+        Score: 72.0/100.
+        
+        After editing: 72.0/100 (0.0).
+        
+        
+        Improvements: Reduce highlights by -15 to -20, particularly in the blown-out orange/yellow street lights and building lights to recover detail and reduce halation; Apply selective sharpening to the building silhouettes and skyline using masking, avoiding over-sharpening the water reflections; Lift blacks by +10 to +15 and add subtle shadow recovery to reveal more detail in the dark sky and building shadows without losing the night atmosphere; Apply luminosity noise reduction in the dark sky areas while preserving color noise in the reflections for texture; Enhance color saturation selectively in the blue and cyan tones of the water reflections by +10 to +15 to create better color separation from the warm lights.
+        
+      </description>
+    </item>
     
     <item>
       <title>IMG_0987.jpeg - Score 57.3/100</title>
@@ -256,91 +341,6 @@
         
         
         Improvements: Local exposure increase (+0.3 to +0.5) and white point lift specifically on the dog; Warm the white balance locally on the subject; Apply Dehaze and reduce highlights in the sky area; Remove or crop out the dark rock on the far right; Increase texture and clarity on the fur.
-        
-      </description>
-    </item>
-    
-    <item>
-      <title>IMG_2423_Original_Original.jpeg - Score 72.7/100</title>
-      <link>20260130-212747-1e1a96da.html</link>
-      <guid isPermaLink="false">20260130-212747-1e1a96da</guid>
-      <pubDate>20260130-212747</pubDate>
-      <description>
-        Genre: portrait. 
-        Score: 72.7/100.
-        
-        After editing: 74.0/100 (+1.3).
-        
-        
-        Improvements: Adjust tint towards green/neutral to remove magenta cast; Apply selective sharpening to the eyes; Increase texture or clarity on the fur; Apply weak noise reduction; Tighten the crop to center attention on the face (trim some of the bright top-left bokeh and the darker right edge), keeping ears and tongue included.
-        
-      </description>
-    </item>
-    
-    <item>
-      <title>IMG_1361_Original.jpeg - Score 74.0/100</title>
-      <link>20260130-212559-856b5e91.html</link>
-      <guid isPermaLink="false">20260130-212559-856b5e91</guid>
-      <pubDate>20260130-212559</pubDate>
-      <description>
-        Genre: portrait. 
-        Score: 74.0/100.
-        
-        After editing: 76.0/100 (+2.0).
-        
-        
-        Improvements: Correct White Balance (Cooling); HSL Desaturation (Oranges/Yellows); Local Texture/Clarity; Luminance Noise Reduction; Vignette.
-        
-      </description>
-    </item>
-    
-    <item>
-      <title>IMG_0644_Original.jpeg - Score 77.0/100</title>
-      <link>20260130-212549-9b044ce6.html</link>
-      <guid isPermaLink="false">20260130-212549-9b044ce6</guid>
-      <pubDate>20260130-212549</pubDate>
-      <description>
-        Genre: portrait. 
-        Score: 77.0/100.
-        
-        After editing: 77.0/100 (0.0).
-        
-        
-        Improvements: Reduce Highlights; Selective Dodge (Eyes); Crop or Heal; Sharpening; Raise overall exposure slightly (+0.2 to +0.4) and lift midtone shadows on the face/fur (+10 to +20) while keeping the background darker.
-        
-      </description>
-    </item>
-    
-    <item>
-      <title>IMG_0629 Copy.jpeg - Score 74.7/100</title>
-      <link>20260130-212543-6135c3de.html</link>
-      <guid isPermaLink="false">20260130-212543-6135c3de</guid>
-      <pubDate>20260130-212543</pubDate>
-      <description>
-        Genre: portrait. 
-        Score: 74.7/100.
-        
-        After editing: 76.0/100 (+1.3).
-        
-        
-        Improvements: Reduce highlights; Lift shadows; Increase texture/clarity; Radial gradient exposure boost on face; Recover detail in the white fur by lowering Highlights (~-30 to -60) and slightly lowering Whites (~-10 to -25); add a mild midtone contrast S-curve to keep depth.
-        
-      </description>
-    </item>
-    
-    <item>
-      <title>IMG_2008_Original.jpeg - Score 77.3/100</title>
-      <link>20260130-211751-36f47661.html</link>
-      <guid isPermaLink="false">20260130-211751-36f47661</guid>
-      <pubDate>20260130-211751</pubDate>
-      <description>
-        Genre: landscape. 
-        Score: 77.3/100.
-        
-        After editing: 81.7/100 (+4.4).
-        
-        
-        Improvements: Increase Dehaze (+15) and Texture (+10) specifically on the clouds; Lower the Black point (-10) to crush deep shadows; Boost Vibrance (+15) and slightly shift Orange hue toward Red; Apply a linear gradient to the top sky with reduced Exposure (-0.3) and increased Saturation; Recover bright areas around the sun by lowering Highlights (~-30 to -60) and Whites (~-10 to -25), then add a gentle midtone S-curve for contrast without crushing silhouettes.
         
       </description>
     </item>
