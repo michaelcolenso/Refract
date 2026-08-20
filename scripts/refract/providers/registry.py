@@ -112,7 +112,7 @@ MODEL_REGISTRY: dict[str, ModelCapability] = {
         [ModelRole.GENERATE, ModelRole.EDIT],
         image_input=True,
         image_output=True,
-        structured_output=True,
+        structured_output=False,
         stable=True,
     ),
     "gemini-3.1-flash-image": _cap(
@@ -121,7 +121,7 @@ MODEL_REGISTRY: dict[str, ModelCapability] = {
         [ModelRole.GENERATE, ModelRole.EDIT],
         image_input=True,
         image_output=True,
-        structured_output=True,
+        structured_output=False,
         stable=True,
     ),
 }
